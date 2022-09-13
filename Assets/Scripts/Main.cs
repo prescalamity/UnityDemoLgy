@@ -17,6 +17,7 @@ public class Main : MonoBehaviour
     private Button mButton;
 
     private VideoPlayer mVideoPlayer;
+    private VideoPlayer mLocalVideoPlayer;
     private bool mCanPlayVideo = false;
 
     private StringBuilder stringBuilder = new StringBuilder();
@@ -31,6 +32,8 @@ public class Main : MonoBehaviour
     {
         AndroidHelper.ShowAndroidStatusBar();
         AndroidHelper.SetAndroidStatusBarColor();
+
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
     // Start is called before the first frame update
@@ -49,6 +52,15 @@ public class Main : MonoBehaviour
         mVideoPlayer.playOnAwake = false;
         mVideoPlayer.isLooping = true;
         mVideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+
+        mLocalVideoPlayer = GameObject.Find("Canvas/local_video_raw_image").GetComponent<VideoPlayer>();
+        //mLocalVideoPlayer.isLooping = true;
+        //mLocalVideoPlayer.loopPointReached += (VideoPlayer source) =>
+        //{
+        //    source.Play();
+        //    stringBuilder.Append("the source.Play again by loopPointReached.");
+        //    DLog.Log("the source.Play again by loopPointReached.");
+        //};
 
         mButton = GameObject.Find("Canvas/test_button").GetComponent<Button>();
         mButton.onClick.AddListener(TestButtonEvent);
@@ -69,6 +81,9 @@ public class Main : MonoBehaviour
         downloadLuaSourceAB();
 
         //http://192.168.11.46/t14/Resource/StreamingAssets/assetbundle/webgl/videos/_res_md5_156B62FA002DA941D0318335B1287B5C_chapter_video.mp4
+        //"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+        //"https://sample-videos.com/video123/mp4/480/big_buck_bunny_480p_2mb.mp4"
+
         StartCoroutine(ExportVideo(
             "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
             ));
@@ -80,9 +95,14 @@ public class Main : MonoBehaviour
     }
 
     // Update is called once per frame
-    //void Update()
-    //{
-    //}
+    void Update()
+    {
+        if (!mLocalVideoPlayer.isPlaying)
+        {
+            mLocalVideoPlayer.Play();
+            DLog.Log("the mLocalVideoPlayer.isPlaying play again by Update.");
+        }
+    }
 
 
     private void TestButtonEvent()

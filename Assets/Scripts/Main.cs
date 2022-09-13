@@ -41,20 +41,18 @@ public class Main : MonoBehaviour
     {
         DLog.Log("1. Hello, world. in StarkMini.Main.Start by LGY.");
 
-        DLog.Log("2. Hello, world. in {0} by {1}.", "StarkMini.Main.Start", "LGY");
-
 
         m_TextMeshPro = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
 
         mVideoPlayer = GameObject.Find("Canvas/video_raw_image").GetComponent<VideoPlayer>();
         mVideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
         mVideoPlayer.renderMode = VideoRenderMode.RenderTexture;
+        mVideoPlayer.source = VideoSource.Url;
         mVideoPlayer.playOnAwake = false;
-        mVideoPlayer.isLooping = true;
-        mVideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+        mVideoPlayer.isLooping = false;
 
         mLocalVideoPlayer = GameObject.Find("Canvas/local_video_raw_image").GetComponent<VideoPlayer>();
-        //mLocalVideoPlayer.isLooping = true;
+        mLocalVideoPlayer.isLooping = false;
         //mLocalVideoPlayer.loopPointReached += (VideoPlayer source) =>
         //{
         //    source.Play();

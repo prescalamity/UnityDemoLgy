@@ -1,1 +1,6 @@
-
+./.vs/
+./Build/
+./Library/
+./Logs/
+./obj/
+./Temp/

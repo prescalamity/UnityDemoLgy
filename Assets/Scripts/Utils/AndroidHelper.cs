@@ -3,16 +3,13 @@ using UnityEngine;
 public class AndroidHelper
 {
 
-    private static int newStatusBarValue = 0;
-    private static string mFlagFunc = "";
-
     /// <summary>
     ///  Òþ²ØÉÏ·½×´Ì¬À¸
     /// </summary>
     public static void HideAndroidStatusBar()
     {
 #if !UNITY_EDITOR && UNITY_ANDROID
-        setStatusBarValue(1024, "addFlags"); // WindowManager.LayoutParams.FLAG_FULLSCREEN; change this to 0 if unsatisfied
+        SetStatusBarValue("addFlags", 1024); // WindowManager.LayoutParams.FLAG_FULLSCREEN; change this to 0 if unsatisfied
 #endif
     }
 
@@ -22,7 +19,7 @@ public class AndroidHelper
     public static void ShowAndroidStatusBar()
     {
 #if !UNITY_EDITOR && UNITY_ANDROID
-        setStatusBarValue(1024, "clearFlags"); // WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN
+        SetStatusBarValue("clearFlags", 1024); // WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN
 #endif
     }
 
@@ -32,50 +29,51 @@ public class AndroidHelper
     public static void SetAndroidStatusBarColor()
     {
 #if !UNITY_EDITOR && UNITY_ANDROID
-        //setStatusBarValue(-2147483648, "addFlags"); 
-        //setStatusBarValue(-16776961, "setStatusBarColor"); 
         using (var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
         {
             using (var activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
             {
-                activity.Call("runOnUiThread", new AndroidJavaRunnable(setStatusBarColorInThread));
+                activity.Call("runOnUiThread", new AndroidJavaRunnable(SetStatusBarColorInThread));
             }
         }
 #endif
     }
 
 
-    private static void setStatusBarValue(int value, string flagFunc)
+    private static void SetStatusBarValue(string flagFunc, params object[] args)
     {
-        newStatusBarValue = value;
-        mFlagFunc = flagFunc;
+        if (args == null)
+        {
+            DLog.Log("AndroidHelper.SetStatusBarValue.flagFunc:{0}", flagFunc);
+        }
+        else
+        {
+            DLog.Log("AndroidHelper.SetStatusBarValue.flagFunc:{0}, args.length:{1}, args.0:{2}", flagFunc, args.Length.ToString(), args.Length > 0 ? args[0].ToString() : args.ToString());
+        }
+
         using (var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
         {
             using (var activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
             {
-                activity.Call("runOnUiThread", new AndroidJavaRunnable(setStatusBarValueInThread));
+                activity.Call("runOnUiThread", new AndroidJavaRunnable(() => {
+                    using (var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+                    {
+                        using (var activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+                        {
+                            using (var window = activity.Call<AndroidJavaObject>("getWindow"))
+                            {
+                                window.Call(flagFunc, args);
+                            }
+                        }
+                    }
+                }));
             }
         }
     }
 
-    private static void setStatusBarValueInThread()
+    private static void SetStatusBarColorInThread()
     {
-        DLog.Log("AndroidHelper.setStatusBarValueInThread.mFlagFunc:{0}", mFlagFunc);
-        using (var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
-        {
-            using (var activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
-            {
-                using (var window = activity.Call<AndroidJavaObject>("getWindow"))
-                {
-                    window.Call(mFlagFunc, newStatusBarValue);
-                }
-            }
-        }
-    }
-
-    private static void setStatusBarColorInThread()
-    {
-        DLog.Log("AndroidHelper.setStatusBarColorInThread.mFlagFunc:{0}", mFlagFunc);
+        DLog.Log("AndroidHelper.setStatusBarColorInThread");
         using (var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
         {
             using (var activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))

@@ -12,7 +12,7 @@ using UnityEngine.Video;
 public class Main : MonoBehaviour
 {
 
-    public TMP_Text m_TextMeshPro;
+    public static TMP_Text m_TextMeshPro;
 
     private Button mButton;
 
@@ -20,7 +20,7 @@ public class Main : MonoBehaviour
     private VideoPlayer mLocalVideoPlayer;
     private bool mCanPlayVideo = false;
 
-    private StringBuilder stringBuilder = new StringBuilder();
+    private static StringBuilder gameUISB = new StringBuilder();
 
     private string m_Text = "This is input text." + System.Environment.NewLine;
 
@@ -41,20 +41,18 @@ public class Main : MonoBehaviour
     {
         DLog.Log("1. Hello, world. in StarkMini.Main.Start by LGY.");
 
-        DLog.Log("2. Hello, world. in {0} by {1}.", "StarkMini.Main.Start", "LGY");
-
 
         m_TextMeshPro = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
 
         mVideoPlayer = GameObject.Find("Canvas/video_raw_image").GetComponent<VideoPlayer>();
         mVideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
         mVideoPlayer.renderMode = VideoRenderMode.RenderTexture;
+        mVideoPlayer.source = VideoSource.Url;
         mVideoPlayer.playOnAwake = false;
-        mVideoPlayer.isLooping = true;
-        mVideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+        mVideoPlayer.isLooping = false;
 
         mLocalVideoPlayer = GameObject.Find("Canvas/local_video_raw_image").GetComponent<VideoPlayer>();
-        //mLocalVideoPlayer.isLooping = true;
+        mLocalVideoPlayer.isLooping = false;
         //mLocalVideoPlayer.loopPointReached += (VideoPlayer source) =>
         //{
         //    source.Play();
@@ -71,7 +69,7 @@ public class Main : MonoBehaviour
             Application.Quit();
         });
 
-        stringBuilder.Clear();
+        gameUISB.Clear();
 
 
         //------------------------------Lua Start---------------------------------------------------------------------------------
@@ -108,18 +106,13 @@ public class Main : MonoBehaviour
     private void TestButtonEvent()
     {
         m_Index++;
-        stringBuilder.Append(m_Index + ". Main.TestButtonEvent" + Environment.NewLine);
-        m_TextMeshPro.text = stringBuilder.ToString();
+        showInGameUI(m_Index + ". Main.TestButtonEvent");
 
         if (luaLoaded) { 
 
             //string res = LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("start");
             
-            stringBuilder.Append(m_Index + ". ");
-            //stringBuilder.Append(m_Text);
-            //stringBuilder.Append(res + System.Environment.NewLine);
-
-            m_TextMeshPro.text = stringBuilder.ToString();
+            showInGameUI(m_Index + ". ");
         }
 
         if (mCanPlayVideo && !mVideoPlayer.isPlaying)
@@ -154,9 +147,16 @@ public class Main : MonoBehaviour
 
         byte[] datas = req.downloadHandler.data;
 
-        DLog.Log(url + "-->Length:" + datas.Length);
-
-        if (datas == null) DLog.Log("下载失败：" + url);
+        if (datas == null)
+        {
+            DLog.Log("下载失败：" + url);
+            showInGameUI("下载失败：" + url);
+        }
+        else
+        {
+            DLog.Log(url + "-->Length:" + datas.Length);
+            showInGameUI(url + "-->Length:" + datas.Length);
+        }
 
         callback?.Invoke(datas);
 
@@ -198,19 +198,22 @@ public class Main : MonoBehaviour
         {
             DLog.Log("视频准备完毕[" + videoPath + "]");
 
-            stringBuilder.Append("视频准备完毕：" + mVideoPlayer.url + Environment.NewLine);
-            m_TextMeshPro.text = stringBuilder.ToString();
+            showInGameUI("视频准备完毕：" + mVideoPlayer.url);
 
             mCanPlayVideo = true;
         };
 
-        stringBuilder.Append("正在下载视频：" + mVideoPlayer.url + Environment.NewLine);
-        m_TextMeshPro.text = stringBuilder.ToString();
+        showInGameUI("正在下载视频：" + mVideoPlayer.url);
 
         mVideoPlayer.Prepare();  //下载资源准备播放
 
         yield return null;
     }
 
+    public static void showInGameUI(string contentStr)
+    {
+        gameUISB.Append(contentStr + Environment.NewLine);
+        m_TextMeshPro.text = gameUISB.ToString();
+    }
 
 }

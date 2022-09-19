@@ -8,9 +8,9 @@ using System.Collections.Generic;
 
  File.Copy("","");
 
- 移动文件，使用DirectoryInfo.MoveTo()
+ 移动文件夹，使用DirectoryInfo.MoveTo()
 
- FileInfo.CopyTo()
+ 复制文件，FileInfo.CopyTo()
 
 
  */

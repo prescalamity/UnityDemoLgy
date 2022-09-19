@@ -4,6 +4,17 @@ using System.Collections;
 using System.IO;
 using System.Collections.Generic;
 
+/*
+
+ File.Copy("","");
+
+ 移动文件，使用DirectoryInfo.MoveTo()
+
+ FileInfo.CopyTo()
+
+
+ */
+
 public class FileHelper{
     static Dictionary<string, string> mSuffixDic;
     static FileHelper()
@@ -15,6 +26,7 @@ public class FileHelper{
         mSuffixDic.Add(".jpg", ".bbb");
         mSuffixDic.Add(".TGA", ".CCC");
         mSuffixDic.Add(".tga", ".ccc");
+        
     }
 
 	public static void CopyDirectory(string direcSource, string direcTarget)

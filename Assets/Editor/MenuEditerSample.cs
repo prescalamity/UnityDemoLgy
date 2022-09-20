@@ -16,9 +16,9 @@ public class MenuEditerSample
     }
 
     /// <summary>
-    /// ²âÊÔ°´Å¥
+    /// æµ‹è¯•æŒ‰é’®
     /// </summary>
-    [MenuItem("CustomEditor/²âÊÔ°´Å¥")]
+    [MenuItem("CustomEditor/æµ‹è¯•æŒ‰é’®")]
     public static void TestButton()
     {
         Debug.Log("MenuEditerSample.TestButton");
@@ -36,15 +36,15 @@ public class MenuEditerSample
 
 
     /// <summary>
-    /// ĞèÒªÉ¾³ıÎ¢ĞÅ²å¼ş£¬È»ºóÔö¼Ó¶¶Òô²å¼ş
+    /// éœ€è¦åˆ é™¤å¾®ä¿¡æ’ä»¶ï¼Œç„¶åå¢åŠ æŠ–éŸ³æ’ä»¶
     /// </summary>
-    [MenuItem("CustomEditor/ÇĞ»»³ö°üÆ½Ì¨/¶¶Òô")]
+    [MenuItem("CustomEditor/åˆ‡æ¢å‡ºåŒ…å¹³å°/æŠ–éŸ³")]
     public static void Douyin()
     {
         Debug.Log("BuildDouyin.MyBuidlDouyin");
 
     }
-    [MenuItem("CustomEditor/ÇĞ»»³ö°üÆ½Ì¨/¶¶Òô", validate = true)]
+    [MenuItem("CustomEditor/åˆ‡æ¢å‡ºåŒ…å¹³å°/æŠ–éŸ³", validate = true)]
     private static bool DouYinValidate()
     {
         return douyinValidate;
@@ -52,30 +52,30 @@ public class MenuEditerSample
 
 
     /// <summary>
-    /// ĞèÒªÉ¾³ı¶¶Òô²å¼ş£¬È»ºóÔö¼ÓÎ¢ĞÅ²å¼ş
+    /// éœ€è¦åˆ é™¤æŠ–éŸ³æ’ä»¶ï¼Œç„¶åå¢åŠ å¾®ä¿¡æ’ä»¶
     /// </summary>
-    [MenuItem("CustomEditor/ÇĞ»»³ö°üÆ½Ì¨/Î¢ĞÅ")]
+    [MenuItem("CustomEditor/åˆ‡æ¢å‡ºåŒ…å¹³å°/å¾®ä¿¡")]
     public static void WeiXin()
     {
         Debug.Log("BuildDouyin.WeiXin");
 
     }
-    [MenuItem("CustomEditor/ÇĞ»»³ö°üÆ½Ì¨/Î¢ĞÅ", validate = true)]
+    [MenuItem("CustomEditor/åˆ‡æ¢å‡ºåŒ…å¹³å°/å¾®ä¿¡", validate = true)]
     private static bool WeiXinValidate()
     {
         return weixinValidate;
     }
 
     /// <summary>
-    /// ĞèÒªÉ¾³ı¶¶Òô²å¼ş&Î¢ĞÅ²å¼ş
+    /// éœ€è¦åˆ é™¤æŠ–éŸ³æ’ä»¶&å¾®ä¿¡æ’ä»¶
     /// </summary>
-    [MenuItem("CustomEditor/ÇĞ»»³ö°üÆ½Ì¨/Windows WebGL")]
+    [MenuItem("CustomEditor/åˆ‡æ¢å‡ºåŒ…å¹³å°/Windows WebGL")]
     public static void Windows()
     {
         Debug.Log("BuildDouyin.Windows WebGL");
 
     }
-    [MenuItem("CustomEditor/ÇĞ»»³ö°üÆ½Ì¨/Windows WebGL", validate = true)]
+    [MenuItem("CustomEditor/åˆ‡æ¢å‡ºåŒ…å¹³å°/Windows WebGL", validate = true)]
     private static bool WindowsValidate()
     {
         return windowsValidate;

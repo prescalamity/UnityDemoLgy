@@ -3,33 +3,33 @@ using UnityEditor;
 using UnityEngine;
 public class CreateAssetBundle
 {
-    [MenuItem("CustomEditor/Build AssetBundles")]//±à¼­Æ÷²Ëµ¥Â·¾¶ ´ò°ü
+    [MenuItem("CustomEditor/Build AssetBundles")]//ç¼–è¾‘å™¨èœå•è·¯å¾„ æ‰“åŒ…
     static void BulidAllAssetBundle()
     {
-        // ´ò°üABÊä³öÂ·¾¶
+        // æ‰“åŒ…ABè¾“å‡ºè·¯å¾„
         string strABOutPAthDir = Application.streamingAssetsPath + "/../../StreamingAssets";
-        // ÅĞ¶ÏÎÄ¼ş¼ĞÊÇ·ñ´æÔÚ£¬²»´æÔÚÔòĞÂ½¨
+        // åˆ¤æ–­æ–‡ä»¶å¤¹æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨åˆ™æ–°å»º
         if (Directory.Exists(strABOutPAthDir) == false) Directory.CreateDirectory(strABOutPAthDir);
-#if UNITY_ANDROID//°²×¿¶Ë
+#if UNITY_ANDROID//å®‰å“ç«¯
         BuildPipeline.BuildAssetBundles(strABOutPAthDir,
                                         BuildAssetBundleOptions.None,
                                         BuildTarget.Android);
-        Debug.Log("°²×¿Æ½Ì¨´ò°ü³É¹¦");
+        Debug.Log("å®‰å“å¹³å°æ‰“åŒ…æˆåŠŸ");
 #elif UNITY_IPHONE //IOS
         BulidPipeline.BulidAssetBundles(strABOutPAthDir,
                                         BulidAssetBundleOptions.AppendHashToAssetBundleName,
                                         BulidTarget.iOS);
-        Debug.Log("IOSÆ½Ì¨´ò°ü³É¹¦");
-#elif UNITY_STANDALONE_WIN //PC»òÔò±à¼­Æ÷
+        Debug.Log("IOSå¹³å°æ‰“åŒ…æˆåŠŸ");
+#elif UNITY_STANDALONE_WIN //PCæˆ–åˆ™ç¼–è¾‘å™¨
         BuildPipeline.BuildAssetBundles(strABOutPAthDir,
                                         BuildAssetBundleOptions.AppendHashToAssetBundleName,
                                         BuildTarget.StandaloneWindows);
-        Debug.Log("PCÆ½Ì¨´ò°ü³É¹¦");
+        Debug.Log("PCå¹³å°æ‰“åŒ…æˆåŠŸ");
 #elif UNITY_WEBGL         //WEBGL
         BuildPipeline.BuildAssetBundles(strABOutPAthDir,
                                         BuildAssetBundleOptions.None,
                                         BuildTarget.WebGL);
-        Debug.Log("WebGL Æ½Ì¨´ò°ü³É¹¦");
+        Debug.Log("WebGL å¹³å°æ‰“åŒ…æˆåŠŸ");
 #endif
     }
 }

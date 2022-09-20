@@ -6,12 +6,11 @@ using System.Collections.Generic;
 
 /*
 
- File.Copy("","");
+文件 和 文件夹 的 复制 移动 删除
 
- 移动文件夹，使用DirectoryInfo.MoveTo()
-
- 复制文件，FileInfo.CopyTo()
-
+另外：
+移动文件夹，可以使用DirectoryInfo.MoveTo()
+复制文件，可以使用FileInfo.CopyTo()
 
  */
 
@@ -29,6 +28,11 @@ public class FileHelper{
         
     }
 
+    /// <summary>
+    /// 把direcSource文件夹下的 所有内容 复制到 direcTarget（不存在时会创建）文件夹下，
+    /// </summary>
+    /// <param name="direcSource"></param>
+    /// <param name="direcTarget"></param>
 	public static void CopyDirectory(string direcSource, string direcTarget)
 	{
 		if (!Directory.Exists(direcTarget))
@@ -44,42 +48,110 @@ public class FileHelper{
 			CopyDirectory(Path.Combine(direcSource, dir.Name), Path.Combine(direcTarget, dir.Name));
 	}
 
-	public static void DeleteDirectory(string path, bool delete_myself = false)
-	{
-		DirectoryInfo dir = new DirectoryInfo(path);
-		if (dir.Exists)
-		{
-			foreach (DirectoryInfo child in dir.GetDirectories())
-			{
-			    try
-			    {
-			        DeleteDirectory(child.FullName, true);
-			    }
-			    catch (Exception e)
-			    {
-			        Debug.LogWarning(string.Format("Delete Directory Failed: path->{0}, error->{1}", child.FullName,e.Message));
-			    }
-			} 
-            FileInfo[] infos = dir.GetFiles();
-			foreach (FileInfo child in infos)
-			{
-			    try
-			    {
-			        child.Delete();
-			    }
-			    catch (Exception e)
-			    {
-			        Debug.LogWarning(string.Format("Delete File Failed: path->{0}, error->{1}", child.FullName,e.Message));
-			    }
-			}
-            if(delete_myself)
-            {
-                dir.Delete(true);
-            }
-		}
-	}
+ //   /// <summary>
+ //   /// 删除指定文件夹path，以及是否删除文件夹本事
+ //   /// </summary>
+ //   /// <param name="path"></param>
+ //   /// <param name="delete_myself">是否删除文件夹本身</param>
+	//public static void DeleteDirectory(string path, bool delete_myself = false)
+	//{
+	//	DirectoryInfo dir = new DirectoryInfo(path);
+	//	if (dir.Exists)
+	//	{
+	//		foreach (DirectoryInfo child in dir.GetDirectories())
+	//		{
+	//		    try
+	//		    {
+	//		        DeleteDirectory(child.FullName, true);
+	//		    }
+	//		    catch (Exception e)
+	//		    {
+	//		        Debug.LogWarning(string.Format("Delete Directory Failed: path->{0}, error->{1}", child.FullName,e.Message));
+	//		    }
+	//		} 
+ //           FileInfo[] infos = dir.GetFiles();
+	//		foreach (FileInfo child in infos)
+	//		{
+	//		    try
+	//		    {
+	//		        child.Delete();
+	//		    }
+	//		    catch (Exception e)
+	//		    {
+	//		        Debug.LogWarning(string.Format("Delete File Failed: path->{0}, error->{1}", child.FullName,e.Message));
+	//		    }
+	//		}
+ //           if(delete_myself)
+ //           {
+ //               dir.Delete(true);
+ //           }
+	//	}
+	//}
 
-	public static string[] FindFileBySuffix(string search_path, string suffix)
+
+    /// <summary>
+    /// 将 direcSource 移动（剪切）到 direcTarget 文件夹下，且当 direcTarget文件夹中已存在 和direcSource文件夹同名的文件夹时，原文件夹会被覆盖
+    /// </summary>
+    public static void MoveDirectoryAndOverwrite(string direcSource, string direcTarget)
+    {
+        //DLog.Log("FileHelper.MoveDirectory");
+
+        if (!Directory.Exists(direcSource) || !Directory.Exists(direcSource))
+        {
+            DLog.Log("pls, check that the both directories are existed. {0} , {1}", direcSource, direcTarget);
+            return;
+        }
+
+        string _dirName = direcSource.Split(new char[]{'/', '\\'}, StringSplitOptions.RemoveEmptyEntries)[^1];
+
+        direcTarget = direcTarget + "/" + _dirName;
+
+        if(Directory.Exists(direcTarget))Directory.Delete(direcTarget, true);
+
+        Directory.Move(direcSource, direcTarget);
+
+    }
+
+    /// <summary>
+    /// fileSource 目标文件，direcTarget 需要 移动(剪切) 到的文件夹, isCreateDirecTarget 文件夹不存在时是否创建
+    /// </summary>
+    /// <param name="fileSource"></param>
+    /// <param name="direcTarget"></param>
+    public static void MoveFileAndOverwrite(string fileSource, string direcTarget, bool isCreateDirecTarget = false)
+    {
+
+        if (!File.Exists(fileSource))
+        {
+            DLog.Log("the file does not exists: " + fileSource);
+            return;
+        }
+
+        if (!Directory.Exists(direcTarget))
+        {
+            if (isCreateDirecTarget)
+            {
+                Directory.CreateDirectory(direcTarget);
+            }
+            else
+            {
+                DLog.Log("pls, check that the directorys is existed. {0}", direcTarget);
+                return;
+            }
+        }
+
+        string _filename = fileSource.Split(new char[] {'/','\\'}, StringSplitOptions.RemoveEmptyEntries)[^1];
+
+        direcTarget = direcTarget + "/" + _filename;
+        //DLog.Log("the file name is " + _filename);
+        
+        if (File.Exists(direcTarget)) File.Delete(direcTarget);
+
+        File.Move(fileSource, direcTarget);
+
+    }
+
+
+    public static string[] FindFileBySuffix(string search_path, string suffix)
 	{
 		List<string> result = new List<string>();
         if (Directory.Exists(search_path))

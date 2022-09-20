@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 public class CreateAssetBundle
 {
-    [MenuItem("CustomEditor/BUild AssetBundles")]//编辑器菜单路径 打包
+    [MenuItem("CustomEditor/Build AssetBundles")]//编辑器菜单路径 打包
     static void BulidAllAssetBundle()
     {
         // 打包AB输出路径

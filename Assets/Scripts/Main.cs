@@ -56,7 +56,7 @@ public class Main : MonoBehaviour
         //mLocalVideoPlayer.loopPointReached += (VideoPlayer source) =>
         //{
         //    source.Play();
-        //    stringBuilder.Append("the source.Play again by loopPointReached.");
+        //    stringBuilder.Append("the source.Play again by loopPointReached."); 
         //    DLog.Log("the source.Play again by loopPointReached.");
         //};
 
@@ -149,8 +149,8 @@ public class Main : MonoBehaviour
 
         if (datas == null)
         {
-            DLog.Log("ÏÂÔØÊ§°Ü£º" + url);
-            showInGameUI("ÏÂÔØÊ§°Ü£º" + url);
+            DLog.Log("ä¸‹è½½å¤±è´¥ï¼š" + url);
+            showInGameUI("ä¸‹è½½å¤±è´¥ï¼š" + url);
         }
         else
         {
@@ -172,7 +172,7 @@ public class Main : MonoBehaviour
 
         AssetBundle ab = DownloadHandlerAssetBundle.GetContent(req);
 
-        if (ab == null) DLog.Log("AssetBundleÏÂÔØÊ§°Ü£º" + url);
+        if (ab == null) DLog.Log("AssetBundleä¸‹è½½å¤±è´¥ï¼š" + url);
 
         callback?.Invoke(ab);
 
@@ -182,7 +182,7 @@ public class Main : MonoBehaviour
 
     public IEnumerator ExportVideo(string videoPath)
     {
-        DLog.Log("µ÷ÓÃÊÓÆµ¼ÓÔØ½Ó¿Ú");
+        DLog.Log("è°ƒç”¨è§†é¢‘åŠ è½½æ¥å£");
 
 
         //mVideoPlayer.SetTargetAudioSource(0, tex.gameObject.AddComponent<AudioSource>());
@@ -191,21 +191,21 @@ public class Main : MonoBehaviour
 
         mVideoPlayer.errorReceived += (v, s) =>
         {
-            DLog.Log(string.Format("²¥·ÅÊÓÆµ[{0}]³ö´í:{1}", videoPath, s));
+            DLog.Log(string.Format("æ’­æ”¾è§†é¢‘[{0}]å‡ºé”™:{1}", videoPath, s));
         };
 
         mVideoPlayer.prepareCompleted += (v) =>
         {
-            DLog.Log("ÊÓÆµ×¼±¸Íê±Ï[" + videoPath + "]");
+            DLog.Log("è§†é¢‘å‡†å¤‡å®Œæ¯•[" + videoPath + "]");
 
-            showInGameUI("ÊÓÆµ×¼±¸Íê±Ï£º" + mVideoPlayer.url);
+            showInGameUI("è§†é¢‘å‡†å¤‡å®Œæ¯•ï¼š" + mVideoPlayer.url);
 
             mCanPlayVideo = true;
         };
 
-        showInGameUI("ÕıÔÚÏÂÔØÊÓÆµ£º" + mVideoPlayer.url);
+        showInGameUI("æ­£åœ¨ä¸‹è½½è§†é¢‘ï¼š" + mVideoPlayer.url);
 
-        mVideoPlayer.Prepare();  //ÏÂÔØ×ÊÔ´×¼±¸²¥·Å
+        mVideoPlayer.Prepare();  //ä¸‹è½½èµ„æºå‡†å¤‡æ’­æ”¾
 
         yield return null;
     }

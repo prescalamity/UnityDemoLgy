@@ -4,7 +4,7 @@ public class AndroidHelper
 {
 
     /// <summary>
-    ///  Òş²ØÉÏ·½×´Ì¬À¸
+    ///  éšè—ä¸Šæ–¹çŠ¶æ€æ 
     /// </summary>
     public static void HideAndroidStatusBar()
     {
@@ -14,7 +14,7 @@ public class AndroidHelper
     }
 
     /// <summary>
-    ///  ÏÔÊ¾ÉÏ·½×´Ì¬À¸
+    ///  æ˜¾ç¤ºä¸Šæ–¹çŠ¶æ€æ 
     /// </summary>
     public static void ShowAndroidStatusBar()
     {
@@ -24,7 +24,7 @@ public class AndroidHelper
     }
 
     /// <summary>
-    ///  ÉèÖÃÉÏ·½×´Ì¬À¸±³¾°ÑÕÉ«
+    ///  è®¾ç½®ä¸Šæ–¹çŠ¶æ€æ èƒŒæ™¯é¢œè‰²
     /// </summary>
     public static void SetAndroidStatusBarColor()
     {
@@ -84,7 +84,7 @@ public class AndroidHelper
                     window.Call("setStatusBarColor", -1);
                     using (var fnotColor = window.Call<AndroidJavaObject>("getDecorView"))
                     {
-                        fnotColor.Call("setSystemUiVisibility", 1024 | 8192);   //ÊµÏÖ×´Ì¬À¸Í¼±êºÍÎÄ×ÖÑÕÉ«°µÉ«
+                        fnotColor.Call("setSystemUiVisibility", 1024 | 8192);   //å®ç°çŠ¶æ€æ å›¾æ ‡å’Œæ–‡å­—é¢œè‰²æš—è‰²
                     }
                 }
             }

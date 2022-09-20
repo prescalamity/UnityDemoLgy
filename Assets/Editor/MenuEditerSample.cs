@@ -67,7 +67,7 @@ public class MenuEditerSample
     }
 
     /// <summary>
-    /// 需要删除抖音插件&微信插件
+    /// 需要删除抖音插件&微信插件 
     /// </summary>
     [MenuItem("CustomEditor/切换出包平台/Windows WebGL")]
     public static void Windows()

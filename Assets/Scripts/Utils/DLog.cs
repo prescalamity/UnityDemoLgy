@@ -28,7 +28,7 @@ public class DLog
 
         File.WriteAllText(LogFilePath, "", Encoding.UTF8);
 
-        //Debug.Log("DLog.LogFilePath:" + LogFilePath);
+        //Debug.Log("DLog.LogFilePath:" + LogFilePath); 
     }
 
     public static void Log(string centent, params string[] args)

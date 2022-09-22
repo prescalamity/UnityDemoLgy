@@ -3,6 +3,13 @@ using UnityEditor;
 using UnityEngine;
 
 
+public enum EditerMenuPriorty
+{
+    TestButton,
+    BuildAssetBundles
+}
+
+
 public class MenuEditerSample
 {
 
@@ -18,7 +25,7 @@ public class MenuEditerSample
     /// <summary>
     /// 测试按钮
     /// </summary>
-    [MenuItem("CustomEditor/测试按钮")]
+    [MenuItem("CustomEditor/测试按钮", priority = (int)EditerMenuPriorty.TestButton)]
     public static void TestButton()
     {
         Debug.Log("MenuEditerSample.TestButton");
@@ -28,7 +35,7 @@ public class MenuEditerSample
 
         //FileHelper.MoveDirectoryAndOverwrite(testPath1, testPath2);
         //FileHelper.MoveFileAndOverwrite(testPath1, testPath2);
-        Directory.Delete(testPath1, true);
+        //Directory.Delete(testPath1, true);
         
     }
 

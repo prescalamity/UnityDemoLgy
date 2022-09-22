@@ -29,12 +29,18 @@ public class PlatformAdapter
         mPlatform = "WebGL";
 #endif
 
-        //∂ØÃ¨◊¢≤·∫Ø ˝
-        dic_rVoid_pString.Add("funcNameAndroid", funcNameAndroid);
-        dic_rVoid_pString.Add("funcNameWebGL", funcNameWebGL);
+        //Âä®ÊÄÅÊ≥®ÂÜåÂáΩÊï∞
+        RegisyerAndroidFunction("funcName", funcNameAndroid);
+        RegisyerWebGLFunction("funcName", funcNameWebGL);
 
-        dic_rVoid_pVoid.Add("HelloWebGL", JsHelper.Hello);
+        RegisyerWebGLFunction("Hello", JsHelper.Hello);
     }
+
+    private static void RegisyerWebGLFunction(string funcName, dele_rVoid_pVoid _dic_RVoid_PVoid) { dic_rVoid_pVoid.Add(funcName + "WebGL", _dic_RVoid_PVoid); }
+    private static void RegisyerWebGLFunction(string funcName, dele_rVoid_pString _dele_rVoid_pString) { dic_rVoid_pString.Add(funcName + "WebGL", _dele_rVoid_pString); }
+
+    private static void RegisyerAndroidFunction(string funcName, dele_rVoid_pVoid _dic_RVoid_PVoid) { dic_rVoid_pVoid.Add(funcName + "Android", _dic_RVoid_PVoid); }
+    private static void RegisyerAndroidFunction(string funcName, dele_rVoid_pString _dele_rVoid_pString) { dic_rVoid_pString.Add(funcName + "Android", _dele_rVoid_pString); }
 
     public static void CallFuncByName(string funcName)
     {

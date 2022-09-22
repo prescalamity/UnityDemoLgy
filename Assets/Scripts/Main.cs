@@ -30,16 +30,15 @@ public class Main : MonoBehaviour
 
     private void Awake()
     {
-        AndroidHelper.ShowAndroidStatusBar();
-        AndroidHelper.SetAndroidStatusBarColor();
-
-        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        PlatformAdapter.init();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         DLog.Log("1. Hello, world. in StarkMini.Main.Start by LGY.");
+
+        test.onlyTestFunc();
 
 
         m_TextMeshPro = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();

@@ -1,7 +1,10 @@
 mergeInto(LibraryManager.library, {
 
   Hello: function () {
-    window.alert("Hello, world!");
+    //window.alert("Hello, world!");
+    console.log("unity_js: Hello, world!");
+
+    window.U3dHelper.Hello();
   },
 
   HelloString: function (str) {

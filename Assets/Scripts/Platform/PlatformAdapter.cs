@@ -21,7 +21,7 @@ public class PlatformAdapter
         mPlatform = "Editor";
 #endif
 
-#if UNITY_ANDROID
+#if UNITY_ANDROID && ! UNITY_EDITOR
 
         initAndroid();
 

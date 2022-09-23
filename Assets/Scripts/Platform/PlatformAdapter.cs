@@ -17,13 +17,19 @@ public class PlatformAdapter
     public static void init()
     {
 
+#if UNITY_EDITOR
+        mPlatform = "Editor";
+#endif
+
 #if UNITY_ANDROID
+
         initAndroid();
 
         mPlatform = "Android";
 #endif
 
-#if UNITY_WEBGL
+#if UNITY_WEBGL && ! UNITY_EDITOR
+
         initWebGL();
 
         mPlatform = "WebGL";

@@ -50,8 +50,8 @@ public class Main : MonoBehaviour
         mVideoPlayer.playOnAwake = false;
         mVideoPlayer.isLooping = false;
 
-        mLocalVideoPlayer = GameObject.Find("Canvas/local_video_raw_image").GetComponent<VideoPlayer>();
-        mLocalVideoPlayer.isLooping = false;
+        //mLocalVideoPlayer = GameObject.Find("Canvas/local_video_raw_image").GetComponent<VideoPlayer>();
+        //mLocalVideoPlayer.isLooping = false;
         //mLocalVideoPlayer.loopPointReached += (VideoPlayer source) =>
         //{
         //    source.Play();
@@ -82,7 +82,7 @@ public class Main : MonoBehaviour
         //"https://sample-videos.com/video123/mp4/480/big_buck_bunny_480p_2mb.mp4"
 
         StartCoroutine(ExportVideo(
-            "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+            Util.m_streaming_assets_path + "/video/big_buck_bunny.mp4"
             ));
 
         //LuaLoader.GetInstance().Init();
@@ -94,11 +94,11 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!mLocalVideoPlayer.isPlaying)
-        {
-            mLocalVideoPlayer.Play();
-            DLog.Log("the mLocalVideoPlayer.isPlaying play again by Update.");
-        }
+        //if (!mLocalVideoPlayer.isPlaying)
+        //{
+        //    mLocalVideoPlayer.Play();
+        //    DLog.Log("the mLocalVideoPlayer.isPlaying play again by Update.");
+        //}
     }
 
 

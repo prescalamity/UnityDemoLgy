@@ -12,7 +12,7 @@
     </style>
   </head>
   <body style="text-align: center">
-    <canvas id="unity-canvas" width="480" height="800"  style="margin:0 auto;background: #231F20"></canvas>
+    <canvas id="unity-canvas" width="480" height="800"  style="position:absolute; top:50%; left:50%; margin:0 auto; background: #231F20"></canvas>
     <!--注意这个出包的文件名字写死的，不同项目需要改这个名字： xxx.loader.js -->
     <script src="Build/lgyWebGL.loader.js"></script>
     <script>
@@ -28,12 +28,15 @@
       window.onload = function(){
         window.addEventListener('resize', resizeCanvas, false);
         function resizeCanvas(){
+            var detlaHeigh = 20
             canvas = document.getElementById("unity-canvas");
             if (canvas.height < window.innerHeight)
             {
-                canvas.height = window.innerHeight-20;
-				canvas.width = canvas.height*0.6;
+                canvas.height = window.innerHeight - detlaHeigh;
+				        canvas.width = canvas.height*0.6;
             }
+            canvas.style.top = detlaHeigh*0.5 + "px"
+            canvas.style.left = (window.innerWidth - canvas.width)*0.5 + "px"
         }
         resizeCanvas();
       }
@@ -69,6 +72,6 @@
       }
       window.loadLib = loadLib;
     </script>
-    //<script type="text/javascript" src="StreamingAssets/Index.js"></script>
+    <script type="text/javascript" src="StreamingAssets/Index.js"></script>
   </body>
 </html>

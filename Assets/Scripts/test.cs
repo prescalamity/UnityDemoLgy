@@ -11,7 +11,13 @@ public class test : MonoBehaviour
         //PlatformAdapter.CallFuncByName("funcName", "asdasda");
 
 
-        PlatformAdapter.CallFuncByName("Hello");
+        PlatformAdapter.CallFuncByName("Hello", ".from onlyTestFunc");
+
+
+        PlatformAdapter.CallFuncByName("PlayVideo", ".from onlyTestFunc for video");
+
+        DLog.Log("StarkSDK.API.SDKVersion.1: {0}.", StarkSDKSpace.StarkSDK.API.SDKVersion);
+
 
 
     }

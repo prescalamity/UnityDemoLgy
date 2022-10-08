@@ -40,6 +40,8 @@ public class PlatformAdapter
         RegisyerWebGLFunction("funcName", funcNameWebGL);
 
         RegisyerWebGLFunction("Hello", JsHelper.Hello);
+
+        RegisyerWebGLFunction("PlayVideo", JsHelper.PlayVideo);
     }
 
     private static void RegisyerWebGLFunction(string funcName, dele_rVoid_pVoid _dic_RVoid_PVoid) { dic_rVoid_pVoid.Add(funcName + "WebGL", _dic_RVoid_PVoid); }

@@ -8,7 +8,7 @@ public class JsHelper
 
 
     [DllImport("__Internal")]
-    public static extern void Hello();
+    public static extern void Hello(string msg);
 
     [DllImport("__Internal")]
     public static extern void HelloString(string str);
@@ -25,5 +25,8 @@ public class JsHelper
     [DllImport("__Internal")]
     public static extern void BindWebGLTexture(int texture);
 
+
+    [DllImport("__Internal")]
+    public static extern void PlayVideo(string videoSrc);
 
 }

@@ -1,10 +1,10 @@
 mergeInto(LibraryManager.library, {
 
-  Hello: function () {
+  Hello: function (msg) {
     //window.alert("Hello, world!");
-    console.log("unity_js: Hello, world!");
+    console.log("unity_js: Hello, world! " + UTF8ToString(msg));
 
-    window.U3dHelper.Hello();
+    //window.U3dHelper.Hello();
   },
 
   HelloString: function (str) {
@@ -32,4 +32,18 @@ mergeInto(LibraryManager.library, {
     GLctx.bindTexture(GLctx.TEXTURE_2D, GL.textures[texture]);
   },
 
+  
+  PlayVideo: function( videoSrc ){
+
+    console.log("lgy: unity_js playVideo start..." + UTF8ToString(videoSrc));
+
+    //window.location = "https://www.baidu.com";
+    //window.navigate("https://www.baidu.com");
+    //window.location.replace("https://www.baidu.com");
+  }
+
+
 });
+
+
+

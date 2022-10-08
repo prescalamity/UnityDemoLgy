@@ -37,7 +37,7 @@ public class DLog
 
         File.AppendAllText(LogFilePath, "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "] " + tempCommonStr + Environment.NewLine);
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_WEBGL
         Debug.Log(tempCommonStr);
 #endif
 

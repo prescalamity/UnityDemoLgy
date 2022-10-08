@@ -36,21 +36,58 @@ public class PlatformAdapter
 #endif
 
         //动态注册函数
-        RegisyerAndroidFunction("funcName", funcNameAndroid);
-        RegisyerWebGLFunction("funcName", funcNameWebGL);
+        RegisyerAndroidFunction("funcName", testFuncNameAndroid);
+        RegisyerWebGLFunction("funcName", testFuncNameWebGL);
 
         RegisyerWebGLFunction("Hello", JsHelper.Hello);
 
         RegisyerWebGLFunction("PlayVideo", JsHelper.PlayVideo);
     }
 
-    private static void RegisyerWebGLFunction(string funcName, dele_rVoid_pVoid _dic_RVoid_PVoid) { dic_rVoid_pVoid.Add(funcName + "WebGL", _dic_RVoid_PVoid); }
-    private static void RegisyerWebGLFunction(string funcName, dele_rVoid_pString _dele_rVoid_pString) { dic_rVoid_pString.Add(funcName + "WebGL", _dele_rVoid_pString); }
 
-    private static void RegisyerAndroidFunction(string funcName, dele_rVoid_pVoid _dic_RVoid_PVoid) { dic_rVoid_pVoid.Add(funcName + "Android", _dic_RVoid_PVoid); }
-    private static void RegisyerAndroidFunction(string funcName, dele_rVoid_pString _dele_rVoid_pString) { dic_rVoid_pString.Add(funcName + "Android", _dele_rVoid_pString); }
+    #region 注册平台函数
 
-    public static void CallFuncByName(string funcName)
+    /// <summary>
+    /// 将函数注册到 WebGL 平台，需注册的函数 传入 和 返回 都为空
+    /// </summary>
+    /// <param name="funcName"></param>
+    /// <param name="_dic_RVoid_PVoid"></param>
+    private static void RegisyerWebGLFunction(string funcName, dele_rVoid_pVoid _dic_RVoid_PVoid) { 
+        dic_rVoid_pVoid.Add(funcName + "WebGL", _dic_RVoid_PVoid); 
+    }
+    /// <summary>
+    /// 将函数注册到 WebGL 平台，需注册的函数 传入字符串 和 返回空
+    /// </summary>
+    /// <param name="funcName"></param>
+    /// <param name="_dele_rVoid_pString"></param>
+    private static void RegisyerWebGLFunction(string funcName, dele_rVoid_pString _dele_rVoid_pString) { 
+        dic_rVoid_pString.Add(funcName + "WebGL", _dele_rVoid_pString); 
+    }
+
+    private static void RegisyerAndroidFunction(string funcName, dele_rVoid_pVoid _dic_RVoid_PVoid) { 
+        dic_rVoid_pVoid.Add(funcName + "Android", _dic_RVoid_PVoid); 
+    }
+    private static void RegisyerAndroidFunction(string funcName, dele_rVoid_pString _dele_rVoid_pString) { 
+        dic_rVoid_pString.Add(funcName + "Android", _dele_rVoid_pString); 
+    }
+
+    private static void RegisyerWindowsFunction(string funcName, dele_rVoid_pVoid _dic_RVoid_PVoid)
+    {
+        dic_rVoid_pVoid.Add(funcName + "Windows", _dic_RVoid_PVoid);
+    }
+    private static void RegisyerWindowsFunction(string funcName, dele_rVoid_pString _dele_rVoid_pString)
+    {
+        dic_rVoid_pString.Add(funcName + "Windows", _dele_rVoid_pString);
+    }
+    #endregion
+
+
+
+    /// <summary>
+    /// 通过名字调用平台函数
+    /// </summary>
+    /// <param name="funcName"></param>
+    public static void CallPlatformFuncByName(string funcName)
     {
         //DLog.Log("PlatformAdapter.CallFuncByName1: the funcName is {0}.", funcName);
 
@@ -62,7 +99,7 @@ public class PlatformAdapter
         else
             DLog.Log("PlatformAdapter.CallFuncByName: the funcName is null, {0}.", funcName);
     }
-    public static void CallFuncByName(string funcName, string data)
+    public static void CallPlatformFuncByName(string funcName, string data)
     {
         funcName = funcName + mPlatform;
         dele_rVoid_pString rVoid_PString = null;
@@ -89,12 +126,12 @@ public class PlatformAdapter
     }
 
 
-    private static void funcNameAndroid(string data){
+    private static void testFuncNameAndroid(string data){
         DLog.Log("this is funcNameAndroid: " + data);
      }
 
 
-    private static void funcNameWebGL(string data)
+    private static void testFuncNameWebGL(string data)
     {
     }
 

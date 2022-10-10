@@ -7,16 +7,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-//using UnityEngine.Video;
+using UnityEngine.Video;
 
 public class Main : MonoBehaviour
 {
 
-    public static TMP_Text m_TextMeshPro;
+    public static TMP_Text m_outputTextTMP;
+    public static TMP_InputField m_inputFieldTMP;
+
 
     private Button mButton;
 
-    //private VideoPlayer mVideoPlayer;
+    private VideoPlayer mVideoPlayer;
     //private VideoPlayer mLocalVideoPlayer;
     private bool mCanPlayVideo = false;
 
@@ -41,14 +43,15 @@ public class Main : MonoBehaviour
         test.onlyTestFunc();
 
 
-        m_TextMeshPro = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
+        m_outputTextTMP = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
+        m_inputFieldTMP = GameObject.Find("Canvas/input_field").GetComponent<TMP_InputField>();
 
-        //mVideoPlayer = GameObject.Find("Canvas/video_raw_image").GetComponent<VideoPlayer>();
-        //mVideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
-        //mVideoPlayer.renderMode = VideoRenderMode.RenderTexture;
-        //mVideoPlayer.source = VideoSource.Url;
-        //mVideoPlayer.playOnAwake = false;
-        //mVideoPlayer.isLooping = false;
+        mVideoPlayer = GameObject.Find("Canvas/video_raw_image").GetComponent<VideoPlayer>();
+        mVideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+        mVideoPlayer.renderMode = VideoRenderMode.RenderTexture;
+        mVideoPlayer.source = VideoSource.Url;
+        mVideoPlayer.playOnAwake = false;
+        mVideoPlayer.isLooping = false;
 
         //mLocalVideoPlayer = GameObject.Find("Canvas/local_video_raw_image").GetComponent<VideoPlayer>();
         //mLocalVideoPlayer.isLooping = false;
@@ -62,11 +65,14 @@ public class Main : MonoBehaviour
         mButton = GameObject.Find("Canvas/test_button").GetComponent<Button>();
         mButton.onClick.AddListener(TestButtonEvent);
 
-        //GameObject.Find("Canvas/quit").GetComponent<Button>().onClick.AddListener( () => { 
-        //    DLog.Log("Game quits."); 
-        //    mVideoPlayer.Stop();
-        //    Application.Quit();
-        //});
+        GameObject.Find("Canvas/quit").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            DLog.Log("Game quits.");
+            mVideoPlayer.Stop();
+            Application.Quit();
+        });
+
+
 
         gameUISB.Clear();
 
@@ -105,7 +111,7 @@ public class Main : MonoBehaviour
     private void TestButtonEvent()
     {
         m_Index++;
-        showInGameUI(m_Index + ". Main.TestButtonEvent");
+        showInGameUI(m_Index + ". Main.TestButtonEvent, input:" + m_inputFieldTMP.text);
 
         if (luaLoaded) { 
 
@@ -114,11 +120,12 @@ public class Main : MonoBehaviour
             showInGameUI(m_Index + ". ");
         }
 
-        //if (mCanPlayVideo && !mVideoPlayer.isPlaying)
-        //{
-        //    mVideoPlayer.Play();
-        //    DLog.Log("it start to play the video.");
-        //}
+        if (mCanPlayVideo && !mVideoPlayer.isPlaying)
+        {
+            mVideoPlayer.Play();
+            DLog.Log("it start to play the video.");
+        }
+
 
         DLog.Log("Main.TestButtonEvent");
     }
@@ -186,25 +193,22 @@ public class Main : MonoBehaviour
 
         //mVideoPlayer.SetTargetAudioSource(0, tex.gameObject.AddComponent<AudioSource>());
 
-        //mVideoPlayer.url = videoPath;
+        mVideoPlayer.url = videoPath;
 
-        //mVideoPlayer.errorReceived += (v, s) =>
-        //{
-        //    DLog.Log(string.Format("播放视频[{0}]出错:{1}", videoPath, s));
-        //};
+        mVideoPlayer.errorReceived += (v, s) => DLog.Log(string.Format("播放视频[{0}]出错:{1}", videoPath, s));
 
-        //mVideoPlayer.prepareCompleted += (v) =>
-        //{
-        //    DLog.Log("视频准备完毕[" + videoPath + "]");
+        mVideoPlayer.prepareCompleted += (v) =>
+        {
+            DLog.Log("视频准备完毕[" + videoPath + "]");
 
-        //    showInGameUI("视频准备完毕：" + mVideoPlayer.url);
+            showInGameUI("视频准备完毕：" + mVideoPlayer.url);
 
-        //    mCanPlayVideo = true;
-        //};
+            mCanPlayVideo = true;
+        };
 
-        //showInGameUI("正在下载视频：" + mVideoPlayer.url);
+        showInGameUI("正在下载视频：" + mVideoPlayer.url);
 
-        //mVideoPlayer.Prepare();  //下载资源准备播放
+        mVideoPlayer.Prepare();  //下载资源准备播放
 
         yield return null;
     }
@@ -212,7 +216,7 @@ public class Main : MonoBehaviour
     public static void showInGameUI(string contentStr)
     {
         gameUISB.Append(contentStr + Environment.NewLine);
-        m_TextMeshPro.text = gameUISB.ToString();
+        m_outputTextTMP.text = gameUISB.ToString();
     }
 
 }

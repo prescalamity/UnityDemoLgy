@@ -39,9 +39,11 @@ public class PlatformAdapter
         RegisyerAndroidFunction("funcName", testFuncNameAndroid);
         RegisyerWebGLFunction("funcName", testFuncNameWebGL);
 
+#if UNITY_WEBG
         RegisyerWebGLFunction("Hello", JsHelper.Hello);
-
         RegisyerWebGLFunction("PlayVideo", JsHelper.PlayVideo);
+#endif
+
     }
 
 
@@ -79,7 +81,7 @@ public class PlatformAdapter
     {
         dic_rVoid_pString.Add(funcName + "Windows", _dele_rVoid_pString);
     }
-    #endregion
+#endregion
 
 
 

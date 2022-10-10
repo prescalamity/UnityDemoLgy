@@ -6,7 +6,7 @@ using UnityEngine;
 public class JsHelper
 {
 
-
+#if UNITY_WEBGL
     [DllImport("__Internal")]
     public static extern void Hello(string msg);
 
@@ -28,5 +28,5 @@ public class JsHelper
 
     [DllImport("__Internal")]
     public static extern void PlayVideo(string videoSrc);
-
+#endif
 }

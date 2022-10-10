@@ -16,8 +16,6 @@ public class test : MonoBehaviour
 
         PlatformAdapter.CallPlatformFuncByName("PlayVideo", ".from onlyTestFunc for video");
 
-        DLog.Log("StarkSDK.API.SDKVersion.1: {0}.", StarkSDKSpace.StarkSDK.API.SDKVersion);
-
 
 
     }

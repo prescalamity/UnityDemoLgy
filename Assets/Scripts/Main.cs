@@ -44,7 +44,7 @@ public class Main : MonoBehaviour
 
     void Start()
     {
-        DLog.Log("1. Hello, world. in UnityDemoL.Main.Start by LGY. 2022-10-10 19:57.");
+        DLog.Log("1. Hello, world. in UnityDemoL.Main.Start by LGY. 2022-10-11 23:25.");
 
         test.onlyTestFunc();
 
@@ -58,9 +58,11 @@ public class Main : MonoBehaviour
         m_Dropdown.onValueChanged.AddListener(
             (data) => {
 
-                DLog.showInGameUI("m_Dropdown selected: " + m_Dropdown.options[data].text);
+                DLog.LogToUI("m_Dropdown selected: " + m_Dropdown.options[data].text);
 
-                if(luaLoaded) LuaScriptMgr.GetInstance().CallLuaFunction("testFlatformFuncCallback", m_Dropdown.options[data].text);
+                if (luaLoaded) {
+                    LuaScriptMgr.GetInstance().CallLuaFunction("testFlatformFuncCallback", m_Dropdown.options[data].text); 
+                }
 
             }
         ); 
@@ -141,17 +143,17 @@ public class Main : MonoBehaviour
     {
         m_Index++;
 
-        DLog.showInGameUI(m_Index + ". Main.TestButtonEvent. ");
-        //DLog.showInGameUI(m_Index + ". Main.TestButtonEvent, input:" + m_inputFieldTMP.text);
-        //DLog.showInGameUI(m_Index + ". m_Dropdown.text :" + m_Dropdown.options[m_Dropdown.value].text);
+        DLog.LogToUI(m_Index + ". Main.TestButtonEvent. ");
+        //DLog.LogToUI(m_Index + ". Main.TestButtonEvent, input:" + m_inputFieldTMP.text);
+        //DLog.LogToUI(m_Index + ". m_Dropdown.text :" + m_Dropdown.options[m_Dropdown.value].text);
 
         if (luaLoaded) { 
 
-            string res = LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("start");
+            //string res = LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("start");
             
-            DLog.showInGameUI(m_Index + ". " + res);
+            //DLog.LogToUI(m_Index + ". " + res);
 
-            luaLoaded = false;
+            //luaLoaded = false;
         }
 
         if (mCanPlayVideo && !mVideoPlayer.isPlaying)
@@ -160,8 +162,6 @@ public class Main : MonoBehaviour
             DLog.Log("it start to play the video.");
         }
 
-
-        DLog.Log("Main.TestButtonEvent");
     }
 
 
@@ -201,7 +201,7 @@ public class Main : MonoBehaviour
     {
         var req = UnityWebRequest.Get(url);
 
-        DLog.showInGameUI("开始下载文件：" + url);
+        DLog.LogToUI("开始下载文件：" + url);
 
         yield return req.SendWebRequest();
 
@@ -210,12 +210,12 @@ public class Main : MonoBehaviour
         if (datas == null)
         {
             DLog.Log("下载失败：" + url);
-            DLog.showInGameUI("下载失败：" + url);
+            DLog.LogToUI("下载失败：" + url);
         }
         else
         {
             DLog.Log(url + "-->Length:" + datas.Length);
-            DLog.showInGameUI(url + "-->Length:" + datas.Length);
+            DLog.LogToUI(url + "-->Length:" + datas.Length);
         }
 
         callback?.Invoke(datas);
@@ -255,16 +255,22 @@ public class Main : MonoBehaviour
         {
             DLog.Log("视频准备完毕[" + videoPath + "]");
 
-            DLog.showInGameUI("视频准备完毕：" + mVideoPlayer.url);
+            DLog.LogToUI("视频准备完毕：" + mVideoPlayer.url);
 
             mCanPlayVideo = true;
         };
 
-        DLog.showInGameUI("正在下载视频：" + mVideoPlayer.url);
+        DLog.LogToUI("正在下载视频：" + mVideoPlayer.url);
 
         mVideoPlayer.Prepare();  //下载资源准备播放
 
         yield return null;
     }
 
+
+    public void CallScriptFunc(string cbData)
+    {
+        DLog.LogToUI("Main.CallScriptFunc.cbData:"+ cbData);
+        LuaScriptMgr.GetInstance().CallLuaFunction("PlatformInterface.CallScriptFunc", cbData);
+    }
 }

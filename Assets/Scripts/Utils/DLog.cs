@@ -60,7 +60,7 @@ public class DLog
     }
 
 
-    public static void showInGameUI(string contentStr)
+    private static void showInGameUI(string contentStr)
     {
         gameUISB.Append(contentStr + Environment.NewLine);
         Main.OutputTextTMP_text = gameUISB.ToString();

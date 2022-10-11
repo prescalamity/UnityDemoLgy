@@ -81,7 +81,30 @@ public class PlatformAdapter
     {
         dic_rVoid_pString.Add(funcName + "Windows", _dele_rVoid_pString);
     }
-#endregion
+    #endregion
+
+
+    public static string CallPlatformFunc(string key, string data, string lua_callback)
+    {
+        if (!string.IsNullOrEmpty(key))
+        {
+            DLog.LogToUI("PlatformAdapter.CallPlatformFunc key={0}, data={1}, lua_callback={2}", key, data, lua_callback);
+        }
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+            AndroidJavaClass androidclass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+            AndroidJavaObject jo = androidclass.GetStatic<AndroidJavaObject>("currentActivity");
+            string ret = jo.Call<string>("CallPlatformFunc", key, data, lua_callback);
+            androidclass.Dispose();
+            jo.Dispose();
+            return ret;
+            
+#elif UNITY_IOS && !UNITY_EDITOR
+            return QdHSSSFromLJB(key, data, lua_callback);
+#endif
+
+        return "";
+    }
 
 
 

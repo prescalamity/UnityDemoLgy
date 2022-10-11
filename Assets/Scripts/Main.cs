@@ -12,17 +12,23 @@ using UnityEngine.Video;
 public class Main : MonoBehaviour
 {
 
-    public static TMP_Text m_outputTextTMP;
-    public static TMP_InputField m_inputFieldTMP;
+    private static TMP_Text m_outputTextTMP;
+    public static string OutputTextTMP_text {
+        private get { return m_outputTextTMP.text; }
+        set{
+            m_outputTextTMP.text = value;
+        }
+    }
 
-
+    public TMP_InputField m_inputFieldTMP;
+    private TMP_Dropdown m_Dropdown;
     private Button mButton;
+    private Button m_ClearButtonTMP;
 
     private VideoPlayer mVideoPlayer;
     //private VideoPlayer mLocalVideoPlayer;
     private bool mCanPlayVideo = false;
 
-    private static StringBuilder gameUISB = new StringBuilder();
 
     private string m_Text = "This is input text." + System.Environment.NewLine;
 
@@ -35,16 +41,30 @@ public class Main : MonoBehaviour
         PlatformAdapter.init();
     }
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        DLog.Log("1. Hello, world. in UnityDemoL.Main.Start by LGY.");
+        DLog.Log("1. Hello, world. in UnityDemoL.Main.Start by LGY. 2022-10-10 19:57.");
 
         test.onlyTestFunc();
 
 
         m_outputTextTMP = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
         m_inputFieldTMP = GameObject.Find("Canvas/input_field").GetComponent<TMP_InputField>();
+
+        m_Dropdown = GameObject.Find("Canvas/dropdown").GetComponent<TMP_Dropdown>();
+        m_Dropdown.options.Clear();
+        TestDropdown.initDpd(m_Dropdown);
+        m_Dropdown.onValueChanged.AddListener(
+            (data) => {
+
+                DLog.showInGameUI("m_Dropdown selected: " + m_Dropdown.options[data].text);
+
+                if(luaLoaded) LuaScriptMgr.GetInstance().CallLuaFunction("testFlatformFuncCallback", m_Dropdown.options[data].text);
+
+            }
+        ); 
+    
 
         mVideoPlayer = GameObject.Find("Canvas/video_raw_image").GetComponent<VideoPlayer>();
         mVideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
@@ -65,6 +85,14 @@ public class Main : MonoBehaviour
         mButton = GameObject.Find("Canvas/test_button").GetComponent<Button>();
         mButton.onClick.AddListener(TestButtonEvent);
 
+        m_ClearButtonTMP = GameObject.Find("Canvas/clear_output_area").GetComponent<Button>();
+        m_ClearButtonTMP.onClick.AddListener(
+            () => { 
+                DLog.gameUISB.Clear(); 
+                m_outputTextTMP.text = DLog.gameUISB.ToString();
+            }
+        );
+
         GameObject.Find("Canvas/quit").GetComponent<Button>().onClick.AddListener(() =>
         {
             DLog.Log("Game quits.");
@@ -74,14 +102,6 @@ public class Main : MonoBehaviour
 
 
 
-        gameUISB.Clear();
-
-
-        //------------------------------Lua Start---------------------------------------------------------------------------------
-
-        //LuaBinder.Bind(LuaScriptMgr.GetInstance().lua);
-
-        downloadLuaSourceAB();
 
         //http://192.168.11.46/t14/Resource/StreamingAssets/assetbundle/webgl/videos/_res_md5_156B62FA002DA941D0318335B1287B5C_chapter_video.mp4
         //"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
@@ -91,13 +111,22 @@ public class Main : MonoBehaviour
             Util.m_streaming_assets_path + "/video/big_buck_bunny.mp4"
             ));
 
+
+
+
+        //------------------------------Lua Start---------------------------------------------------------------------------------
+
+        LuaBinder.Bind(LuaScriptMgr.GetInstance().lua);   //初始化lua虚拟机，然后注册C#函数给lua用
+
+        downloadLuaSources();
+
         //LuaLoader.GetInstance().Init();
 
         //------------------------------Lua End---------------------------------------------------------------------------------
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         //if (!mLocalVideoPlayer.isPlaying)
@@ -111,13 +140,18 @@ public class Main : MonoBehaviour
     private void TestButtonEvent()
     {
         m_Index++;
-        showInGameUI(m_Index + ". Main.TestButtonEvent, input:" + m_inputFieldTMP.text);
+
+        DLog.showInGameUI(m_Index + ". Main.TestButtonEvent. ");
+        //DLog.showInGameUI(m_Index + ". Main.TestButtonEvent, input:" + m_inputFieldTMP.text);
+        //DLog.showInGameUI(m_Index + ". m_Dropdown.text :" + m_Dropdown.options[m_Dropdown.value].text);
 
         if (luaLoaded) { 
 
-            //string res = LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("start");
+            string res = LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("start");
             
-            showInGameUI(m_Index + ". ");
+            DLog.showInGameUI(m_Index + ". " + res);
+
+            luaLoaded = false;
         }
 
         if (mCanPlayVideo && !mVideoPlayer.isPlaying)
@@ -131,16 +165,34 @@ public class Main : MonoBehaviour
     }
 
 
-    private void downloadLuaSourceAB()
+    private void downloadLuaSources()
     {
 
-        this.StartCoroutine(LoadBytesResourceCallBack(Util.m_streaming_assets_path + "/lua_source/main.lua",
-            data => {
-                //LuaScriptMgr.GetInstance().lua.DoBytes(data);
-                //luaLoaded = true;
-                DLog.Log("The lua_source have been loaded to LuaState.");
-            }
-        ));
+        string[] luaStr = new string[] { "/lua_source/main.lua", "/lua_source/platforminterface.lua" };
+
+        int copltCount = 0;
+
+        foreach (string str in luaStr)
+        {
+            this.StartCoroutine(
+                LoadBytesResourceCallBack(Util.m_streaming_assets_path + str,
+                    data =>
+                    {
+                        LuaScriptMgr.GetInstance().lua.DoBytes(data);
+
+                        copltCount++;
+
+                        if (copltCount == luaStr.Length) {
+                            DLog.Log(" All lua_source have been loaded to LuaState.");
+                            luaLoaded = true; 
+                        }
+
+                    }
+                )
+            );
+        }
+
+
 
     }
 
@@ -149,6 +201,8 @@ public class Main : MonoBehaviour
     {
         var req = UnityWebRequest.Get(url);
 
+        DLog.showInGameUI("开始下载文件：" + url);
+
         yield return req.SendWebRequest();
 
         byte[] datas = req.downloadHandler.data;
@@ -156,12 +210,12 @@ public class Main : MonoBehaviour
         if (datas == null)
         {
             DLog.Log("下载失败：" + url);
-            showInGameUI("下载失败：" + url);
+            DLog.showInGameUI("下载失败：" + url);
         }
         else
         {
             DLog.Log(url + "-->Length:" + datas.Length);
-            showInGameUI(url + "-->Length:" + datas.Length);
+            DLog.showInGameUI(url + "-->Length:" + datas.Length);
         }
 
         callback?.Invoke(datas);
@@ -201,22 +255,16 @@ public class Main : MonoBehaviour
         {
             DLog.Log("视频准备完毕[" + videoPath + "]");
 
-            showInGameUI("视频准备完毕：" + mVideoPlayer.url);
+            DLog.showInGameUI("视频准备完毕：" + mVideoPlayer.url);
 
             mCanPlayVideo = true;
         };
 
-        showInGameUI("正在下载视频：" + mVideoPlayer.url);
+        DLog.showInGameUI("正在下载视频：" + mVideoPlayer.url);
 
         mVideoPlayer.Prepare();  //下载资源准备播放
 
         yield return null;
-    }
-
-    public static void showInGameUI(string contentStr)
-    {
-        gameUISB.Append(contentStr + Environment.NewLine);
-        m_outputTextTMP.text = gameUISB.ToString();
     }
 
 }

@@ -14,6 +14,11 @@ public class DLog
 
     private static string tempCommonStr = "";
 
+
+
+    public static StringBuilder gameUISB = new StringBuilder();
+
+
     static DLog()
     {
 #if UNITY_EDITOR
@@ -42,4 +47,24 @@ public class DLog
 #endif
 
     }
+
+
+    public static void LogToUI(string centent, params string[] args)
+    {
+        tempCommonStr = string.Format(centent, args);
+
+        showInGameUI(tempCommonStr);
+
+        Log(tempCommonStr);
+
+    }
+
+
+    public static void showInGameUI(string contentStr)
+    {
+        gameUISB.Append(contentStr + Environment.NewLine);
+        Main.OutputTextTMP_text = gameUISB.ToString();
+
+    }
+
 }

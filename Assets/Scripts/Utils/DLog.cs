@@ -12,7 +12,7 @@ public class DLog
     private static string LogFileName = "DLog.log";
     private static string LogFilePath = "";
 
-    private static string tempCommonStr = "";
+    //private static string tempCommonStr = "";
 
 
 
@@ -38,12 +38,12 @@ public class DLog
 
     public static void Log(string centent, params string[] args)
     {
-        tempCommonStr = string.Format(centent, args);
+        if (args.Length > 0) centent = string.Format(centent, args);
 
-        File.AppendAllText(LogFilePath, "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "] " + tempCommonStr + Environment.NewLine);
+        File.AppendAllText(LogFilePath, "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "] " + centent + Environment.NewLine);
 
 #if UNITY_EDITOR || UNITY_WEBGL
-        Debug.Log(tempCommonStr);
+        Debug.Log(centent);
 #endif
 
     }
@@ -51,11 +51,11 @@ public class DLog
 
     public static void LogToUI(string centent, params string[] args)
     {
-        tempCommonStr = string.Format(centent, args);
+        if(args.Length > 0) centent = string.Format(centent, args);
 
-        showInGameUI(tempCommonStr);
+        showInGameUI(centent);
 
-        Log(tempCommonStr);
+        Log(centent);
 
     }
 

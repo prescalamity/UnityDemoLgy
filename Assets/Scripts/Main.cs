@@ -268,9 +268,9 @@ public class Main : MonoBehaviour
     }
 
 
-    public void CallScriptFunc(string cbData)
+    private void CallScriptFunc(string cbData)
     {
-        DLog.LogToUI("Main.CallScriptFunc.cbData:"+ cbData);
+        DLog.Log("Main.CallScriptFunc.cbData:"+ cbData);
         LuaScriptMgr.GetInstance().CallLuaFunction("PlatformInterface.CallScriptFunc", cbData);
     }
 }

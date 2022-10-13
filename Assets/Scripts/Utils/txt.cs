@@ -54,6 +54,7 @@ GetPakFiles,
 IsOpenObb,
 GetSettingFlag,
 GetVideoState,
+TestMulteCallback,
 ";
 
 

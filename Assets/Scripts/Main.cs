@@ -36,6 +36,8 @@ public class Main : MonoBehaviour
 
     private bool luaLoaded = false;
 
+    private GameObject goRoot = null;
+
     private void Awake()
     {
         PlatformAdapter.init();
@@ -48,6 +50,7 @@ public class Main : MonoBehaviour
 
         test.onlyTestFunc();
 
+        goRoot = GameObject.Find("GOsRoot");
 
         m_outputTextTMP = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
         m_inputFieldTMP = GameObject.Find("Canvas/input_field").GetComponent<TMP_InputField>();
@@ -103,6 +106,7 @@ public class Main : MonoBehaviour
         });
 
 
+        loadAssetBundle();
 
 
         //http://192.168.11.46/t14/Resource/StreamingAssets/assetbundle/webgl/videos/_res_md5_156B62FA002DA941D0318335B1287B5C_chapter_video.mp4
@@ -120,7 +124,7 @@ public class Main : MonoBehaviour
 
         LuaBinder.Bind(LuaScriptMgr.GetInstance().lua);   //初始化lua虚拟机，然后注册C#函数给lua用
 
-        downloadLuaSources();
+        loadLuaSources();
 
         //LuaLoader.GetInstance().Init();
 
@@ -150,7 +154,7 @@ public class Main : MonoBehaviour
         if (luaLoaded) { 
 
             //string res = LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("start");
-            
+
             //DLog.LogToUI(m_Index + ". " + res);
 
             //luaLoaded = false;
@@ -165,7 +169,7 @@ public class Main : MonoBehaviour
     }
 
 
-    private void downloadLuaSources()
+    private void loadLuaSources()
     {
 
         string[] luaStr = new string[] { "/lua_source/main.lua", "/lua_source/platforminterface.lua" };
@@ -175,7 +179,7 @@ public class Main : MonoBehaviour
         foreach (string str in luaStr)
         {
             this.StartCoroutine(
-                LoadBytesResourceCallBack(Util.m_streaming_assets_path + str,
+                DownloadResources.LoadBytesResourceCallBack(Util.m_streaming_assets_path + str,
                     data =>
                     {
                         LuaScriptMgr.GetInstance().lua.DoBytes(data);
@@ -196,47 +200,45 @@ public class Main : MonoBehaviour
 
     }
 
-
-    public static IEnumerator LoadBytesResourceCallBack(string url, Action<byte[]> callback = null)
+    private void loadAssetBundle()
     {
-        var req = UnityWebRequest.Get(url);
 
-        DLog.LogToUI("开始下载文件：" + url);
 
-        yield return req.SendWebRequest();
+        string[] abStr = new string[] { "/capsule.unity3d", "/floor_cube.unity3d", "/sphere.unity3d" };
 
-        byte[] datas = req.downloadHandler.data;
+        string _urlprex = Util.m_streaming_assets_path + "/assetbundles";
 
-        if (datas == null)
+        if (PlatformAdapter.mPlatform == PlatformType.AndroidRuntime) 
+        { 
+            _urlprex += "/android"; 
+        }
+        else if(PlatformAdapter.mPlatform == PlatformType.WebglRuntime)
+        { 
+            _urlprex += "/webgl";
+        }
+        else if (PlatformAdapter.mPlatform == PlatformType.IosRuntime)
         {
-            DLog.Log("下载失败：" + url);
-            DLog.LogToUI("下载失败：" + url);
+            _urlprex += "/ios";
         }
         else
         {
-            DLog.Log(url + "-->Length:" + datas.Length);
-            DLog.LogToUI(url + "-->Length:" + datas.Length);
+            _urlprex += "/windows";
         }
 
-        callback?.Invoke(datas);
+        foreach (string str in abStr)
+        {
+            this.StartCoroutine(
+                DownloadResources.LoadAssetBundleCallBack(_urlprex + str,
+                    absData =>
+                    {
+                        GameObject _go = absData.LoadAsset<GameObject>(str.TrimStart('/').Replace(".unity3d", ""));
+                        Instantiate(_go, goRoot.transform);
+                    }
+                )
+            );
+        }
 
-        req.Dispose();
-    }
 
-
-    public static IEnumerator LoadAssetBundleCallBack(string url, Action<AssetBundle> callback = null)
-    {
-        var req = UnityWebRequestAssetBundle.GetAssetBundle(url);
-
-        yield return req.SendWebRequest();
-
-        AssetBundle ab = DownloadHandlerAssetBundle.GetContent(req);
-
-        if (ab == null) DLog.Log("AssetBundle下载失败：" + url);
-
-        callback?.Invoke(ab);
-
-        req.Dispose();
     }
 
 

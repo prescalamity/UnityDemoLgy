@@ -6,34 +6,66 @@ using UnityEngine;
 public delegate void dele_rVoid_pVoid();
 public delegate void dele_rVoid_pString(string data);
 
+
+public enum PlatformType { 
+    WindowsEditor,
+    AndroidEditor,
+    IosEditor,
+    WebglEditor,
+    WindowsRuntime,
+    AndroidRuntime,
+    IosRuntime,
+    WebglRuntime,
+}
+
 public class PlatformAdapter
 {
 
     static Dictionary<string, dele_rVoid_pString> dic_rVoid_pString = new Dictionary<string, dele_rVoid_pString>();
     static Dictionary<string, dele_rVoid_pVoid> dic_rVoid_pVoid = new Dictionary<string, dele_rVoid_pVoid>();
 
-    public static string mPlatform = "";
+    public static PlatformType mPlatform = PlatformType.WindowsEditor;
 
     public static void init()
     {
 
+#if UNITY_STANDALONE_WIN
+        
+
 #if UNITY_EDITOR
-        mPlatform = "Editor";
+        mPlatform = PlatformType.WindowsEditor;
+#else
+        mPlatform = PlatformType.WindowsRuntime;
+#endif
 #endif
 
-#if UNITY_ANDROID && ! UNITY_EDITOR
+
+#if UNITY_ANDROID
 
         initAndroid();
 
-        mPlatform = "Android";
+#if UNITY_EDITOR
+        mPlatform = PlatformType.AndroidEditor;
+#else
+        mPlatform = PlatformType.AndroidRuntime;
 #endif
 
-#if UNITY_WEBGL && ! UNITY_EDITOR
+#endif
+
+
+#if UNITY_WEBGL
 
         initWebGL();
 
-        mPlatform = "WebGL";
+#if UNITY_EDITOR
+        mPlatform = PlatformType.WebglEditor;
+#else
+        mPlatform = PlatformType.WebglRuntime;
 #endif
+
+#endif
+
+
 
         //动态注册函数
         RegisyerAndroidFunction("funcName", testFuncNameAndroid);
@@ -47,7 +79,7 @@ public class PlatformAdapter
     }
 
 
-    #region 注册平台函数
+#region 注册平台函数
 
     /// <summary>
     /// 将函数注册到 WebGL 平台，需注册的函数 传入 和 返回 都为空
@@ -81,7 +113,7 @@ public class PlatformAdapter
     {
         dic_rVoid_pString.Add(funcName + "Windows", _dele_rVoid_pString);
     }
-    #endregion
+#endregion
 
 
     public static string CallPlatformFunc(string key, string data, string lua_callback)

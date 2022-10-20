@@ -32,7 +32,7 @@ public class DownloadResources
 
 
 
-    public static IEnumerator LoadAssetBundleCallBack(string url, Action<AssetBundle> callback = null)
+    public static IEnumerator DownloadAssetBundleCallBack(string url, Action<AssetBundle> callback = null)
     {
         DLog.Log("开始下载ab文件：" + url);
 

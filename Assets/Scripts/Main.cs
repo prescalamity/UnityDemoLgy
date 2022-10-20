@@ -11,6 +11,19 @@ using UnityEngine.Video;
 
 public class Main : MonoBehaviour
 {
+    private static Main mainInstance = null;
+    public static Main Instance
+    {
+        get {
+            if (mainInstance == null) {
+                mainInstance = GameObject.Find("GameMain").GetComponent<Main>();
+            }
+            return mainInstance; 
+        }
+        private set { }
+    }
+
+    private static GameObject goRoot = null;
 
     private static TMP_Text m_outputTextTMP;
     public static string OutputTextTMP_text {
@@ -36,7 +49,7 @@ public class Main : MonoBehaviour
 
     private bool luaLoaded = false;
 
-    private GameObject goRoot = null;
+
 
     private void Awake()
     {
@@ -227,15 +240,16 @@ public class Main : MonoBehaviour
 
         foreach (string str in abStr)
         {
-            this.StartCoroutine(
-                DownloadResources.LoadAssetBundleCallBack(_urlprex + str,
-                    absData =>
-                    {
-                        GameObject _go = absData.LoadAsset<GameObject>(str.TrimStart('/').Replace(".unity3d", ""));
-                        Instantiate(_go, goRoot.transform);
-                    }
-                )
-            );
+            //this.StartCoroutine(
+            //    DownloadResources.DownloadAssetBundleCallBack(_urlprex + str,
+            //        absData =>
+            //        {
+            //            GameObject _go = absData.LoadAsset<GameObject>(str.TrimStart('/').Replace(".unity3d", ""));
+            //            Instantiate(_go, goRoot.transform);
+            //        }
+            //    )
+            //);
+            LoadResources.LoadGO(_urlprex + str, data => { /*Debug.Log("ok");*/ },goRoot.transform);
         }
 
 
@@ -274,5 +288,10 @@ public class Main : MonoBehaviour
     {
         DLog.Log("Main.CallScriptFunc.cbData:"+ cbData);
         LuaScriptMgr.GetInstance().CallLuaFunction("PlatformInterface.CallScriptFunc", cbData);
+    }
+
+    public void MainStartCoroutine(IEnumerator func)
+    {
+        this.StartCoroutine(func);
     }
 }

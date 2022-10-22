@@ -24,6 +24,7 @@ public class Main : MonoBehaviour
     }
 
     private static GameObject goRoot = null;
+    private static GameObject uiRootCanvas = null;
 
     private static TMP_Text m_outputTextTMP;
     public static string OutputTextTMP_text {
@@ -49,14 +50,17 @@ public class Main : MonoBehaviour
 
     private bool luaLoaded = false;
 
-
+    private bool hasStartAfterInit = false;
+    private bool canStartAfterInit = false;
 
     private void Awake()
     {
         PlatformAdapter.init();
     }
 
-
+    /// <summary>
+    /// 初始化 必须的同步资源，以及 异步加载 一些初始化必须的资源
+    /// </summary>
     void Start()
     {
         DLog.Log("1. Hello, world. in UnityDemoL.Main.Start by LGY. 2022-10-11 23:25.");
@@ -64,9 +68,22 @@ public class Main : MonoBehaviour
         test.onlyTestFunc();
 
         goRoot = GameObject.Find("GOsRoot");
+        uiRootCanvas = GameObject.Find("Canvas");
 
+        loadAssetBundle();
+
+
+    }
+
+    /// <summary>
+    /// 一些 异步的初始化必须资源 之后的初始化
+    /// </summary>
+    private void StartAfterInit()
+    {
         m_outputTextTMP = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
         m_inputFieldTMP = GameObject.Find("Canvas/input_field").GetComponent<TMP_InputField>();
+        m_inputFieldTMP.onEndEdit.AddListener( data => DLog.LogToUI("your input: " + data) );
+        //m_inputFieldTMP.interactable = true;
 
         m_Dropdown = GameObject.Find("Canvas/dropdown").GetComponent<TMP_Dropdown>();
         m_Dropdown.options.Clear();
@@ -76,13 +93,14 @@ public class Main : MonoBehaviour
 
                 DLog.LogToUI("m_Dropdown selected: " + m_Dropdown.options[data].text);
 
-                if (luaLoaded) {
-                    LuaScriptMgr.GetInstance().CallLuaFunction("testFlatformFuncCallback", m_Dropdown.options[data].text); 
+                if (luaLoaded)
+                {
+                    LuaScriptMgr.GetInstance().CallLuaFunction("testFlatformFuncCallback", m_Dropdown.options[data].text);
                 }
 
             }
-        ); 
-    
+        );
+
 
         mVideoPlayer = GameObject.Find("Canvas/video_raw_image").GetComponent<VideoPlayer>();
         mVideoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
@@ -105,8 +123,8 @@ public class Main : MonoBehaviour
 
         m_ClearButtonTMP = GameObject.Find("Canvas/clear_output_area").GetComponent<Button>();
         m_ClearButtonTMP.onClick.AddListener(
-            () => { 
-                DLog.gameUISB.Clear(); 
+            () => {
+                DLog.gameUISB.Clear();
                 m_outputTextTMP.text = DLog.gameUISB.ToString();
             }
         );
@@ -117,9 +135,6 @@ public class Main : MonoBehaviour
             mVideoPlayer.Stop();
             Application.Quit();
         });
-
-
-        loadAssetBundle();
 
 
         //http://192.168.11.46/t14/Resource/StreamingAssets/assetbundle/webgl/videos/_res_md5_156B62FA002DA941D0318335B1287B5C_chapter_video.mp4
@@ -145,9 +160,20 @@ public class Main : MonoBehaviour
 
     }
 
-
     void Update()
     {
+        if (!hasStartAfterInit)
+        {
+            if (canStartAfterInit) {
+                StartAfterInit();
+                hasStartAfterInit = true;
+            }
+            else
+            {
+                return;
+            }
+        }
+
         //if (!mLocalVideoPlayer.isPlaying)
         //{
         //    mLocalVideoPlayer.Play();
@@ -216,8 +242,12 @@ public class Main : MonoBehaviour
     private void loadAssetBundle()
     {
 
+        string[] abStr = new string[] { "/capsule.unity3d", "/floor_cube.unity3d", "/sphere.unity3d"  };
 
-        string[] abStr = new string[] { "/capsule.unity3d", "/floor_cube.unity3d", "/sphere.unity3d" };
+        string[] uiAbStr = new string[] { "/video_raw_image.unity3d", "/input_field.unity3d", "/dropdown.unity3d" };
+
+        int absCount = abStr.Length + uiAbStr.Length;
+        int absCounter = 0;
 
         string _urlprex = Util.m_streaming_assets_path + "/assetbundles";
 
@@ -240,10 +270,26 @@ public class Main : MonoBehaviour
 
         foreach (string str in abStr)
         {
-            LoadResources.LoadGOAsyncUrl(_urlprex + str, data => { /*Debug.Log("ok");*/ },goRoot.transform);
+            LoadResources.LoadGO(_urlprex + str, 
+                data => { 
+                    absCounter++;
+                    if (absCounter >= absCount) canStartAfterInit = true;
+                    DLog.Log("ok，name: {0}，absCounter：{1}", data.name, absCounter.ToString()); 
+                }, 
+                goRoot.transform);
         }
 
-
+        foreach (string str in uiAbStr)
+        {
+            LoadResources.LoadGO(_urlprex + str, 
+                data => {
+                    data.name = str.TrimStart('/').Replace(".unity3d", "");   //这里 str 在foreach循环中被认为是闭包匿名类中私有的
+                    absCounter++;
+                    if (absCounter >= absCount) canStartAfterInit = true;
+                    DLog.Log("ok，name: {0}，absCounter：{1}", data.name, absCounter.ToString());  //absCounter 被认为是闭包匿名类中引用的（即公有的）
+                },
+                uiRootCanvas.transform);
+        }
     }
 
 

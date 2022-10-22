@@ -270,7 +270,7 @@ public class Main : MonoBehaviour
 
         foreach (string str in abStr)
         {
-            LoadResources.LoadGO(_urlprex + str, 
+            LoadResources.LoadGOAsyncUrl(_urlprex + str, 
                 data => { 
                     absCounter++;
                     if (absCounter >= absCount) canStartAfterInit = true;
@@ -281,7 +281,7 @@ public class Main : MonoBehaviour
 
         foreach (string str in uiAbStr)
         {
-            LoadResources.LoadGO(_urlprex + str, 
+            LoadResources.LoadGOAsyncUrl(_urlprex + str, 
                 data => {
                     data.name = str.TrimStart('/').Replace(".unity3d", "");   //这里 str 在foreach循环中被认为是闭包匿名类中私有的
                     absCounter++;

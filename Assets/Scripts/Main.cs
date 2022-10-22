@@ -240,16 +240,7 @@ public class Main : MonoBehaviour
 
         foreach (string str in abStr)
         {
-            //this.StartCoroutine(
-            //    DownloadResources.DownloadAssetBundleCallBack(_urlprex + str,
-            //        absData =>
-            //        {
-            //            GameObject _go = absData.LoadAsset<GameObject>(str.TrimStart('/').Replace(".unity3d", ""));
-            //            Instantiate(_go, goRoot.transform);
-            //        }
-            //    )
-            //);
-            LoadResources.LoadGO(_urlprex + str, data => { /*Debug.Log("ok");*/ },goRoot.transform);
+            LoadResources.LoadGOAsyncUrl(_urlprex + str, data => { /*Debug.Log("ok");*/ },goRoot.transform);
         }
 
 

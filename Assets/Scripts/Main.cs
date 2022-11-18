@@ -70,13 +70,14 @@ public class Main : MonoBehaviour
         goRoot = GameObject.Find("GOsRoot");
         uiRootCanvas = GameObject.Find("Canvas");
 
+        //加载异步的初始化资源
         loadAssetBundle();
 
 
     }
 
     /// <summary>
-    /// 一些 异步的初始化必须资源 之后的初始化
+    /// 异步初始化必须资源 之后的一些初始化
     /// </summary>
     private void StartAfterInit()
     {
@@ -190,11 +191,12 @@ public class Main : MonoBehaviour
         //DLog.LogToUI(m_Index + ". Main.TestButtonEvent, input:" + m_inputFieldTMP.text);
         //DLog.LogToUI(m_Index + ". m_Dropdown.text :" + m_Dropdown.options[m_Dropdown.value].text);
 
-        if (luaLoaded) { 
+        if (luaLoaded)
+        {
 
-            //string res = LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("start");
+            string res = LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("start");
 
-            //DLog.LogToUI(m_Index + ". " + res);
+            DLog.LogToUI(m_Index + ". " + res);
 
             //luaLoaded = false;
         }
@@ -204,6 +206,8 @@ public class Main : MonoBehaviour
             mVideoPlayer.Play();
             DLog.Log("it start to play the video.");
         }
+
+        DLog.LogToUI("the mobile phone electricity 'Power.electricity' is " + Power.electricity);
 
     }
 

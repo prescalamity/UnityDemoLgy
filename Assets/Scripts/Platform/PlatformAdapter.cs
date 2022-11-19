@@ -37,12 +37,13 @@ public class PlatformAdapter
 #else
         mPlatform = PlatformType.WindowsRuntime;
 #endif
+
+
 #endif
 
 
 #if UNITY_ANDROID
 
-        initAndroid();
 
 #if UNITY_EDITOR
         mPlatform = PlatformType.AndroidEditor;
@@ -50,12 +51,14 @@ public class PlatformAdapter
         mPlatform = PlatformType.AndroidRuntime;
 #endif
 
+
+        initAndroid();
 #endif
+
 
 
 #if UNITY_WEBGL
 
-        initWebGL();
 
 #if UNITY_EDITOR
         mPlatform = PlatformType.WebglEditor;
@@ -63,87 +66,58 @@ public class PlatformAdapter
         mPlatform = PlatformType.WebglRuntime;
 #endif
 
+
+        initWebGL();
 #endif
 
 
+    }
 
+
+    private static void initAndroid()
+    {
+
+        AndroidHelper.ShowAndroidStatusBar();
+        AndroidHelper.SetAndroidStatusBarColor();
+
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        Screen.fullScreen = false;
+        Screen.fullScreenMode = FullScreenMode.Windowed;
+    }
+
+    private static void initWebGL()
+    {
+#if UNITY_WEBGL
         //动态注册函数
-        RegisyerAndroidFunction("funcName", testFuncNameAndroid);
-        RegisyerWebGLFunction("funcName", testFuncNameWebGL);
-
-#if UNITY_WEBG
-        RegisyerWebGLFunction("Hello", JsHelper.Hello);
-        RegisyerWebGLFunction("PlayVideo", JsHelper.PlayVideo);
+        RegisyerFunction("Hello", JsHelper.Hello);
+        RegisyerFunction("PlayVideo", JsHelper.PlayVideo);
 #endif
 
     }
 
 
-#region 注册平台函数
+    #region 注册 和 调用 平台函数，"CallPlatformFunc"已实现类似功能，这里更多的是处理一些特使案例 提供更多选择
 
     /// <summary>
-    /// 将函数注册到 WebGL 平台，需注册的函数 传入 和 返回 都为空
+    /// 将函数注册到 平台，需注册的函数 传入 和 返回 都为空
     /// </summary>
     /// <param name="funcName"></param>
     /// <param name="_dic_RVoid_PVoid"></param>
-    private static void RegisyerWebGLFunction(string funcName, dele_rVoid_pVoid _dic_RVoid_PVoid) { 
-        dic_rVoid_pVoid.Add(funcName + "WebGL", _dic_RVoid_PVoid); 
+
+    private static void RegisyerFunction(string funcName, dele_rVoid_pVoid _dic_RVoid_PVoid) { 
+        dic_rVoid_pVoid.Add(funcName + mPlatform, _dic_RVoid_PVoid); 
     }
+
     /// <summary>
-    /// 将函数注册到 WebGL 平台，需注册的函数 传入字符串 和 返回空
+    /// 将函数注册到 平台，需注册的函数 传入字符串 和 返回空
     /// </summary>
     /// <param name="funcName"></param>
     /// <param name="_dele_rVoid_pString"></param>
-    private static void RegisyerWebGLFunction(string funcName, dele_rVoid_pString _dele_rVoid_pString) { 
-        dic_rVoid_pString.Add(funcName + "WebGL", _dele_rVoid_pString); 
-    }
-
-    private static void RegisyerAndroidFunction(string funcName, dele_rVoid_pVoid _dic_RVoid_PVoid) { 
-        dic_rVoid_pVoid.Add(funcName + "Android", _dic_RVoid_PVoid); 
-    }
-    private static void RegisyerAndroidFunction(string funcName, dele_rVoid_pString _dele_rVoid_pString) { 
-        dic_rVoid_pString.Add(funcName + "Android", _dele_rVoid_pString); 
-    }
-
-    private static void RegisyerWindowsFunction(string funcName, dele_rVoid_pVoid _dic_RVoid_PVoid)
-    {
-        dic_rVoid_pVoid.Add(funcName + "Windows", _dic_RVoid_PVoid);
-    }
-    private static void RegisyerWindowsFunction(string funcName, dele_rVoid_pString _dele_rVoid_pString)
-    {
-        dic_rVoid_pString.Add(funcName + "Windows", _dele_rVoid_pString);
-    }
-#endregion
-
-
-    public static string CallPlatformFunc(string key, string data, string lua_callback)
-    {
-        if (!string.IsNullOrEmpty(key))
-        {
-            DLog.LogToUI("PlatformAdapter.CallPlatformFunc key={0}, data={1}, lua_callback={2}", key, data, lua_callback);
-        }
-
-#if UNITY_ANDROID && !UNITY_EDITOR
-            AndroidJavaClass androidclass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-            AndroidJavaObject jo = androidclass.GetStatic<AndroidJavaObject>("currentActivity");
-            string ret = jo.Call<string>("CallPlatformFunc", key, data, lua_callback);
-            androidclass.Dispose();
-            jo.Dispose();
-            return ret;
-            
-#elif UNITY_IOS && !UNITY_EDITOR
-            return QdHSSSFromLJB(key, data, lua_callback);
-#endif
-
-        return "";
+    private static void RegisyerFunction(string funcName, dele_rVoid_pString _dele_rVoid_pString) { 
+        dic_rVoid_pString.Add(funcName + mPlatform, _dele_rVoid_pString); 
     }
 
 
-
-    /// <summary>
-    /// 通过名字调用平台函数
-    /// </summary>
-    /// <param name="funcName"></param>
     public static void CallPlatformFuncByName(string funcName)
     {
         //DLog.Log("PlatformAdapter.CallFuncByName1: the funcName is {0}.", funcName);
@@ -161,36 +135,48 @@ public class PlatformAdapter
         funcName = funcName + mPlatform;
         dele_rVoid_pString rVoid_PString = null;
 
-        if(dic_rVoid_pString.TryGetValue(funcName, out rVoid_PString)) 
+        if (dic_rVoid_pString.TryGetValue(funcName, out rVoid_PString))
             rVoid_PString?.Invoke(data);
-        else 
+        else
             DLog.Log("PlatformAdapter.CallFuncByName: the funcName is null, {0}.", funcName);
     }
 
+    #endregion
 
 
-    private static void initAndroid()
+
+
+
+    /// <summary>
+    /// 游戏脚本函数 调用 oc、java、js等平台函数
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="data"></param>
+    /// <param name="lua_callback"></param>
+    /// <returns></returns>
+    public static string CallPlatformFunc(string key, string data, string lua_callback)
     {
-        AndroidHelper.ShowAndroidStatusBar();
-        AndroidHelper.SetAndroidStatusBarColor();
+        if (!string.IsNullOrEmpty(key))
+        {
+            DLog.Log("PlatformAdapter.CallPlatformFunc key={0}, data={1}, lua_callback={2}", key, data, lua_callback);
+        }
 
-        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+#if UNITY_ANDROID && !UNITY_EDITOR
+        AndroidJavaClass androidclass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject jo = androidclass.GetStatic<AndroidJavaObject>("currentActivity");
+        string ret = jo.Call<string>("CallPlatformFunc", key, data, lua_callback);
+        androidclass.Dispose();
+        jo.Dispose();
+        return ret;
+            
+#elif UNITY_IOS && !UNITY_EDITOR
+        return QdHSSSFromLJB(key, data, lua_callback);
+#endif
+
+        return "";
     }
 
-    private static void initWebGL()
-    {
 
-    }
-
-
-    private static void testFuncNameAndroid(string data){
-        DLog.Log("this is funcNameAndroid: " + data);
-     }
-
-
-    private static void testFuncNameWebGL(string data)
-    {
-    }
 
 
 

@@ -30,7 +30,7 @@ public class Main : MonoBehaviour
     public static string OutputTextTMP_text {
         private get { return m_outputTextTMP.text; }
         set{
-            m_outputTextTMP.text = value;
+            if (m_outputTextTMP != null) { m_outputTextTMP.text = value; }
         }
     }
 
@@ -158,6 +158,9 @@ public class Main : MonoBehaviour
         //LuaLoader.GetInstance().Init();
 
         //------------------------------Lua End---------------------------------------------------------------------------------
+
+
+        PlatformAdapter.CallPlatformFunc("CloseSplashDialog", "","");
 
     }
 

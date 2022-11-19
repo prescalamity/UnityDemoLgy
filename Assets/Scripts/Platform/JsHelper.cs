@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class JsHelper
 {
-
+//这里必须加平台宏，否则出包报错
 #if UNITY_WEBGL
     [DllImport("__Internal")]
     public static extern void Hello(string msg);

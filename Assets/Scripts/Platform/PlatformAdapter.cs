@@ -83,6 +83,8 @@ public class PlatformAdapter
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Screen.fullScreen = false;
         Screen.fullScreenMode = FullScreenMode.Windowed;
+
+        CallPlatformFunc("CloseSplashDialog", "", "");
     }
 
     private static void initWebGL()

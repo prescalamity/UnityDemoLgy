@@ -25,17 +25,12 @@ public class MenuEditerSample
     /// <summary>
     /// 测试按钮
     /// </summary>
-    [MenuItem("CustomEditor/测试按钮", priority = (int)EditerMenuPriorty.TestButton)]
+    [MenuItem("CustomEditor/不运行游戏的测试按钮", priority = (int)EditerMenuPriorty.TestButton)]
     public static void TestButton()
     {
         Debug.Log("MenuEditerSample.TestButton");
 
-        string testPath1 = "D:/Test1";
-        string testPath2 = "D:/Test2";
-
-        //FileHelper.MoveDirectoryAndOverwrite(testPath1, testPath2);
-        //FileHelper.MoveFileAndOverwrite(testPath1, testPath2);
-        //Directory.Delete(testPath1, true);
+        test.onlyTestFunc();
         
     }
 

@@ -70,6 +70,9 @@ public class Main : MonoBehaviour
         goRoot = GameObject.Find("GOsRoot");
         uiRootCanvas = GameObject.Find("Canvas");
 
+        AndroidDevicePower androidDevicePower = goRoot.AddComponent<AndroidDevicePower>();
+
+
         //加载异步的初始化资源
         loadAssetBundle();
 
@@ -82,9 +85,10 @@ public class Main : MonoBehaviour
     private void StartAfterInit()
     {
         m_outputTextTMP = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
-        m_inputFieldTMP = GameObject.Find("Canvas/input_field").GetComponent<TMP_InputField>();
-        m_inputFieldTMP.onEndEdit.AddListener( data => DLog.LogToUI("your input: " + data) );
+        //m_inputFieldTMP = GameObject.Find("Canvas/input_field").GetComponent<TMP_InputField>();
+        //m_inputFieldTMP.onEndEdit.AddListener( data => DLog.LogToUI("your input: " + data) );
         //m_inputFieldTMP.interactable = true;
+
 
         m_Dropdown = GameObject.Find("Canvas/dropdown").GetComponent<TMP_Dropdown>();
         m_Dropdown.options.Clear();
@@ -160,8 +164,6 @@ public class Main : MonoBehaviour
         //------------------------------Lua End---------------------------------------------------------------------------------
 
 
-        PlatformAdapter.CallPlatformFunc("CloseSplashDialog", "","");
-
     }
 
     void Update()
@@ -210,7 +212,7 @@ public class Main : MonoBehaviour
             DLog.Log("it start to play the video.");
         }
 
-        DLog.LogToUI("the mobile phone electricity 'Power.electricity' is " + Power.electricity);
+        //DLog.LogToUI("the mobile phone electricity 'Power.electricity' is " + Power.electricity);
 
     }
 
@@ -251,7 +253,7 @@ public class Main : MonoBehaviour
 
         string[] abStr = new string[] { "/capsule.unity3d", "/floor_cube.unity3d", "/sphere.unity3d"  };
 
-        string[] uiAbStr = new string[] { "/video_raw_image.unity3d", "/input_field.unity3d", "/dropdown.unity3d" };
+        string[] uiAbStr = new string[] { "/video_raw_image.unity3d", "/dropdown.unity3d" };   // "/input_field.unity3d",
 
         int absCount = abStr.Length + uiAbStr.Length;
         int absCounter = 0;
@@ -281,6 +283,7 @@ public class Main : MonoBehaviour
                 data => { 
                     absCounter++;
                     if (absCounter >= absCount) canStartAfterInit = true;
+                    UiManager.updateUiSort();
                     DLog.Log("ok，name: {0}，absCounter：{1}", data.name, absCounter.ToString()); 
                 }, 
                 goRoot.transform);
@@ -293,6 +296,7 @@ public class Main : MonoBehaviour
                     data.name = str.TrimStart('/').Replace(".unity3d", "");   //这里 str 在foreach循环中被认为是闭包匿名类中私有的
                     absCounter++;
                     if (absCounter >= absCount) canStartAfterInit = true;
+                    UiManager.updateUiSort();
                     DLog.Log("ok，name: {0}，absCounter：{1}", data.name, absCounter.ToString());  //absCounter 被认为是闭包匿名类中引用的（即公有的）
                 },
                 uiRootCanvas.transform);
@@ -313,7 +317,6 @@ public class Main : MonoBehaviour
 
         mVideoPlayer.prepareCompleted += (v) =>
         {
-            DLog.Log("视频准备完毕[" + videoPath + "]");
 
             DLog.LogToUI("视频准备完毕：" + mVideoPlayer.url);
 

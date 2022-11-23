@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AndroidHelper
@@ -97,6 +98,9 @@ public class Power
 {
     //https://www.xuanyusong.com/archives/4753
 
+
+    static public double deltaTime = -1;
+
     /// <summary>
     /// 获取电流（微安）
     /// </summary>
@@ -109,7 +113,11 @@ public class Power
             //获取电流（微安），避免频繁获取，取一次大概2毫秒
             //float electricity = (float)manager.Call<int>("getIntProperty", PARAM_BATTERY);
 
+            DateTime startTime = DateTime.Now;
+
             float electricity = float.Parse(PlatformAdapter.CallPlatformFunc("GetBatteryElectricity", "", ""));
+
+            deltaTime = (DateTime.Now - startTime).TotalMilliseconds; 
 
             //小于1W就认为它的单位是毫安，否则认为是微安
             return ToMA(electricity);
@@ -120,6 +128,20 @@ public class Power
         }
     }
 
+    /// <summary>
+    /// 电池剩余电量
+    /// </summary>
+    static public int batteryRetain
+    {
+        get
+        {
+#if UNITY_ANDROID
+            return int.Parse(PlatformAdapter.CallPlatformFunc("GetBatteryLevel", "", ""));
+#else
+            return -1f;
+#endif
+        }
+    }
 
     /// <summary>
     /// 获取电压 伏

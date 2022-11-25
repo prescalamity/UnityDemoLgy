@@ -53,6 +53,8 @@ public class Main : MonoBehaviour
     private bool hasStartAfterInit = false;
     private bool canStartAfterInit = false;
 
+    private bool hasDownloadAbs = false;
+
     private void Awake()
     {
         PlatformAdapter.init();
@@ -70,11 +72,32 @@ public class Main : MonoBehaviour
         goRoot = GameObject.Find("GOsRoot");
         uiRootCanvas = GameObject.Find("Canvas");
 
+
+        m_outputTextTMP = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
+
+        mButton = GameObject.Find("Canvas/test_button").GetComponent<Button>();
+        mButton.onClick.AddListener(TestButtonEvent);
+
+        m_ClearButtonTMP = GameObject.Find("Canvas/clear_output_area").GetComponent<Button>();
+        m_ClearButtonTMP.onClick.AddListener(
+            () => {
+                DLog.gameUISB.Clear();
+                m_outputTextTMP.text = DLog.gameUISB.ToString();
+            }
+        );
+
+        GameObject.Find("Canvas/quit").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            DLog.Log("Game quits.");
+            mVideoPlayer.Stop();
+            Application.Quit();
+        });
+
         AndroidDevicePower androidDevicePower = goRoot.AddComponent<AndroidDevicePower>();
 
 
         //加载异步的初始化资源
-        loadAssetBundle();
+        //loadAssetBundle();
 
 
     }
@@ -84,7 +107,7 @@ public class Main : MonoBehaviour
     /// </summary>
     private void StartAfterInit()
     {
-        m_outputTextTMP = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
+
         //m_inputFieldTMP = GameObject.Find("Canvas/input_field").GetComponent<TMP_InputField>();
         //m_inputFieldTMP.onEndEdit.AddListener( data => DLog.LogToUI("your input: " + data) );
         //m_inputFieldTMP.interactable = true;
@@ -123,23 +146,6 @@ public class Main : MonoBehaviour
         //    DLog.Log("the source.Play again by loopPointReached.");
         //};
 
-        mButton = GameObject.Find("Canvas/test_button").GetComponent<Button>();
-        mButton.onClick.AddListener(TestButtonEvent);
-
-        m_ClearButtonTMP = GameObject.Find("Canvas/clear_output_area").GetComponent<Button>();
-        m_ClearButtonTMP.onClick.AddListener(
-            () => {
-                DLog.gameUISB.Clear();
-                m_outputTextTMP.text = DLog.gameUISB.ToString();
-            }
-        );
-
-        GameObject.Find("Canvas/quit").GetComponent<Button>().onClick.AddListener(() =>
-        {
-            DLog.Log("Game quits.");
-            mVideoPlayer.Stop();
-            Application.Quit();
-        });
 
 
         //http://192.168.11.46/t14/Resource/StreamingAssets/assetbundle/webgl/videos/_res_md5_156B62FA002DA941D0318335B1287B5C_chapter_video.mp4
@@ -149,8 +155,6 @@ public class Main : MonoBehaviour
         StartCoroutine(ExportVideo(
             Util.m_streaming_assets_path + "/video/big_buck_bunny.mp4"
             ));
-
-
 
 
         //------------------------------Lua Start---------------------------------------------------------------------------------
@@ -212,7 +216,11 @@ public class Main : MonoBehaviour
             DLog.Log("it start to play the video.");
         }
 
-        //DLog.LogToUI("the mobile phone electricity 'Power.electricity' is " + Power.electricity);
+        if (!hasDownloadAbs)
+        {
+            hasDownloadAbs = true;
+            loadAssetBundle();
+        }
 
     }
 

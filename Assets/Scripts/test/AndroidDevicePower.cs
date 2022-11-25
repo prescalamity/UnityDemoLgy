@@ -60,7 +60,7 @@ public class AndroidDevicePower : MonoBehaviour
             e = Power.electricity;
             battery_electricity_value.text = e.ToString();
             battery_get_api_time_value.text = Power.deltaTime.ToString();
-            battery_retain_time_value.text = (Power.capacity * Power.batteryRetain / 100 / e).ToString();
+            battery_retain_time_value.text = (Power.capacity * Power.batteryRetain / 100 / e).ToString("f2");
         }
     }
 

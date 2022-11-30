@@ -4,15 +4,116 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// ¼ÓÔØ²¢ÔÚ³¡¾°ÖĞ´´½¨Ä£°åÊµÀı£¬ÒÔ¼°¹ÜÀí
+/// åŠ è½½å¹¶åœ¨åœºæ™¯ä¸­åˆ›å»ºæ¨¡æ¿å®ä¾‹ï¼Œä»¥åŠç®¡ç†
 /// </summary>
 public class LoadResources
 {
 
     private static GameObject TemplateGO = null;
 
+    private static bool luaLoaded = false;
+    public static bool LuaLoaded{
+        get => luaLoaded;
+        //private set { }
+    }
+
     /// <summary>
-    /// ´ÓÍøÂç¼ÓÔØ×ÊÔ´
+    /// åŠ è½½luaæºä»£ç èµ„æº
+    /// </summary>
+    public static void loadLuaSources()
+    {
+
+        string[] luaStr = new string[] { "/lua_source/main.lua", "/lua_source/platforminterface.lua" };
+
+        int copltCount = 0;
+
+        foreach (string str in luaStr)
+        {
+            Main.Instance.StartCoroutine(
+                DownloadResources.LoadBytesResourceCallBack(Util.m_streaming_assets_path + str,
+                    data =>
+                    {
+                        LuaScriptMgr.GetInstance().lua.DoBytes(data);
+
+                        copltCount++;
+
+                        if (copltCount == luaStr.Length)
+                        {
+                            DLog.Log(" All lua_source have been loaded to LuaState.");
+                            luaLoaded = true;
+                        }
+
+                    }
+                )
+            );
+        }
+
+
+
+    }
+
+    /// <summary>
+    /// åŠ è½½abèµ„æº
+    /// </summary>
+    public static void loadAssetBundle()
+    {
+
+        string[] abStr = new string[] { "/capsule.unity3d", "/floor_cube.unity3d", "/sphere.unity3d" };
+
+        string[] uiAbStr = new string[] { "/dropdown.unity3d" };   // "/input_field.unity3d", "/video_raw_image.unity3d", "power.unity",
+
+        int absCount = abStr.Length + uiAbStr.Length;
+        int absCounter = 0;
+
+        string _urlprex = Util.m_streaming_assets_path + "/assetbundles";
+
+        if (PlatformAdapter.mPlatform == PlatformType.AndroidRuntime)
+        {
+            _urlprex += "/android";
+        }
+        else if (PlatformAdapter.mPlatform == PlatformType.WebglRuntime)
+        {
+            _urlprex += "/webgl";
+        }
+        else if (PlatformAdapter.mPlatform == PlatformType.IosRuntime)
+        {
+            _urlprex += "/ios";
+        }
+        else
+        {
+            _urlprex += "/windows";
+        }
+
+        foreach (string str in abStr)
+        {
+            LoadResources.LoadGOAsyncUrl(_urlprex + str,
+                data => {
+                    absCounter++;
+                    if (absCounter >= absCount) Main.canStartAfterInit = true;
+                    if (data.name.Contains("sphere")) data.gameObject.AddComponent<TestMove>();
+                    UiManager.updateUiSort();
+                    DLog.Log("okï¼Œname: {0}ï¼ŒabsCounterï¼š{1}", data.name, absCounter.ToString());
+                },
+                Main.Instance.GoRoot.transform);
+        }
+
+        foreach (string str in uiAbStr)
+        {
+            LoadResources.LoadGOAsyncUrl(_urlprex + str,
+                data => {
+                    data.name = str.TrimStart('/').Replace(".unity3d", "");   //è¿™é‡Œ str åœ¨foreachå¾ªç¯ä¸­è¢«è®¤ä¸ºæ˜¯é—­åŒ…åŒ¿åç±»ä¸­ç§æœ‰çš„
+                    absCounter++;
+                    if (absCounter >= absCount) Main.canStartAfterInit = true;
+                    UiManager.updateUiSort();
+                    DLog.Log("okï¼Œname: {0}ï¼ŒabsCounterï¼š{1}", data.name, absCounter.ToString());  //absCounter è¢«è®¤ä¸ºæ˜¯é—­åŒ…åŒ¿åç±»ä¸­å¼•ç”¨çš„ï¼ˆå³å…¬æœ‰çš„ï¼‰
+                },
+                Main.Instance.UiRootCanvas.transform);
+        }
+    }
+
+
+    /// <summary>
+    /// ä»ç½‘ç»œåŠ è½½èµ„æº
     /// </summary>
     /// <param name="abUrl"></param>
     /// <param name="compltLoad"></param>
@@ -28,10 +129,10 @@ public class LoadResources
                     {
                         GameObject _go = absData.LoadAsset<GameObject>(goName);
 
-                        //TemplateGO = Object.Instantiate(_go, parentTransform);  //½«ÊµÀı ´æ·ÅÓÚÄ£°å£¬·½±ãÒÔºó¸´ÖÆ
+                        //TemplateGO = Object.Instantiate(_go, parentTransform);  //å°†å®ä¾‹ å­˜æ”¾äºæ¨¡æ¿ï¼Œæ–¹ä¾¿ä»¥åå¤åˆ¶
                         GameObject gameObject = Object.Instantiate(_go, parentTransform);
 
-                        absData.UnloadAsync(false);  //½ö Ğ¶ÔØ ÔËĞĞÄÚ´æÖĞ ¾µÏñÓÚÓ²ÅÌab×ÊÔ´ µÄ¿Õ¼ä
+                        absData.UnloadAsync(false);  //ä»… å¸è½½ è¿è¡Œå†…å­˜ä¸­ é•œåƒäºç¡¬ç›˜abèµ„æº çš„ç©ºé—´
                         compltLoad?.Invoke(gameObject);
                     }
                 )
@@ -39,7 +140,7 @@ public class LoadResources
         }
     }
 
-    //Í¬²½¼ÓÔØ½Ó¿Ú£¬±¾µØ¼ÓÔØ
+    //åŒæ­¥åŠ è½½æ¥å£ï¼Œæœ¬åœ°åŠ è½½
     public static GameObject LoadGoSync(string abFilePath, Transform parentTransform)
     {
         string goName = abFilePath.Split('/', System.StringSplitOptions.RemoveEmptyEntries)[^1].Replace(".unity3d", "");
@@ -50,17 +151,17 @@ public class LoadResources
 
             GameObject _go = absData.LoadAsset<GameObject>(goName);
 
-            //TemplateGO = Object.Instantiate(_go, parentTransform);  //½«ÊµÀı ´æ·ÅÓÚÄ£°å£¬·½±ãÒÔºó¸´ÖÆ
+            //TemplateGO = Object.Instantiate(_go, parentTransform);  //å°†å®ä¾‹ å­˜æ”¾äºæ¨¡æ¿ï¼Œæ–¹ä¾¿ä»¥åå¤åˆ¶
             GameObject gameObject = Object.Instantiate(_go, parentTransform);
 
-            absData.UnloadAsync(false);  //½ö Ğ¶ÔØ ÔËĞĞÄÚ´æÖĞ ¾µÏñÓÚÓ²ÅÌab×ÊÔ´ µÄ¿Õ¼ä
+            absData.UnloadAsync(false);  //ä»… å¸è½½ è¿è¡Œå†…å­˜ä¸­ é•œåƒäºç¡¬ç›˜abèµ„æº çš„ç©ºé—´
             return gameObject;
         }
         return null;
     }
 
 
-    //Òì²½¼ÓÔØ£¬¿ÉÒÔÓÃÓÚÔ¤¼ÓÔØ×ÊÔ´
+    //å¼‚æ­¥åŠ è½½ï¼Œå¯ä»¥ç”¨äºé¢„åŠ è½½èµ„æº
     public static void LoadGoSAsync(string abFilePath, UnityAction<GameObject> compltLoad, Transform parentTransform)
     {
         if (TemplateGO == null)
@@ -82,16 +183,16 @@ public class LoadResources
             yield break;
         }
 
-        AssetBundleRequest assetBundleRequest = absData.assetBundle.LoadAssetAsync<GameObject>(goName);  //Òì²½¼ÓÔØµ¥¸öÊı¾İ£¬·ÀÖ¹µ¥¸öÊı¾İ¹ı´ó¿¨×¡
+        AssetBundleRequest assetBundleRequest = absData.assetBundle.LoadAssetAsync<GameObject>(goName);  //å¼‚æ­¥åŠ è½½å•ä¸ªæ•°æ®ï¼Œé˜²æ­¢å•ä¸ªæ•°æ®è¿‡å¤§å¡ä½
 
         yield return assetBundleRequest;
 
         GameObject _go = assetBundleRequest.asset as GameObject;
 
-        //TemplateGO = Object.Instantiate(_go, parentTransform);  //½«ÊµÀı ´æ·ÅÓÚÄ£°å£¬·½±ãÒÔºó¸´ÖÆ
+        //TemplateGO = Object.Instantiate(_go, parentTransform);  //å°†å®ä¾‹ å­˜æ”¾äºæ¨¡æ¿ï¼Œæ–¹ä¾¿ä»¥åå¤åˆ¶
         GameObject gameObject = Object.Instantiate(_go, parentTransform);
 
-        absData.assetBundle.UnloadAsync(false);  //½ö Ğ¶ÔØ ÔËĞĞÄÚ´æÖĞ ¾µÏñÓÚÓ²ÅÌab×ÊÔ´ µÄ¿Õ¼ä
+        absData.assetBundle.UnloadAsync(false);  //ä»… å¸è½½ è¿è¡Œå†…å­˜ä¸­ é•œåƒäºç¡¬ç›˜abèµ„æº çš„ç©ºé—´
 
         compltLoad?.Invoke(gameObject);
 

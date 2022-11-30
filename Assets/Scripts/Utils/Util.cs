@@ -52,13 +52,11 @@ public class Util
 
     //"http://192.168.1.106/UnityDemoLgy/StreamingAssets" 
     //"http://192.168.11.46/UnityDemoLgy/StreamingAssets"
-    public static string m_streaming_assets_path = "http://192.168.11.46/UnityDemoLgy/StreamingAssets";
-
-    //public static string m_streaming_assets_path = "http://192.168.11.46/StarkMini_StreamingAssets";
+    public static string m_streaming_assets_path = "http://192.168.31.168//UnityDemoLgy/StreamingAssets";
 
     public static string m_android_loadfromfile_path = string.Empty;
 
-    public static string m_temporary_cache_path = string.Empty;
+    public static string m_temporary_cache_path = Application.temporaryCachePath;
 
 
     private static bool m_gotAssetsPath = false;

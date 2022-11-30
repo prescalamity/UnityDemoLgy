@@ -52,7 +52,7 @@ public class PlatformAdapter
 #endif
 
 
-        initAndroid();
+        AndroidHelper.initAndroid();
 #endif
 
 
@@ -67,35 +67,12 @@ public class PlatformAdapter
 #endif
 
 
-        initWebGL();
+        JsHelper.initWebGL();
 #endif
 
 
     }
 
-
-    private static void initAndroid()
-    {
-
-        AndroidHelper.ShowAndroidStatusBar();
-        AndroidHelper.SetAndroidStatusBarColor();
-
-        Screen.sleepTimeout = SleepTimeout.NeverSleep;
-        Screen.fullScreen = false;
-        Screen.fullScreenMode = FullScreenMode.Windowed;
-
-        CallPlatformFunc("CloseSplashDialog", "", "");
-    }
-
-    private static void initWebGL()
-    {
-#if UNITY_WEBGL
-        //动态注册函数
-        RegisyerFunction("Hello", JsHelper.Hello);
-        RegisyerFunction("PlayVideo", JsHelper.PlayVideo);
-#endif
-
-    }
 
 
     #region 注册 和 调用 平台函数，"CallPlatformFunc"已实现类似功能，这里更多的是处理一些特使案例 提供更多选择

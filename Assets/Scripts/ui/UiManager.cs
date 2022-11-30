@@ -8,7 +8,7 @@ public class UiManager : MonoBehaviour
 
     public static void updateUiSort()
     {
-        AndroidDevicePower.setPanelSort();
+        TestDevice.setPanelSort();
     }
 
     //// Start is called before the first frame update

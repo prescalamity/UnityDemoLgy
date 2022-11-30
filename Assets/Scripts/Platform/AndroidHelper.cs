@@ -3,6 +3,18 @@ using UnityEngine;
 
 public class AndroidHelper
 {
+    public static void initAndroid()
+    {
+
+        ShowAndroidStatusBar();
+        SetAndroidStatusBarColor();
+
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        Screen.fullScreen = false;
+        Screen.fullScreenMode = FullScreenMode.Windowed;
+
+        PlatformAdapter.CallPlatformFunc("CloseSplashDialog", "", "");
+    }
 
     /// <summary>
     ///  隐藏上方状态栏

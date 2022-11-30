@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class DownloadResources
 {
@@ -10,7 +11,7 @@ public class DownloadResources
     {
         var req = UnityWebRequest.Get(url);
 
-        DLog.LogToUI("¿ªÊ¼ÏÂÔØÎÄ¼þ£º" + url);
+        DLog.LogToUI("å¼€å§‹ä¸‹è½½æ–‡ä»¶ï¼š" + url);
 
         yield return req.SendWebRequest();
 
@@ -18,11 +19,11 @@ public class DownloadResources
 
         if (datas == null)
         {
-            DLog.LogToUI("ÏÂÔØÊ§°Ü£º" + url);
+            DLog.LogToUI("ä¸‹è½½å¤±è´¥ï¼š" + url);
         }
         else
         {
-            DLog.LogToUI("ÏÂÔØ³É¹¦£º" + url + "-->Length:" + datas.Length);
+            DLog.LogToUI("ä¸‹è½½æˆåŠŸï¼š" + url + "-->Length:" + datas.Length);
         }
 
         callback?.Invoke(datas);
@@ -34,7 +35,7 @@ public class DownloadResources
 
     public static IEnumerator DownloadAssetBundleCallBack(string url, Action<AssetBundle> callback = null)
     {
-        DLog.Log("¿ªÊ¼ÏÂÔØabÎÄ¼þ£º" + url);
+        DLog.Log("å¼€å§‹ä¸‹è½½abæ–‡ä»¶ï¼š" + url);
 
         var req = UnityWebRequestAssetBundle.GetAssetBundle(url);
 
@@ -42,13 +43,83 @@ public class DownloadResources
 
         AssetBundle ab = DownloadHandlerAssetBundle.GetContent(req);
 
-        if (ab == null) DLog.Log("AssetBundleÏÂÔØÊ§°Ü£º" + url);
+        if (ab == null) DLog.Log("AssetBundleä¸‹è½½å¤±è´¥ï¼š" + url);
 
         callback?.Invoke(ab);
 
         req.Dispose();
     }
 
+    public static IEnumerator LoadTexture(string filePath, Image image)
+    {
 
+        if (PlatformAdapter.mPlatform == PlatformType.AndroidRuntime)
+        {
+            filePath = "file:///" + filePath;
+        }
+        else
+        {
+            filePath = "file://" + filePath;
+        }
+
+        DLog.LogToUI("DownloadResources.LoadTexture.filePathï¼š" + filePath);
+
+        WWW www = new WWW(filePath);
+
+        yield return www;
+
+        if (www.error != null)
+        {
+            DLog.Log("ReadFileByWWW {0} error, use ReadFileByPath", filePath);
+            if (www.url.StartsWith("file://"))
+            {
+                var tex = ReadFileByPath(filePath);
+                if (tex)
+                {
+                    image.sprite = Sprite.Create( (Texture2D)tex, new Rect(0,0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
+                }
+                else
+                {
+                    DLog.Log("DownLoadFile error : {0} url : {1}", www.error, www.url);
+                }
+            }
+            else
+            {
+                DLog.Log("DownLoadFile error : {0} url : {1}", www.error, www.url);
+            }
+        }
+        else
+        { 
+            //AssetBundle ab = www.assetBundle;
+            //tx.TexturePath = "";
+            //tx.TextureName = "";
+            if (image != null && image.gameObject != null)
+            {
+                if (image.mainTexture != null)
+                {
+                    GameObject.Destroy(image.mainTexture);
+                }
+                DLog.Log("www.texture.width: "+ www.texture.width+ ", height: " + www.texture.height);
+                image.sprite = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0.5f, 0.5f));
+            }
+        }
+        www.Dispose();
+    }
+
+
+    public static Texture ReadFileByPath(string fileName)
+    {
+        Texture2D tex = null;
+        byte[] fileData;
+        if (System.IO.File.Exists(fileName))
+        {
+            fileData = System.IO.File.ReadAllBytes(fileName);
+            tex = new Texture2D(2, 2);
+            tex.LoadImage(fileData);
+        }
+
+        return tex;
+
+    }
 
 }

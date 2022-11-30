@@ -5,7 +5,20 @@ using UnityEngine;
 
 public class JsHelper
 {
-//ÕâÀï±ØĞë¼ÓÆ½Ì¨ºê£¬·ñÔò³ö°ü±¨´í
+
+
+    public static void initWebGL()
+    {
+#if UNITY_WEBGL
+        //åŠ¨æ€æ³¨å†Œå‡½æ•°
+        RegisyerFunction("Hello", JsHelper.Hello);
+        RegisyerFunction("PlayVideo", JsHelper.PlayVideo);
+#endif
+
+    }
+
+
+    //è¿™é‡Œå¿…é¡»åŠ å¹³å°å®ï¼Œå¦åˆ™å‡ºåŒ…æŠ¥é”™
 #if UNITY_WEBGL
     [DllImport("__Internal")]
     public static extern void Hello(string msg);

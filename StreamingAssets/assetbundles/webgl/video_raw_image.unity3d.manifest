@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 1218051871
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bdac5c1e3d7d6e7d8cb435e4c46a4b1b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: afdc38ba31810629c00514400faf365c
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 84
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 328
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+Assets:
+- Assets/_Resources/prefab/video_raw_image.prefab
+Dependencies: []

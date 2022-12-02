@@ -26,11 +26,14 @@ public class txt
 
     private static string dropdownStr = null;
     private static string _dropdownStr = @"
+None,
+PowerPanel,
 GetPkgName,
-OpenPhotoLibrary,
-OpenCamera,
-openCamera,
-openPhotoLibrary,
+RecordSoundPanel,
+OpenPhotoLibraryPanel,
+OpenCameraPanel,
+openCameraPanel,
+openPhotoLibraryPanel,
 GetNumberOfCPUCores,
 GetCPUMaxFreqKHz,
 GetSdcardRootPath,
@@ -42,7 +45,7 @@ GetScreenHeight,
 GetScreenMetricsWidth,
 GetScreenMetricsHeight,
 GettInches,
-JumpToLink,url
+JumpToLink,
 GetAndroidVersion,
 IsInternetConnected,
 GetPackageVersion,

@@ -248,17 +248,17 @@ public class Main : MonoBehaviour
         //DLog.LogToUI(m_SetpId + ". Main.TestButtonEvent, input:" + m_inputFieldTMP.text);
 
 
-        if (LoadResources.LuaLoaded)
+        if (LoadResources.LuaLoaded && hasDownloadAbs)
         {
             //string res = LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("start");
             //DLog.LogToUI(m_SetpId + ". " + res);
             //luaLoaded = false;
 
-            //DLog.LogToUI(m_SetpId + ". m_Dropdown.text :" + m_Dropdown.options[m_Dropdown.value].text);
-            //LuaScriptMgr.GetInstance().CallLuaFunction("testFlatformFuncCallback", m_Dropdown.options[m_Dropdown.value].text);
+            DLog.LogToUI(m_SetpId + ". m_Dropdown.text :" + mDropdown.options[mDropdown.value].text);
+            LuaScriptMgr.GetInstance().CallLuaFunction("testFlatformFuncCallback", mDropdown.options[mDropdown.value].text);
 
 
-            LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("TestMainButtonEvent");
+            //LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("TestMainButtonEvent");
         }
 
         if (mCanPlayVideo && !mVideoPlayer.isPlaying)
@@ -271,10 +271,10 @@ public class Main : MonoBehaviour
         {
             hasDownloadAbs = true;
             LoadResources.loadAssetBundle();
+
         }
-
-        androidDevicePower?.MainButtonTestFunction(m_SetpId, mDropdown.options[mDropdown.value].text);
-
+    
+        if(hasDownloadAbs) androidDevicePower?.MainButtonTestFunction(m_SetpId, mDropdown.options[mDropdown.value].text);
     }
 
 
@@ -309,8 +309,7 @@ public class Main : MonoBehaviour
     {
         //if (cbData.Contains("file_name")) DLog.LogToUI(cbData);
 
-        if (cbData.Contains("OpenPhotoLibraryCB")) TestHeadPhoto.OpenPhotoLibraryCB(cbData);
-        if (cbData.Contains("OpenCameraCB")) TestHeadPhoto.OpenCameraCB(cbData);
+        if (cbData.Contains("OpenHeadPhotoCB")) TestHeadPhoto.OpenHeadPhotoCB(cbData);
 
         DLog.Log("Main.CallScriptFunc.cbData:"+ cbData);
 

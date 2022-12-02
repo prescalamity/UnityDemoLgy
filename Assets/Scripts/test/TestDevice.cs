@@ -16,16 +16,16 @@ public class TestDevice : MonoBehaviour
 
     public void Awake()
     {
-        //testDeviceBases.Add(new TestPower());
+        testDeviceBases.Add(new TestPower());
         //testDeviceBases.Add(new TestPermission());
         testDeviceBases.Add(new TestHeadPhoto());
-
+        testDeviceBases.Add(new TestSoundRecord());
     }
 
 
     public static void setPanelSort()
     {
-        foreach (var v in testDeviceBases) v.setPanelSort();
+        //foreach (var v in testDeviceBases) v.setPanelSort();
 
     }
 
@@ -55,13 +55,37 @@ public class TestDevice : MonoBehaviour
 
 class TestBase
 {
-    public virtual void setPanelSort() {}
+    public GameObject mThePanelGo = null;
+
+    public virtual void setPanelSort() {
+        mThePanelGo?.transform.SetAsLastSibling();
+    }
 
     public virtual void Start() {}
 
     public virtual void Update() {}
 
-    public virtual void MainButtonTestFunction(int stepID, string functionName = "") {}
+    public virtual void MainButtonTestFunction(int stepID, string functionName = "", string[] thePanelname = null) {
+
+        if(!string.IsNullOrEmpty(functionName) && thePanelname != null && mThePanelGo != null)
+        {
+            //DLog.Log("TestBase.MainButtonTestFunction.1");
+            bool isCurThePanle = false;
+
+            for(int i=0; i< thePanelname.Length; i++)
+            {
+                if (functionName.ToLower().Equals(thePanelname[i].ToLower())) { isCurThePanle = true; break; }
+            }
+            //DLog.Log("TestBase.MainButtonTestFunction.2.functionName:"+ functionName + ", open:" + open);
+            mThePanelGo.SetActive(isCurThePanle);
+
+            if(isCurThePanle) setPanelSort();
+        }
+
+
+    }
+
+    //public virtual void ElectedValueChange(int value) {}
 }
 
 
@@ -70,7 +94,7 @@ class TestBase
 /// </summary>
 class TestPower : TestBase
 {
-    GameObject mGameObject = null;
+
     TMP_Text battery_capacity_value = null;
     TMP_Text battery_electricity_value = null;
     TMP_Text battery_voltage_value = null;
@@ -78,30 +102,27 @@ class TestPower : TestBase
     TMP_Text battery_retain_time_value = null;
     TMP_Text battery_get_api_time_value = null;
 
-    public override void setPanelSort()
-    {
-        mGameObject?.transform.SetAsLastSibling();
+    public override void MainButtonTestFunction(int stepID, string functionName = "", string[] thePanelname = null) {
+        base.MainButtonTestFunction( stepID,  functionName, new string[] { "PowerPanel" });
+
+        battery_capacity_value.text = Power.capacity.ToString();
+        battery_voltage_value.text = Power.voltage.ToString();
+        battery_retain_value.text = Power.batteryRetain.ToString();
     }
-
-
 
     public override void Start()
     {
         DLog.Log("AndroidDevicePower.Start");
 
-        mGameObject = GameObject.Find("Canvas/power");
+        mThePanelGo = Main.Instance.UiRootCanvas.transform.Find("power").gameObject;
 
-        battery_capacity_value = GameObject.Find("Canvas/power/battery_capacity_value").GetComponent<TMP_Text>();
-        battery_electricity_value = GameObject.Find("Canvas/power/battery_electricity_value").GetComponent<TMP_Text>();
-        battery_voltage_value = GameObject.Find("Canvas/power/battery_voltage_value").GetComponent<TMP_Text>();
-        battery_retain_value = GameObject.Find("Canvas/power/battery_retain_value").GetComponent<TMP_Text>();
-        battery_retain_time_value = GameObject.Find("Canvas/power/battery_retain_time_value").GetComponent<TMP_Text>();
-        battery_get_api_time_value = GameObject.Find("Canvas/power/battery_get_api_time_value").GetComponent<TMP_Text>();
+        battery_capacity_value = mThePanelGo.transform.Find("battery_capacity_value").GetComponent<TMP_Text>();
+        battery_electricity_value = mThePanelGo.transform.Find("battery_electricity_value").GetComponent<TMP_Text>();
+        battery_voltage_value = mThePanelGo.transform.Find("battery_voltage_value").GetComponent<TMP_Text>();
+        battery_retain_value = mThePanelGo.transform.Find("battery_retain_value").GetComponent<TMP_Text>();
+        battery_retain_time_value = mThePanelGo.transform.Find("battery_retain_time_value").GetComponent<TMP_Text>();
+        battery_get_api_time_value = mThePanelGo.transform.Find("battery_get_api_time_value").GetComponent<TMP_Text>();
 
-
-        battery_capacity_value.text = Power.capacity.ToString();
-        battery_voltage_value.text = Power.voltage.ToString();
-        battery_retain_value.text = Power.batteryRetain.ToString();
 
     }
 
@@ -115,6 +136,8 @@ class TestPower : TestBase
     float t = 0f;
     public override void Update()
     {
+        if (!mThePanelGo.activeInHierarchy) return;
+
         if (Time.time - t > 0.1f)
         {
             t = Time.time;
@@ -135,7 +158,7 @@ class TestPower : TestBase
 class TestPermission : TestBase
 {
 
-    public override void MainButtonTestFunction(int stepID, string functionName = "")
+    public override void MainButtonTestFunction(int stepID, string functionName = "", string[] thePanelName = null)
     {
         //PlatformAdapter.CallPlatformFunc("openCamera", "", "");
 
@@ -164,8 +187,6 @@ class TestPermission : TestBase
 class TestHeadPhoto : TestBase
 {
 
-    GameObject mHeadPhoto;
-
     static Image image;
 
     Button btnOpenPhotoLib;
@@ -179,32 +200,32 @@ class TestHeadPhoto : TestBase
 
         DLog.Log("TestHeadPhoto.Start");
 
-        image = GameObject.Find("Canvas/head_photo/image").GetComponent<Image>();
+        mThePanelGo = Main.Instance.UiRootCanvas.transform.Find("head_photo").gameObject;
 
-        btnOpenPhotoLib = GameObject.Find("Canvas/head_photo/open_photo_library").GetComponent<Button>();
-        btnOpenPhotoLib.onClick.AddListener(()=> PlatformAdapter.CallPlatformFunc("OpenPhotoLibrary", "", "OpenPhotoLibraryCB"));
+        image = mThePanelGo.transform.Find("image").GetComponent<Image>();
 
-        btnOpenCamera = GameObject.Find("Canvas/head_photo/open_camera").GetComponent<Button>();
-        btnOpenCamera.onClick.AddListener(() => PlatformAdapter.CallPlatformFunc("OpenCamera", "", "OpenCameraCB"));
+        btnOpenPhotoLib = mThePanelGo.transform.Find("open_photo_library").GetComponent<Button>();
+        btnOpenPhotoLib.onClick.AddListener(()=> PlatformAdapter.CallPlatformFunc("OpenPhotoLibrary", "", "OpenHeadPhotoCB"));
+
+        btnOpenCamera = mThePanelGo.transform.Find("open_camera").GetComponent<Button>();
+        btnOpenCamera.onClick.AddListener(() => PlatformAdapter.CallPlatformFunc("OpenCamera", "", "OpenHeadPhotoCB"));
 
     }
 
-    public static void OpenPhotoLibraryCB(string cbData)
+    public override void MainButtonTestFunction(int stepID, string functionName = "", string[] thePanelName = null) {
+
+        base.MainButtonTestFunction(stepID, functionName, new string[]{ "OpenCameraPanel", "OpenPhotoLibraryPanel" });
+
+        
+    }
+
+
+    public static void OpenHeadPhotoCB(string cbData)
     {
 
         DLog.LogToUI("TestHeadPhoto.OpenPhotoLibraryCB-->" + cbData);
 
-        cbData = cbData.Replace("\"", "");
-        cbData = cbData.Replace("\\", "");
-        string[] resStr = cbData.Split(new char[] { ',', '{', '}', '[', ']' }, System.StringSplitOptions.RemoveEmptyEntries);
-        Dictionary<string, string> resDic = new Dictionary<string, string>();
-        string[] temp;
-        foreach(var v in resStr)
-        {
-            temp = v.Split(":");
-            resDic.Add(temp[0], temp[1]);
-        }
-
+        Dictionary<string, string> resDic = Util.JsonStringToDict(cbData);
         string fileName = resDic["file_name"];
 
         string fileSrcPath = Util.m_temporary_cache_path + "/" + fileName;
@@ -238,11 +259,42 @@ class TestHeadPhoto : TestBase
 
     }
 
-    public static void OpenCameraCB(string cbData)
-    {
-        DLog.LogToUI("TestHeadPhoto.OpenCameraCB" + cbData);
-    }
-
 
 
 }
+
+
+/// <summary>
+/// 测试录音
+/// </summary>
+class TestSoundRecord : TestBase
+{
+
+    Button btnRecordSound;
+    Button btnPlaySound;
+
+    public override void Start()
+    {
+        base.Start();
+
+        mThePanelGo = Main.Instance.UiRootCanvas.transform.Find("sound_record").gameObject;
+
+        btnRecordSound = mThePanelGo.transform.Find("record").GetComponent<Button>();
+        btnRecordSound.onClick.AddListener( () => PlatformAdapter.CallPlatformFunc("", "", "") );
+
+        btnPlaySound = mThePanelGo.transform.Find("play").GetComponent<Button>();
+        btnPlaySound.onClick.AddListener(() => PlatformAdapter.CallPlatformFunc("", "", ""));
+
+    }
+
+
+    public override void MainButtonTestFunction(int stepID, string functionName = "", string[] thePanelName = null)
+    {
+        base.MainButtonTestFunction(stepID, functionName, new string[] { "RecordSoundPanel" });
+
+
+    }
+
+}
+
+

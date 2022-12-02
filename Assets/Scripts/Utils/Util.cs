@@ -6,6 +6,7 @@
 //using System.Security.Cryptography;
 //using System.Text;
 //using LuaInterface;
+using System.Collections.Generic;
 using UnityEngine;
 //using System.Runtime.InteropServices;
 //using System.Reflection;
@@ -50,9 +51,10 @@ public class Util
 
     public static string m_persistent_data_path = Application.persistentDataPath;
 
-    //"http://192.168.1.106/UnityDemoLgy/StreamingAssets" 
-    //"http://192.168.11.46/UnityDemoLgy/StreamingAssets"
-    public static string m_streaming_assets_path = "http://192.168.31.168//UnityDemoLgy/StreamingAssets";
+    //"http://192.168.1.106/UnityDemoLgy/StreamingAssets";
+    //"http://192.168.11.46/UnityDemoLgy/StreamingAssets";
+    //"http://192.168.31.168//UnityDemoLgy/StreamingAssets";
+    public static string m_streaming_assets_path = "http://192.168.11.46/UnityDemoLgy/StreamingAssets";
 
     public static string m_android_loadfromfile_path = string.Empty;
 
@@ -64,6 +66,22 @@ public class Util
     public static string m_lua_script_path = string.Empty;
     public static string sound_path = "sound";
     public static string lua_key_path = "";
+
+
+    public static Dictionary<string, string> JsonStringToDict(string jsonStr)
+    {
+        jsonStr = jsonStr.Replace("\"", "");
+        jsonStr = jsonStr.Replace("\\", "");
+        string[] resStr = jsonStr.Split(new char[] { ',', '{', '}', '[', ']' }, System.StringSplitOptions.RemoveEmptyEntries);
+        Dictionary<string, string> resDic = new Dictionary<string, string>();
+        string[] temp;
+        foreach (var v in resStr)
+        {
+            temp = v.Split(":");
+            resDic.Add(temp[0], temp[1]);
+        }
+        return resDic;
+    }
 
     //    [DoNotToLua]
     //    public static void Initpath()

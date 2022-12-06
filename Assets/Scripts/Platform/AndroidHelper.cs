@@ -120,7 +120,7 @@ public class Power
     {
         get
         {
-#if UNITY_ANDROID
+#if UNITY_ANDROID&& !UNITY_EDITOR
 
             //获取电流（微安），避免频繁获取，取一次大概2毫秒
             //float electricity = (float)manager.Call<int>("getIntProperty", PARAM_BATTERY);
@@ -147,10 +147,10 @@ public class Power
     {
         get
         {
-#if UNITY_ANDROID
+#if UNITY_ANDROID && !UNITY_EDITOR
             return int.Parse(PlatformAdapter.CallPlatformFunc("GetBatteryLevel", "", ""));
 #else
-            return -1f;
+            return -1;
 #endif
         }
     }
@@ -173,7 +173,7 @@ public class Power
     static AndroidJavaObject manager;
     static Power()
     {
-#if UNITY_ANDROID
+#if UNITY_ANDROID && !UNITY_EDITOR
         //AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         //AndroidJavaObject currActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
         //manager = currActivity.Call<AndroidJavaObject>("getSystemService", new object[] { "batterymanager" });
@@ -192,9 +192,14 @@ public class Power
         //    voltage = (float)receive.Call<int>("getIntExtra", new object[] { "voltage", 0 }) / 1000f; //BatteryManager.EXTRA_VOLTAGE
         //}
 
-        capacity = int.Parse(PlatformAdapter.CallPlatformFunc("GetBatteryCapacity", "", ""));
 
-        voltage = Power.ToMA(float.Parse(PlatformAdapter.CallPlatformFunc("GetBatteryVoltage", "", "")));
+        string res = PlatformAdapter.CallPlatformFunc("GetBatteryCapacity", "", "");
+        if (String.IsNullOrEmpty(res)) res = "-1";
+        capacity = int.Parse(res);
+
+        res = PlatformAdapter.CallPlatformFunc("GetBatteryVoltage", "", "");
+        if (String.IsNullOrEmpty(res)) res = "-1";
+        voltage = Power.ToMA(float.Parse(res));
 #endif
     }
 

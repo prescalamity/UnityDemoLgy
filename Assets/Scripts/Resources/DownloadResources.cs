@@ -19,14 +19,13 @@ public class DownloadResources
 
         if (datas == null)
         {
-            DLog.LogToUI("下载失败：" + url);
+            DLog.LogToUI(LogType.error, "error:下载失败，请检查网络资源是否可以访问-->" + url);
         }
         else
         {
-            DLog.LogToUI("下载成功：" + url + "-->Length:" + datas.Length);
+            DLog.LogToUI("下载成功：" + url + "-->资源大小:" + datas.Length);
+            callback?.Invoke(datas);
         }
-
-        callback?.Invoke(datas);
 
         req.Dispose();
     }
@@ -43,7 +42,7 @@ public class DownloadResources
 
         AssetBundle ab = DownloadHandlerAssetBundle.GetContent(req);
 
-        if (ab == null) DLog.Log("AssetBundle下载失败：" + url);
+        if (ab == null) DLog.Log(LogType.error, "error: AssetBundle下载失败：" + url);
 
         callback?.Invoke(ab);
 

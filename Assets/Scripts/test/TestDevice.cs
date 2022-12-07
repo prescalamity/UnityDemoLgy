@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
@@ -270,8 +271,16 @@ class TestHeadPhoto : TestBase
 class TestSoundRecord : TestBase
 {
 
+    string soundAddressPrex = Util.m_persistent_data_path + "/record";
+
+    int voiceCount = 10000;
+
+    string soundAddress = "";
+
     Button btnRecordSound;
+    EventTrigger btnRecordSoundEvent;
     Button btnPlaySound;
+    Button btnToWords;
 
     public override void Start()
     {
@@ -279,18 +288,37 @@ class TestSoundRecord : TestBase
 
         mThePanelGo = Main.Instance.UiRootCanvas.transform.Find("sound_record").gameObject;
 
+
         btnRecordSound = mThePanelGo.transform.Find("record").GetComponent<Button>();
-        btnRecordSound.onClick.AddListener( () => PlatformAdapter.CallPlatformFunc("", "", "") );
+        //btnRecordSound.onClick.AddListener( () => PlatformAdapter.CallPlatformFunc("", "", "") );
+
+        btnRecordSoundEvent = btnRecordSound.gameObject.AddComponent<EventTrigger>();
+
+        EventTrigger.Entry entryBtnDwon = new EventTrigger.Entry();
+        entryBtnDwon.eventID = EventTriggerType.PointerDown;
+        entryBtnDwon.callback.AddListener(data => { DLog.LogToUI("lgy--> I am down."); });
+        btnRecordSoundEvent.triggers.Add(entryBtnDwon);
+
+        EventTrigger.Entry entryBtnUp = new EventTrigger.Entry();
+        entryBtnUp.eventID = EventTriggerType.PointerUp;
+        entryBtnUp.callback.AddListener(data => { DLog.LogToUI("lgy--> I am up."); });
+        btnRecordSoundEvent.triggers.Add(entryBtnUp);
+
+
+
 
         btnPlaySound = mThePanelGo.transform.Find("play").GetComponent<Button>();
         btnPlaySound.onClick.AddListener(() => PlatformAdapter.CallPlatformFunc("", "", ""));
+
+        btnToWords = mThePanelGo.transform.Find("to_words").GetComponent <Button>();
+        btnToWords.onClick.AddListener(() => PlatformAdapter.CallPlatformFunc("", "", ""));
 
     }
 
 
     public override void MainButtonTestFunction(int stepID, string functionName = "", string[] thePanelName = null)
     {
-        base.MainButtonTestFunction(stepID, functionName, new string[] { "RecordSoundPanel" });
+        base.MainButtonTestFunction(stepID, functionName, new string[] { "SoundPanel" });
 
 
     }

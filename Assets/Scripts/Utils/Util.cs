@@ -49,6 +49,14 @@ public class Util
     //        get { return _debugUILog; }
     //    }
 
+    /// <summary>
+    /// 安装包文件所在路径
+    /// </summary>
+    public static string m_data_path = Application.dataPath;
+
+    /// <summary>
+    /// 系统持久化功能所在地址路径，如：window是在系统盘，android是在应用的沙盒环境中
+    /// </summary>
     public static string m_persistent_data_path = Application.persistentDataPath;
 
     //"http://192.168.1.106/UnityDemoLgy/StreamingAssets";

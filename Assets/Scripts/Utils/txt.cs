@@ -27,9 +27,9 @@ public class txt
     private static string dropdownStr = null;
     private static string _dropdownStr = @"
 None,
+SoundPanel,
 PowerPanel,
 GetPkgName,
-RecordSoundPanel,
 OpenPhotoLibraryPanel,
 OpenCameraPanel,
 openCameraPanel,

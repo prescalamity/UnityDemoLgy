@@ -3,8 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
 public class test
 {
+
+    //public enum ASTART_DIR
+    //{
+    //    DIR_S = 0,
+    //    Dir_LU,
+    //    Dir_U,
+    //    Dir_RU,
+    //    Dir_L,
+    //    Dir_RESERVED,
+    //    Dir_R,
+    //    Dir_LD,
+    //    Dir_D,
+    //    Dir_RD,
+    //    Dir_Count
+    //};
+
+
+    //public static byte[,] POINT_DIR = new byte[3, 3]{
+    //                    {(byte)ASTART_DIR.Dir_LU, (byte)ASTART_DIR.Dir_U, (byte)ASTART_DIR.Dir_RU},
+    //                    {(byte)ASTART_DIR.Dir_L, (byte)ASTART_DIR.DIR_S, (byte)ASTART_DIR.Dir_R},
+    //                    {(byte)ASTART_DIR.Dir_LD, (byte)ASTART_DIR.Dir_D, (byte)ASTART_DIR.Dir_RD}
+    //                    };
+
 
     public static void onlyTestFunc()
     {
@@ -28,6 +52,11 @@ public class test
         {
             Debug.Log("lgy --> per.name: " + per.name);
         }
+
+        //int xx = -1;
+        //int yy = -1;
+        //byte resm = POINT_DIR[xx + 1, yy + 1];
+        //Debug.Log("lgy --> 0.0 : " + resm);
 
     }
 }

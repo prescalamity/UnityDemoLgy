@@ -28,8 +28,8 @@ public class DLog
 
     static DLog()
     {
-#if UNITY_EDITOR
-        LogPath = Application.dataPath + "/..";
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        LogPath = Util.m_data_path + "/..";
 #else
         LogPath = Util.m_persistent_data_path;
 #endif

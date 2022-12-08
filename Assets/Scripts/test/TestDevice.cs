@@ -282,6 +282,11 @@ class TestSoundRecord : TestBase
     Button btnPlaySound;
     Button btnToWords;
 
+    private IflytekVoiceHelper m_IflytekVoiceHelper;
+    string appId = "90d09164";
+    string apiSecret = "YTEwMjU2OTEwMTc3MzUwMjY5YjlmMTkx";
+    string apiKey = "3287d1186dbe24add8a383230eb2d0d9";
+
     public override void Start()
     {
         base.Start();
@@ -296,12 +301,12 @@ class TestSoundRecord : TestBase
 
         EventTrigger.Entry entryBtnDwon = new EventTrigger.Entry();
         entryBtnDwon.eventID = EventTriggerType.PointerDown;
-        entryBtnDwon.callback.AddListener(data => { DLog.LogToUI("lgy--> I am down."); });
+        entryBtnDwon.callback.AddListener(VoiceStart);
         btnRecordSoundEvent.triggers.Add(entryBtnDwon);
 
         EventTrigger.Entry entryBtnUp = new EventTrigger.Entry();
         entryBtnUp.eventID = EventTriggerType.PointerUp;
-        entryBtnUp.callback.AddListener(data => { DLog.LogToUI("lgy--> I am up."); });
+        entryBtnUp.callback.AddListener(VoiceEnd);
         btnRecordSoundEvent.triggers.Add(entryBtnUp);
 
 
@@ -310,8 +315,15 @@ class TestSoundRecord : TestBase
         btnPlaySound = mThePanelGo.transform.Find("play").GetComponent<Button>();
         btnPlaySound.onClick.AddListener(() => PlatformAdapter.CallPlatformFunc("", "", ""));
 
-        btnToWords = mThePanelGo.transform.Find("to_words").GetComponent <Button>();
+        btnToWords = mThePanelGo.transform.Find("to_words").GetComponent<Button>();
         btnToWords.onClick.AddListener(() => PlatformAdapter.CallPlatformFunc("", "", ""));
+
+
+        //初始化录音功能范例
+        m_IflytekVoiceHelper = new IflytekVoiceHelper();
+        m_IflytekVoiceHelper.Init(appId, apiSecret, apiKey, Util.m_persistent_data_path);// 初始化语音功能，调用一次即可
+        m_IflytekVoiceHelper.Frequency = 8000;
+        m_IflytekVoiceHelper.RecordTime = 8;
 
     }
 
@@ -320,8 +332,36 @@ class TestSoundRecord : TestBase
     {
         base.MainButtonTestFunction(stepID, functionName, new string[] { "SoundPanel" });
 
-
     }
+
+
+    public void VoiceStart(BaseEventData data)
+    {
+        DLog.LogToUI("lgy--> I am down.");
+        //m_IflytekVoiceHelper.VoiceStart();
+    }
+
+    public void VoiceEnd(BaseEventData data)
+    {
+        DLog.LogToUI("lgy--> I am up.");
+        m_IflytekVoiceHelper.VoiceStop();
+    }
+
+    public bool IsRecording()
+    {
+        return m_IflytekVoiceHelper.IsRecording;
+    }
+
+    public bool EnterRecord()
+    {
+        return m_IflytekVoiceHelper.EnterRecord;
+    }
+
+    public void Reset() 
+    {
+        m_IflytekVoiceHelper.Reset();
+    }
+
 
 }
 

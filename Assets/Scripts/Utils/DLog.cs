@@ -43,7 +43,7 @@ public class DLog
         //Debug.Log("DLog.LogFilePath:" + LogFilePath); 
     }
 
-    public static void Log(LogType logType, string centent, params string[] args)
+    public static void Log(LogType logType, string centent, params object[] args)
     {
         if (args.Length > 0) centent = string.Format(centent, args);
 
@@ -66,7 +66,7 @@ public class DLog
 
     }
 
-    public static void Log(string centent, params string[] args)
+    public static void Log(string centent, params object[] args)
     {
         if (args.Length > 0) centent = string.Format(centent, args);
 
@@ -79,7 +79,7 @@ public class DLog
     }
 
 
-    public static void LogToUI(string centent, params string[] args)
+    public static void LogToUI(string centent, params object[] args)
     {
         if(args.Length > 0) centent = string.Format(centent, args);
 
@@ -89,7 +89,7 @@ public class DLog
 
     }
 
-    public static void LogToUI(LogType logType, string centent,  params string[] args)
+    public static void LogToUI(LogType logType, string centent,  params object[] args)
     {
         if (args.Length > 0) centent = string.Format(centent, args);
 

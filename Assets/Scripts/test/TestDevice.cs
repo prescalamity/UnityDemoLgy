@@ -338,8 +338,17 @@ class TestSoundRecord : TestBase
     public void VoiceStart(BaseEventData data)
     {
         DLog.LogToUI("lgy--> I am down.");
-        //m_IflytekVoiceHelper.VoiceStart();
+        m_IflytekVoiceHelper.VoiceStart(RecordFinshCallbak, RecordTranslateFinshCallbak, null);
     }
+    private void RecordFinshCallbak(IflytekVoiceHelper.ResultCode code, string filePath, int timeSecond)
+    {
+        DLog.LogToUI("TestSoundRecord.recordFinshCallbak.code:{0}, filePath:{1}", code, filePath);
+    }
+    private void RecordTranslateFinshCallbak(IflytekVoiceHelper.ResultCode code, string word, int timeSecond)
+    {
+        DLog.LogToUI("TestSoundRecord.recordTranslateFinshCallbak.code:{0}, word:{1}", code, word);
+    }
+
 
     public void VoiceEnd(BaseEventData data)
     {

@@ -38,7 +38,11 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
         108   不支持的采样样本位数
         109   连接Socket异常
     */
-    private enum ResultCode
+
+    public delegate void RecordFinshCallback(ResultCode code, string filePath, int timeSecond);
+    public delegate void RecordTranslateFinshCallback(ResultCode code, string words, int timeSecond);
+
+    public enum ResultCode
     {
         SUCCESS = 0,
         MICROPHONE_NOT_EXIST = 1,
@@ -99,14 +103,16 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
         第二个参数，录音文件路径，如果第一个参数为不为0，该参数传入空字符串
         第三个参数，录音耗时，单位为秒，如果第一个参数为不为0，该参数传入0
     */
-    [DoNotToLua] public static LuaFunction m_record_finish_handler = null;
+    //[DoNotToLua] public static LuaFunction m_record_finish_handler = null;
+    [DoNotToLua] public static RecordFinshCallback m_record_finish_handler = null;
     
     //讯飞翻译结束回调
     /*  第一个参数，录音转文字结果异常码，为0表示转换成功，其他异常码详细看异常码说明
         第二个参数，录音翻译后的文字内容，字符串，如果第一个参数不为0，该参数传入空字符串
         第三个参数，翻译耗时，单位为秒，如果第一个参数不为0，该参数传入0
     */
-    [DoNotToLua] public static LuaFunction m_translate_finish_handler = null;
+    //[DoNotToLua] public static LuaFunction m_translate_finish_handler = null;
+    [DoNotToLua] public static RecordTranslateFinshCallback m_translate_finish_handler = null;
     
     [DoNotToLua]
     public void OnRecordFinish(string fileName)
@@ -123,7 +129,8 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
             {
                 fileName = "";
             }
-            m_record_finish_handler.Call(recordCode, fileName, recordTime);
+            //m_record_finish_handler.Call(recordCode, fileName, recordTime);
+            m_record_finish_handler(recordCode, fileName, recordTime);
         }
         isRecordCallback = true;
         if (isRecordCallback && isTranslateCallback)
@@ -147,7 +154,8 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
             {
                 Result = "";
             }
-            m_translate_finish_handler.Call(translateCode, Result, translateTime);
+            //m_translate_finish_handler.Call(translateCode, Result, translateTime);
+            m_translate_finish_handler(translateCode, Result, translateTime);
         }
         isTranslateCallback = true;
         if (isRecordCallback && isTranslateCallback)
@@ -245,14 +253,39 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
     //------------------------end-------------------------//
     //--------------------------------开始录音---------------------//
     //开始录音，参数：录音结束回调，讯飞翻译结束回调，新增翻译文字回调，录音音量增加回调，使用的麦克风设备名（默认为null，使用默认设备）
-    public void VoiceStart(LuaFunction record_finish_handler, LuaFunction translate_finish_handler)
+    //public void VoiceStart(LuaFunction record_finish_handler, LuaFunction translate_finish_handler)
     
-    {
-        VoiceStart(record_finish_handler, translate_finish_handler, null);
-    }
+    //{
+    //    VoiceStart(record_finish_handler, translate_finish_handler, null);
+    //}
     
-    public void VoiceStart(LuaFunction record_finish_handler, LuaFunction translate_finish_handler, string device)
+    //public void VoiceStart(LuaFunction record_finish_handler, LuaFunction translate_finish_handler, string device)
     
+    //{
+    //    DLog.Log("VoiceStart");
+    //    //下面两个判断，为了避免发生前一次录音和翻译没有结束，又调用新的录音和翻译
+    //    if (recordLock) //先判断当前有没有录音没有完成的操作，如果有，直接回调失败
+    //    {
+    //        LockErrorCall(record_finish_handler, translate_finish_handler, ResultCode.RECORD_LOCK);
+    //        Reset();
+    //        return;
+    //    }
+    //    if (IflyWebSocket != null && IflyWebSocket.State == WebSocketState.Open)//讯飞语音Socket连接着，而且是Open的，说明讯飞语音的翻译没有关闭，直接回调失败
+    //    {
+    //        LockErrorCall(record_finish_handler, translate_finish_handler, ResultCode.TRANSLATE_LOCK);
+    //        Reset();
+    //        return;
+    //    }
+    //    Reset();
+    //    recordLock = true;
+    //    m_record_finish_handler = record_finish_handler;
+    //    m_translate_finish_handler = translate_finish_handler; //这几个回到必须先赋值再获取权限，否则在权限拒绝后会没有回调调用
+    //    recordDevice = device;
+    //    RequestPermission(); //获取权限，真正录音是在获取到权限后才做的事
+    //}
+
+    public void VoiceStart(RecordFinshCallback record_finish_handler, RecordTranslateFinshCallback translate_finish_handler, string device)
+
     {
         DLog.Log("VoiceStart");
         //下面两个判断，为了避免发生前一次录音和翻译没有结束，又调用新的录音和翻译
@@ -288,7 +321,20 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
             translate_finish_handler.Call(code, "", 0);
         }
     }
-    
+
+    private void LockErrorCall(RecordFinshCallback record_finish_handler, RecordTranslateFinshCallback translate_finish_handler, ResultCode code)//避免将上一次的record_finish_handler覆盖，因此不能将record_finish_handler赋值给m_record_finish_handler，下同
+    {
+        DLog.Log("LockErrorCall");
+        if (null != record_finish_handler)
+        {
+            record_finish_handler(code, "", 0);
+        }
+        if (null != translate_finish_handler)
+        {
+            translate_finish_handler(code, "", 0);
+        }
+    }
+
     //初始化所有的参数
     public void Reset()
     {

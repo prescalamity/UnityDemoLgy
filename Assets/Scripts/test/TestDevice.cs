@@ -281,6 +281,7 @@ class TestSoundRecord : TestBase
     EventTrigger btnRecordSoundEvent;
     Button btnPlaySound;
     Button btnToWords;
+    TMP_Text recordingTip;
 
     private IflytekVoiceHelper m_IflytekVoiceHelper;
     string appId = "90d09164";
@@ -310,14 +311,13 @@ class TestSoundRecord : TestBase
         btnRecordSoundEvent.triggers.Add(entryBtnUp);
 
 
-
-
         btnPlaySound = mThePanelGo.transform.Find("play").GetComponent<Button>();
         btnPlaySound.onClick.AddListener(() => PlatformAdapter.CallPlatformFunc("", "", ""));
 
         btnToWords = mThePanelGo.transform.Find("to_words").GetComponent<Button>();
         btnToWords.onClick.AddListener(() => PlatformAdapter.CallPlatformFunc("", "", ""));
 
+        recordingTip = mThePanelGo.transform.Find("recording_tip").GetComponent<TMP_Text>();
 
         //初始化录音功能范例
         m_IflytekVoiceHelper = new IflytekVoiceHelper();
@@ -337,7 +337,8 @@ class TestSoundRecord : TestBase
 
     public void VoiceStart(BaseEventData data)
     {
-        DLog.LogToUI("lgy--> I am down.");
+        DLog.LogToUI("lgy-->TestSoundRecord.VoiceStart, I am down.");
+        recordingTip.gameObject.SetActive(true);
         m_IflytekVoiceHelper.VoiceStart(RecordFinshCallbak, RecordTranslateFinshCallbak, null);
     }
     private void RecordFinshCallbak(IflytekVoiceHelper.ResultCode code, string filePath, int timeSecond)
@@ -352,7 +353,8 @@ class TestSoundRecord : TestBase
 
     public void VoiceEnd(BaseEventData data)
     {
-        DLog.LogToUI("lgy--> I am up.");
+        DLog.LogToUI("lgy-->TestSoundRecord.VoiceEnd, I am up.");
+        recordingTip.gameObject.SetActive(false);
         m_IflytekVoiceHelper.VoiceStop();
     }
 

@@ -26,7 +26,7 @@ public class txt
 
     private static string dropdownStr = null;
     private static string _dropdownStr = @"
-None,
+SelectAndClickTestButton,
 SoundPanel,
 PowerPanel,
 GetPkgName,

@@ -332,8 +332,9 @@ public class Main : MonoBehaviour
         DLog.Log(cbData);
     }
 
-    public void MainStartCoroutine(IEnumerator func)
-    {
-        this.StartCoroutine(func);
-    }
+    //public void MainStartCoroutine(IEnumerator func)
+    //{
+    //    this.StartCoroutine(func);
+    //}
+
 }

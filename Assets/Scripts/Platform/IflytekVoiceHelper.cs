@@ -184,6 +184,10 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
         //录音默认保存在$(传入path)/record/local/record.wav       所有平台都会保存为wav文件格式，/record/local是固定的不能改，不然会导致lua那边也要改
         m_path = path + "/record/local";
     }
+    public string GetVoicePath()
+    {
+        return m_path;
+    }
 
     //获取机器的麦克风列表
     public string[] GetDevices()
@@ -285,9 +289,9 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
     //}
 
     public void VoiceStart(RecordFinshCallback record_finish_handler, RecordTranslateFinshCallback translate_finish_handler, string device)
-
     {
         DLog.Log("VoiceStart");
+
         //下面两个判断，为了避免发生前一次录音和翻译没有结束，又调用新的录音和翻译
         if (recordLock) //先判断当前有没有录音没有完成的操作，如果有，直接回调失败
         {
@@ -488,7 +492,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
             Uri url = new Uri(GetUrl("wss://iat-api.xfyun.cn/v2/iat"));
             await IflyWebSocket.ConnectAsync(url, ct);
         
-            Main.Instance.MainStartCoroutine(SendData(IflyWebSocket));
+            Main.Instance.StartCoroutine(SendData(IflyWebSocket));
         }
         catch (Exception ex)
         {
@@ -678,7 +682,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
     public void VoiceStop()
     {
         DLog.Log("VoiceStop");
-        Main.Instance.MainStartCoroutine(Stop());
+        Main.Instance.StartCoroutine(Stop());
     }
 
     private IEnumerator Stop()

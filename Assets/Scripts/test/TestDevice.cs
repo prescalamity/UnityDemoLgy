@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -251,7 +252,8 @@ class TestHeadPhoto : TestBase
         {
             DLog.LogToUI("TestHeadPhoto.OpenPhotoLibraryCB-->ResizeJpegImage:ok");
 
-            Main.Instance.MainStartCoroutine(DownloadResources.LoadTexture(fileDestPath, image));
+
+            DownloadResources.AsyncLoadTexture(Util.AddLocalFilePrex(fileDestPath), image);
         }
         else
         {
@@ -271,17 +273,18 @@ class TestHeadPhoto : TestBase
 class TestSoundRecord : TestBase
 {
 
-    string soundAddressPrex = Util.m_persistent_data_path + "/record";
-
     int voiceCount = 10000;
 
-    string soundAddress = "";
+    //string soundAddress = "";
 
     Button btnRecordSound;
     EventTrigger btnRecordSoundEvent;
     Button btnPlaySound;
     Button btnToWords;
     TMP_Text recordingTip;
+
+    AudioSource audioSource;
+    string audioName = "/record.wav";
 
     private IflytekVoiceHelper m_IflytekVoiceHelper;
     string appId = "90d09164";
@@ -312,18 +315,24 @@ class TestSoundRecord : TestBase
 
 
         btnPlaySound = mThePanelGo.transform.Find("play").GetComponent<Button>();
-        btnPlaySound.onClick.AddListener(() => PlatformAdapter.CallPlatformFunc("", "", ""));
+        btnPlaySound.onClick.AddListener(PlaySound);
 
         btnToWords = mThePanelGo.transform.Find("to_words").GetComponent<Button>();
-        btnToWords.onClick.AddListener(() => PlatformAdapter.CallPlatformFunc("", "", ""));
+        //btnToWords.onClick.AddListener(() => PlatformAdapter.CallPlatformFunc("", "", ""));
 
         recordingTip = mThePanelGo.transform.Find("recording_tip").GetComponent<TMP_Text>();
 
+        audioSource = Main.Instance.GoRoot.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+
         //初始化录音功能范例
         m_IflytekVoiceHelper = new IflytekVoiceHelper();
-        m_IflytekVoiceHelper.Init(appId, apiSecret, apiKey, Util.m_persistent_data_path);// 初始化语音功能，调用一次即可
-        m_IflytekVoiceHelper.Frequency = 8000;
-        m_IflytekVoiceHelper.RecordTime = 8;
+        if (PlatformAdapter.mPlatform == PlatformType.AndroidRuntime)
+        {
+            m_IflytekVoiceHelper.Init(appId, apiSecret, apiKey, Util.m_persistent_data_path);// 初始化语音功能，调用一次即可
+            m_IflytekVoiceHelper.Frequency = 8000;
+            m_IflytekVoiceHelper.RecordTime = 8;
+        }
 
     }
 
@@ -338,8 +347,18 @@ class TestSoundRecord : TestBase
     public void VoiceStart(BaseEventData data)
     {
         DLog.LogToUI("lgy-->TestSoundRecord.VoiceStart, I am down.");
-        recordingTip.gameObject.SetActive(true);
-        m_IflytekVoiceHelper.VoiceStart(RecordFinshCallbak, RecordTranslateFinshCallbak, null);
+
+        if (Permission.HasUserAuthorizedPermission(Permission.Microphone))
+        {
+            recordingTip.gameObject.SetActive(true);
+            m_IflytekVoiceHelper.VoiceStart(RecordFinshCallbak, RecordTranslateFinshCallbak, "");
+        }
+        else
+        {
+            //请求权限
+            RequestPermission();
+        }
+
     }
     private void RecordFinshCallbak(IflytekVoiceHelper.ResultCode code, string filePath, int timeSecond)
     {
@@ -373,6 +392,37 @@ class TestSoundRecord : TestBase
         m_IflytekVoiceHelper.Reset();
     }
 
+    private void PlaySound()
+    { 
+        DLog.LogToUI("TestSoundRecord.PlaySound");
+
+        DownloadResources.AsyncLoadAudio( Util.AddLocalFilePrex(m_IflytekVoiceHelper.GetVoicePath() + audioName), AudioType.WAV,
+            data =>
+            {
+                if (data == null) return;
+                audioSource.clip = data;
+                audioSource.Play();
+            }
+        );
+        
+    }
+
+    private void RequestPermission()
+    {
+        DLog.LogToUI("TestSoundRecord.RequestPermission");
+#if UNITY_ANDROID
+        //获取权限后的回调，拒绝、允许、拒绝且不再提示的三个回调
+        //TODO 安卓的权限接口，改为基础库的统一接口
+        PermissionCallbacks permissionCallback = new PermissionCallbacks();
+        permissionCallback.PermissionDenied += data =>  DLog.Log("申请麦克风权限被拒绝了") ;
+        permissionCallback.PermissionDeniedAndDontAskAgain += data => DLog.Log("申请麦克风权限被拒绝了");
+        permissionCallback.PermissionGranted += data => DLog.Log("申请麦克风权限 通过");
+        if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
+        {
+            Permission.RequestUserPermission(Permission.Microphone, permissionCallback);
+        }
+#endif
+    }
 
 }
 

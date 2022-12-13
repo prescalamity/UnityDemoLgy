@@ -123,7 +123,7 @@ public class LoadResources
         string goName = abUrl.Split('/', System.StringSplitOptions.RemoveEmptyEntries)[^1].Replace(".unity3d", "");
 
         if (TemplateGO == null){
-            Main.Instance.MainStartCoroutine(
+            Main.Instance.StartCoroutine(
                 DownloadResources.DownloadAssetBundleCallBack(abUrl,
                     absData =>
                     {
@@ -166,7 +166,7 @@ public class LoadResources
     {
         if (TemplateGO == null)
 
-            Main.Instance.MainStartCoroutine(_LoadGoSAsync( abFilePath, compltLoad, parentTransform)); 
+            Main.Instance.StartCoroutine(_LoadGoSAsync( abFilePath, compltLoad, parentTransform)); 
 
     }
     private static IEnumerator _LoadGoSAsync(string abFilePath, UnityAction<GameObject> compltLoad, Transform parentTransform)

@@ -91,6 +91,20 @@ public class Util
         return resDic;
     }
 
+    public static string AddLocalFilePrex(string fileDestPath)
+    {
+        if (PlatformAdapter.mPlatform == PlatformType.AndroidRuntime)
+        {
+            fileDestPath = "file:///" + fileDestPath;
+        }
+        else
+        {
+            fileDestPath = "file://" + fileDestPath;
+        }
+
+        return fileDestPath;
+    }
+
     //    [DoNotToLua]
     //    public static void Initpath()
     //    {

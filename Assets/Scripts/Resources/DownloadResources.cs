@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+
 public class DownloadResources
 {
+
+    // 同时下载的数量需要做管理
 
     public static IEnumerator LoadBytesResourceCallBack(string url, Action<byte[]> callback = null)
     {
@@ -49,17 +52,13 @@ public class DownloadResources
         req.Dispose();
     }
 
-    public static IEnumerator LoadTexture(string filePath, Image image)
+    public static void AsyncLoadTexture(string filePath, Image image)
     {
-
-        if (PlatformAdapter.mPlatform == PlatformType.AndroidRuntime)
-        {
-            filePath = "file:///" + filePath;
-        }
-        else
-        {
-            filePath = "file://" + filePath;
-        }
+        Main.Instance.StartCoroutine( LoadTexture(filePath, image) );
+    }
+    private static IEnumerator LoadTexture(string filePath, Image image)
+    {
+        // www 可改用方式 DownloadHandlerTexture，https://docs.unity.cn/cn/current/Manual/UnityWebRequest-CreatingDownloadHandlers.html
 
         DLog.LogToUI("DownloadResources.LoadTexture.filePath：" + filePath);
 
@@ -105,6 +104,32 @@ public class DownloadResources
         www.Dispose();
     }
 
+    public static void AsyncLoadAudio(string recordPath, AudioType acType, Action<AudioClip> callback = null) {
+        Main.Instance.StartCoroutine( LoadAudio(recordPath, acType, callback) );
+    }
+    //https://docs.unity.cn/cn/current/Manual/UnityWebRequest-CreatingDownloadHandlers.html
+    private static IEnumerator LoadAudio(string recordPath, AudioType acType, Action<AudioClip> callback = null)
+    {
+
+        DLog.LogToUI("DownloadResources.LoadAudio.start.recordPath：" + recordPath);
+
+        using (UnityWebRequest uwr = UnityWebRequestMultimedia.GetAudioClip(recordPath, acType))
+        {
+            yield return uwr.SendWebRequest();
+
+            if (uwr.result != UnityWebRequest.Result.Success)
+            {
+                DLog.LogToUI(LogType.error, uwr.error);
+                callback?.Invoke(null);
+                yield break;
+            }
+
+            AudioClip clip = DownloadHandlerAudioClip.GetContent(uwr);
+
+            callback?.Invoke(clip);
+        }
+    }
+
 
     public static Texture ReadFileByPath(string fileName)
     {
@@ -120,5 +145,6 @@ public class DownloadResources
         return tex;
 
     }
+
 
 }

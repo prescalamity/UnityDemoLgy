@@ -1717,10 +1717,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: sound_record
       objectReference: {fileID: 0}
-    - target: {fileID: 56736033015117728, guid: a53a32c7e80d5554a88dfbb314ed0909, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 56736033015117735, guid: a53a32c7e80d5554a88dfbb314ed0909, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

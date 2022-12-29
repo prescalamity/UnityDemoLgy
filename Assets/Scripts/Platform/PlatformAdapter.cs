@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 
@@ -20,6 +21,11 @@ public enum PlatformType {
 
 public class PlatformAdapter
 {
+#if UNITY_IOS
+    [DllImport("__Internal")]
+    public static extern string QdHSSSFromLJB(string key,string arg,string callback);
+#endif
+
 
     static Dictionary<string, dele_rVoid_pString> dic_rVoid_pString = new Dictionary<string, dele_rVoid_pString>();
     static Dictionary<string, dele_rVoid_pVoid> dic_rVoid_pVoid = new Dictionary<string, dele_rVoid_pVoid>();

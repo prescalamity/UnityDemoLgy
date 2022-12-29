@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+#if UNITY_ANDROID
 using UnityEngine.Android;
+#endif
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -348,7 +350,8 @@ class TestSoundRecord : TestBase
     {
         DLog.LogToUI("lgy-->TestSoundRecord.VoiceStart, I am down.");
 
-        if (Permission.HasUserAuthorizedPermission(Permission.Microphone))
+#if UNITY_ANDROID
+        if ( Permission.HasUserAuthorizedPermission(Permission.Microphone))
         {
             recordingTip.gameObject.SetActive(true);
             m_IflytekVoiceHelper.VoiceStart(RecordFinshCallbak, RecordTranslateFinshCallbak, "");
@@ -358,6 +361,13 @@ class TestSoundRecord : TestBase
             //请求权限
             RequestPermission();
         }
+#elif UNITY_IOS
+
+        recordingTip.gameObject.SetActive(true);
+        m_IflytekVoiceHelper.VoiceStart(RecordFinshCallbak, RecordTranslateFinshCallbak, "");
+
+#endif
+
 
     }
     private void RecordFinshCallbak(IflytekVoiceHelper.ResultCode code, string filePath, int timeSecond)

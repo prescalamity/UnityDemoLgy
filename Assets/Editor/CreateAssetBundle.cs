@@ -25,9 +25,9 @@ public class CreateAssetBundle
         strABOutPAthDir = strABOutPAthDir + "/ios";
         if (Directory.Exists(strABOutPAthDir) == false) Directory.CreateDirectory(strABOutPAthDir);
 
-        BulidPipeline.BulidAssetBundles(strABOutPAthDir,
-                                        BulidAssetBundleOptions.None,
-                                        BulidTarget.iOS);
+        BuildPipeline.BuildAssetBundles(strABOutPAthDir,
+                                        BuildAssetBundleOptions.None,
+                                        BuildTarget.iOS);
         Debug.Log("IOS平台打包成功，输出的路径："+ strABOutPAthDir);
 
 #elif UNITY_STANDALONE_WIN //PC或则编辑器

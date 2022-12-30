@@ -10,6 +10,7 @@ public class TestMove : MonoBehaviour
 
     void Start()
     {
+        DLog.Log("TestMove.Start");
         vector3.x = gameObject.transform.localPosition.x;
         vector3.y = gameObject.transform.localPosition.y;
         vector3.z = gameObject.transform.localPosition.z;

@@ -326,6 +326,10 @@ public class Main : MonoBehaviour
         //ImagePicker.GetInstance().OnPickFinish(file_name);
     }
     
+    void IosOcLog(string cbData)
+    {
+        DLog.Log(cbData);
+    }
 
     void AndroidJavaLog(string cbData)
     {

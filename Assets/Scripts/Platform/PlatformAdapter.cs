@@ -47,6 +47,7 @@ public class PlatformAdapter
 
 #endif
 
+        //--------------------------------------------------------------------
 
 #if UNITY_ANDROID
 
@@ -61,7 +62,7 @@ public class PlatformAdapter
         AndroidHelper.initAndroid();
 #endif
 
-
+        //--------------------------------------------------------------------
 
 #if UNITY_WEBGL
 
@@ -74,6 +75,20 @@ public class PlatformAdapter
 
 
         JsHelper.initWebGL();
+#endif
+
+#if UNITY_IOS
+
+        //--------------------------------------------------------------------
+
+#if UNITY_EDITOR
+        mPlatform = PlatformType.IosEditor;
+#else
+        mPlatform = PlatformType.IosRuntime;
+#endif
+
+
+        IosHelper.initIos();
 #endif
 
 

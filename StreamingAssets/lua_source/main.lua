@@ -9,10 +9,11 @@ function start()
 
 end
 
-function testFlatformFuncCallback(funcName)
+function testPlatformFuncCallback(funcName)
 
-    local result = PlatformInterface.CallPlatformFunc(funcName, "", function() Debug.LogToUI("This is testFlatformFuncCallback.") end )
+    local result = PlatformInterface.CallPlatformFunc(funcName, "", function() Debug.LogToUI("This is testPlatformFuncCallback.") end )
 
     Debug.LogToUI(funcName.."----->:"..result)
 
 end
+ 

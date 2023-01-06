@@ -568,7 +568,7 @@ PlayerSettings:
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
-  cameraUsageDescription: 
+  cameraUsageDescription: Game service needs Camera
   locationUsageDescription: Game service needs Location
   microphoneUsageDescription: Game service needs Microphone
   bluetoothUsageDescription: 

@@ -255,7 +255,7 @@ public class Main : MonoBehaviour
             //luaLoaded = false;
 
             DLog.LogToUI(m_SetpId + ". m_Dropdown.text :" + mDropdown.options[mDropdown.value].text);
-            LuaScriptMgr.GetInstance().CallLuaFunction("testFlatformFuncCallback", mDropdown.options[mDropdown.value].text);
+            LuaScriptMgr.GetInstance().CallLuaFunction("testPlatformFuncCallback", mDropdown.options[mDropdown.value].text);
 
 
             //LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("TestMainButtonEvent");

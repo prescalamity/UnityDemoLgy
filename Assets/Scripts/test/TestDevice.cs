@@ -250,7 +250,7 @@ class TestHeadPhoto : TestBase
 
         string resizeRes = PlatformAdapter.CallPlatformFunc("CropJpegImage", sb.ToString(), "");
 
-        if (resizeRes.Equals("true"))
+        if (resizeRes != null && resizeRes.Equals("true"))
         {
             DLog.LogToUI("TestHeadPhoto.OpenPhotoLibraryCB-->ResizeJpegImage:ok");
 

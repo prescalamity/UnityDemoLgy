@@ -77,21 +77,21 @@ function PlatformInterface.CallScriptFunc(message)
 
 	Debug.LogToUI("PlatformInterface.CallScriptFunc.message:"..message)
 
-	-- local json_obj = JsonUtil.ReadJsonStr(message)
-	-- local callback_handle = json_obj["callback"]
-	-- local data = json_obj["data"]
+	local json_obj = JsonUtil.ReadJsonStr(message)
+	local callback_handle = json_obj["callback"]
+	local data = json_obj["data"]
 
 
-	-- if callback_handle == nil then
-	-- 	Debug.Log("error in CallScriptFunc : callback_handle can't be nil")
-	-- 	return
-	-- end
+	if callback_handle == nil then
+		Debug.Log("error in CallScriptFunc : callback_handle can't be nil")
+		return
+	end
 
-	-- local callback = lua_callback_list[callback_handle]
+	local callback = lua_callback_list[callback_handle]
 
-	-- if callback and "function" == type(callback) then
-	-- 	callback(data)
-	-- end
+	if callback and "function" == type(callback) then
+		callback(data)
+	end
 
 end
 

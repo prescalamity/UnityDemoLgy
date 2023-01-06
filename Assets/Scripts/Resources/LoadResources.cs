@@ -1,5 +1,7 @@
+using LuaInterface;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,38 +19,84 @@ public class LoadResources
         //private set { }
     }
 
+
     /// <summary>
-    /// 加载lua源代码资源
+    /// 加载lua源代码资源，先加载 main.lua，再根据其中的配置表加载其他lua脚本
     /// </summary>
     public static void loadLuaSources()
     {
+        string luaStr =  "/lua_source/main.lua" ;
 
-        string[] luaStr = new string[] { "/lua_source/main.lua", "/lua_source/platforminterface.lua" };
-
-        int copltCount = 0;
-
-        foreach (string str in luaStr)
-        {
-            Main.Instance.StartCoroutine(
-                DownloadResources.LoadBytesResourceCallBack(Util.m_streaming_assets_path + str,
-                    data =>
+        Main.Instance.StartCoroutine(
+            DownloadResources.LoadBytesResourceCallBack(Util.m_streaming_assets_path + luaStr,
+                data =>
+                {
+                    try
                     {
                         LuaScriptMgr.GetInstance().lua.DoBytes(data);
 
-                        copltCount++;
+                        DLog.Log("The main.lua have been loaded to LuaState.");
 
-                        if (copltCount == luaStr.Length)
-                        {
-                            DLog.Log(" All lua_source have been loaded to LuaState.");
-                            luaLoaded = true;
-                        }
-
+                        loadOtherLuaSources();
                     }
-                )
-            );
+                    catch (System.Exception ex)
+                    {
+                        DLog.Log("请检查 {0} 是否正确，下载的 {1} 内容为：{2}",luaStr, luaStr, Encoding.UTF8.GetString(data));
+                        DLog.Log(ex.ToString());
+                    }
+                }
+            )
+        );
+        
+    }
+
+    /// <summary>
+    /// 除 main.lua 外的 其他lua脚本
+    /// </summary>
+    private static void loadOtherLuaSources()
+    {
+        LuaTable luaTable = LuaScriptMgr.GetInstance().GetLuaTable("maintable.otherLuaSoure");
+
+        if(luaTable!=null && luaTable.Length > 0)
+        {
+            //DLog.Log("LoadResources.loadOtherLuaSources.luaTable.Length:{0}", luaTable.Length);
+
+            int copltCount = 0;
+
+            foreach (var str in luaTable.ToArray())
+            {
+                Main.Instance.StartCoroutine(
+                    DownloadResources.LoadBytesResourceCallBack(Util.m_streaming_assets_path + str.ToString(),
+                        data =>
+                        {
+                            try
+                            {
+                                LuaScriptMgr.GetInstance().lua.DoBytes(data);
+
+                                copltCount++;
+
+                                if (copltCount == luaTable.Length)
+                                {
+                                    DLog.Log(" All lua_source have been loaded to LuaState.");
+                                    luaLoaded = true;
+                                }
+                            }
+                            catch (System.Exception ex)
+                            {
+                                DLog.Log("请检查 {0} 是否正确，下载的 {1} 内容为：{2}", str.ToString(), str.ToString(), Encoding.UTF8.GetString(data));
+                                DLog.Log(ex.ToString());
+                            }
+
+                        }
+                    )
+                );
+            }
         }
-
-
+        else
+        {
+            DLog.Log(LogType.warn, "The other lua load error, or no other lua needs loaded to LuaState.");
+            luaLoaded = true;
+        }
 
     }
 
@@ -57,58 +105,46 @@ public class LoadResources
     /// </summary>
     public static void loadAssetBundle()
     {
+        LuaTable modelLuaTable = LuaScriptMgr.GetInstance().GetLuaTable("maintable.assetsbundles.model");
+        LuaTable uiLuaTable = LuaScriptMgr.GetInstance().GetLuaTable("maintable.assetsbundles.ui");
 
-        string[] abStr = new string[] { "/capsule.unity3d", "/floor_cube.unity3d", "/sphere.unity3d" };
+        int absCount = modelLuaTable.Length + uiLuaTable.Length;
 
-        string[] uiAbStr = new string[] { "/dropdown.unity3d" };   // "/input_field.unity3d", "/video_raw_image.unity3d", "power.unity",
-
-        int absCount = abStr.Length + uiAbStr.Length;
         int absCounter = 0;
 
-        string _urlprex = Util.m_streaming_assets_path + "/assetbundles";
+        string _urlprex = Util.m_streaming_assets_path + "/assetbundles/" + PlatformAdapter.PlatformNameOnly();
 
-        if (PlatformAdapter.mPlatform == PlatformType.AndroidRuntime)
+        foreach (var str in modelLuaTable.ToArray())
         {
-            _urlprex += "/android";
-        }
-        else if (PlatformAdapter.mPlatform == PlatformType.WebglRuntime)
-        {
-            _urlprex += "/webgl";
-        }
-        else if (PlatformAdapter.mPlatform == PlatformType.IosRuntime)
-        {
-            _urlprex += "/ios";
-        }
-        else
-        {
-            _urlprex += "/windows";
-        }
-
-        foreach (string str in abStr)
-        {
-            LoadResources.LoadGOAsyncUrl(_urlprex + str,
+            LoadGOAsyncUrl(_urlprex + str.ToString(),
                 data => {
+                    //临时测试
+                    if (data.name.Contains("sphere")) data.gameObject.AddComponent<TestMove>();
+
                     absCounter++;
                     if (absCounter >= absCount) Main.canStartAfterInit = true;
-                    if (data.name.Contains("sphere")) data.gameObject.AddComponent<TestMove>();
+
                     UiManager.updateUiSort();
                     DLog.Log("ok，name: {0}，absCounter：{1}", data.name, absCounter.ToString());
                 },
                 Main.Instance.GoRoot.transform);
         }
 
-        foreach (string str in uiAbStr)
+        foreach (var str in uiLuaTable.ToArray())
         {
-            LoadResources.LoadGOAsyncUrl(_urlprex + str,
+            LoadGOAsyncUrl(_urlprex + str.ToString(),
                 data => {
-                    data.name = str.TrimStart('/').Replace(".unity3d", "");   //这里 str 在foreach循环中被认为是闭包匿名类中私有的
+                    data.name = str.ToString().TrimStart('/').Replace(".unity3d", "");   //这里 str 在foreach循环中被认为是闭包匿名类中私有的
+
                     absCounter++;
                     if (absCounter >= absCount) Main.canStartAfterInit = true;
+
                     UiManager.updateUiSort();
                     DLog.Log("ok，name: {0}，absCounter：{1}", data.name, absCounter.ToString());  //absCounter 被认为是闭包匿名类中引用的（即公有的）
                 },
                 Main.Instance.UiRootCanvas.transform);
         }
+
     }
 
 

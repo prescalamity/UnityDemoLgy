@@ -177,7 +177,25 @@ public class PlatformAdapter
     }
 
 
+    public static string PlatformNameOnly()
+    {
+        string platformName = "windows";
 
+        if (mPlatform == PlatformType.AndroidRuntime)
+        {
+            platformName = "android";
+        }
+        else if (mPlatform == PlatformType.WebglRuntime)
+        {
+            platformName = "webgl";
+        }
+        else if (mPlatform == PlatformType.IosRuntime)
+        {
+            platformName = "ios";
+        }
+
+        return platformName;
+    }
 
 
 }

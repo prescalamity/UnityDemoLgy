@@ -34,14 +34,21 @@ public class TestDropdown : MonoBehaviour
 
     public static void initDpd(TMP_Dropdown dropdown ,string content = "")
     {
+        LuaInterface.LuaTable luaTable = LuaScriptMgr.GetInstance().GetLuaTable("maintable.platformFuncNameList");
 
-        if (content == "") content = txt.DropdownStr;
+        if (luaTable != null && luaTable.Length > 0) {
 
-        string[] strDpd = content.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            DLog.Log("TestDropdown.initDpd.luaTable.Length:{0}", luaTable.Length);
 
-        foreach (string str in strDpd)
+            foreach (var str in luaTable.ToArray()) dropdown.options.Add(new TMP_Dropdown.OptionData(str.ToString()));
+        }
+        else
         {
-            dropdown.options.Add(new TMP_Dropdown.OptionData(str));
+            if (content == "") content = txt.TxtStr;
+
+            string[] strDpd = content.Split(',', StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string str in strDpd) dropdown.options.Add(new TMP_Dropdown.OptionData(str));
         }
 
         // TMP_Dropdown 值必须改一次，才会显示默认字符

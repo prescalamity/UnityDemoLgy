@@ -5,13 +5,13 @@ public class txt
 {
 
 
-    public static string DropdownStr
+    public static string TxtStr
     {
         get {
 
-            if (dropdownStr == null) dropdownStr = _dropdownStr.Replace("\r", "").Replace("\n", "");
+            if (txtStr == null) txtStr = _txtStr.Replace("\r", "").Replace("\n", "");
 
-            return dropdownStr; 
+            return txtStr; 
         }
 
         private set { }
@@ -24,44 +24,10 @@ public class txt
     //    set => dropdownStr = value;
     //}
 
-    private static string dropdownStr = null;
-    private static string _dropdownStr = @"
+    private static string txtStr = null;
+    private static string _txtStr = @"
 SelectAndClickTestButton,
-SoundPanel,
-PowerPanel,
-GetPkgName,
-OpenPhotoLibraryPanel,
-OpenCameraPanel,
-openCameraPanel,
-openPhotoLibraryPanel,
-GetNumberOfCPUCores,
-GetCPUMaxFreqKHz,
-GetSdcardRootPath,
-GetSDCardAvailaleSize,
-CheckSDCardUsable,
-GetVailMemory,
-GetScreenWidth,
-GetScreenHeight,
-GetScreenMetricsWidth,
-GetScreenMetricsHeight,
-GettInches,
-JumpToLink,
-GetAndroidVersion,
-IsInternetConnected,
-GetPackageVersion,
-CloseProgress,
-GetManufacturer,
-PopUpdateAlertView,
-ReadBytesFromAssets,
-ReadObbBytesFromAssets4K,
-ExportResourceFile2OtherPath,
-ExportResourceFile,
-ExportResourceDirectory,
-GetPakFiles,
-IsOpenObb,
-GetSettingFlag,
-GetVideoState,
-TestMulteCallback,
+NoMore,
 ";
 
 

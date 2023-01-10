@@ -12,6 +12,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using static UnityEngine.UI.Button;
+using UnityEngine.EventSystems;
 //using Cinemachine;
 
 #if DEV_BRANCH
@@ -113,7 +114,11 @@ public static class CustomSettings
 
     //在这里添加你要导出注册到lua的类型列表
     public static BindType[] customTypeList =
-    {                
+    {            
+
+  //      _GT(typeof(AudioType)),
+
+
       //_GT(typeof(Protocal)),
         //_GT(typeof(DownloadResources)),
   //      // 游戏启动时，优先注册的luawrap类
@@ -210,12 +215,17 @@ public static class CustomSettings
 
   //      //UI相关接口
   //      _GT(typeof(UnityEvent)),
+  //      _GT(typeof(EventTrigger)),
+  //      _GT(typeof(EventTrigger.TriggerEvent)),
+  //      _GT(typeof(BaseEventData)),
+        
   //      _GT(typeof(Image)),  
   //      _GT(typeof(TMP_Text)),   
   //      _GT(typeof(TMP_Dropdown)),
   //      _GT(typeof(RectTransform)),
   //      _GT(typeof(ButtonClickedEvent)),
-        _GT(typeof(TextMeshProUGUI)),
+  //      _GT(typeof(TextMeshProUGUI)),
+  //      _GT(typeof(AudioSource)),
   
   //      _GT(typeof(UILabelSDFExt)),
   //      _GT(typeof(Button)),

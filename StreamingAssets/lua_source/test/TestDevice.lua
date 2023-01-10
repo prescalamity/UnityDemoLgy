@@ -14,9 +14,9 @@ function TestDevice.Init()
     MainDropdown = UiRootCanvas.transform:Find("dropdown"):GetComponent(TTMP_Dropdown)
 
     testDeviceBases["TestPower"] = TestPower.New()
-    -- testDeviceBases.Add(new TestPermission())
+    -- testDeviceBases:Add(new TestPermission())
     testDeviceBases["TestHeadPhoto"] = TestHeadPhoto.New()
-    -- testDeviceBases.Add(new TestSoundRecord())
+    --testDeviceBases["TestSoundRecord"] = TestSoundRecord.New()
 end
 
 
@@ -288,7 +288,7 @@ function TestHeadPhoto.OpenHeadPhotoCB( cbData)
         Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB-->ResizeJpegImage:ok")
 
 
-        DownloadResources.AsyncLoadTexture(Util.AddLocalFilePrex(fileDestPath), self.image)
+        DownloadResources.AsyncLoadTexture(Util:AddLocalFilePrex(fileDestPath), self.image)
     
     else
     
@@ -302,170 +302,75 @@ end
 
 --============================================================ TestSoundRecord start ============================================================================
 
--- -- 测试录音
--- TestSoundRecord = TestSoundRecord or BaseClass(TestBase)
+-- 测试录音
+TestSoundRecord = TestSoundRecord or BaseClass(TestBase)
 
--- function TestSoundRecord:__init()
+function TestSoundRecord:__init()
 
---     self.voiceCount = 10000
+    self.voiceCount = 10000
 
---     self.btnRecordSound
---     self.btnRecordSoundEvent
---     self.btnPlaySound
---     self.btnToWords
---     self.recordingTip
+    self.btnRecordSound = nil
+    self.btnRecordSoundEvent = nil
+    self.btnPlaySound = nil
+    self.btnToWords = nil
+    self.recordingTip = nil
 
---     self.audioSource
---     self.audioName = "/record.wav"
+    self.audioSource = nil
+    self.audioName = "/record.wav"
 
---     self.m_IflytekVoiceHelper
---     self.appId = "90d09164"
---     self.apiSecret = "YTEwMjU2OTEwMTc3MzUwMjY5YjlmMTkx"
---     self.apiKey = "3287d1186dbe24add8a383230eb2d0d9"
--- end
+    self.appId = "90d09164"
+    self.apiSecret = "YTEwMjU2OTEwMTc3MzUwMjY5YjlmMTkx"
+    self.apiKey = "3287d1186dbe24add8a383230eb2d0d9"
+end
 
--- function TestSoundRecord:Start()
+function TestSoundRecord:Start()
 
---     TestBase.Start(self)
+    TestBase.Start(self)
 
---     self.mThePanelGo = UiRootCanvas.transform:Find("sound_record").gameObject
+    self.mThePanelGo = UiRootCanvas.transform:Find("sound_record").gameObject
 
+    self.btnRecordSound = self.mThePanelGo.transform:Find("record"):GetComponent(TButton)
+    --self.btnRecordSound:AddListener( () => PlatformInterface.CallPlatformFunc("", "", "") )
 
---     self.btnRecordSound = self.mThePanelGo.transform:Find("record"):GetComponent(TButton)
---     --self.btnRecordSound:AddListener( () => PlatformInterface.CallPlatformFunc("", "", "") )
+    self.btnRecordSoundEvent = self.btnRecordSound.gameObject:AddComponent(TEventTrigger)
+    self.btnRecordSoundEvent:AddListener(2, IflytekVoice_Helper.VoiceStart)
+    self.btnRecordSoundEvent:AddListener(3, IflytekVoice_Helper.VoiceStop)
 
---     self.btnRecordSoundEvent = self.btnRecordSound.gameObject:AddComponent(TEventTrigger)
+    self.btnPlaySound = self.mThePanelGo.transform:Find("play"):GetComponent(TButton)
+    self.btnPlaySound:AddListener(self.PlaySound)
 
---     EventTrigger.Entry entryBtnDwon = new EventTrigger.Entry()
---     entryBtnDwon.eventID = EventTriggerType.PointerDown
---     entryBtnDwon.callback:AddListener(VoiceStart)
---     self.btnRecordSoundEvent.triggers.Add(entryBtnDwon)
+    self.btnToWords = self.mThePanelGo.transform:Find("to_words"):GetComponent(TButton)
+    --self.btnToWords:AddListener(() => PlatformInterface.CallPlatformFunc("", "", ""))
 
---     EventTrigger.Entry entryBtnUp = new EventTrigger.Entry()
---     entryBtnUp.eventID = EventTriggerType.PointerUp
---     entryBtnUp.callback:AddListener(VoiceEnd)
---     self.btnRecordSoundEvent.triggers.Add(entryBtnUp)
+    self.recordingTip = self.mThePanelGo.transform:Find("recording_tip"):GetComponent(TTMP_Text)
 
+    self.audioSource = GoRoot:AddComponent(AudioSource)
+    self.audioSource.playOnAwake = false
 
---     self.btnPlaySound = self.mThePanelGo.transform:Find("play"):GetComponent(TButton)
---     self.btnPlaySound:AddListener(PlaySound)
+    --初始化录音功能范例
+    IflytekVoice_Helper.Init()
 
---     self.btnToWords = self.mThePanelGo.transform:Find("to_words"):GetComponent(TButton)
---     --self.btnToWords:AddListener(() => PlatformInterface.CallPlatformFunc("", "", ""))
-
---     self.recordingTip = self.mThePanelGo.transform:Find("recording_tip"):GetComponent(TTMP_Text)
-
---     self.audioSource = Main.Instance.GoRoot:AddComponent<self.audioSource>()
---     self.audioSource.playOnAwake = false
-
---     --初始化录音功能范例
---     self.m_IflytekVoiceHelper = new IflytekVoiceHelper()
---     if (PlatformInterface.mPlatform == PlatformType.AndroidRuntime)
---     {
---         self.m_IflytekVoiceHelper.Init(self.appId, self.apiSecret, self.apiKey, Util.m_persistent_data_path)-- 初始化语音功能，调用一次即可
---         self.m_IflytekVoiceHelper.Frequency = 8000
---         self.m_IflytekVoiceHelper.RecordTime = 8
---     }
-
--- end
+end
 
 
--- function TestSoundRecord:MainButtonTestFunction( stepID,  functionName , thePanelName)
+function TestSoundRecord:MainButtonTestFunction( stepID,  functionName , thePanelName)
 
---     base.MainButtonTestFunction(stepID, functionName, new string[] { "SoundPanel" })
+    TestBase.MainButtonTestFunction(self, stepID, functionName, { "SoundPanel" })
 
--- end
-
-
--- function TestSoundRecord:VoiceStart( data)
-
---     Debug.LogToUI("lgy-->function TestSoundRecord:VoiceStart, I am down.")
-
--- #if UNITY_ANDROID
---     if ( Permission.HasUserAuthorizedPermission(Permission.Microphone))
---     {
---         self.recordingTip.gameObject.SetActive(true)
---         self.m_IflytekVoiceHelper.VoiceStart(RecordFinshCallbak, RecordTranslateFinshCallbak, "")
---     }
---     else
---     {
---         --请求权限
---         RequestPermission()
---     }
--- #elif UNITY_IOS
-
---     self.recordingTip.gameObject.SetActive(true)
---     self.m_IflytekVoiceHelper.VoiceStart(RecordFinshCallbak, RecordTranslateFinshCallbak, "")
-
--- #endif
+end
 
 
--- end
 
--- function TestSoundRecord:RecordFinshCallbak( code,  filePath,  timeSecond)
+function TestSoundRecord:PlaySound()
+    Debug.LogToUI("function TestSoundRecord:PlaySound")
 
---     Debug.LogToUI("function TestSoundRecord:recordFinshCallbak.code:{0}, filePath:{1}", code, filePath)
--- end
-
--- function TestSoundRecord:RecordTranslateFinshCallbak( code,  word,  timeSecond)
-
---     Debug.LogToUI("function TestSoundRecord:recordTranslateFinshCallbak.code:{0}, word:{1}", code, word)
--- end
-
-
--- function TestSoundRecord:VoiceEnd( data)
-
---     Debug.LogToUI("lgy-->function TestSoundRecord:VoiceEnd, I am up.")
---     self.recordingTip.gameObject.SetActive(false)
---     self.m_IflytekVoiceHelper.VoiceStop()
--- end
-
--- function TestSoundRecord:IsRecording()
-
---     return self.m_IflytekVoiceHelper.IsRecording
--- end
-
--- function TestSoundRecord:EnterRecord()
-
---     return self.m_IflytekVoiceHelper.EnterRecord
--- end
-
--- function TestSoundRecord:Reset() 
-
---     self.m_IflytekVoiceHelper.Reset()
--- end
-
--- function TestSoundRecord:PlaySound()
---     Debug.LogToUI("function TestSoundRecord:PlaySound")
-
---     DownloadResources.AsyncLoadAudio( Util.AddLocalFilePrex(self.m_IflytekVoiceHelper.GetVoicePath() .. self.audioName), AudioType.WAV,
---         data =>
---         {
---             if (data == nil) return
---             self.audioSource.clip = data
---             self.audioSource.Play()
---         }
---     )
+    DownloadResources.AsyncLoadAudio( Util.AddLocalFilePrex(self.m_IflytekVoiceHelper.GetVoicePath() .. self.audioName), AudioType.WAV,
+        function(data)
+            if data then return end
+            self.audioSource.clip = data
+            self.audioSource:Play()
+        end
+    )
     
--- end
-
--- function TestSoundRecord:RequestPermission()
-
---     Debug.LogToUI("function TestSoundRecord:RequestPermission")
--- #if UNITY_ANDROID
---     --获取权限后的回调，拒绝、允许、拒绝且不再提示的三个回调
---     --TODO 安卓的权限接口，改为基础库的统一接口
---     PermissionCallbacks permissionCallback = new PermissionCallbacks()
---     permissionCallback.PermissionDenied ..= data =>  Debug.Log("申请麦克风权限被拒绝了") 
---     permissionCallback.PermissionDeniedAndDontAskAgain ..= data => Debug.Log("申请麦克风权限被拒绝了")
---     permissionCallback.PermissionGranted ..= data => Debug.Log("申请麦克风权限 通过")
---     if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
---     {
---         Permission.RequestUserPermission(Permission.Microphone, permissionCallback)
---     }
--- #endif
-
--- end
-
-
+end
 

@@ -34,6 +34,7 @@ public static class CustomWrap
 		L.BeginClass(typeof(Main), typeof(System.Object), "Main");
 
 		L.RegFunction("Instance_UiRootCanvas", Instance_UiRootCanvas);
+		L.RegFunction("Instance_GoRoot", Instance_GoRoot);
 
 		L.EndClass();
 
@@ -204,7 +205,24 @@ public static class CustomWrap
 		}
 	}
 
+	
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Instance_GoRoot(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 0);
 
+			UnityEngine.GameObject o = Main.Instance.GoRoot;
 
+			ToLua.Push(L, o);
+
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
 
 }

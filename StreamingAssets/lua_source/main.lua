@@ -3,6 +3,8 @@
 require("core.ClassType")
 require("systool.baseclass")
 
+require("config.csenum")
+
 require("utils.json_util")
 require("platform.image_picker")
 require("platform.platforminterface")
@@ -12,7 +14,7 @@ require("test.TestDevice")
 
 -- 缓存一些东西
 UiRootCanvas = Main.Instance_UiRootCanvas()
-
+GoRoot       = Main.Instance_GoRoot()
 
 function MainStart() 
 

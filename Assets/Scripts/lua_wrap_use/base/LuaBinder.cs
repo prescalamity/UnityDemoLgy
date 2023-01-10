@@ -197,11 +197,20 @@ public static class LuaBinder
         L.EndModule();
 
 
+
         L.BeginModule("UnityEngine");
 
         L.BeginModule("Events");
         UnityEngine_Events_UnityEventWrap.Register(L);
         L.EndModule();
+        L.BeginModule("EventSystems");
+        UnityEngine_EventSystems_BaseEventDataWrap.Register(L);
+        UnityEngine_EventSystems_EventTriggerWrap.Register(L);
+        L.BeginModule("EventTrigger");
+        UnityEngine_EventSystems_EventTrigger_EntryWrap.Register(L);
+        L.EndModule();
+        L.EndModule();
+
 
         L.BeginModule("UI");
         UnityEngine_UI_ImageWrap.Register(L);

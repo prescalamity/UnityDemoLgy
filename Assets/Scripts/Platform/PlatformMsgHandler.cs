@@ -131,12 +131,12 @@ public class PlatformMsgHandler : MonoBehaviour
         DLog.Log("QuitGame begin");
 
 #if UNITY_ANDROID && ENABLE_PROFILER
-        var performModule = GameObject.Find("GameMain").GetComponent<GamePerformTestModule>();
-        if (performModule)
-        {
-            performModule.OnGameExit();
-        }
-        else
+        //var performModule = GameObject.Find("GameMain").GetComponent<GamePerformTestModule>();
+        //if (performModule)
+        //{
+        //    performModule.OnGameExit();
+        //}
+        //else
 #endif
             Application.Quit();
     }
@@ -562,20 +562,20 @@ public class PlatformMsgHandler : MonoBehaviour
         DLog.Log("[key path] PlatformMsgHandler.WebLog begin");
 
 #if UNITY_ANDROID || UNITY_IOS
-        if (!CommonConst.IsIosShenhe || "init_loading".Equals(ac))
-        {
-            HttpManager request = new HttpManager();
+        //if (!CommonConst.IsIosShenhe || "init_loading".Equals(ac))
+        //{
+        //    HttpManager request = new HttpManager();
 
-            request.SetUrl(ClientInfo.StaticUrl);
-            request.SetParams("ditch_name", ClientInfo.DitchName);
-            request.SetParams("client_uid", XDevice.Instance.getDeviceId());
-            request.SetParams("static_deviceid", XDevice.Instance.getStaticDeviceid());
-            request.SetParams("client_type", XDevice.Instance.getDeviceModel());
-            request.SetParams("ac", ac);
-            request.SetConnectTimeOut(10);
-            request.SetRetryCount(3);
-            request.AsyncHttpRequest();
-        }
+        //    request.SetUrl(ClientInfo.StaticUrl);
+        //    request.SetParams("ditch_name", ClientInfo.DitchName);
+        //    request.SetParams("client_uid", XDevice.Instance.getDeviceId());
+        //    request.SetParams("static_deviceid", XDevice.Instance.getStaticDeviceid());
+        //    request.SetParams("client_type", XDevice.Instance.getDeviceModel());
+        //    request.SetParams("ac", ac);
+        //    request.SetConnectTimeOut(10);
+        //    request.SetRetryCount(3);
+        //    request.AsyncHttpRequest();
+        //}
 #else
         DLog.Log("[key path] Click app");
 #endif

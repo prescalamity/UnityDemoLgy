@@ -53,6 +53,8 @@ mainconfig = {
         "utils/json_util.lua",
         "utils/dkjson.lua",
 
+        "config/csenum.lua",
+        
         "test/TestDevice.lua",
         --"test.lua",
 

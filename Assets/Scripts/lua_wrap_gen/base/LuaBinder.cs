@@ -12,12 +12,6 @@
 //	{
 //		var time = Time.realtimeSinceStartup;
 //		L.BeginModule(null);
-//		L.BeginModule("TMPro");
-
-//		L.EndModule();
-//		L.BeginModule("UnityEngine");
-
-//		L.EndModule();
 //		L.EndModule();
 //		DLog.Log("注册LUA耗时：" + (Time.realtimeSinceStartup - time));
 //	}

@@ -19,23 +19,46 @@ public class LoadResources
         //private set { }
     }
 
+    /// <summary>
+    /// 缓存放lua脚本的文件名和内容的二进制数据，其中，文件名为相对 lua_source 路径，例如："/lua_source/config/main_config.lua"，暂时没有进行内存管理
+    /// </summary>
+    private static Dictionary<string, byte[]> luaFileByteDataDic = new Dictionary<string, byte[]>();
+    public static byte[] getLuaFileByteData(string str)
+    {
+        byte[] byteData;
+
+        bool isExcit = luaFileByteDataDic.TryGetValue(str, out byteData);
+
+        if (!isExcit) DLog.Log(LogType.Warning,"Lua file not exist, {0}", str);
+
+        return isExcit ? byteData : null;
+    }
+
+    public static void init()
+    {
+        DelegateToPlugins.Instance.getLuaFileByteData = getLuaFileByteData;
+    }
+
 
     /// <summary>
     /// 加载lua源代码资源，先加载 main.lua，再根据其中的配置表加载其他lua脚本
     /// </summary>
     public static void loadLuaSources()
     {
-        string luaStr =  "/lua_source/main.lua" ;
+        string luaStr =  "config/main_config.lua" ;
 
         Main.Instance.StartCoroutine(
-            DownloadResources.LoadBytesResourceCallBack(Util.m_streaming_assets_path + luaStr,
+            DownloadResources.LoadBytesResourceCallBack(Util.m_streaming_assets_path + "/lua_source/" + luaStr,
                 data =>
                 {
                     try
                     {
+                        luaFileByteDataDic.Add(luaStr, data);
+
+                        // 主表配置数据立即写入 lua 虚拟机中
                         LuaScriptMgr.GetInstance().lua.DoBytes(data);
 
-                        DLog.Log("The main.lua have been loaded to LuaState.");
+                        DLog.LogToUI("The main_config.lua have been loaded to LuaState.");
 
                         loadOtherLuaSources();
                     }
@@ -55,29 +78,31 @@ public class LoadResources
     /// </summary>
     private static void loadOtherLuaSources()
     {
-        LuaTable luaTable = LuaScriptMgr.GetInstance().GetLuaTable("maintable.otherLuaSoure");
+        LuaTable luaTable = LuaScriptMgr.GetInstance().GetLuaTable("mainconfig.otherLuaSoure");
 
         if(luaTable!=null && luaTable.Length > 0)
         {
-            //DLog.Log("LoadResources.loadOtherLuaSources.luaTable.Length:{0}", luaTable.Length);
+           DLog.Log("LoadResources.loadOtherLuaSources.luaTable.Length:{0}", luaTable.Length);
 
             int copltCount = 0;
 
             foreach (var str in luaTable.ToArray())
             {
                 Main.Instance.StartCoroutine(
-                    DownloadResources.LoadBytesResourceCallBack(Util.m_streaming_assets_path + str.ToString(),
+                    DownloadResources.LoadBytesResourceCallBack(Util.m_streaming_assets_path + "/lua_source/" + str.ToString(),
                         data =>
                         {
                             try
                             {
-                                LuaScriptMgr.GetInstance().lua.DoBytes(data);
+                                luaFileByteDataDic.Add(str.ToString(), data);
+
+                                //LuaScriptMgr.GetInstance().lua.DoBytes(data);
 
                                 copltCount++;
 
                                 if (copltCount == luaTable.Length)
                                 {
-                                    DLog.Log(" All lua_source have been loaded to LuaState.");
+                                    DLog.LogToUI(" All lua_source have been loaded to LuaState.");
                                     luaLoaded = true;
                                 }
                             }
@@ -94,7 +119,7 @@ public class LoadResources
         }
         else
         {
-            DLog.Log(LogType.warn, "The other lua load error, or no other lua needs loaded to LuaState.");
+            DLog.Log(LogType.Warning, "The other lua load error, or no other lua needs loaded to LuaState.");
             luaLoaded = true;
         }
 
@@ -105,14 +130,14 @@ public class LoadResources
     /// </summary>
     public static void loadAssetBundle()
     {
-        LuaTable modelLuaTable = LuaScriptMgr.GetInstance().GetLuaTable("maintable.assetsbundles.model");
-        LuaTable uiLuaTable = LuaScriptMgr.GetInstance().GetLuaTable("maintable.assetsbundles.ui");
+        LuaTable modelLuaTable = LuaScriptMgr.GetInstance().GetLuaTable("mainconfig.assetsbundles.model");
+        LuaTable uiLuaTable = LuaScriptMgr.GetInstance().GetLuaTable("mainconfig.assetsbundles.ui");
 
         int absCount = modelLuaTable.Length + uiLuaTable.Length;
 
         int absCounter = 0;
 
-        string _urlprex = Util.m_streaming_assets_path + "/assetbundles/" + PlatformAdapter.PlatformNameOnly();
+        string _urlprex = Util.m_streaming_assets_path + "/assetbundles/" + PlatformAdapter.PlatformNameOnly() + "/";
 
         foreach (var str in modelLuaTable.ToArray())
         {
@@ -122,7 +147,10 @@ public class LoadResources
                     if (data.name.Contains("sphere")) data.gameObject.AddComponent<TestMove>();
 
                     absCounter++;
-                    if (absCounter >= absCount) Main.canStartAfterInit = true;
+                    if (absCounter >= absCount) {
+                        DLog.LogToUI(" All assetbundle have been loaded to momery.");
+                        Main.canStartAfterInit = true; 
+                    }
 
                     UiManager.updateUiSort();
                     DLog.Log("ok，name: {0}，absCounter：{1}", data.name, absCounter.ToString());
@@ -137,7 +165,10 @@ public class LoadResources
                     data.name = str.ToString().TrimStart('/').Replace(".unity3d", "");   //这里 str 在foreach循环中被认为是闭包匿名类中私有的
 
                     absCounter++;
-                    if (absCounter >= absCount) Main.canStartAfterInit = true;
+                    if (absCounter >= absCount) {
+                        DLog.LogToUI(" All assetbundle have been loaded to momery.");
+                        Main.canStartAfterInit = true; 
+                    }
 
                     UiManager.updateUiSort();
                     DLog.Log("ok，name: {0}，absCounter：{1}", data.name, absCounter.ToString());  //absCounter 被认为是闭包匿名类中引用的（即公有的）

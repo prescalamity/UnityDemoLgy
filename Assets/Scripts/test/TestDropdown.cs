@@ -23,18 +23,15 @@ public class TestDropdown : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        
-
-
-    }
+    //void Update()
+    //{
+    //}
 
 
 
     public static void initDpd(TMP_Dropdown dropdown ,string content = "")
     {
-        LuaInterface.LuaTable luaTable = LuaScriptMgr.GetInstance().GetLuaTable("maintable.platformFuncNameList");
+        LuaInterface.LuaTable luaTable = LuaScriptMgr.GetInstance().GetLuaTable("mainconfig.platformFuncNameList");
 
         if (luaTable != null && luaTable.Length > 0) {
 

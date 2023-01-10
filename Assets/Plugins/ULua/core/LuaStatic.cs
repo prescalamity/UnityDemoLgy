@@ -202,7 +202,7 @@ namespace LuaInterface
         }
 
         
-
+        // 重写 lua 的 require
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int Loader(IntPtr L)
         {
@@ -225,9 +225,13 @@ namespace LuaInterface
 				IntPtr ptrFileBuff = IntPtr.Zero;
 				int fileLen = 0;
 
-				byte[] buffer = LuaScriptMgr.GetInstance().Loader(fileName, out ptrFileBuff, out fileLen );
+                //byte[] buffer = LuaScriptMgr.GetInstance().Loader(fileName, out ptrFileBuff, out fileLen );
 
-				if ( ptrFileBuff != IntPtr.Zero )
+                Debug.Log("LuaStatic.Loader, You want to require file name is " + fileName);
+                byte[] buffer = DelegateToPlugins.Instance.getLuaFileByteData(fileName);
+
+
+                if ( ptrFileBuff != IntPtr.Zero )
 				{
 					int ret =  LuaDLL.luaL_loadBufferPtr(L, ptrFileBuff, fileLen, fileName);
 					PackageAnalyser.FreeHGlobal(ptrFileBuff);
@@ -245,8 +249,9 @@ namespace LuaInterface
 
 				if (buffer == null)
 				{
+                    Debug.Log("LuaStatic.Loader, buffer is null.");
                     //ProfilerHelper.EndSample();
-					return 0;
+                    return 0;
 				}
 				
 				LuaDLL.luaL_loadbuffer(L, buffer, buffer.Length, fileName);

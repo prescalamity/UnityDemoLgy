@@ -20,7 +20,7 @@ using ZenFulcrum.EmbeddedBrowser;
 
 //语音和讯飞翻译其实是两个功能，将其拆分为两个功能来看会更容易些
 
-public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
+public class IflytekVoiceHelper : Singleton<IflytekVoiceHelper>
 {
     //--------------相关标识变量，包括结果码，开始和结束时间，锁住功能位---------------//
     /* 结果码说明：
@@ -103,7 +103,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
         第二个参数，录音文件路径，如果第一个参数为不为0，该参数传入空字符串
         第三个参数，录音耗时，单位为秒，如果第一个参数为不为0，该参数传入0
     */
-    //[DoNotToLua] public static LuaFunction m_record_finish_handler = null;
+    [DoNotToLua] public static LuaFunction m_record_finish_handler_lua = null;
     [DoNotToLua] public static RecordFinshCallback m_record_finish_handler = null;
     
     //讯飞翻译结束回调
@@ -111,14 +111,14 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
         第二个参数，录音翻译后的文字内容，字符串，如果第一个参数不为0，该参数传入空字符串
         第三个参数，翻译耗时，单位为秒，如果第一个参数不为0，该参数传入0
     */
-    //[DoNotToLua] public static LuaFunction m_translate_finish_handler = null;
+    [DoNotToLua] public static LuaFunction m_translate_finish_handler_lua = null;
     [DoNotToLua] public static RecordTranslateFinshCallback m_translate_finish_handler = null;
     
     [DoNotToLua]
     public void OnRecordFinish(string fileName)
     {
         DLog.Log("OnRecordFinish");
-        if (null != m_record_finish_handler)
+        if (null != m_record_finish_handler || null != m_record_finish_handler_lua)
         { 
             int recordTime = 0;
             if (ResultCode.SUCCESS == recordCode || ResultCode.MICROPHONE_NOT_EXIST == recordCode || ResultCode.FREQUENCY_NOT_SUPPORT == recordCode) 
@@ -129,8 +129,9 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
             {
                 fileName = "";
             }
-            //m_record_finish_handler.Call(recordCode, fileName, recordTime);
-            m_record_finish_handler(recordCode, fileName, recordTime);
+
+            if(null != m_record_finish_handler_lua) m_record_finish_handler_lua.Call(recordCode, fileName, recordTime);
+            if (null != m_record_finish_handler) m_record_finish_handler(recordCode, fileName, recordTime);
         }
         isRecordCallback = true;
         if (isRecordCallback && isTranslateCallback)
@@ -143,7 +144,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
     public void OnTranslateFinish()
     {
         DLog.Log("OnTranslateFinish");
-        if (null != m_translate_finish_handler)
+        if (null != m_translate_finish_handler || null != m_translate_finish_handler_lua)
         {
             int translateTime = 0;
             if (ResultCode.SUCCESS == translateCode || ResultCode.MICROPHONE_NOT_EXIST == translateCode || ResultCode.FREQUENCY_NOT_SUPPORT == translateCode)
@@ -154,8 +155,8 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
             {
                 Result = "";
             }
-            //m_translate_finish_handler.Call(translateCode, Result, translateTime);
-            m_translate_finish_handler(translateCode, Result, translateTime);
+            if (null != m_translate_finish_handler_lua) m_translate_finish_handler_lua.Call(translateCode, Result, translateTime);
+            if (null != m_translate_finish_handler)  m_translate_finish_handler(translateCode, Result, translateTime);
         }
         isTranslateCallback = true;
         if (isRecordCallback && isTranslateCallback)
@@ -203,14 +204,14 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
         set {
             if (Microphone.IsRecording(recordDevice))
             {
-                DLog.Log(LogType.error, "不能在录音的时候改变采样率");
+                DLog.Log(LogType.Error, "不能在录音的时候改变采样率");
                 return;
             }
             if (value != m_frequency)
             {
                 if (value != 8000 && value != 16000)
                 {
-                    DLog.Log(LogType.error,"录音功能只支持8000或者16000的采样率");
+                    DLog.Log(LogType.Error,"录音功能只支持8000或者16000的采样率");
                     return;
                 }
                 m_frequency = value;
@@ -226,19 +227,19 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
         set {
             if (Microphone.IsRecording(recordDevice))
             {
-                DLog.Log(LogType.error,"不能在录音的时候改变录音长度");
+                DLog.Log(LogType.Error,"不能在录音的时候改变录音长度");
                 return;
             }
             if (value != RecordLastTime)
             {
                 if (value <= 0)
                 {
-                    DLog.Log(LogType.error,"录音长度不能设置为0或者小于0");
+                    DLog.Log(LogType.Error,"录音长度不能设置为0或者小于0");
                     return;
                 }
                 if (value > 8)
                 {
-                    DLog.Log(LogType.warn, "录音长度超过8秒，可能会导致录音协议数据过大");
+                    DLog.Log(LogType.Warning, "录音长度超过8秒，可能会导致录音协议数据过大");
                 }
                 RecordLastTime = value;
             }
@@ -258,35 +259,34 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
     //--------------------------------开始录音---------------------//
     //开始录音，参数：录音结束回调，讯飞翻译结束回调，新增翻译文字回调，录音音量增加回调，使用的麦克风设备名（默认为null，使用默认设备）
     //public void VoiceStart(LuaFunction record_finish_handler, LuaFunction translate_finish_handler)
-    
+
     //{
     //    VoiceStart(record_finish_handler, translate_finish_handler, null);
     //}
-    
-    //public void VoiceStart(LuaFunction record_finish_handler, LuaFunction translate_finish_handler, string device)
-    
-    //{
-    //    DLog.Log("VoiceStart");
-    //    //下面两个判断，为了避免发生前一次录音和翻译没有结束，又调用新的录音和翻译
-    //    if (recordLock) //先判断当前有没有录音没有完成的操作，如果有，直接回调失败
-    //    {
-    //        LockErrorCall(record_finish_handler, translate_finish_handler, ResultCode.RECORD_LOCK);
-    //        Reset();
-    //        return;
-    //    }
-    //    if (IflyWebSocket != null && IflyWebSocket.State == WebSocketState.Open)//讯飞语音Socket连接着，而且是Open的，说明讯飞语音的翻译没有关闭，直接回调失败
-    //    {
-    //        LockErrorCall(record_finish_handler, translate_finish_handler, ResultCode.TRANSLATE_LOCK);
-    //        Reset();
-    //        return;
-    //    }
-    //    Reset();
-    //    recordLock = true;
-    //    m_record_finish_handler = record_finish_handler;
-    //    m_translate_finish_handler = translate_finish_handler; //这几个回到必须先赋值再获取权限，否则在权限拒绝后会没有回调调用
-    //    recordDevice = device;
-    //    RequestPermission(); //获取权限，真正录音是在获取到权限后才做的事
-    //}
+
+    public void VoiceStart(LuaFunction record_finish_handler, LuaFunction translate_finish_handler, string device = "")
+    {
+        DLog.Log("VoiceStart");
+        //下面两个判断，为了避免发生前一次录音和翻译没有结束，又调用新的录音和翻译
+        if (recordLock) //先判断当前有没有录音没有完成的操作，如果有，直接回调失败
+        {
+            LockErrorCall(record_finish_handler, translate_finish_handler, ResultCode.RECORD_LOCK);
+            Reset();
+            return;
+        }
+        if (IflyWebSocket != null && IflyWebSocket.State == WebSocketState.Open)//讯飞语音Socket连接着，而且是Open的，说明讯飞语音的翻译没有关闭，直接回调失败
+        {
+            LockErrorCall(record_finish_handler, translate_finish_handler, ResultCode.TRANSLATE_LOCK);
+            Reset();
+            return;
+        }
+        Reset();
+        recordLock = true;
+        m_record_finish_handler_lua = record_finish_handler;
+        m_translate_finish_handler_lua = translate_finish_handler; //这几个回到必须先赋值再获取权限，否则在权限拒绝后会没有回调调用
+        recordDevice = device;
+        RequestPermission(); //获取权限，真正录音是在获取到权限后才做的事
+    }
 
     public void VoiceStart(RecordFinshCallback record_finish_handler, RecordTranslateFinshCallback translate_finish_handler, string device)
     {
@@ -415,7 +415,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
             string[] devices = Microphone.devices;
             if (devices == null || devices.Length == 0)
             {
-                DLog.Log(LogType.error,"没有找到麦克风");
+                DLog.Log(LogType.Error,"没有找到麦克风");
                 recordCode = ResultCode.MICROPHONE_NOT_FOUND;
                 translateCode = ResultCode.MICROPHONE_NOT_FOUND;
                 OnRecordFinish("");
@@ -435,7 +435,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
                     devicesList.AddRange(devices);
                     if (!devicesList.Contains(recordDevice))
                     {
-                        DLog.Log(LogType.warn,"指定的麦克风 {0} 不存在", recordCode);
+                        DLog.Log(LogType.Warning,"指定的麦克风 {0} 不存在", recordCode);
                         recordCode = ResultCode.MICROPHONE_NOT_EXIST;
                         translateCode = ResultCode.SUCCESS == translateCode ? ResultCode.MICROPHONE_NOT_EXIST : translateCode;
                         recordDevice = null;
@@ -445,7 +445,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
         }
         catch (Exception ex)
         {
-            DLog.Log(LogType.error,"获取设备列表失败，失败信息{0}", ex.Message); 
+            DLog.Log(LogType.Error,"获取设备列表失败，失败信息{0}", ex.Message); 
         }
         int minFreq = 0;
         int maxFreq = 0;
@@ -455,7 +455,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
         }
         catch (Exception ex)
         {
-            DLog.Log(LogType.error,"获取设备支持频率失败，失败信息{0}", ex.Message); 
+            DLog.Log(LogType.Error,"获取设备支持频率失败，失败信息{0}", ex.Message); 
         }
         mRecordStartSecond = mTranslateStartSecond = Time.realtimeSinceStartup;// System.Environment.TickCount;
         ConnectIflyWebSocket(); //先连接上讯飞
@@ -467,10 +467,10 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
             }
             catch (Exception ex)
             {
-                DLog.Log(LogType.error,"开始录音失败，失败信息{0}", ex.Message);
+                DLog.Log(LogType.Error,"开始录音失败，失败信息{0}", ex.Message);
             }
         } else {
-            DLog.Log(LogType.error,"这里连接讯飞后台就出错了");
+            DLog.Log(LogType.Error,"这里连接讯飞后台就出错了");
         }
     }
 
@@ -496,7 +496,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
         }
         catch (Exception ex)
         {
-            DLog.Log(LogType.error,"连接讯飞服务报错，错误信息为{0}", ex.Message);
+            DLog.Log(LogType.Error,"连接讯飞服务报错，错误信息为{0}", ex.Message);
             translateCode = ResultCode.SOCKET_ERROR;
             isTranslateConnect = false;
             return;
@@ -508,7 +508,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
                 await IflyWebSocket.ReceiveAsync(new ArraySegment<byte>(result), ct);//接受数据
             } catch (Exception ex)
             {
-                DLog.Log(LogType.error,"获取语音翻译数据报错 {0}", ex.Message);
+                DLog.Log(LogType.Error,"获取语音翻译数据报错 {0}", ex.Message);
                 translateCode = ResultCode.SOCKET_ERROR;
                 isTranslateConnect = false;
                 return;
@@ -527,7 +527,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
                 }
             }catch (Exception ex)
             {
-                DLog.Log(LogType.error,"断开讯飞连接出错 {0}", ex.Message);
+                DLog.Log(LogType.Error,"断开讯飞连接出错 {0}", ex.Message);
                 translateCode = ResultCode.SOCKET_ERROR;
                 isTranslateConnect = false;
                 return;
@@ -651,7 +651,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
             socket.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(jn)), WebSocketMessageType.Binary, true, new CancellationToken()); //发送数据
         }catch (Exception ex)
         {
-            DLog.Log(LogType.error,"讯飞Socket发送数据报错 {0}", ex.Message);
+            DLog.Log(LogType.Error,"讯飞Socket发送数据报错 {0}", ex.Message);
             translateCode = ResultCode.SOCKET_ERROR;
             isTranslateConnect = false;
             return;
@@ -745,7 +745,7 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
         }
         else
         {
-            DLog.Log(LogType.error,"RecordedClip是空的");
+            DLog.Log(LogType.Error,"RecordedClip是空的");
             recordCode = ResultCode.RECORD_ERROR;
             translateCode = ResultCode.RECORD_ERROR;
         }
@@ -760,13 +760,13 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
         if (recordedClip.samples != recordedClip.length * recordedClip.channels * recordedClip.frequency)
         {
             //如果不满足这个条件，显然recordedClip是有问题的，报错
-            DLog.Log(LogType.error,"AudioClip的数据有异常");
+            DLog.Log(LogType.Error,"AudioClip的数据有异常");
             return ResultCode.AUDIOCLIP_ERROR;
         }
         int realSamples = recordedClip.frequency * recordedClip.channels * sec; //真正要取的样本数
         if (realSamples > recordedClip.samples) //要取的样本数超出范围了，也是有问题的，直接报错
         {
-            DLog.Log(LogType.error,"需要的样本数比AudioClip的样本数还要大");
+            DLog.Log(LogType.Error,"需要的样本数比AudioClip的样本数还要大");
             return ResultCode.AUDIOCLIP_ERROR;
         }
         
@@ -779,12 +779,12 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
             
             if (sampleBits == 4)
             {
-                DLog.Log(LogType.warn,"暂未处理4位样本采样位数");
+                DLog.Log(LogType.Warning,"暂未处理4位样本采样位数");
                 return ResultCode.SAMPLEBIT_NOT_SUPPORT;
             }
             else if (sampleBits == 8) //float -> byte
             {
-                DLog.Log(LogType.warn,"暂未处理8位样本采样位数");
+                DLog.Log(LogType.Warning,"暂未处理8位样本采样位数");
                 return ResultCode.SAMPLEBIT_NOT_SUPPORT;
             }
             
@@ -798,12 +798,12 @@ public class IflytekVoiceHelper //: Singleton<IflytekVoiceHelper>
             }
             else if (sampleBits == 32)//float -> float
             {
-                DLog.Log(LogType.warn,"暂未处理32位样本采样位数");
+                DLog.Log(LogType.Warning,"暂未处理32位样本采样位数");
                 return ResultCode.SAMPLEBIT_NOT_SUPPORT;
             }
             else
             {
-                DLog.Log(LogType.error,"不支持的采样样本位数");
+                DLog.Log(LogType.Error,"不支持的采样样本位数");
                 return ResultCode.SAMPLEBIT_NOT_SUPPORT;
             }
         }    

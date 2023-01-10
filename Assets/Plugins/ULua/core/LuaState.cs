@@ -145,7 +145,7 @@ namespace LuaInterface
 
         void OpenBaseLuaLibs()
         {
-            DoFile("core/global");
+            DoFile("core/global");     
             LuaUnityLibs.OpenLuaLibs(L);
         }
 

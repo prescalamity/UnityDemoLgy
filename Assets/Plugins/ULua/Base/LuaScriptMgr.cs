@@ -389,7 +389,9 @@ public class LuaScriptMgr
 
     public void Start()
     {
-        lua.Start();
+
+        //lua.Start();   //暂时 不使用 不加载，大量的lua库
+
         OnBundleLoaded();
 
         //enumMetaRef = GetTypeMetaRef(typeof(System.Enum));
@@ -406,6 +408,7 @@ public class LuaScriptMgr
         //        Debugger.LogWarning("BaseType {0} not register to lua", t.FullName);
         //}
         //checkBaseType.Clear();
+
     }
 
     int GetLuaReference(string str)

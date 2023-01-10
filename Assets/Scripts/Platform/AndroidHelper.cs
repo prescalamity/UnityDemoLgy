@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+
+[DoNotToLua]
 public class AndroidHelper
 {
     public static void initAndroid()

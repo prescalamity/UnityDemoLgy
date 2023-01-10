@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-
+using static UnityEngine.Networking.UnityWebRequest;
 
 public class DownloadResources
 {
@@ -14,19 +14,25 @@ public class DownloadResources
     {
         var req = UnityWebRequest.Get(url);
 
-        DLog.LogToUI("开始下载文件：" + url);
+        DLog.Log("开始下载文件：" + url);
 
         yield return req.SendWebRequest();
 
         byte[] datas = req.downloadHandler.data;
 
+
+        if (req.result != Result.Success || req.responseCode != 200) {
+            DLog.Log(LogType.Error, "请求异常:{0}，响应码：{1}，注意检查 链接返回结果是否异常，{2}", req.result.ToString(), req.responseCode, url);
+        }
+
+
         if (datas == null)
         {
-            DLog.LogToUI(LogType.error, "error:下载失败，请检查网络资源是否可以访问-->" + url);
+            DLog.LogToUI(LogType.Error, "error:下载失败，请检查网络资源是否可以访问-->" + url);
         }
         else
         {
-            DLog.LogToUI("下载成功：" + url + "-->资源大小:" + datas.Length);
+            DLog.Log("下载成功：" + url + "-->资源大小:" + datas.Length);
             callback?.Invoke(datas);
         }
 
@@ -43,9 +49,14 @@ public class DownloadResources
 
         yield return req.SendWebRequest();
 
+        if (req.result != Result.Success || req.responseCode != 200)
+        {
+            DLog.Log(LogType.Error, "请求异常:{0}，响应码：{1}，注意检查 链接返回结果是否异常，{2}", req.result.ToString(), req.responseCode, url);
+        }
+
         AssetBundle ab = DownloadHandlerAssetBundle.GetContent(req);
 
-        if (ab == null) DLog.Log(LogType.error, "error: AssetBundle下载失败：" + url);
+        if (ab == null) DLog.LogToUI(LogType.Error, "error: AssetBundle下载失败：" + url);
 
         callback?.Invoke(ab);
 
@@ -119,7 +130,7 @@ public class DownloadResources
 
             if (uwr.result != UnityWebRequest.Result.Success)
             {
-                DLog.LogToUI(LogType.error, uwr.error);
+                DLog.LogToUI(LogType.Error, uwr.error);
                 callback?.Invoke(null);
                 yield break;
             }

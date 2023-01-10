@@ -2,40 +2,40 @@
 using System.Collections;
 using System.Text;
 
+public delegate void PluginDLogType(LogType logType, string log, params object[] args);
+public delegate void LuaLogDG(int level, string log);
+
 public static class Debugger
 {
     public static bool useLog = false;
-    public delegate void QLog(string log, params object[] args);
-    public static QLog log;
-    public static QLog logError;
-    public static QLog logWarning;
 
-    public delegate void LuaLogDG(int level, string log);
+    public static PluginDLogType log;
+
     public static LuaLogDG luaLog;
 
     public static void Log(string log, params object[] args)
     {
         if (Debugger.log != null)
         {
-            Debugger.log(log, args);
+            Debugger.log( LogType.Log, log, args);
         }
     }
 
     public static void LogWarning(string log, params object[] args)
     {
-        if (Debugger.logWarning != null)
+        if (Debugger.log != null)
         {
-            Debugger.logWarning(log, args);
+            Debugger.log(LogType.Warning,log, args);
         }
     }
 
     public static void LogError(string log, params object[] args)
     {
-        if (Debugger.logError != null)
+        if (Debugger.log != null)
         {
             string lua_stack_trace = LuaScriptMgr.GetInstance().InvokeLuaFunction<string, string>("traceback", "");
             log = string.Format("{0} \n Lua statck trace:  {1}", log, lua_stack_trace);
-            Debugger.logError(log, args);
+            Debugger.log(LogType.Error, log, args);
         }
     }
 

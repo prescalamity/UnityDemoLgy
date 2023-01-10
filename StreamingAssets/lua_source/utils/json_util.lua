@@ -3,6 +3,8 @@ JsonUtil = JsonUtil or {}
 function JsonUtil.Init()
 end
 
+Debug.Log("[KeyPath] this is json_util. -----------------------------------------------")
+
 function JsonUtil.ReadJsonStr(str)
 	if str == nil then
 		logwarn("json str is nil ", debug.traceback() )

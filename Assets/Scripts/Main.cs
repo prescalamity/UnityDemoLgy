@@ -88,6 +88,7 @@ public class Main : MonoBehaviour
     private void Awake()
     {
         PlatformAdapter.init();
+        LoadResources.init();
     }
 
 
@@ -133,10 +134,10 @@ public class Main : MonoBehaviour
         #region------------------------------Lua---------------------------------------------------------------------------------
 
         LuaBinder.Bind(LuaScriptMgr.GetInstance().lua);   //初始化lua虚拟机，然后注册C#函数给lua用
+        LuaLoader.GetInstance().Init();
+        LuaLoader.GetInstance().Start();
 
         LoadResources.loadLuaSources();
-
-        //LuaLoader.GetInstance().Init();
 
         #endregion------------------------------Lua---------------------------------------------------------------------------------
 
@@ -150,6 +151,12 @@ public class Main : MonoBehaviour
     /// </summary>
     private void StartAfterInit()
     {
+
+        LuaScriptMgr.GetInstance().lua.DoBytes(LoadResources.getLuaFileByteData("main.lua"));
+
+        string res = LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("MainStart");
+        DLog.LogToUI(m_SetpId + ". " + res);
+
         //测试输入框
         _tempGo = null;
         _tempGo = GameObject.Find("Canvas/input_field");
@@ -232,6 +239,8 @@ public class Main : MonoBehaviour
             }
         }
 
+        LuaScriptMgr.GetInstance().CallLuaFunction<float>("MainUpdate", 0.0f);
+
         //if (!mLocalVideoPlayer.isPlaying)
         //{
         //    mLocalVideoPlayer.Play();
@@ -250,13 +259,9 @@ public class Main : MonoBehaviour
 
         if (LoadResources.LuaLoaded && hasDownloadAbs)
         {
-            //string res = LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("start");
-            //DLog.LogToUI(m_SetpId + ". " + res);
-            //luaLoaded = false;
 
             DLog.LogToUI(m_SetpId + ". m_Dropdown.text :" + mDropdown.options[mDropdown.value].text);
-            LuaScriptMgr.GetInstance().CallLuaFunction("testPlatformFuncCallback", mDropdown.options[mDropdown.value].text);
-
+            LuaScriptMgr.GetInstance().CallLuaFunction("testPlatformFuncCallback", m_SetpId, mDropdown.options[mDropdown.value].text);
 
             //LuaScriptMgr.GetInstance().InvokeLuaFunction<string>("TestMainButtonEvent");
         }
@@ -310,11 +315,11 @@ public class Main : MonoBehaviour
     {
         //if (cbData.Contains("file_name")) DLog.LogToUI(cbData);
 
-        if (cbData.Contains("OpenHeadPhotoCB")) TestHeadPhoto.OpenHeadPhotoCB(cbData);
+        //if (cbData.Contains("OpenHeadPhotoCB")) TestHeadPhoto.OpenHeadPhotoCB(cbData);
 
         DLog.Log("Main.CallScriptFunc.cbData:"+ cbData);
 
-        //LuaScriptMgr.GetInstance().CallLuaFunction("PlatformInterface.CallScriptFunc", cbData);
+        LuaScriptMgr.GetInstance().CallLuaFunction("PlatformInterface.CallScriptFunc", cbData);
     }
 
     /// <summary>

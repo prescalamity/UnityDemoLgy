@@ -94,6 +94,25 @@ public class PlatformAdapter
 
     }
 
+    public static string PlatformNameOnly()
+    {
+        string platformName = "windows";
+
+        if (mPlatform == PlatformType.AndroidRuntime)
+        {
+            platformName = "android";
+        }
+        else if (mPlatform == PlatformType.WebglRuntime)
+        {
+            platformName = "webgl";
+        }
+        else if (mPlatform == PlatformType.IosRuntime)
+        {
+            platformName = "ios";
+        }
+
+        return platformName;
+    }
 
 
     #region 注册 和 调用 平台函数，"CallPlatformFunc"已实现类似功能，这里更多的是处理一些特使案例 提供更多选择
@@ -176,26 +195,6 @@ public class PlatformAdapter
         return "";
     }
 
-
-    public static string PlatformNameOnly()
-    {
-        string platformName = "windows";
-
-        if (mPlatform == PlatformType.AndroidRuntime)
-        {
-            platformName = "android";
-        }
-        else if (mPlatform == PlatformType.WebglRuntime)
-        {
-            platformName = "webgl";
-        }
-        else if (mPlatform == PlatformType.IosRuntime)
-        {
-            platformName = "ios";
-        }
-
-        return platformName;
-    }
 
 
 }

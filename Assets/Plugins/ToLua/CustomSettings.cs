@@ -43,7 +43,7 @@ public static class CustomSettings
 
 
 
-    public static string saveDir = Application.dataPath + "/csharp_source/lua_wrap/";
+    public static string saveDir = Application.dataPath + "/Scripts/lua_wrap_gen/";
     public static string luaDir = Application.dataPath + "/Lua/";
     public static string toluaBaseType = Application.dataPath + "/ToLua/BaseType/";
     public static string toluaLuaDir = Application.dataPath + "/ToLua/Lua";

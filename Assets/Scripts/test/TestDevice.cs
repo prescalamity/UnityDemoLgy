@@ -20,10 +20,10 @@ public class TestDevice : MonoBehaviour
 
     public void Awake()
     {
-        testDeviceBases.Add(new TestPower());
+        //testDeviceBases.Add(new TestPower());
         //testDeviceBases.Add(new TestPermission());
-        testDeviceBases.Add(new TestHeadPhoto());
-        testDeviceBases.Add(new TestSoundRecord());
+        //testDeviceBases.Add(new TestHeadPhoto());
+        //testDeviceBases.Add(new TestSoundRecord());
     }
 
 

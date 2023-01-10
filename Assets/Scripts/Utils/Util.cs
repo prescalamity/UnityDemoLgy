@@ -332,16 +332,10 @@ public class Util
     //    }
 
     //    private static StringBuilder sbWritablePath = new StringBuilder(100);
-    //    public static string GetWritablePath(string url)
-    //    {
-    //        if (WebGL_Confing.IsWebglRuntime && WebGL_Confing.ResEnableWebMode)
-    //        {
-    //            QLog.Log("webgl环境兼容提示：GetWritablePath");
-    //            return string.Empty;
-    //        }
-
-    //        return string.Empty;
-    //    }
+    public static string GetWritablePath(string url)
+    {
+        return string.Empty;
+    }
 
     //    private static StringBuilder sbReadOnlyPath = new StringBuilder(100);
     //    public static string GetReadOnlyPath(string url)

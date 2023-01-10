@@ -5,12 +5,12 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 
-public enum LogType
-{
-    info = 0,
-    warn = 1,
-    error = 2,
-}
+//public enum LogType
+//{
+//    info = 0,
+//    warn = 1,
+//    error = 2,
+//}
 
 public class DLog
 {
@@ -40,6 +40,8 @@ public class DLog
 
         File.WriteAllText(LogFilePath, "", Encoding.UTF8);
 
+        Debugger.log = Log;
+        Debugger.luaLog = LuaLog;
         //Debug.Log("DLog.LogFilePath:" + LogFilePath); 
     }
 
@@ -50,11 +52,11 @@ public class DLog
         File.AppendAllText(LogFilePath, "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "] " + centent + Environment.NewLine);
 
 #if UNITY_EDITOR || UNITY_WEBGL
-        if (logType == LogType.error) 
+        if (logType == LogType.Error) 
         {
             Debug.LogError(centent);
         }
-        else if(logType == LogType.warn)
+        else if(logType == LogType.Warning)
         {
             Debug.LogWarning(centent);
         }
@@ -106,5 +108,42 @@ public class DLog
         Main.OutputTextTMP_text = gameUISB.ToString();
 
     }
+
+
+    public static void LuaLog(int level, string log)
+    {
+        //WriteConsole(level, content);
+
+        //if (level.Equals((int)LogManagerInterface.LogLevel.LL_ERROR))
+        //{
+        //    if (alertWindow != null)
+        //    {
+        //        alertWindow("lua", content);   //µ¯´°¾¯¸æ
+        //    }
+        //}
+
+        //ios
+        //if (m_log_by_stream_write)
+        //{
+        //    string levelStr = mErrorMap.ContainsKey(level) ? mErrorMap[level] : "Info";
+        //    logStringBuffer.Length = 0;
+        //    logStringBuffer.AppendFormat("[{0} {1}] Lua ({2}): {3}", ymd, DateTime.Now.ToLongTimeString().ToString(), levelStr, content);
+        //    content = logStringBuffer.ToString();
+        //    logStringBuffer.Length = 0;
+        //}
+
+        //WriteLog(m_lua_log_agent, level, content);
+
+        if (level == 1)
+        {
+            LogToUI(LogType.Error, log);
+        }
+        else
+        {
+            Log(log);
+        }
+
+    }
+
 
 }

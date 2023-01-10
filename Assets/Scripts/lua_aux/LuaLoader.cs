@@ -91,7 +91,7 @@ public class LuaLoader
 #endif
 
         //LuaScriptMgr.GetInstance().LuaPath = new LuaScriptMgr.LuaPathDelegate(Util.LuaPath);
-        LuaScriptMgr.GetInstance().LuaGetBuf = new LuaScriptMgr.LuaGetBuffDelegate(LuaLoader.GetInstance().GetFileBuff);
+        //LuaScriptMgr.GetInstance().LuaGetBuf = new LuaScriptMgr.LuaGetBuffDelegate(LuaLoader.GetInstance().GetFileBuff);
 
     }
 

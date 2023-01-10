@@ -8,10 +8,10 @@ stepID = 0
 
 function TestDevice.Init()
 
-    MainTestButton = UiRootCanvas.transform:Find("test_button"):GetComponent(TButton)
+    MainTestButton = UiRootCanvas.transform:Find("test_button").gameObject:GetComponent(TButton)
     MainTestButton:AddListener(TestDevice.MainButtonTestFunction)
 
-    MainDropdown = UiRootCanvas.transform:Find("dropdown"):GetComponent(TTMP_Dropdown)
+    MainDropdown = UiRootCanvas.transform:Find("dropdown").gameObject:GetComponent(TTMP_Dropdown)
 
     testDeviceBases["TestPower"] = TestPower.New()
     -- testDeviceBases:Add(new TestPermission())
@@ -154,18 +154,21 @@ function TestPower:MainButtonTestFunction( stepID,  functionName ,  thePanelname
 end
 
 function TestPower:Start()
-    Debug.Log("AndroidDevicePower.Start")
+    Debug.LogToUI("AndroidDevicePower.Start")
     TestBase.Start(self)   -- 调用父类函数
 
     self.mThePanelGo = UiRootCanvas.transform:Find("power").gameObject
 
-    self.battery_capacity_value = self.mThePanelGo.transform:Find("battery_capacity_value"):GetComponent(TTMP_Text)
-    self.battery_electricity_value = self.mThePanelGo.transform:Find("battery_electricity_value"):GetComponent(TTMP_Text)
-    self.battery_voltage_value = self.mThePanelGo.transform:Find("battery_voltage_value"):GetComponent(TTMP_Text)
-    self.battery_retain_value = self.mThePanelGo.transform:Find("battery_retain_value"):GetComponent(TTMP_Text)
-    self.battery_retain_time_value = self.mThePanelGo.transform:Find("battery_retain_time_value"):GetComponent(TTMP_Text)
-    self.battery_get_api_time_value = self.mThePanelGo.transform:Find("battery_get_api_time_value"):GetComponent(TTMP_Text)
+    self.battery_capacity_value = self.mThePanelGo.transform:Find("battery_capacity_value").gameObject:GetComponent(TTMP_Text)
 
+    self.battery_electricity_value = self.mThePanelGo.transform:Find("battery_electricity_value").gameObject:GetComponent(TTMP_Text)
+
+    self.battery_voltage_value = self.mThePanelGo.transform:Find("battery_voltage_value").gameObject:GetComponent(TTMP_Text)
+    self.battery_retain_value = self.mThePanelGo.transform:Find("battery_retain_value").gameObject:GetComponent(TTMP_Text)
+    self.battery_retain_time_value = self.mThePanelGo.transform:Find("battery_retain_time_value").gameObject:GetComponent(TTMP_Text)
+    self.battery_get_api_time_value = self.mThePanelGo.transform:Find("battery_get_api_time_value").gameObject:GetComponent(TTMP_Text)
+
+    Debug.LogToUI("TestPower.Start: " .. self.battery_electricity_value.text)
 
 end
 
@@ -177,7 +180,11 @@ function TestPower:Update()
     if UnityEngine.Time.time - t > 0.1 then
         t = UnityEngine.Time.time
         e = Power.GetElectricity()
-        self.battery_electricity_value.text = e
+
+        Debug.LogToUI("TestPower.Update"..tostring(e))
+
+        self.battery_electricity_value.text = tostring(e)
+
         self.battery_get_api_time_value.text = tostring(Power.GetApiDeltaTime())
         self.battery_retain_time_value.text = string.format("%.2f", (Power.GetCapacity() * Power.GetBatteryRetain() / 100 / e))
     end
@@ -239,14 +246,52 @@ function TestHeadPhoto:Start()
 
     self.mThePanelGo = UiRootCanvas.transform:Find("head_photo").gameObject
 
-    self.image = self.mThePanelGo.transform:Find("image"):GetComponent(TImage)
+    self.image = self.mThePanelGo.transform:Find("image").gameObject:GetComponent(TImage)
 
-    self.btnOpenPhotoLib = self.mThePanelGo.transform:Find("open_photo_library"):GetComponent(TButton)
+    self.btnOpenPhotoLib = self.mThePanelGo.transform:Find("open_photo_library").gameObject:GetComponent(TButton)
 
-    self.btnOpenPhotoLib:AddListener( function() PlatformInterface.CallPlatformFunc("OpenPhotoLibrary", "", TestHeadPhoto.OpenHeadPhotoCB) end )
 
-    self.btnOpenCamera = self.mThePanelGo.transform:Find("open_camera"):GetComponent(TButton)
-    self.btnOpenCamera:AddListener( function() PlatformInterface.CallPlatformFunc("OpenCamera", "", TestHeadPhoto.OpenHeadPhotoCB) end )
+    local OpenHeadPhotoCB = function(cbData)
+
+        Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB-->" .. cbData)
+
+        local json_obj = JsonUtil.ReadJsonStr(cbData)
+        local fileName = json_obj["file_name"]
+
+        local fileDestPath = Util.m_temporary_cache_path .. "/xxx_" .. fileName
+
+        local params = {
+            src_jpeg_file_path = Util.m_temporary_cache_path .. "/" .. fileName,
+            dest_jpeg_file_path = fileDestPath,
+            width = 200,
+            height = 200,
+            quality = 100
+        }
+        local jsonStr = JsonUtil.WriteJsonStr(params)
+
+
+        Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB.sb-->" .. jsonStr)
+
+
+        local resizeRes = PlatformInterface.CallPlatformFunc("CropJpegImage", jsonStr, "")
+
+        if resizeRes and resizeRes == "true" then
+        
+            Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB-->ResizeJpegImage:ok")
+
+            DownloadResources.AsyncLoadTexture(Util.AddLocalFilePrex(fileDestPath), self.image)
+        
+        else
+        
+            Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB-->ResizeJpegImage:no")
+        end
+
+    end
+    
+    self.btnOpenPhotoLib:AddListener( function() PlatformInterface.CallPlatformFunc("OpenPhotoLibrary", "", OpenHeadPhotoCB) end )
+
+    self.btnOpenCamera = self.mThePanelGo.transform:Find("open_camera").gameObject:GetComponent(TButton)
+    self.btnOpenCamera:AddListener( function() PlatformInterface.CallPlatformFunc("OpenCamera", "", OpenHeadPhotoCB) end )
 
 end
 
@@ -257,45 +302,45 @@ function TestHeadPhoto:MainButtonTestFunction( stepID,  functionName ,  thePanel
 end
 
 
-function TestHeadPhoto.OpenHeadPhotoCB( cbData)
+-- function TestHeadPhoto:OpenHeadPhotoCB( cbData)
 
-    Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB-->" .. cbData)
+--     Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB-->" .. cbData)
 
-    local json_obj = JsonUtil.ReadJsonStr(cbData)
-    local fileName = json_obj["file_name"]
+--     local json_obj = JsonUtil.ReadJsonStr(cbData)
+--     local fileName = json_obj["file_name"]
 
-    -- local json_obj = JsonUtil.ReadJsonStr(data)
-    -- local result_succeed = json_obj["isSucceed"]
-    -- local file_name = json_obj["file_name"]
+--     -- local json_obj = JsonUtil.ReadJsonStr(data)
+--     -- local result_succeed = json_obj["isSucceed"]
+--     -- local file_name = json_obj["file_name"]
 
-	local params = {
-		src_jpeg_file_path = Util.m_temporary_cache_path .. "/" .. fileName,
-		dest_jpeg_file_path = Util.m_temporary_cache_path .. "/xxx_" .. fileName,
-		width = 200,
-		height = 200,
-		quality = 100
-	}
-	local jsonStr = JsonUtil.WriteJsonStr(params)
-
-
-    Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB.sb-->" .. jsonStr)
+-- 	local params = {
+-- 		src_jpeg_file_path = Util.m_temporary_cache_path .. "/" .. fileName,
+-- 		dest_jpeg_file_path = Util.m_temporary_cache_path .. "/xxx_" .. fileName,
+-- 		width = 200,
+-- 		height = 200,
+-- 		quality = 100
+-- 	}
+-- 	local jsonStr = JsonUtil.WriteJsonStr(params)
 
 
-    local resizeRes = PlatformInterface.CallPlatformFunc("CropJpegImage", jsonStr, "")
+--     Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB.sb-->" .. jsonStr)
 
-    if resizeRes and resizeRes == "true" then
+
+--     local resizeRes = PlatformInterface.CallPlatformFunc("CropJpegImage", jsonStr, "")
+
+--     if resizeRes and resizeRes == "true" then
     
-        Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB-->ResizeJpegImage:ok")
+--         Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB-->ResizeJpegImage:ok")
 
 
-        DownloadResources.AsyncLoadTexture(Util:AddLocalFilePrex(fileDestPath), self.image)
+--         DownloadResources.AsyncLoadTexture(Util.AddLocalFilePrex(fileDestPath), self.image)
     
-    else
+--     else
     
-        Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB-->ResizeJpegImage:no")
-    end
+--         Debug.LogToUI("function TestHeadPhoto.OpenPhotoLibraryCB-->ResizeJpegImage:no")
+--     end
 
-end
+-- end
 
 
 
@@ -329,20 +374,20 @@ function TestSoundRecord:Start()
 
     self.mThePanelGo = UiRootCanvas.transform:Find("sound_record").gameObject
 
-    self.btnRecordSound = self.mThePanelGo.transform:Find("record"):GetComponent(TButton)
+    self.btnRecordSound = self.mThePanelGo.transform:Find("record").gameObject:GetComponent(TButton)
     --self.btnRecordSound:AddListener( () => PlatformInterface.CallPlatformFunc("", "", "") )
 
     self.btnRecordSoundEvent = self.btnRecordSound.gameObject:AddComponent(TEventTrigger)
     self.btnRecordSoundEvent:AddListener(2, IflytekVoice_Helper.VoiceStart)
     self.btnRecordSoundEvent:AddListener(3, IflytekVoice_Helper.VoiceStop)
 
-    self.btnPlaySound = self.mThePanelGo.transform:Find("play"):GetComponent(TButton)
+    self.btnPlaySound = self.mThePanelGo.transform:Find("play").gameObject:GetComponent(TButton)
     self.btnPlaySound:AddListener(self.PlaySound)
 
-    self.btnToWords = self.mThePanelGo.transform:Find("to_words"):GetComponent(TButton)
+    self.btnToWords = self.mThePanelGo.transform:Find("to_words").gameObject:GetComponent(TButton)
     --self.btnToWords:AddListener(() => PlatformInterface.CallPlatformFunc("", "", ""))
 
-    self.recordingTip = self.mThePanelGo.transform:Find("recording_tip"):GetComponent(TTMP_Text)
+    self.recordingTip = self.mThePanelGo.transform:Find("recording_tip").gameObject:GetComponent(TTMP_Text)
 
     self.audioSource = GoRoot:AddComponent(AudioSource)
     self.audioSource.playOnAwake = false

@@ -105,9 +105,6 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.SetParticles");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(UnityEngine.ParticleSystem.Particle[])))
@@ -115,9 +112,6 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.ToObject(L, 1);
 				UnityEngine.ParticleSystem.Particle[] arg0 = ToLua.CheckObjectArray<UnityEngine.ParticleSystem.Particle>(L, 2);
 				obj.SetParticles(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(Unity.Collections.NativeArray<UnityEngine.ParticleSystem.Particle>)))
@@ -125,9 +119,6 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.ToObject(L, 1);
 				Unity.Collections.NativeArray<UnityEngine.ParticleSystem.Particle> arg0 = StackTraits<Unity.Collections.NativeArray<UnityEngine.ParticleSystem.Particle>>.To(L, 2);
 				obj.SetParticles(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(UnityEngine.ParticleSystem.Particle[]), typeof(int)))
@@ -136,9 +127,6 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem.Particle[] arg0 = ToLua.CheckObjectArray<UnityEngine.ParticleSystem.Particle>(L, 2);
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				obj.SetParticles(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(Unity.Collections.NativeArray<UnityEngine.ParticleSystem.Particle>), typeof(int)))
@@ -147,9 +135,6 @@ public class UnityEngine_ParticleSystemWrap
 				Unity.Collections.NativeArray<UnityEngine.ParticleSystem.Particle> arg0 = StackTraits<Unity.Collections.NativeArray<UnityEngine.ParticleSystem.Particle>>.To(L, 2);
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				obj.SetParticles(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(UnityEngine.ParticleSystem.Particle[]), typeof(int), typeof(int)))
@@ -159,9 +144,6 @@ public class UnityEngine_ParticleSystemWrap
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
 				obj.SetParticles(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(Unity.Collections.NativeArray<UnityEngine.ParticleSystem.Particle>), typeof(int), typeof(int)))
@@ -171,16 +153,10 @@ public class UnityEngine_ParticleSystemWrap
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
 				obj.SetParticles(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.ParticleSystem.SetParticles");
 			}
 		}
@@ -195,9 +171,6 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.GetParticles");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(UnityEngine.ParticleSystem.Particle[])))
@@ -206,9 +179,6 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem.Particle[] arg0 = ToLua.CheckObjectArray<UnityEngine.ParticleSystem.Particle>(L, 2);
 				int o = obj.GetParticles(arg0);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(Unity.Collections.NativeArray<UnityEngine.ParticleSystem.Particle>)))
@@ -217,9 +187,6 @@ public class UnityEngine_ParticleSystemWrap
 				Unity.Collections.NativeArray<UnityEngine.ParticleSystem.Particle> arg0 = StackTraits<Unity.Collections.NativeArray<UnityEngine.ParticleSystem.Particle>>.To(L, 2);
 				int o = obj.GetParticles(arg0);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(UnityEngine.ParticleSystem.Particle[]), typeof(int)))
@@ -229,9 +196,6 @@ public class UnityEngine_ParticleSystemWrap
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				int o = obj.GetParticles(arg0, arg1);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(Unity.Collections.NativeArray<UnityEngine.ParticleSystem.Particle>), typeof(int)))
@@ -241,9 +205,6 @@ public class UnityEngine_ParticleSystemWrap
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				int o = obj.GetParticles(arg0, arg1);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(UnityEngine.ParticleSystem.Particle[]), typeof(int), typeof(int)))
@@ -254,9 +215,6 @@ public class UnityEngine_ParticleSystemWrap
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
 				int o = obj.GetParticles(arg0, arg1, arg2);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(Unity.Collections.NativeArray<UnityEngine.ParticleSystem.Particle>), typeof(int), typeof(int)))
@@ -267,16 +225,10 @@ public class UnityEngine_ParticleSystemWrap
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
 				int o = obj.GetParticles(arg0, arg1, arg2);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.ParticleSystem.GetParticles");
 			}
 		}
@@ -291,17 +243,11 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.SetCustomParticleData");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 			System.Collections.Generic.List<UnityEngine.Vector4> arg0 = (System.Collections.Generic.List<UnityEngine.Vector4>)ToLua.CheckObject(L, 2, typeof(System.Collections.Generic.List<UnityEngine.Vector4>));
 			UnityEngine.ParticleSystemCustomData arg1 = (UnityEngine.ParticleSystemCustomData)LuaDLL.luaL_checknumber(L, 3);
 			obj.SetCustomParticleData(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -315,18 +261,12 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.GetCustomParticleData");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 			System.Collections.Generic.List<UnityEngine.Vector4> arg0 = (System.Collections.Generic.List<UnityEngine.Vector4>)ToLua.CheckObject(L, 2, typeof(System.Collections.Generic.List<UnityEngine.Vector4>));
 			UnityEngine.ParticleSystemCustomData arg1 = (UnityEngine.ParticleSystemCustomData)LuaDLL.luaL_checknumber(L, 3);
 			int o = obj.GetCustomParticleData(arg0, arg1);
 			LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -340,16 +280,10 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.GetPlaybackState");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 			UnityEngine.ParticleSystem.PlaybackState o = obj.GetPlaybackState();
 			ToLua.PushValue(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -363,16 +297,10 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.SetPlaybackState");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 			UnityEngine.ParticleSystem.PlaybackState arg0 = StackTraits<UnityEngine.ParticleSystem.PlaybackState>.Check(L, 2);
 			obj.SetPlaybackState(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -386,9 +314,6 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.GetTrails");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -396,9 +321,6 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				UnityEngine.ParticleSystem.Trails o = obj.GetTrails();
 				ToLua.PushValue(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2)
@@ -408,16 +330,10 @@ public class UnityEngine_ParticleSystemWrap
 				int o = obj.GetTrails(ref arg0);
 				LuaDLL.lua_pushinteger(L, o);
 				ToLua.PushValue(L, arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.ParticleSystem.GetTrails");
 			}
 		}
@@ -432,16 +348,10 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.SetTrails");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 			UnityEngine.ParticleSystem.Trails arg0 = StackTraits<UnityEngine.ParticleSystem.Trails>.Check(L, 2);
 			obj.SetTrails(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -455,9 +365,6 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.Simulate");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -465,9 +372,6 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 				obj.Simulate(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -476,9 +380,6 @@ public class UnityEngine_ParticleSystemWrap
 				float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 				obj.Simulate(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4)
@@ -488,9 +389,6 @@ public class UnityEngine_ParticleSystemWrap
 				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 				bool arg2 = LuaDLL.luaL_checkboolean(L, 4);
 				obj.Simulate(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 5)
@@ -501,16 +399,10 @@ public class UnityEngine_ParticleSystemWrap
 				bool arg2 = LuaDLL.luaL_checkboolean(L, 4);
 				bool arg3 = LuaDLL.luaL_checkboolean(L, 5);
 				obj.Simulate(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.ParticleSystem.Simulate");
 			}
 		}
@@ -525,18 +417,12 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.Play");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
 			{
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				obj.Play();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2)
@@ -544,16 +430,10 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 				obj.Play(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.ParticleSystem.Play");
 			}
 		}
@@ -568,18 +448,12 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.Pause");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
 			{
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				obj.Pause();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2)
@@ -587,16 +461,10 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 				obj.Pause(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.ParticleSystem.Pause");
 			}
 		}
@@ -611,18 +479,12 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.Stop");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
 			{
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				obj.Stop();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2)
@@ -630,9 +492,6 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 				obj.Stop(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -641,16 +500,10 @@ public class UnityEngine_ParticleSystemWrap
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 				UnityEngine.ParticleSystemStopBehavior arg1 = (UnityEngine.ParticleSystemStopBehavior)LuaDLL.luaL_checknumber(L, 3);
 				obj.Stop(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.ParticleSystem.Stop");
 			}
 		}
@@ -665,18 +518,12 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.Clear");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
 			{
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				obj.Clear();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2)
@@ -684,16 +531,10 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 				obj.Clear(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.ParticleSystem.Clear");
 			}
 		}
@@ -708,9 +549,6 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.IsAlive");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -718,9 +556,6 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				bool o = obj.IsAlive();
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2)
@@ -729,16 +564,10 @@ public class UnityEngine_ParticleSystemWrap
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 				bool o = obj.IsAlive(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.ParticleSystem.IsAlive");
 			}
 		}
@@ -753,9 +582,6 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.Emit");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -763,9 +589,6 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 				obj.Emit(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -774,16 +597,10 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem.EmitParams arg0 = StackTraits<UnityEngine.ParticleSystem.EmitParams>.Check(L, 2);
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				obj.Emit(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.ParticleSystem.Emit");
 			}
 		}
@@ -798,9 +615,6 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.TriggerSubEmitter");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -808,9 +622,6 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 				obj.TriggerSubEmitter(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(int), typeof(UnityEngine.ParticleSystem.Particle)))
@@ -820,9 +631,6 @@ public class UnityEngine_ParticleSystemWrap
 				UnityEngine.ParticleSystem.Particle arg1 = StackTraits<UnityEngine.ParticleSystem.Particle>.To(L, 3);
 				obj.TriggerSubEmitter(arg0, ref arg1);
 				ToLua.PushValue(L, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.ParticleSystem), typeof(int), typeof(System.Collections.Generic.List<UnityEngine.ParticleSystem.Particle>)))
@@ -831,16 +639,10 @@ public class UnityEngine_ParticleSystemWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				System.Collections.Generic.List<UnityEngine.ParticleSystem.Particle> arg1 = (System.Collections.Generic.List<UnityEngine.ParticleSystem.Particle>)ToLua.ToObject(L, 3);
 				obj.TriggerSubEmitter(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.ParticleSystem.TriggerSubEmitter");
 			}
 		}
@@ -855,14 +657,8 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.ResetPreMappedBufferMemory");
-#endif
 			ToLua.CheckArgsCount(L, 0);
 			UnityEngine.ParticleSystem.ResetPreMappedBufferMemory();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -876,16 +672,10 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.SetMaximumPreMappedBufferCounts");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 			int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.ParticleSystem.SetMaximumPreMappedBufferCounts(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -899,15 +689,9 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.AllocateAxisOfRotationAttribute");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 			obj.AllocateAxisOfRotationAttribute();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -921,15 +705,9 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.AllocateMeshIndexAttribute");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 			obj.AllocateMeshIndexAttribute();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -943,16 +721,10 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.AllocateCustomDataAttribute");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)ToLua.CheckObject(L, 1, typeof(UnityEngine.ParticleSystem));
 			UnityEngine.ParticleSystemCustomData arg0 = (UnityEngine.ParticleSystemCustomData)LuaDLL.luaL_checknumber(L, 2);
 			obj.AllocateCustomDataAttribute(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -966,17 +738,11 @@ public class UnityEngine_ParticleSystemWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1009,16 +775,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.isPlaying");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			bool ret = obj.isPlaying;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1034,16 +794,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.isEmitting");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			bool ret = obj.isEmitting;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1059,16 +813,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.isStopped");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			bool ret = obj.isStopped;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1084,16 +832,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.isPaused");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			bool ret = obj.isPaused;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1109,16 +851,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.particleCount");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			int ret = obj.particleCount;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1134,16 +870,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.time");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			float ret = obj.time;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1159,16 +889,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.randomSeed");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			uint ret = obj.randomSeed;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1184,16 +908,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.useAutoRandomSeed");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			bool ret = obj.useAutoRandomSeed;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1209,16 +927,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.proceduralSimulationSupported");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			bool ret = obj.proceduralSimulationSupported;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1234,16 +946,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.main");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.MainModule ret = obj.main;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1259,16 +965,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.emission");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.EmissionModule ret = obj.emission;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1284,16 +984,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.shape");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.ShapeModule ret = obj.shape;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1309,16 +1003,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.velocityOverLifetime");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.VelocityOverLifetimeModule ret = obj.velocityOverLifetime;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1334,16 +1022,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.limitVelocityOverLifetime");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.LimitVelocityOverLifetimeModule ret = obj.limitVelocityOverLifetime;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1359,16 +1041,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.inheritVelocity");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.InheritVelocityModule ret = obj.inheritVelocity;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1384,16 +1060,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.lifetimeByEmitterSpeed");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.LifetimeByEmitterSpeedModule ret = obj.lifetimeByEmitterSpeed;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1409,16 +1079,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.forceOverLifetime");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.ForceOverLifetimeModule ret = obj.forceOverLifetime;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1434,16 +1098,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.colorOverLifetime");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.ColorOverLifetimeModule ret = obj.colorOverLifetime;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1459,16 +1117,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.colorBySpeed");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.ColorBySpeedModule ret = obj.colorBySpeed;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1484,16 +1136,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.sizeOverLifetime");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.SizeOverLifetimeModule ret = obj.sizeOverLifetime;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1509,16 +1155,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.sizeBySpeed");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.SizeBySpeedModule ret = obj.sizeBySpeed;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1534,16 +1174,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.rotationOverLifetime");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.RotationOverLifetimeModule ret = obj.rotationOverLifetime;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1559,16 +1193,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.rotationBySpeed");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.RotationBySpeedModule ret = obj.rotationBySpeed;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1584,16 +1212,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.externalForces");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.ExternalForcesModule ret = obj.externalForces;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1609,16 +1231,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.noise");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.NoiseModule ret = obj.noise;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1634,16 +1250,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.collision");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.CollisionModule ret = obj.collision;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1659,16 +1269,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.trigger");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.TriggerModule ret = obj.trigger;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1684,16 +1288,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.subEmitters");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.SubEmittersModule ret = obj.subEmitters;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1709,16 +1307,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.textureSheetAnimation");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.TextureSheetAnimationModule ret = obj.textureSheetAnimation;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1734,16 +1326,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.lights");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.LightsModule ret = obj.lights;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1759,16 +1345,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.trails");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.TrailModule ret = obj.trails;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1784,16 +1364,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.customData");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			UnityEngine.ParticleSystem.CustomDataModule ret = obj.customData;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1809,16 +1383,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.time");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.time = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1834,16 +1402,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.randomSeed");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			uint arg0 = (uint)LuaDLL.luaL_checknumber(L, 2);
 			obj.randomSeed = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1859,16 +1421,10 @@ public class UnityEngine_ParticleSystemWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.ParticleSystem.useAutoRandomSeed");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.ParticleSystem obj = (UnityEngine.ParticleSystem)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.useAutoRandomSeed = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

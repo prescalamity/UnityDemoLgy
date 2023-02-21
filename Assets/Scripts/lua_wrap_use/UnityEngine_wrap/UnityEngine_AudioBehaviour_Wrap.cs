@@ -52,17 +52,11 @@ public class UnityEngine_AudioBehaviourWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioBehaviour.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)

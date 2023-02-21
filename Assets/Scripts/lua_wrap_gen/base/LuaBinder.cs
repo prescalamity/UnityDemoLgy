@@ -12,8 +12,294 @@
 //	{
 //		var time = Time.realtimeSinceStartup;
 //		L.BeginModule(null);
+//		//CustomWrap.MyRegister(L);
+//		//DebuggerWrap.Register(L);
+//		L.BeginModule("LuaInterface");
+//		//LuaInterface_LuaInjectionStationWrap.Register(L);
 //		L.EndModule();
+//		//L.BeginModule("UnityEngine");
+//		//UnityEngine_ComponentWrap.Register(L);
+//		//UnityEngine_TransformWrap.Register(L);
+//		//UnityEngine_RectTransformWrap.Register(L);
+//		//UnityEngine_MaterialWrap.Register(L);
+//		//UnityEngine_LightWrap.Register(L);
+//		//UnityEngine_CameraWrap.Register(L);
+//		//UnityEngine_AudioSourceWrap.Register(L);
+//		//UnityEngine_BehaviourWrap.Register(L);
+//		//UnityEngine_MonoBehaviourWrap.Register(L);
+//		//UnityEngine_GameObjectWrap.Register(L);
+//		//UnityEngine_TrackedReferenceWrap.Register(L);
+//		//UnityEngine_ApplicationWrap.Register(L);
+//		//UnityEngine_PhysicsWrap.Register(L);
+//		//UnityEngine_ColliderWrap.Register(L);
+//		//UnityEngine_TimeWrap.Register(L);
+//		//UnityEngine_TextureWrap.Register(L);
+//		//UnityEngine_Texture2DWrap.Register(L);
+//		//UnityEngine_ShaderWrap.Register(L);
+//		//UnityEngine_RendererWrap.Register(L);
+//		//UnityEngine_WWWWrap.Register(L);
+//		//UnityEngine_ScreenWrap.Register(L);
+//		//UnityEngine_AudioClipWrap.Register(L);
+//		//UnityEngine_AssetBundleWrap.Register(L);
+//		//UnityEngine_ParticleSystemWrap.Register(L);
+//		//UnityEngine_AsyncOperationWrap.Register(L);
+//		//UnityEngine_SleepTimeoutWrap.Register(L);
+//		//UnityEngine_AnimatorWrap.Register(L);
+//		//UnityEngine_InputWrap.Register(L);
+//		//UnityEngine_SkinnedMeshRendererWrap.Register(L);
+//		//UnityEngine_QualitySettingsWrap.Register(L);
+//		//UnityEngine_RenderSettingsWrap.Register(L);
+//		//UnityEngine_ResourcesWrap.Register(L);
+//		//UnityEngine_AudioBehaviourWrap.Register(L);
+//		//L.EndModule();
+//		//L.BeginModule("TMPro");
+//		//TMPro_TMP_TextWrap.Register(L);
+//		//TMPro_TextMeshProUGUIWrap.Register(L);
+//		//L.EndModule();
+//		L.EndModule();
+//		L.BeginPreLoad();
+//		//L.AddPreLoad("UnityEngine.MeshRenderer", LuaOpen_UnityEngine_MeshRenderer, typeof(UnityEngine.MeshRenderer));
+//		//L.AddPreLoad("UnityEngine.BoxCollider", LuaOpen_UnityEngine_BoxCollider, typeof(UnityEngine.BoxCollider));
+//		//L.AddPreLoad("UnityEngine.MeshCollider", LuaOpen_UnityEngine_MeshCollider, typeof(UnityEngine.MeshCollider));
+//		//L.AddPreLoad("UnityEngine.SphereCollider", LuaOpen_UnityEngine_SphereCollider, typeof(UnityEngine.SphereCollider));
+//		//L.AddPreLoad("UnityEngine.CharacterController", LuaOpen_UnityEngine_CharacterController, typeof(UnityEngine.CharacterController));
+//		//L.AddPreLoad("UnityEngine.CapsuleCollider", LuaOpen_UnityEngine_CapsuleCollider, typeof(UnityEngine.CapsuleCollider));
+//		//L.AddPreLoad("UnityEngine.Animation", LuaOpen_UnityEngine_Animation, typeof(UnityEngine.Animation));
+//		//L.AddPreLoad("UnityEngine.AnimationClip", LuaOpen_UnityEngine_AnimationClip, typeof(UnityEngine.AnimationClip));
+//		//L.AddPreLoad("UnityEngine.AnimationState", LuaOpen_UnityEngine_AnimationState, typeof(UnityEngine.AnimationState));
+//		//L.AddPreLoad("UnityEngine.SkinWeights", LuaOpen_UnityEngine_SkinWeights, typeof(UnityEngine.SkinWeights));
+//		//L.AddPreLoad("UnityEngine.RenderTexture", LuaOpen_UnityEngine_RenderTexture, typeof(UnityEngine.RenderTexture));
+//		//L.AddPreLoad("UnityEngine.Rigidbody", LuaOpen_UnityEngine_Rigidbody, typeof(UnityEngine.Rigidbody));
+//		L.EndPreLoad();
 //		DLog.Log("注册LUA耗时：" + (Time.realtimeSinceStartup - time));
+//	}
+
+//	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+//	static int LuaOpen_UnityEngine_MeshRenderer(IntPtr L)
+//	{
+//		try
+//		{
+//			int top = LuaDLL.lua_gettop(L);
+//			LuaState state = LuaState.Get(L);
+//			int preTop = state.BeginPreModule("UnityEngine");
+//			UnityEngine_MeshRendererWrap.Register(state);
+//			state.EndPreModule(preTop);
+//			LuaDLL.lua_settop(L, top);
+//			return 0;
+//		}
+//		catch(Exception e)
+//		{
+//			return LuaDLL.toluaL_exception(L, e);
+//		}
+//	}
+
+//	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+//	static int LuaOpen_UnityEngine_BoxCollider(IntPtr L)
+//	{
+//		try
+//		{
+//			int top = LuaDLL.lua_gettop(L);
+//			LuaState state = LuaState.Get(L);
+//			int preTop = state.BeginPreModule("UnityEngine");
+//			UnityEngine_BoxColliderWrap.Register(state);
+//			state.EndPreModule(preTop);
+//			LuaDLL.lua_settop(L, top);
+//			return 0;
+//		}
+//		catch(Exception e)
+//		{
+//			return LuaDLL.toluaL_exception(L, e);
+//		}
+//	}
+
+//	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+//	static int LuaOpen_UnityEngine_MeshCollider(IntPtr L)
+//	{
+//		try
+//		{
+//			int top = LuaDLL.lua_gettop(L);
+//			LuaState state = LuaState.Get(L);
+//			int preTop = state.BeginPreModule("UnityEngine");
+//			UnityEngine_MeshColliderWrap.Register(state);
+//			state.EndPreModule(preTop);
+//			LuaDLL.lua_settop(L, top);
+//			return 0;
+//		}
+//		catch(Exception e)
+//		{
+//			return LuaDLL.toluaL_exception(L, e);
+//		}
+//	}
+
+//	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+//	static int LuaOpen_UnityEngine_SphereCollider(IntPtr L)
+//	{
+//		try
+//		{
+//			int top = LuaDLL.lua_gettop(L);
+//			LuaState state = LuaState.Get(L);
+//			int preTop = state.BeginPreModule("UnityEngine");
+//			UnityEngine_SphereColliderWrap.Register(state);
+//			state.EndPreModule(preTop);
+//			LuaDLL.lua_settop(L, top);
+//			return 0;
+//		}
+//		catch(Exception e)
+//		{
+//			return LuaDLL.toluaL_exception(L, e);
+//		}
+//	}
+
+//	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+//	static int LuaOpen_UnityEngine_CharacterController(IntPtr L)
+//	{
+//		try
+//		{
+//			int top = LuaDLL.lua_gettop(L);
+//			LuaState state = LuaState.Get(L);
+//			int preTop = state.BeginPreModule("UnityEngine");
+//			UnityEngine_CharacterControllerWrap.Register(state);
+//			state.EndPreModule(preTop);
+//			LuaDLL.lua_settop(L, top);
+//			return 0;
+//		}
+//		catch(Exception e)
+//		{
+//			return LuaDLL.toluaL_exception(L, e);
+//		}
+//	}
+
+//	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+//	static int LuaOpen_UnityEngine_CapsuleCollider(IntPtr L)
+//	{
+//		try
+//		{
+//			int top = LuaDLL.lua_gettop(L);
+//			LuaState state = LuaState.Get(L);
+//			int preTop = state.BeginPreModule("UnityEngine");
+//			UnityEngine_CapsuleColliderWrap.Register(state);
+//			state.EndPreModule(preTop);
+//			LuaDLL.lua_settop(L, top);
+//			return 0;
+//		}
+//		catch(Exception e)
+//		{
+//			return LuaDLL.toluaL_exception(L, e);
+//		}
+//	}
+
+//	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+//	static int LuaOpen_UnityEngine_Animation(IntPtr L)
+//	{
+//		try
+//		{
+//			int top = LuaDLL.lua_gettop(L);
+//			LuaState state = LuaState.Get(L);
+//			int preTop = state.BeginPreModule("UnityEngine");
+//			UnityEngine_AnimationWrap.Register(state);
+//			state.EndPreModule(preTop);
+//			LuaDLL.lua_settop(L, top);
+//			return 0;
+//		}
+//		catch(Exception e)
+//		{
+//			return LuaDLL.toluaL_exception(L, e);
+//		}
+//	}
+
+//	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+//	static int LuaOpen_UnityEngine_AnimationClip(IntPtr L)
+//	{
+//		try
+//		{
+//			int top = LuaDLL.lua_gettop(L);
+//			LuaState state = LuaState.Get(L);
+//			int preTop = state.BeginPreModule("UnityEngine");
+//			UnityEngine_AnimationClipWrap.Register(state);
+//			state.EndPreModule(preTop);
+//			LuaDLL.lua_settop(L, top);
+//			return 0;
+//		}
+//		catch(Exception e)
+//		{
+//			return LuaDLL.toluaL_exception(L, e);
+//		}
+//	}
+
+//	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+//	static int LuaOpen_UnityEngine_AnimationState(IntPtr L)
+//	{
+//		try
+//		{
+//			int top = LuaDLL.lua_gettop(L);
+//			LuaState state = LuaState.Get(L);
+//			int preTop = state.BeginPreModule("UnityEngine");
+//			UnityEngine_AnimationStateWrap.Register(state);
+//			state.EndPreModule(preTop);
+//			LuaDLL.lua_settop(L, top);
+//			return 0;
+//		}
+//		catch(Exception e)
+//		{
+//			return LuaDLL.toluaL_exception(L, e);
+//		}
+//	}
+
+//	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+//	static int LuaOpen_UnityEngine_SkinWeights(IntPtr L)
+//	{
+//		try
+//		{
+//			int top = LuaDLL.lua_gettop(L);
+//			LuaState state = LuaState.Get(L);
+//			int preTop = state.BeginPreModule("UnityEngine");
+//			UnityEngine_SkinWeightsWrap.Register(state);
+//			state.EndPreModule(preTop);
+//			LuaDLL.lua_settop(L, top);
+//			return 0;
+//		}
+//		catch(Exception e)
+//		{
+//			return LuaDLL.toluaL_exception(L, e);
+//		}
+//	}
+
+//	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+//	static int LuaOpen_UnityEngine_RenderTexture(IntPtr L)
+//	{
+//		try
+//		{
+//			int top = LuaDLL.lua_gettop(L);
+//			LuaState state = LuaState.Get(L);
+//			int preTop = state.BeginPreModule("UnityEngine");
+//			UnityEngine_RenderTextureWrap.Register(state);
+//			state.EndPreModule(preTop);
+//			LuaDLL.lua_settop(L, top);
+//			return 0;
+//		}
+//		catch(Exception e)
+//		{
+//			return LuaDLL.toluaL_exception(L, e);
+//		}
+//	}
+
+//	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+//	static int LuaOpen_UnityEngine_Rigidbody(IntPtr L)
+//	{
+//		try
+//		{
+//			int top = LuaDLL.lua_gettop(L);
+//			LuaState state = LuaState.Get(L);
+//			int preTop = state.BeginPreModule("UnityEngine");
+//			UnityEngine_RigidbodyWrap.Register(state);
+//			state.EndPreModule(preTop);
+//			LuaDLL.lua_settop(L, top);
+//			return 0;
+//		}
+//		catch(Exception e)
+//		{
+//			return LuaDLL.toluaL_exception(L, e);
+//		}
 //	}
 
 //}

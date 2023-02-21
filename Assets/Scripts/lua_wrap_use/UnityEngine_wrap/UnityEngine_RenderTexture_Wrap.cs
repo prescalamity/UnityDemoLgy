@@ -188,16 +188,10 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.GetNativeDepthBufferPtr");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)ToLua.CheckObject(L, 1, typeof(UnityEngine.RenderTexture));
 			System.IntPtr o = obj.GetNativeDepthBufferPtr();
 			LuaDLL.lua_pushlightuserdata(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -211,18 +205,12 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.DiscardContents");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
 			{
 				UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)ToLua.CheckObject(L, 1, typeof(UnityEngine.RenderTexture));
 				obj.DiscardContents();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -231,16 +219,10 @@ public class UnityEngine_RenderTextureWrap
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 				obj.DiscardContents(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.RenderTexture.DiscardContents");
 			}
 		}
@@ -255,18 +237,12 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.ResolveAntiAliasedSurface");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
 			{
 				UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)ToLua.CheckObject(L, 1, typeof(UnityEngine.RenderTexture));
 				obj.ResolveAntiAliasedSurface();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2)
@@ -274,16 +250,10 @@ public class UnityEngine_RenderTextureWrap
 				UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)ToLua.CheckObject(L, 1, typeof(UnityEngine.RenderTexture));
 				UnityEngine.RenderTexture arg0 = (UnityEngine.RenderTexture)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.RenderTexture));
 				obj.ResolveAntiAliasedSurface(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.RenderTexture.ResolveAntiAliasedSurface");
 			}
 		}
@@ -298,16 +268,10 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.SetGlobalShaderProperty");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)ToLua.CheckObject(L, 1, typeof(UnityEngine.RenderTexture));
 			string arg0 = ToLua.CheckString(L, 2);
 			obj.SetGlobalShaderProperty(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -321,16 +285,10 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.Create");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)ToLua.CheckObject(L, 1, typeof(UnityEngine.RenderTexture));
 			bool o = obj.Create();
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -344,15 +302,9 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.Release");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)ToLua.CheckObject(L, 1, typeof(UnityEngine.RenderTexture));
 			obj.Release();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -366,16 +318,10 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.IsCreated");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)ToLua.CheckObject(L, 1, typeof(UnityEngine.RenderTexture));
 			bool o = obj.IsCreated();
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -389,15 +335,9 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.GenerateMips");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)ToLua.CheckObject(L, 1, typeof(UnityEngine.RenderTexture));
 			obj.GenerateMips();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -411,17 +351,11 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.ConvertToEquirect");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)ToLua.CheckObject(L, 1, typeof(UnityEngine.RenderTexture));
 			UnityEngine.RenderTexture arg0 = (UnityEngine.RenderTexture)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.RenderTexture));
 			UnityEngine.Camera.MonoOrStereoscopicEye arg1 = (UnityEngine.Camera.MonoOrStereoscopicEye)LuaDLL.luaL_checknumber(L, 3);
 			obj.ConvertToEquirect(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -435,16 +369,10 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.SupportsStencil");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.RenderTexture arg0 = (UnityEngine.RenderTexture)ToLua.CheckUnityObject(L, 1, typeof(UnityEngine.RenderTexture));
 			bool o = UnityEngine.RenderTexture.SupportsStencil(arg0);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -458,15 +386,9 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.ReleaseTemporary");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.RenderTexture arg0 = (UnityEngine.RenderTexture)ToLua.CheckUnityObject(L, 1, typeof(UnityEngine.RenderTexture));
 			UnityEngine.RenderTexture.ReleaseTemporary(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -480,9 +402,6 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.GetTemporary");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -490,9 +409,6 @@ public class UnityEngine_RenderTextureWrap
 				UnityEngine.RenderTextureDescriptor arg0 = StackTraits<UnityEngine.RenderTextureDescriptor>.Check(L, 1);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2)
@@ -501,9 +417,6 @@ public class UnityEngine_RenderTextureWrap
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3)
@@ -513,9 +426,6 @@ public class UnityEngine_RenderTextureWrap
 				int arg2 = (int)LuaDLL.luaL_checknumber(L, 3);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1, arg2);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(int), typeof(UnityEngine.Experimental.Rendering.GraphicsFormat)))
@@ -526,9 +436,6 @@ public class UnityEngine_RenderTextureWrap
 				UnityEngine.Experimental.Rendering.GraphicsFormat arg3 = (UnityEngine.Experimental.Rendering.GraphicsFormat)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1, arg2, arg3);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(int), typeof(UnityEngine.RenderTextureFormat)))
@@ -539,9 +446,6 @@ public class UnityEngine_RenderTextureWrap
 				UnityEngine.RenderTextureFormat arg3 = (UnityEngine.RenderTextureFormat)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1, arg2, arg3);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(int), typeof(UnityEngine.Experimental.Rendering.GraphicsFormat), typeof(int)))
@@ -553,9 +457,6 @@ public class UnityEngine_RenderTextureWrap
 				int arg4 = (int)LuaDLL.lua_tonumber(L, 5);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1, arg2, arg3, arg4);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(int), typeof(UnityEngine.RenderTextureFormat), typeof(UnityEngine.RenderTextureReadWrite)))
@@ -567,9 +468,6 @@ public class UnityEngine_RenderTextureWrap
 				UnityEngine.RenderTextureReadWrite arg4 = (UnityEngine.RenderTextureReadWrite)LuaDLL.luaL_checknumber(L, 5);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1, arg2, arg3, arg4);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(int), typeof(UnityEngine.Experimental.Rendering.GraphicsFormat), typeof(int), typeof(UnityEngine.RenderTextureMemoryless)))
@@ -582,9 +480,6 @@ public class UnityEngine_RenderTextureWrap
 				UnityEngine.RenderTextureMemoryless arg5 = (UnityEngine.RenderTextureMemoryless)LuaDLL.luaL_checknumber(L, 6);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1, arg2, arg3, arg4, arg5);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(int), typeof(UnityEngine.RenderTextureFormat), typeof(UnityEngine.RenderTextureReadWrite), typeof(int)))
@@ -597,9 +492,6 @@ public class UnityEngine_RenderTextureWrap
 				int arg5 = (int)LuaDLL.lua_tonumber(L, 6);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1, arg2, arg3, arg4, arg5);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 7 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(int), typeof(UnityEngine.Experimental.Rendering.GraphicsFormat), typeof(int), typeof(UnityEngine.RenderTextureMemoryless), typeof(UnityEngine.VRTextureUsage)))
@@ -613,9 +505,6 @@ public class UnityEngine_RenderTextureWrap
 				UnityEngine.VRTextureUsage arg6 = (UnityEngine.VRTextureUsage)LuaDLL.luaL_checknumber(L, 7);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 7 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(int), typeof(UnityEngine.RenderTextureFormat), typeof(UnityEngine.RenderTextureReadWrite), typeof(int), typeof(UnityEngine.RenderTextureMemoryless)))
@@ -629,9 +518,6 @@ public class UnityEngine_RenderTextureWrap
 				UnityEngine.RenderTextureMemoryless arg6 = (UnityEngine.RenderTextureMemoryless)LuaDLL.luaL_checknumber(L, 7);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 8 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(int), typeof(UnityEngine.Experimental.Rendering.GraphicsFormat), typeof(int), typeof(UnityEngine.RenderTextureMemoryless), typeof(UnityEngine.VRTextureUsage), typeof(bool)))
@@ -646,9 +532,6 @@ public class UnityEngine_RenderTextureWrap
 				bool arg7 = LuaDLL.lua_toboolean(L, 8);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 8 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(int), typeof(UnityEngine.RenderTextureFormat), typeof(UnityEngine.RenderTextureReadWrite), typeof(int), typeof(UnityEngine.RenderTextureMemoryless), typeof(UnityEngine.VRTextureUsage)))
@@ -663,9 +546,6 @@ public class UnityEngine_RenderTextureWrap
 				UnityEngine.VRTextureUsage arg7 = (UnityEngine.VRTextureUsage)LuaDLL.luaL_checknumber(L, 8);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 9)
@@ -681,16 +561,10 @@ public class UnityEngine_RenderTextureWrap
 				bool arg8 = LuaDLL.luaL_checkboolean(L, 9);
 				UnityEngine.RenderTexture o = UnityEngine.RenderTexture.GetTemporary(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.RenderTexture.GetTemporary");
 			}
 		}
@@ -705,17 +579,11 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -748,16 +616,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.width");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			int ret = obj.width;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -773,16 +635,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.height");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			int ret = obj.height;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -798,16 +654,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.dimension");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.Rendering.TextureDimension ret = obj.dimension;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -823,16 +673,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.graphicsFormat");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.Experimental.Rendering.GraphicsFormat ret = obj.graphicsFormat;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -848,16 +692,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.useMipMap");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool ret = obj.useMipMap;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -873,16 +711,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.sRGB");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool ret = obj.sRGB;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -898,16 +730,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.vrUsage");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.VRTextureUsage ret = obj.vrUsage;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -923,16 +749,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.memorylessMode");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.RenderTextureMemoryless ret = obj.memorylessMode;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -948,16 +768,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.format");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.RenderTextureFormat ret = obj.format;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -973,16 +787,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.stencilFormat");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.Experimental.Rendering.GraphicsFormat ret = obj.stencilFormat;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -998,16 +806,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.depthStencilFormat");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.Experimental.Rendering.GraphicsFormat ret = obj.depthStencilFormat;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1023,16 +825,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.autoGenerateMips");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool ret = obj.autoGenerateMips;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1048,16 +844,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.volumeDepth");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			int ret = obj.volumeDepth;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1073,16 +863,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.antiAliasing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			int ret = obj.antiAliasing;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1098,16 +882,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.bindTextureMS");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool ret = obj.bindTextureMS;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1123,16 +901,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.enableRandomWrite");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool ret = obj.enableRandomWrite;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1148,16 +920,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.useDynamicScale");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool ret = obj.useDynamicScale;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1173,16 +939,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.isPowerOfTwo");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool ret = obj.isPowerOfTwo;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1205,16 +965,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.colorBuffer");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.RenderBuffer ret = obj.colorBuffer;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1230,16 +984,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.depthBuffer");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.RenderBuffer ret = obj.depthBuffer;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1255,16 +1003,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.depth");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			int ret = obj.depth;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1280,16 +1022,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.descriptor");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.RenderTextureDescriptor ret = obj.descriptor;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1305,16 +1041,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.width");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.width = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1330,16 +1060,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.height");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.height = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1355,16 +1079,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.dimension");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.Rendering.TextureDimension arg0 = (UnityEngine.Rendering.TextureDimension)LuaDLL.luaL_checknumber(L, 2);
 			obj.dimension = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1380,16 +1098,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.graphicsFormat");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.Experimental.Rendering.GraphicsFormat arg0 = (UnityEngine.Experimental.Rendering.GraphicsFormat)LuaDLL.luaL_checknumber(L, 2);
 			obj.graphicsFormat = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1405,16 +1117,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.useMipMap");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.useMipMap = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1430,16 +1136,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.vrUsage");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.VRTextureUsage arg0 = (UnityEngine.VRTextureUsage)LuaDLL.luaL_checknumber(L, 2);
 			obj.vrUsage = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1455,16 +1155,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.memorylessMode");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.RenderTextureMemoryless arg0 = (UnityEngine.RenderTextureMemoryless)LuaDLL.luaL_checknumber(L, 2);
 			obj.memorylessMode = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1480,16 +1174,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.format");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.RenderTextureFormat arg0 = (UnityEngine.RenderTextureFormat)LuaDLL.luaL_checknumber(L, 2);
 			obj.format = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1505,16 +1193,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.stencilFormat");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.Experimental.Rendering.GraphicsFormat arg0 = (UnityEngine.Experimental.Rendering.GraphicsFormat)LuaDLL.luaL_checknumber(L, 2);
 			obj.stencilFormat = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1530,16 +1212,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.depthStencilFormat");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.Experimental.Rendering.GraphicsFormat arg0 = (UnityEngine.Experimental.Rendering.GraphicsFormat)LuaDLL.luaL_checknumber(L, 2);
 			obj.depthStencilFormat = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1555,16 +1231,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.autoGenerateMips");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.autoGenerateMips = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1580,16 +1250,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.volumeDepth");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.volumeDepth = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1605,16 +1269,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.antiAliasing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.antiAliasing = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1630,16 +1288,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.bindTextureMS");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.bindTextureMS = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1655,16 +1307,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.enableRandomWrite");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.enableRandomWrite = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1680,16 +1326,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.useDynamicScale");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.useDynamicScale = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1705,16 +1345,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.isPowerOfTwo");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.isPowerOfTwo = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1728,14 +1362,8 @@ public class UnityEngine_RenderTextureWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.active");
-#endif
 			UnityEngine.RenderTexture arg0 = (UnityEngine.RenderTexture)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.RenderTexture));
 			UnityEngine.RenderTexture.active = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1751,16 +1379,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.depth");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.depth = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1776,16 +1398,10 @@ public class UnityEngine_RenderTextureWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.RenderTexture.descriptor");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.RenderTexture obj = (UnityEngine.RenderTexture)o;
 			UnityEngine.RenderTextureDescriptor arg0 = StackTraits<UnityEngine.RenderTextureDescriptor>.Check(L, 2);
 			obj.descriptor = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

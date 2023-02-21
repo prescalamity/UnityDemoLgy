@@ -64,17 +64,11 @@ public class UnityEngine_ColliderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.ClosestPoint");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Collider obj = (UnityEngine.Collider)ToLua.CheckObject(L, 1, typeof(UnityEngine.Collider));
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			UnityEngine.Vector3 o = obj.ClosestPoint(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -88,9 +82,6 @@ public class UnityEngine_ColliderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.Raycast");
-#endif
 			ToLua.CheckArgsCount(L, 4);
 			UnityEngine.Collider obj = (UnityEngine.Collider)ToLua.CheckObject(L, 1, typeof(UnityEngine.Collider));
 			UnityEngine.Ray arg0 = ToLua.ToRay(L, 2);
@@ -99,9 +90,6 @@ public class UnityEngine_ColliderWrap
 			bool o = obj.Raycast(arg0, out arg1, arg2);
 			LuaDLL.lua_pushboolean(L, o);
 			ToLua.Push(L, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 2;
 		}
 		catch(Exception e)
@@ -115,17 +103,11 @@ public class UnityEngine_ColliderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.ClosestPointOnBounds");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Collider obj = (UnityEngine.Collider)ToLua.CheckObject(L, 1, typeof(UnityEngine.Collider));
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			UnityEngine.Vector3 o = obj.ClosestPointOnBounds(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -139,17 +121,11 @@ public class UnityEngine_ColliderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -182,16 +158,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.enabled");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			bool ret = obj.enabled;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -207,16 +177,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.attachedRigidbody");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			UnityEngine.Rigidbody ret = obj.attachedRigidbody;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -232,16 +196,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.attachedArticulationBody");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			UnityEngine.ArticulationBody ret = obj.attachedArticulationBody;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -257,16 +215,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.isTrigger");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			bool ret = obj.isTrigger;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -282,16 +234,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.contactOffset");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			float ret = obj.contactOffset;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -307,16 +253,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.bounds");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			UnityEngine.Bounds ret = obj.bounds;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -332,16 +272,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.hasModifiableContacts");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			bool ret = obj.hasModifiableContacts;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -357,16 +291,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.sharedMaterial");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			UnityEngine.PhysicMaterial ret = obj.sharedMaterial;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -382,16 +310,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.material");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			UnityEngine.PhysicMaterial ret = obj.material;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -407,16 +329,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.enabled");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.enabled = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -432,16 +348,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.isTrigger");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.isTrigger = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -457,16 +367,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.contactOffset");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.contactOffset = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -482,16 +386,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.hasModifiableContacts");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.hasModifiableContacts = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -507,16 +405,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.sharedMaterial");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			UnityEngine.PhysicMaterial arg0 = (UnityEngine.PhysicMaterial)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.PhysicMaterial));
 			obj.sharedMaterial = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -532,16 +424,10 @@ public class UnityEngine_ColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Collider.material");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Collider obj = (UnityEngine.Collider)o;
 			UnityEngine.PhysicMaterial arg0 = (UnityEngine.PhysicMaterial)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.PhysicMaterial));
 			obj.material = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

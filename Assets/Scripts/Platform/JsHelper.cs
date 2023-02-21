@@ -11,8 +11,8 @@ public class JsHelper
     {
 #if UNITY_WEBGL
         //动态注册函数
-        RegisyerFunction("Hello", JsHelper.Hello);
-        RegisyerFunction("PlayVideo", JsHelper.PlayVideo);
+        //RegisyerFunction("Hello", JsHelper.Hello);
+        //RegisyerFunction("PlayVideo", JsHelper.PlayVideo);
 #endif
 
     }

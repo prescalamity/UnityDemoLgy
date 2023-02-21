@@ -56,17 +56,11 @@ public class UnityEngine_CapsuleColliderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.CapsuleCollider.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -99,16 +93,10 @@ public class UnityEngine_CapsuleColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.CapsuleCollider.center");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.CapsuleCollider obj = (UnityEngine.CapsuleCollider)o;
 			UnityEngine.Vector3 ret = obj.center;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -124,16 +112,10 @@ public class UnityEngine_CapsuleColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.CapsuleCollider.radius");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.CapsuleCollider obj = (UnityEngine.CapsuleCollider)o;
 			float ret = obj.radius;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -149,16 +131,10 @@ public class UnityEngine_CapsuleColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.CapsuleCollider.height");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.CapsuleCollider obj = (UnityEngine.CapsuleCollider)o;
 			float ret = obj.height;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -174,16 +150,10 @@ public class UnityEngine_CapsuleColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.CapsuleCollider.direction");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.CapsuleCollider obj = (UnityEngine.CapsuleCollider)o;
 			int ret = obj.direction;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -199,16 +169,10 @@ public class UnityEngine_CapsuleColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.CapsuleCollider.center");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.CapsuleCollider obj = (UnityEngine.CapsuleCollider)o;
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			obj.center = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -224,16 +188,10 @@ public class UnityEngine_CapsuleColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.CapsuleCollider.radius");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.CapsuleCollider obj = (UnityEngine.CapsuleCollider)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.radius = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -249,16 +207,10 @@ public class UnityEngine_CapsuleColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.CapsuleCollider.height");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.CapsuleCollider obj = (UnityEngine.CapsuleCollider)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.height = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -274,16 +226,10 @@ public class UnityEngine_CapsuleColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.CapsuleCollider.direction");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.CapsuleCollider obj = (UnityEngine.CapsuleCollider)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.direction = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

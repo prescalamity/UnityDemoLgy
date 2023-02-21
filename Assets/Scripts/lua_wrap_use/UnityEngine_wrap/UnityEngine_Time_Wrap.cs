@@ -225,14 +225,8 @@ public class UnityEngine_TimeWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Time.fixedDeltaTime");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Time.fixedDeltaTime = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -246,14 +240,8 @@ public class UnityEngine_TimeWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Time.maximumDeltaTime");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Time.maximumDeltaTime = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -267,14 +255,8 @@ public class UnityEngine_TimeWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Time.maximumParticleDeltaTime");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Time.maximumParticleDeltaTime = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -288,14 +270,8 @@ public class UnityEngine_TimeWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Time.timeScale");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Time.timeScale = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -309,14 +285,8 @@ public class UnityEngine_TimeWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Time.captureDeltaTime");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Time.captureDeltaTime = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -330,14 +300,8 @@ public class UnityEngine_TimeWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Time.captureFramerate");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Time.captureFramerate = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

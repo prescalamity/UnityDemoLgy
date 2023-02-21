@@ -80,33 +80,21 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.Quit");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 0)
 			{
 				UnityEngine.Application.Quit();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 1)
 			{
 				int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 				UnityEngine.Application.Quit(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Application.Quit");
 			}
 		}
@@ -121,14 +109,8 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.Unload");
-#endif
 			ToLua.CheckArgsCount(L, 0);
 			UnityEngine.Application.Unload();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -142,9 +124,6 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.CanStreamedLevelBeLoaded");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(int)))
@@ -152,9 +131,6 @@ public class UnityEngine_ApplicationWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				bool o = UnityEngine.Application.CanStreamedLevelBeLoaded(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
@@ -162,16 +138,10 @@ public class UnityEngine_ApplicationWrap
 				string arg0 = ToLua.ToString(L, 1);
 				bool o = UnityEngine.Application.CanStreamedLevelBeLoaded(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Application.CanStreamedLevelBeLoaded");
 			}
 		}
@@ -186,16 +156,10 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.IsPlaying");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.CheckUnityObject(L, 1, typeof(UnityEngine.Object));
 			bool o = UnityEngine.Application.IsPlaying(arg0);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -209,17 +173,11 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.GetBuildTags");
-#endif
 			ToLua.CheckArgsCount(L, 0);
 			string[] o = UnityEngine.Application.GetBuildTags();
 			ToLua.Push(L, o);
 			int arrayLength = o.Length;
 			LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 2;
 		}
 		catch(Exception e)
@@ -233,15 +191,9 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.SetBuildTags");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			string[] arg0 = ToLua.CheckStringArray(L, 1);
 			UnityEngine.Application.SetBuildTags(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -255,15 +207,9 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.HasProLicense");
-#endif
 			ToLua.CheckArgsCount(L, 0);
 			bool o = UnityEngine.Application.HasProLicense();
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -277,9 +223,6 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.RequestAdvertisingIdentifierAsync");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Application.AdvertisingIdentifierCallback arg0 = null;
 			LuaTypes funcType1 = LuaDLL.lua_type(L, 1);
@@ -296,9 +239,6 @@ public class UnityEngine_ApplicationWrap
 
 			bool o = UnityEngine.Application.RequestAdvertisingIdentifierAsync(arg0);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -312,15 +252,9 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.OpenURL");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
 			UnityEngine.Application.OpenURL(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -334,16 +268,10 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.GetStackTraceLogType");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.LogType arg0 = (UnityEngine.LogType)LuaDLL.luaL_checknumber(L, 1);
 			UnityEngine.StackTraceLogType o = UnityEngine.Application.GetStackTraceLogType(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -357,16 +285,10 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.SetStackTraceLogType");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.LogType arg0 = (UnityEngine.LogType)LuaDLL.luaL_checknumber(L, 1);
 			UnityEngine.StackTraceLogType arg1 = (UnityEngine.StackTraceLogType)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Application.SetStackTraceLogType(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -380,16 +302,10 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.RequestUserAuthorization");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.UserAuthorization arg0 = (UnityEngine.UserAuthorization)LuaDLL.luaL_checknumber(L, 1);
 			UnityEngine.AsyncOperation o = UnityEngine.Application.RequestUserAuthorization(arg0);
 			ToLua.PushObject(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -403,16 +319,10 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.HasUserAuthorization");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.UserAuthorization arg0 = (UnityEngine.UserAuthorization)LuaDLL.luaL_checknumber(L, 1);
 			bool o = UnityEngine.Application.HasUserAuthorization(arg0);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -699,14 +609,8 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.runInBackground");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.Application.runInBackground = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -720,14 +624,8 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.targetFrameRate");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Application.targetFrameRate = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -741,14 +639,8 @@ public class UnityEngine_ApplicationWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Application.backgroundLoadingPriority");
-#endif
 			UnityEngine.ThreadPriority arg0 = (UnityEngine.ThreadPriority)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Application.backgroundLoadingPriority = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

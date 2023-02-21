@@ -94,16 +94,10 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.CreatePrimitive");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.PrimitiveType arg0 = (UnityEngine.PrimitiveType)LuaDLL.luaL_checknumber(L, 1);
 			UnityEngine.GameObject o = UnityEngine.GameObject.CreatePrimitive(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -117,17 +111,26 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.GetComponent");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
 			System.Type arg0 = (System.Type)ToLua.CheckObject(L, 2, typeof(System.Type));
 			UnityEngine.Component o = obj.GetComponent(arg0);
+
+   //         if (o as TMPro.TMP_Text)
+   //         {
+			//	TMPro.TMP_Text test = (TMPro.TMP_Text)o;
+
+			//	//DLog._lins = true;
+			//	//test.text = "UnityEngine_GameObjectWrap.GetComponent, lgybyyyyy";
+			//	//DLog.Log("UnityEngine_GameObjectWrap.GetComponent.test.text: {0}, gameObject.name:{1}", test.text, test.gameObject.name);
+			//	//Type _type = test.GetType();
+			//	//UnityEngine.Debug.Log("UnityEngine_GameObjectWrap.GetComponent.type:" + _type.Name);
+
+			//	ToLua.Push(L, test);
+			//	return 1;
+			//}
+
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -141,9 +144,6 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.GetComponentInChildren");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -152,9 +152,6 @@ public class UnityEngine_GameObjectWrap
 				System.Type arg0 = (System.Type)ToLua.CheckObject(L, 2, typeof(System.Type));
 				UnityEngine.Component o = obj.GetComponentInChildren(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3)
@@ -164,16 +161,10 @@ public class UnityEngine_GameObjectWrap
 				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 				UnityEngine.Component o = obj.GetComponentInChildren(arg0, arg1);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.GameObject.GetComponentInChildren");
 			}
 		}
@@ -188,9 +179,6 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.GetComponentInParent");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -199,9 +187,6 @@ public class UnityEngine_GameObjectWrap
 				System.Type arg0 = (System.Type)ToLua.CheckObject(L, 2, typeof(System.Type));
 				UnityEngine.Component o = obj.GetComponentInParent(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3)
@@ -211,16 +196,10 @@ public class UnityEngine_GameObjectWrap
 				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 				UnityEngine.Component o = obj.GetComponentInParent(arg0, arg1);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.GameObject.GetComponentInParent");
 			}
 		}
@@ -235,9 +214,6 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.GetComponents");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -248,9 +224,6 @@ public class UnityEngine_GameObjectWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3)
@@ -259,16 +232,10 @@ public class UnityEngine_GameObjectWrap
 				System.Type arg0 = (System.Type)ToLua.CheckObject(L, 2, typeof(System.Type));
 				System.Collections.Generic.List<UnityEngine.Component> arg1 = (System.Collections.Generic.List<UnityEngine.Component>)ToLua.CheckObject(L, 3, typeof(System.Collections.Generic.List<UnityEngine.Component>));
 				obj.GetComponents(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.GameObject.GetComponents");
 			}
 		}
@@ -283,9 +250,6 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.GetComponentsInChildren");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -296,9 +260,6 @@ public class UnityEngine_GameObjectWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3)
@@ -310,16 +271,10 @@ public class UnityEngine_GameObjectWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.GameObject.GetComponentsInChildren");
 			}
 		}
@@ -334,9 +289,6 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.GetComponentsInParent");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -347,9 +299,6 @@ public class UnityEngine_GameObjectWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3)
@@ -361,16 +310,10 @@ public class UnityEngine_GameObjectWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.GameObject.GetComponentsInParent");
 			}
 		}
@@ -385,9 +328,6 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.TryGetComponent");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
 			System.Type arg0 = (System.Type)ToLua.CheckObject(L, 2, typeof(System.Type));
@@ -395,9 +335,6 @@ public class UnityEngine_GameObjectWrap
 			bool o = obj.TryGetComponent(arg0, out arg1);
 			LuaDLL.lua_pushboolean(L, o);
 			ToLua.Push(L, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 2;
 		}
 		catch(Exception e)
@@ -411,16 +348,10 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.FindWithTag");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
 			UnityEngine.GameObject o = UnityEngine.GameObject.FindWithTag(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -434,9 +365,6 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.SendMessageUpwards");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -444,9 +372,6 @@ public class UnityEngine_GameObjectWrap
 				UnityEngine.GameObject obj = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
 				string arg0 = ToLua.CheckString(L, 2);
 				obj.SendMessageUpwards(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.GameObject), typeof(string), typeof(UnityEngine.SendMessageOptions)))
@@ -455,9 +380,6 @@ public class UnityEngine_GameObjectWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.SendMessageOptions arg1 = (UnityEngine.SendMessageOptions)LuaDLL.luaL_checknumber(L, 3);
 				obj.SendMessageUpwards(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.GameObject), typeof(string), typeof(object)))
@@ -466,9 +388,6 @@ public class UnityEngine_GameObjectWrap
 				string arg0 = ToLua.ToString(L, 2);
 				object arg1 = ToLua.ToVarObject(L, 3);
 				obj.SendMessageUpwards(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4)
@@ -478,16 +397,10 @@ public class UnityEngine_GameObjectWrap
 				object arg1 = ToLua.ToVarObject(L, 3);
 				UnityEngine.SendMessageOptions arg2 = (UnityEngine.SendMessageOptions)LuaDLL.luaL_checknumber(L, 4);
 				obj.SendMessageUpwards(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.GameObject.SendMessageUpwards");
 			}
 		}
@@ -502,9 +415,6 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.SendMessage");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -512,9 +422,6 @@ public class UnityEngine_GameObjectWrap
 				UnityEngine.GameObject obj = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
 				string arg0 = ToLua.CheckString(L, 2);
 				obj.SendMessage(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.GameObject), typeof(string), typeof(UnityEngine.SendMessageOptions)))
@@ -523,9 +430,6 @@ public class UnityEngine_GameObjectWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.SendMessageOptions arg1 = (UnityEngine.SendMessageOptions)LuaDLL.luaL_checknumber(L, 3);
 				obj.SendMessage(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.GameObject), typeof(string), typeof(object)))
@@ -534,9 +438,6 @@ public class UnityEngine_GameObjectWrap
 				string arg0 = ToLua.ToString(L, 2);
 				object arg1 = ToLua.ToVarObject(L, 3);
 				obj.SendMessage(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4)
@@ -546,16 +447,10 @@ public class UnityEngine_GameObjectWrap
 				object arg1 = ToLua.ToVarObject(L, 3);
 				UnityEngine.SendMessageOptions arg2 = (UnityEngine.SendMessageOptions)LuaDLL.luaL_checknumber(L, 4);
 				obj.SendMessage(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.GameObject.SendMessage");
 			}
 		}
@@ -570,9 +465,6 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.BroadcastMessage");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -580,9 +472,6 @@ public class UnityEngine_GameObjectWrap
 				UnityEngine.GameObject obj = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
 				string arg0 = ToLua.CheckString(L, 2);
 				obj.BroadcastMessage(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.GameObject), typeof(string), typeof(UnityEngine.SendMessageOptions)))
@@ -591,9 +480,6 @@ public class UnityEngine_GameObjectWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.SendMessageOptions arg1 = (UnityEngine.SendMessageOptions)LuaDLL.luaL_checknumber(L, 3);
 				obj.BroadcastMessage(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.GameObject), typeof(string), typeof(object)))
@@ -602,9 +488,6 @@ public class UnityEngine_GameObjectWrap
 				string arg0 = ToLua.ToString(L, 2);
 				object arg1 = ToLua.ToVarObject(L, 3);
 				obj.BroadcastMessage(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4)
@@ -614,16 +497,10 @@ public class UnityEngine_GameObjectWrap
 				object arg1 = ToLua.ToVarObject(L, 3);
 				UnityEngine.SendMessageOptions arg2 = (UnityEngine.SendMessageOptions)LuaDLL.luaL_checknumber(L, 4);
 				obj.BroadcastMessage(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.GameObject.BroadcastMessage");
 			}
 		}
@@ -638,17 +515,11 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.AddComponent");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
 			System.Type arg0 = (System.Type)ToLua.CheckObject(L, 2, typeof(System.Type));
 			UnityEngine.Component o = obj.AddComponent(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -662,16 +533,10 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.SetActive");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.SetActive(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -685,17 +550,11 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.CompareTag");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)ToLua.CheckObject(L, 1, typeof(UnityEngine.GameObject));
 			string arg0 = ToLua.CheckString(L, 2);
 			bool o = obj.CompareTag(arg0);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -709,16 +568,10 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.FindGameObjectWithTag");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
 			UnityEngine.GameObject o = UnityEngine.GameObject.FindGameObjectWithTag(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -732,18 +585,12 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.FindGameObjectsWithTag");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
 			UnityEngine.GameObject[] o = UnityEngine.GameObject.FindGameObjectsWithTag(arg0);
 			ToLua.Push(L, o);
 			int arrayLength = o.Length;
 			LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 2;
 		}
 		catch(Exception e)
@@ -757,16 +604,10 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.Find");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
 			UnityEngine.GameObject o = UnityEngine.GameObject.Find(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -780,17 +621,11 @@ public class UnityEngine_GameObjectWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -823,16 +658,10 @@ public class UnityEngine_GameObjectWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.transform");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)o;
 			UnityEngine.Transform ret = obj.transform;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -848,16 +677,10 @@ public class UnityEngine_GameObjectWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.layer");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)o;
 			int ret = obj.layer;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -873,16 +696,10 @@ public class UnityEngine_GameObjectWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.activeSelf");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)o;
 			bool ret = obj.activeSelf;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -898,16 +715,10 @@ public class UnityEngine_GameObjectWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.activeInHierarchy");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)o;
 			bool ret = obj.activeInHierarchy;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -923,16 +734,10 @@ public class UnityEngine_GameObjectWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.isStatic");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)o;
 			bool ret = obj.isStatic;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -948,16 +753,10 @@ public class UnityEngine_GameObjectWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.tag");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)o;
 			string ret = obj.tag;
 			LuaDLL.lua_pushstring(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -973,16 +772,10 @@ public class UnityEngine_GameObjectWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.scene");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)o;
 			UnityEngine.SceneManagement.Scene ret = obj.scene;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -998,16 +791,10 @@ public class UnityEngine_GameObjectWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.sceneCullingMask");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)o;
 			ulong ret = obj.sceneCullingMask;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1023,16 +810,10 @@ public class UnityEngine_GameObjectWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.gameObject");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)o;
 			UnityEngine.GameObject ret = obj.gameObject;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1048,16 +829,10 @@ public class UnityEngine_GameObjectWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.layer");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.layer = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1073,16 +848,10 @@ public class UnityEngine_GameObjectWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.isStatic");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.isStatic = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1098,16 +867,10 @@ public class UnityEngine_GameObjectWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.GameObject.tag");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.GameObject obj = (UnityEngine.GameObject)o;
 			string arg0 = ToLua.CheckString(L, 2);
 			obj.tag = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

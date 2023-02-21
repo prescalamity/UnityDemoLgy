@@ -9,6 +9,7 @@ public class UnityEngine_TransformWrap
 		L.BeginClass(typeof(UnityEngine.Transform), typeof(UnityEngine.Component), "Transform");
 		L.RegFunction("SetParent", SetParent);
 		L.RegFunction("SetPositionAndRotation", SetPositionAndRotation);
+		L.RegFunction("SetLocalPositionAndRotation", SetLocalPositionAndRotation);
 		L.RegFunction("Translate", Translate);
 		L.RegFunction("Rotate", Rotate);
 		L.RegFunction("RotateAround", RotateAround);
@@ -67,9 +68,6 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.SetParent");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -77,9 +75,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 				UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Transform));
 				obj.SetParent(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -88,16 +83,10 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Transform));
 				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 				obj.SetParent(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Transform.SetParent");
 			}
 		}
@@ -112,17 +101,29 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.SetPositionAndRotation");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			UnityEngine.Quaternion arg1 = ToLua.ToQuaternion(L, 3);
 			obj.SetPositionAndRotation(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetLocalPositionAndRotation(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
+			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
+			UnityEngine.Quaternion arg1 = ToLua.ToQuaternion(L, 3);
+			obj.SetLocalPositionAndRotation(arg0, arg1);
 			return 0;
 		}
 		catch(Exception e)
@@ -136,9 +137,6 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.Translate");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -146,9 +144,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				obj.Translate(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Transform), typeof(UnityEngine.Vector3), typeof(UnityEngine.Space)))
@@ -157,9 +152,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				UnityEngine.Space arg1 = (UnityEngine.Space)LuaDLL.luaL_checknumber(L, 3);
 				obj.Translate(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Transform), typeof(UnityEngine.Vector3), typeof(UnityEngine.Transform)))
@@ -168,9 +160,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				UnityEngine.Transform arg1 = (UnityEngine.Transform)ToLua.ToObject(L, 3);
 				obj.Translate(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4)
@@ -180,9 +169,6 @@ public class UnityEngine_TransformWrap
 				float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 				obj.Translate(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Transform), typeof(float), typeof(float), typeof(float), typeof(UnityEngine.Space)))
@@ -193,9 +179,6 @@ public class UnityEngine_TransformWrap
 				float arg2 = (float)LuaDLL.lua_tonumber(L, 4);
 				UnityEngine.Space arg3 = (UnityEngine.Space)LuaDLL.luaL_checknumber(L, 5);
 				obj.Translate(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Transform), typeof(float), typeof(float), typeof(float), typeof(UnityEngine.Transform)))
@@ -206,16 +189,10 @@ public class UnityEngine_TransformWrap
 				float arg2 = (float)LuaDLL.lua_tonumber(L, 4);
 				UnityEngine.Transform arg3 = (UnityEngine.Transform)ToLua.ToObject(L, 5);
 				obj.Translate(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Transform.Translate");
 			}
 		}
@@ -230,9 +207,6 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.Rotate");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -240,9 +214,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				obj.Rotate(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Transform), typeof(UnityEngine.Vector3), typeof(UnityEngine.Space)))
@@ -251,9 +222,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				UnityEngine.Space arg1 = (UnityEngine.Space)LuaDLL.luaL_checknumber(L, 3);
 				obj.Rotate(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Transform), typeof(UnityEngine.Vector3), typeof(float)))
@@ -262,9 +230,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				float arg1 = (float)LuaDLL.lua_tonumber(L, 3);
 				obj.Rotate(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Transform), typeof(float), typeof(float), typeof(float)))
@@ -274,9 +239,6 @@ public class UnityEngine_TransformWrap
 				float arg1 = (float)LuaDLL.lua_tonumber(L, 3);
 				float arg2 = (float)LuaDLL.lua_tonumber(L, 4);
 				obj.Rotate(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Transform), typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Space)))
@@ -286,9 +248,6 @@ public class UnityEngine_TransformWrap
 				float arg1 = (float)LuaDLL.lua_tonumber(L, 3);
 				UnityEngine.Space arg2 = (UnityEngine.Space)LuaDLL.luaL_checknumber(L, 4);
 				obj.Rotate(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 5)
@@ -299,16 +258,10 @@ public class UnityEngine_TransformWrap
 				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.Space arg3 = (UnityEngine.Space)LuaDLL.luaL_checknumber(L, 5);
 				obj.Rotate(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Transform.Rotate");
 			}
 		}
@@ -323,18 +276,12 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.RotateAround");
-#endif
 			ToLua.CheckArgsCount(L, 4);
 			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 3);
 			float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 			obj.RotateAround(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -348,9 +295,6 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.LookAt");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Transform), typeof(UnityEngine.Transform)))
@@ -358,9 +302,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.ToObject(L, 1);
 				UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.ToObject(L, 2);
 				obj.LookAt(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Transform), typeof(UnityEngine.Vector3)))
@@ -368,9 +309,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.ToObject(L, 1);
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				obj.LookAt(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Transform), typeof(UnityEngine.Transform), typeof(UnityEngine.Vector3)))
@@ -379,9 +317,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.ToObject(L, 2);
 				UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 3);
 				obj.LookAt(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Transform), typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3)))
@@ -390,16 +325,10 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 3);
 				obj.LookAt(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Transform.LookAt");
 			}
 		}
@@ -414,9 +343,6 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.TransformDirection");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -425,9 +351,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				UnityEngine.Vector3 o = obj.TransformDirection(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -438,16 +361,10 @@ public class UnityEngine_TransformWrap
 				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.Vector3 o = obj.TransformDirection(arg0, arg1, arg2);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Transform.TransformDirection");
 			}
 		}
@@ -462,9 +379,6 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.InverseTransformDirection");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -473,9 +387,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				UnityEngine.Vector3 o = obj.InverseTransformDirection(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -486,16 +397,10 @@ public class UnityEngine_TransformWrap
 				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.Vector3 o = obj.InverseTransformDirection(arg0, arg1, arg2);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Transform.InverseTransformDirection");
 			}
 		}
@@ -510,9 +415,6 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.TransformVector");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -521,9 +423,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				UnityEngine.Vector3 o = obj.TransformVector(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -534,16 +433,10 @@ public class UnityEngine_TransformWrap
 				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.Vector3 o = obj.TransformVector(arg0, arg1, arg2);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Transform.TransformVector");
 			}
 		}
@@ -558,9 +451,6 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.InverseTransformVector");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -569,9 +459,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				UnityEngine.Vector3 o = obj.InverseTransformVector(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -582,16 +469,10 @@ public class UnityEngine_TransformWrap
 				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.Vector3 o = obj.InverseTransformVector(arg0, arg1, arg2);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Transform.InverseTransformVector");
 			}
 		}
@@ -606,9 +487,6 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.TransformPoint");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -617,9 +495,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				UnityEngine.Vector3 o = obj.TransformPoint(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -630,16 +505,10 @@ public class UnityEngine_TransformWrap
 				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.Vector3 o = obj.TransformPoint(arg0, arg1, arg2);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Transform.TransformPoint");
 			}
 		}
@@ -654,9 +523,6 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.InverseTransformPoint");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -665,9 +531,6 @@ public class UnityEngine_TransformWrap
 				UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 				UnityEngine.Vector3 o = obj.InverseTransformPoint(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -678,16 +541,10 @@ public class UnityEngine_TransformWrap
 				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.Vector3 o = obj.InverseTransformPoint(arg0, arg1, arg2);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Transform.InverseTransformPoint");
 			}
 		}
@@ -702,15 +559,9 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.DetachChildren");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 			obj.DetachChildren();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -724,15 +575,9 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.SetAsFirstSibling");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 			obj.SetAsFirstSibling();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -746,15 +591,9 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.SetAsLastSibling");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 			obj.SetAsLastSibling();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -768,16 +607,10 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.SetSiblingIndex");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.SetSiblingIndex(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -791,16 +624,10 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.GetSiblingIndex");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 			int o = obj.GetSiblingIndex();
 			LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -814,17 +641,11 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.Find");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 			string arg0 = ToLua.CheckString(L, 2);
 			UnityEngine.Transform o = obj.Find(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -838,17 +659,11 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.IsChildOf");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 			UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Transform));
 			bool o = obj.IsChildOf(arg0);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -862,16 +677,10 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.GetEnumerator");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 			System.Collections.IEnumerator o = obj.GetEnumerator();
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -885,17 +694,11 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.GetChild");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Transform o = obj.GetChild(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -909,17 +712,11 @@ public class UnityEngine_TransformWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -952,16 +749,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.position");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 ret = obj.position;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -977,16 +768,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.localPosition");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 ret = obj.localPosition;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1002,16 +787,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.eulerAngles");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 ret = obj.eulerAngles;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1027,16 +806,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.localEulerAngles");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 ret = obj.localEulerAngles;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1052,16 +825,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.right");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 ret = obj.right;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1077,16 +844,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.up");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 ret = obj.up;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1102,16 +863,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.forward");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 ret = obj.forward;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1127,16 +882,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.rotation");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Quaternion ret = obj.rotation;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1152,16 +901,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.localRotation");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Quaternion ret = obj.localRotation;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1177,16 +920,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.localScale");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 ret = obj.localScale;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1202,16 +939,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.parent");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Transform ret = obj.parent;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1227,16 +958,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.worldToLocalMatrix");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Matrix4x4 ret = obj.worldToLocalMatrix;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1252,16 +977,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.localToWorldMatrix");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Matrix4x4 ret = obj.localToWorldMatrix;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1277,16 +996,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.root");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Transform ret = obj.root;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1302,16 +1015,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.childCount");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			int ret = obj.childCount;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1327,16 +1034,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.lossyScale");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 ret = obj.lossyScale;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1352,16 +1053,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.hasChanged");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			bool ret = obj.hasChanged;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1377,16 +1072,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.hierarchyCapacity");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			int ret = obj.hierarchyCapacity;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1402,16 +1091,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.hierarchyCount");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			int ret = obj.hierarchyCount;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1427,16 +1110,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.position");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			obj.position = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1452,16 +1129,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.localPosition");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			obj.localPosition = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1477,16 +1148,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.eulerAngles");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			obj.eulerAngles = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1502,16 +1167,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.localEulerAngles");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			obj.localEulerAngles = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1527,16 +1186,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.right");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			obj.right = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1552,16 +1205,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.up");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			obj.up = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1577,16 +1224,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.forward");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			obj.forward = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1602,16 +1243,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.rotation");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Quaternion arg0 = ToLua.ToQuaternion(L, 2);
 			obj.rotation = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1627,16 +1262,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.localRotation");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Quaternion arg0 = ToLua.ToQuaternion(L, 2);
 			obj.localRotation = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1652,16 +1281,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.localScale");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			obj.localScale = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1677,16 +1300,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.parent");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Transform));
 			obj.parent = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1702,16 +1319,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.hasChanged");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.hasChanged = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1727,16 +1338,10 @@ public class UnityEngine_TransformWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Transform.hierarchyCapacity");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Transform obj = (UnityEngine.Transform)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.hierarchyCapacity = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

@@ -98,18 +98,12 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.Play");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
 			{
 				UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 				obj.Play();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2)
@@ -117,16 +111,10 @@ public class UnityEngine_AudioSourceWrap
 				UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 				ulong arg0 = (ulong)LuaDLL.luaL_checknumber(L, 2);
 				obj.Play(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.AudioSource.Play");
 			}
 		}
@@ -141,16 +129,10 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.PlayDelayed");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.PlayDelayed(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -164,16 +146,10 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.PlayScheduled");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			double arg0 = (double)LuaDLL.luaL_checknumber(L, 2);
 			obj.PlayScheduled(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -187,9 +163,6 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.PlayOneShot");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -197,9 +170,6 @@ public class UnityEngine_AudioSourceWrap
 				UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 				UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.AudioClip));
 				obj.PlayOneShot(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -208,16 +178,10 @@ public class UnityEngine_AudioSourceWrap
 				UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.AudioClip));
 				float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 				obj.PlayOneShot(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.AudioSource.PlayOneShot");
 			}
 		}
@@ -232,16 +196,10 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.SetScheduledStartTime");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			double arg0 = (double)LuaDLL.luaL_checknumber(L, 2);
 			obj.SetScheduledStartTime(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -255,16 +213,10 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.SetScheduledEndTime");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			double arg0 = (double)LuaDLL.luaL_checknumber(L, 2);
 			obj.SetScheduledEndTime(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -278,15 +230,9 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.Stop");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			obj.Stop();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -300,15 +246,9 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.Pause");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			obj.Pause();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -322,15 +262,9 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.UnPause");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			obj.UnPause();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -344,9 +278,6 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.PlayClipAtPoint");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -354,9 +285,6 @@ public class UnityEngine_AudioSourceWrap
 				UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.CheckUnityObject(L, 1, typeof(UnityEngine.AudioClip));
 				UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 2);
 				UnityEngine.AudioSource.PlayClipAtPoint(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -365,16 +293,10 @@ public class UnityEngine_AudioSourceWrap
 				UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 2);
 				float arg2 = (float)LuaDLL.luaL_checknumber(L, 3);
 				UnityEngine.AudioSource.PlayClipAtPoint(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.AudioSource.PlayClipAtPoint");
 			}
 		}
@@ -389,17 +311,11 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.SetCustomCurve");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			UnityEngine.AudioSourceCurveType arg0 = (UnityEngine.AudioSourceCurveType)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.AnimationCurve arg1 = (UnityEngine.AnimationCurve)ToLua.CheckObject(L, 3, typeof(UnityEngine.AnimationCurve));
 			obj.SetCustomCurve(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -413,17 +329,11 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.GetCustomCurve");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			UnityEngine.AudioSourceCurveType arg0 = (UnityEngine.AudioSourceCurveType)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.AnimationCurve o = obj.GetCustomCurve(arg0);
 			ToLua.PushObject(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -437,17 +347,11 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.GetOutputData");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			float[] arg0 = ToLua.CheckNumberArray<float>(L, 2);
 			int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 			obj.GetOutputData(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -461,18 +365,12 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.GetSpectrumData");
-#endif
 			ToLua.CheckArgsCount(L, 4);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			float[] arg0 = ToLua.CheckNumberArray<float>(L, 2);
 			int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 			UnityEngine.FFTWindow arg2 = (UnityEngine.FFTWindow)LuaDLL.luaL_checknumber(L, 4);
 			obj.GetSpectrumData(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -486,18 +384,12 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.SetSpatializerFloat");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 			bool o = obj.SetSpatializerFloat(arg0, arg1);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -511,9 +403,6 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.GetSpatializerFloat");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
@@ -521,9 +410,6 @@ public class UnityEngine_AudioSourceWrap
 			bool o = obj.GetSpatializerFloat(arg0, out arg1);
 			LuaDLL.lua_pushboolean(L, o);
 			LuaDLL.lua_pushnumber(L, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 2;
 		}
 		catch(Exception e)
@@ -537,9 +423,6 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.GetAmbisonicDecoderFloat");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
@@ -547,9 +430,6 @@ public class UnityEngine_AudioSourceWrap
 			bool o = obj.GetAmbisonicDecoderFloat(arg0, out arg1);
 			LuaDLL.lua_pushboolean(L, o);
 			LuaDLL.lua_pushnumber(L, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 2;
 		}
 		catch(Exception e)
@@ -563,18 +443,12 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.SetAmbisonicDecoderFloat");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 			bool o = obj.SetAmbisonicDecoderFloat(arg0, arg1);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -588,17 +462,11 @@ public class UnityEngine_AudioSourceWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -631,16 +499,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.volume");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float ret = obj.volume;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -656,16 +518,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.pitch");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float ret = obj.pitch;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -681,16 +537,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.time");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float ret = obj.time;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -706,16 +556,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.timeSamples");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			int ret = obj.timeSamples;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -731,16 +575,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.clip");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			UnityEngine.AudioClip ret = obj.clip;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -756,16 +594,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.outputAudioMixerGroup");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			UnityEngine.Audio.AudioMixerGroup ret = obj.outputAudioMixerGroup;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -781,16 +613,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.isPlaying");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool ret = obj.isPlaying;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -806,16 +632,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.isVirtual");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool ret = obj.isVirtual;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -831,16 +651,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.loop");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool ret = obj.loop;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -856,16 +670,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.ignoreListenerVolume");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool ret = obj.ignoreListenerVolume;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -881,16 +689,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.playOnAwake");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool ret = obj.playOnAwake;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -906,16 +708,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.ignoreListenerPause");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool ret = obj.ignoreListenerPause;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -931,16 +727,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.velocityUpdateMode");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			UnityEngine.AudioVelocityUpdateMode ret = obj.velocityUpdateMode;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -956,16 +746,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.panStereo");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float ret = obj.panStereo;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -981,16 +765,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.spatialBlend");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float ret = obj.spatialBlend;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1006,16 +784,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.spatialize");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool ret = obj.spatialize;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1031,16 +803,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.spatializePostEffects");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool ret = obj.spatializePostEffects;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1056,16 +822,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.reverbZoneMix");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float ret = obj.reverbZoneMix;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1081,16 +841,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.bypassEffects");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool ret = obj.bypassEffects;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1106,16 +860,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.bypassListenerEffects");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool ret = obj.bypassListenerEffects;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1131,16 +879,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.bypassReverbZones");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool ret = obj.bypassReverbZones;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1156,16 +898,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.dopplerLevel");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float ret = obj.dopplerLevel;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1181,16 +917,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.spread");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float ret = obj.spread;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1206,16 +936,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.priority");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			int ret = obj.priority;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1231,16 +955,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.mute");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool ret = obj.mute;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1256,16 +974,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.minDistance");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float ret = obj.minDistance;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1281,16 +993,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.maxDistance");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float ret = obj.maxDistance;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1306,16 +1012,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.rolloffMode");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			UnityEngine.AudioRolloffMode ret = obj.rolloffMode;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1331,16 +1031,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.volume");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.volume = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1356,16 +1050,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.pitch");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.pitch = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1381,16 +1069,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.time");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.time = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1406,16 +1088,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.timeSamples");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.timeSamples = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1431,16 +1107,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.clip");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.AudioClip));
 			obj.clip = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1456,16 +1126,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.outputAudioMixerGroup");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			UnityEngine.Audio.AudioMixerGroup arg0 = (UnityEngine.Audio.AudioMixerGroup)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Audio.AudioMixerGroup));
 			obj.outputAudioMixerGroup = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1481,16 +1145,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.loop");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.loop = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1506,16 +1164,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.ignoreListenerVolume");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.ignoreListenerVolume = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1531,16 +1183,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.playOnAwake");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.playOnAwake = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1556,16 +1202,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.ignoreListenerPause");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.ignoreListenerPause = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1581,16 +1221,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.velocityUpdateMode");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			UnityEngine.AudioVelocityUpdateMode arg0 = (UnityEngine.AudioVelocityUpdateMode)LuaDLL.luaL_checknumber(L, 2);
 			obj.velocityUpdateMode = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1606,16 +1240,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.panStereo");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.panStereo = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1631,16 +1259,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.spatialBlend");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.spatialBlend = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1656,16 +1278,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.spatialize");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.spatialize = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1681,16 +1297,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.spatializePostEffects");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.spatializePostEffects = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1706,16 +1316,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.reverbZoneMix");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.reverbZoneMix = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1731,16 +1335,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.bypassEffects");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.bypassEffects = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1756,16 +1354,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.bypassListenerEffects");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.bypassListenerEffects = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1781,16 +1373,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.bypassReverbZones");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.bypassReverbZones = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1806,16 +1392,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.dopplerLevel");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.dopplerLevel = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1831,16 +1411,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.spread");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.spread = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1856,16 +1430,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.priority");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.priority = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1881,16 +1449,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.mute");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.mute = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1906,16 +1468,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.minDistance");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.minDistance = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1931,16 +1487,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.maxDistance");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.maxDistance = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1956,16 +1506,10 @@ public class UnityEngine_AudioSourceWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AudioSource.rolloffMode");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			UnityEngine.AudioRolloffMode arg0 = (UnityEngine.AudioRolloffMode)LuaDLL.luaL_checknumber(L, 2);
 			obj.rolloffMode = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

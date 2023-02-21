@@ -56,6 +56,7 @@ public class UnityEngine_ShaderWrap
 		L.RegFunction("FindTextureStack", FindTextureStack);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", Lua_ToString);
+		L.RegVar("maximumChunksOverride", get_maximumChunksOverride, set_maximumChunksOverride);
 		L.RegVar("maximumLOD", get_maximumLOD, set_maximumLOD);
 		L.RegVar("globalMaximumLOD", get_globalMaximumLOD, set_globalMaximumLOD);
 		L.RegVar("isSupported", get_isSupported, null);
@@ -84,16 +85,10 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.Find");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
 			UnityEngine.Shader o = UnityEngine.Shader.Find(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -107,18 +102,12 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.EnableKeyword");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.Shader.EnableKeyword(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(LuaInterface.LuaOut<UnityEngine.Rendering.GlobalKeyword>)))
@@ -126,16 +115,10 @@ public class UnityEngine_ShaderWrap
 				UnityEngine.Rendering.GlobalKeyword arg0 = StackTraits<UnityEngine.Rendering.GlobalKeyword>.To(L, 1);
 				UnityEngine.Shader.EnableKeyword(in arg0);
 				ToLua.PushValue(L, arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.EnableKeyword");
 			}
 		}
@@ -150,18 +133,12 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.DisableKeyword");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.Shader.DisableKeyword(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(LuaInterface.LuaOut<UnityEngine.Rendering.GlobalKeyword>)))
@@ -169,16 +146,10 @@ public class UnityEngine_ShaderWrap
 				UnityEngine.Rendering.GlobalKeyword arg0 = StackTraits<UnityEngine.Rendering.GlobalKeyword>.To(L, 1);
 				UnityEngine.Shader.DisableKeyword(in arg0);
 				ToLua.PushValue(L, arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.DisableKeyword");
 			}
 		}
@@ -193,9 +164,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.IsKeywordEnabled");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
@@ -203,9 +171,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				bool o = UnityEngine.Shader.IsKeywordEnabled(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(LuaInterface.LuaOut<UnityEngine.Rendering.GlobalKeyword>)))
@@ -214,16 +179,10 @@ public class UnityEngine_ShaderWrap
 				bool o = UnityEngine.Shader.IsKeywordEnabled(in arg0);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.PushValue(L, arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.IsKeywordEnabled");
 			}
 		}
@@ -238,17 +197,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetKeyword");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Rendering.GlobalKeyword arg0 = StackTraits<UnityEngine.Rendering.GlobalKeyword>.Check(L, 1);
 			bool arg1 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.Shader.SetKeyword(in arg0, arg1);
 			ToLua.PushValue(L, arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -262,14 +215,8 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.WarmupAllShaders");
-#endif
 			ToLua.CheckArgsCount(L, 0);
 			UnityEngine.Shader.WarmupAllShaders();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -283,16 +230,10 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.PropertyToID");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
 			int o = UnityEngine.Shader.PropertyToID(arg0);
 			LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -306,17 +247,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetDependency");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			string arg0 = ToLua.CheckString(L, 2);
 			UnityEngine.Shader o = obj.GetDependency(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -330,17 +265,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPassCountInSubshader");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			int o = obj.GetPassCountInSubshader(arg0);
 			LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -354,9 +283,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.FindPassTagValue");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -366,9 +292,6 @@ public class UnityEngine_ShaderWrap
 				UnityEngine.Rendering.ShaderTagId arg1 = StackTraits<UnityEngine.Rendering.ShaderTagId>.Check(L, 3);
 				UnityEngine.Rendering.ShaderTagId o = obj.FindPassTagValue(arg0, arg1);
 				ToLua.PushValue(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -379,16 +302,10 @@ public class UnityEngine_ShaderWrap
 				UnityEngine.Rendering.ShaderTagId arg2 = StackTraits<UnityEngine.Rendering.ShaderTagId>.Check(L, 4);
 				UnityEngine.Rendering.ShaderTagId o = obj.FindPassTagValue(arg0, arg1, arg2);
 				ToLua.PushValue(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.FindPassTagValue");
 			}
 		}
@@ -403,18 +320,12 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.FindSubshaderTagValue");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Rendering.ShaderTagId arg1 = StackTraits<UnityEngine.Rendering.ShaderTagId>.Check(L, 3);
 			UnityEngine.Rendering.ShaderTagId o = obj.FindSubshaderTagValue(arg0, arg1);
 			ToLua.PushValue(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -428,9 +339,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetGlobalInt");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(int)))
@@ -438,9 +346,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Shader.SetGlobalInt(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int)))
@@ -448,16 +353,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Shader.SetGlobalInt(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.SetGlobalInt");
 			}
 		}
@@ -472,9 +371,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetGlobalFloat");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(float)))
@@ -482,9 +378,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				float arg1 = (float)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Shader.SetGlobalFloat(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(float)))
@@ -492,16 +385,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				float arg1 = (float)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Shader.SetGlobalFloat(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.SetGlobalFloat");
 			}
 		}
@@ -516,9 +403,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetGlobalInteger");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(int)))
@@ -526,9 +410,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Shader.SetGlobalInteger(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int)))
@@ -536,16 +417,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Shader.SetGlobalInteger(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.SetGlobalInteger");
 			}
 		}
@@ -560,9 +435,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetGlobalVector");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(UnityEngine.Vector4)))
@@ -570,9 +442,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.Vector4 arg1 = ToLua.ToVector4(L, 2);
 				UnityEngine.Shader.SetGlobalVector(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(UnityEngine.Vector4)))
@@ -580,16 +449,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.Vector4 arg1 = ToLua.ToVector4(L, 2);
 				UnityEngine.Shader.SetGlobalVector(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.SetGlobalVector");
 			}
 		}
@@ -604,9 +467,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetGlobalColor");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(UnityEngine.Color)))
@@ -614,9 +474,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.Color arg1 = ToLua.ToColor(L, 2);
 				UnityEngine.Shader.SetGlobalColor(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(UnityEngine.Color)))
@@ -624,16 +481,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.Color arg1 = ToLua.ToColor(L, 2);
 				UnityEngine.Shader.SetGlobalColor(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.SetGlobalColor");
 			}
 		}
@@ -648,9 +499,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetGlobalMatrix");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(UnityEngine.Matrix4x4)))
@@ -658,9 +506,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.Matrix4x4 arg1 = StackTraits<UnityEngine.Matrix4x4>.To(L, 2);
 				UnityEngine.Shader.SetGlobalMatrix(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(UnityEngine.Matrix4x4)))
@@ -668,16 +513,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.Matrix4x4 arg1 = StackTraits<UnityEngine.Matrix4x4>.To(L, 2);
 				UnityEngine.Shader.SetGlobalMatrix(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.SetGlobalMatrix");
 			}
 		}
@@ -692,9 +531,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetGlobalTexture");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(UnityEngine.Texture)))
@@ -702,9 +538,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.Texture arg1 = (UnityEngine.Texture)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.SetGlobalTexture(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(UnityEngine.Texture)))
@@ -712,9 +545,6 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.Texture arg1 = (UnityEngine.Texture)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.SetGlobalTexture(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(UnityEngine.RenderTexture), typeof(UnityEngine.Rendering.RenderTextureSubElement)))
@@ -723,9 +553,6 @@ public class UnityEngine_ShaderWrap
 				UnityEngine.RenderTexture arg1 = (UnityEngine.RenderTexture)ToLua.ToObject(L, 2);
 				UnityEngine.Rendering.RenderTextureSubElement arg2 = (UnityEngine.Rendering.RenderTextureSubElement)LuaDLL.luaL_checknumber(L, 3);
 				UnityEngine.Shader.SetGlobalTexture(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(UnityEngine.RenderTexture), typeof(UnityEngine.Rendering.RenderTextureSubElement)))
@@ -734,16 +561,10 @@ public class UnityEngine_ShaderWrap
 				UnityEngine.RenderTexture arg1 = (UnityEngine.RenderTexture)ToLua.ToObject(L, 2);
 				UnityEngine.Rendering.RenderTextureSubElement arg2 = (UnityEngine.Rendering.RenderTextureSubElement)LuaDLL.luaL_checknumber(L, 3);
 				UnityEngine.Shader.SetGlobalTexture(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.SetGlobalTexture");
 			}
 		}
@@ -758,9 +579,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetGlobalBuffer");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(UnityEngine.ComputeBuffer)))
@@ -768,9 +586,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.ComputeBuffer arg1 = (UnityEngine.ComputeBuffer)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.SetGlobalBuffer(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(UnityEngine.ComputeBuffer)))
@@ -778,9 +593,6 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.ComputeBuffer arg1 = (UnityEngine.ComputeBuffer)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.SetGlobalBuffer(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(UnityEngine.GraphicsBuffer)))
@@ -788,9 +600,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.GraphicsBuffer arg1 = (UnityEngine.GraphicsBuffer)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.SetGlobalBuffer(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(UnityEngine.GraphicsBuffer)))
@@ -798,16 +607,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.GraphicsBuffer arg1 = (UnityEngine.GraphicsBuffer)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.SetGlobalBuffer(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.SetGlobalBuffer");
 			}
 		}
@@ -822,9 +625,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetGlobalConstantBuffer");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(UnityEngine.ComputeBuffer), typeof(int), typeof(int)))
@@ -834,9 +634,6 @@ public class UnityEngine_ShaderWrap
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 3);
 				int arg3 = (int)LuaDLL.lua_tonumber(L, 4);
 				UnityEngine.Shader.SetGlobalConstantBuffer(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(UnityEngine.ComputeBuffer), typeof(int), typeof(int)))
@@ -846,9 +643,6 @@ public class UnityEngine_ShaderWrap
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 3);
 				int arg3 = (int)LuaDLL.lua_tonumber(L, 4);
 				UnityEngine.Shader.SetGlobalConstantBuffer(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(UnityEngine.GraphicsBuffer), typeof(int), typeof(int)))
@@ -858,9 +652,6 @@ public class UnityEngine_ShaderWrap
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 3);
 				int arg3 = (int)LuaDLL.lua_tonumber(L, 4);
 				UnityEngine.Shader.SetGlobalConstantBuffer(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(UnityEngine.GraphicsBuffer), typeof(int), typeof(int)))
@@ -870,16 +661,10 @@ public class UnityEngine_ShaderWrap
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 3);
 				int arg3 = (int)LuaDLL.lua_tonumber(L, 4);
 				UnityEngine.Shader.SetGlobalConstantBuffer(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.SetGlobalConstantBuffer");
 			}
 		}
@@ -894,9 +679,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetGlobalFloatArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(System.Collections.Generic.List<float>)))
@@ -904,9 +686,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				System.Collections.Generic.List<float> arg1 = (System.Collections.Generic.List<float>)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.SetGlobalFloatArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(System.Collections.Generic.List<float>)))
@@ -914,9 +693,6 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				System.Collections.Generic.List<float> arg1 = (System.Collections.Generic.List<float>)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.SetGlobalFloatArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(float[])))
@@ -924,9 +700,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				float[] arg1 = ToLua.CheckNumberArray<float>(L, 2);
 				UnityEngine.Shader.SetGlobalFloatArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(float[])))
@@ -934,16 +707,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				float[] arg1 = ToLua.CheckNumberArray<float>(L, 2);
 				UnityEngine.Shader.SetGlobalFloatArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.SetGlobalFloatArray");
 			}
 		}
@@ -958,9 +725,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetGlobalVectorArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(System.Collections.Generic.List<UnityEngine.Vector4>)))
@@ -968,9 +732,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				System.Collections.Generic.List<UnityEngine.Vector4> arg1 = (System.Collections.Generic.List<UnityEngine.Vector4>)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.SetGlobalVectorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(System.Collections.Generic.List<UnityEngine.Vector4>)))
@@ -978,9 +739,6 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				System.Collections.Generic.List<UnityEngine.Vector4> arg1 = (System.Collections.Generic.List<UnityEngine.Vector4>)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.SetGlobalVectorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(UnityEngine.Vector4[])))
@@ -988,9 +746,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.Vector4[] arg1 = ToLua.CheckObjectArray<UnityEngine.Vector4>(L, 2);
 				UnityEngine.Shader.SetGlobalVectorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(UnityEngine.Vector4[])))
@@ -998,16 +753,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.Vector4[] arg1 = ToLua.CheckObjectArray<UnityEngine.Vector4>(L, 2);
 				UnityEngine.Shader.SetGlobalVectorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.SetGlobalVectorArray");
 			}
 		}
@@ -1022,9 +771,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.SetGlobalMatrixArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(System.Collections.Generic.List<UnityEngine.Matrix4x4>)))
@@ -1032,9 +778,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				System.Collections.Generic.List<UnityEngine.Matrix4x4> arg1 = (System.Collections.Generic.List<UnityEngine.Matrix4x4>)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.SetGlobalMatrixArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(System.Collections.Generic.List<UnityEngine.Matrix4x4>)))
@@ -1042,9 +785,6 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				System.Collections.Generic.List<UnityEngine.Matrix4x4> arg1 = (System.Collections.Generic.List<UnityEngine.Matrix4x4>)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.SetGlobalMatrixArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(UnityEngine.Matrix4x4[])))
@@ -1052,9 +792,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.Matrix4x4[] arg1 = ToLua.CheckObjectArray<UnityEngine.Matrix4x4>(L, 2);
 				UnityEngine.Shader.SetGlobalMatrixArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(UnityEngine.Matrix4x4[])))
@@ -1062,16 +799,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.Matrix4x4[] arg1 = ToLua.CheckObjectArray<UnityEngine.Matrix4x4>(L, 2);
 				UnityEngine.Shader.SetGlobalMatrixArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.SetGlobalMatrixArray");
 			}
 		}
@@ -1086,9 +817,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetGlobalInt");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
@@ -1096,9 +824,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				int o = UnityEngine.Shader.GetGlobalInt(arg0);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(int)))
@@ -1106,16 +831,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				int o = UnityEngine.Shader.GetGlobalInt(arg0);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.GetGlobalInt");
 			}
 		}
@@ -1130,9 +849,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetGlobalFloat");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
@@ -1140,9 +856,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				float o = UnityEngine.Shader.GetGlobalFloat(arg0);
 				LuaDLL.lua_pushnumber(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(int)))
@@ -1150,16 +863,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				float o = UnityEngine.Shader.GetGlobalFloat(arg0);
 				LuaDLL.lua_pushnumber(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.GetGlobalFloat");
 			}
 		}
@@ -1174,9 +881,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetGlobalInteger");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
@@ -1184,9 +888,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				int o = UnityEngine.Shader.GetGlobalInteger(arg0);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(int)))
@@ -1194,16 +895,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				int o = UnityEngine.Shader.GetGlobalInteger(arg0);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.GetGlobalInteger");
 			}
 		}
@@ -1218,9 +913,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetGlobalVector");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
@@ -1228,9 +920,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.Vector4 o = UnityEngine.Shader.GetGlobalVector(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(int)))
@@ -1238,16 +927,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.Vector4 o = UnityEngine.Shader.GetGlobalVector(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.GetGlobalVector");
 			}
 		}
@@ -1262,9 +945,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetGlobalColor");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
@@ -1272,9 +952,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.Color o = UnityEngine.Shader.GetGlobalColor(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(int)))
@@ -1282,16 +959,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.Color o = UnityEngine.Shader.GetGlobalColor(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.GetGlobalColor");
 			}
 		}
@@ -1306,9 +977,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetGlobalMatrix");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
@@ -1316,9 +984,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.Matrix4x4 o = UnityEngine.Shader.GetGlobalMatrix(arg0);
 				ToLua.PushValue(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(int)))
@@ -1326,16 +991,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.Matrix4x4 o = UnityEngine.Shader.GetGlobalMatrix(arg0);
 				ToLua.PushValue(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.GetGlobalMatrix");
 			}
 		}
@@ -1350,9 +1009,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetGlobalTexture");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
@@ -1360,9 +1016,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				UnityEngine.Texture o = UnityEngine.Shader.GetGlobalTexture(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(int)))
@@ -1370,16 +1023,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				UnityEngine.Texture o = UnityEngine.Shader.GetGlobalTexture(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.GetGlobalTexture");
 			}
 		}
@@ -1394,9 +1041,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetGlobalFloatArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
@@ -1406,9 +1050,6 @@ public class UnityEngine_ShaderWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(int)))
@@ -1418,9 +1059,6 @@ public class UnityEngine_ShaderWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(System.Collections.Generic.List<float>)))
@@ -1428,9 +1066,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				System.Collections.Generic.List<float> arg1 = (System.Collections.Generic.List<float>)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.GetGlobalFloatArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(System.Collections.Generic.List<float>)))
@@ -1438,16 +1073,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				System.Collections.Generic.List<float> arg1 = (System.Collections.Generic.List<float>)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.GetGlobalFloatArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.GetGlobalFloatArray");
 			}
 		}
@@ -1462,9 +1091,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetGlobalVectorArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
@@ -1474,9 +1100,6 @@ public class UnityEngine_ShaderWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(int)))
@@ -1486,9 +1109,6 @@ public class UnityEngine_ShaderWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(System.Collections.Generic.List<UnityEngine.Vector4>)))
@@ -1496,9 +1116,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				System.Collections.Generic.List<UnityEngine.Vector4> arg1 = (System.Collections.Generic.List<UnityEngine.Vector4>)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.GetGlobalVectorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(System.Collections.Generic.List<UnityEngine.Vector4>)))
@@ -1506,16 +1123,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				System.Collections.Generic.List<UnityEngine.Vector4> arg1 = (System.Collections.Generic.List<UnityEngine.Vector4>)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.GetGlobalVectorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.GetGlobalVectorArray");
 			}
 		}
@@ -1530,9 +1141,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetGlobalMatrixArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
@@ -1542,9 +1150,6 @@ public class UnityEngine_ShaderWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(int)))
@@ -1554,9 +1159,6 @@ public class UnityEngine_ShaderWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(System.Collections.Generic.List<UnityEngine.Matrix4x4>)))
@@ -1564,9 +1166,6 @@ public class UnityEngine_ShaderWrap
 				string arg0 = ToLua.ToString(L, 1);
 				System.Collections.Generic.List<UnityEngine.Matrix4x4> arg1 = (System.Collections.Generic.List<UnityEngine.Matrix4x4>)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.GetGlobalMatrixArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(System.Collections.Generic.List<UnityEngine.Matrix4x4>)))
@@ -1574,16 +1173,10 @@ public class UnityEngine_ShaderWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				System.Collections.Generic.List<UnityEngine.Matrix4x4> arg1 = (System.Collections.Generic.List<UnityEngine.Matrix4x4>)ToLua.ToObject(L, 2);
 				UnityEngine.Shader.GetGlobalMatrixArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Shader.GetGlobalMatrixArray");
 			}
 		}
@@ -1598,16 +1191,10 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPropertyCount");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int o = obj.GetPropertyCount();
 			LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1621,17 +1208,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.FindPropertyIndex");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			string arg0 = ToLua.CheckString(L, 2);
 			int o = obj.FindPropertyIndex(arg0);
 			LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1645,17 +1226,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPropertyName");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			string o = obj.GetPropertyName(arg0);
 			LuaDLL.lua_pushstring(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1669,17 +1244,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPropertyNameId");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			int o = obj.GetPropertyNameId(arg0);
 			LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1693,17 +1262,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPropertyType");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Rendering.ShaderPropertyType o = obj.GetPropertyType(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1717,17 +1280,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPropertyDescription");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			string o = obj.GetPropertyDescription(arg0);
 			LuaDLL.lua_pushstring(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1741,17 +1298,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPropertyFlags");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Rendering.ShaderPropertyFlags o = obj.GetPropertyFlags(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1765,9 +1316,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPropertyAttributes");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
@@ -1775,9 +1323,6 @@ public class UnityEngine_ShaderWrap
 			ToLua.Push(L, o);
 			int arrayLength = o.Length;
 			LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 2;
 		}
 		catch(Exception e)
@@ -1791,17 +1336,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPropertyDefaultFloatValue");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			float o = obj.GetPropertyDefaultFloatValue(arg0);
 			LuaDLL.lua_pushnumber(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1815,17 +1354,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPropertyDefaultVectorValue");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Vector4 o = obj.GetPropertyDefaultVectorValue(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1839,17 +1372,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPropertyRangeLimits");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Vector2 o = obj.GetPropertyRangeLimits(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1863,17 +1390,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPropertyTextureDimension");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Rendering.TextureDimension o = obj.GetPropertyTextureDimension(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1887,17 +1408,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.GetPropertyTextureDefaultName");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			string o = obj.GetPropertyTextureDefaultName(arg0);
 			LuaDLL.lua_pushstring(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1911,9 +1426,6 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.FindTextureStack");
-#endif
 			ToLua.CheckArgsCount(L, 4);
 			UnityEngine.Shader obj = (UnityEngine.Shader)ToLua.CheckObject(L, 1, typeof(UnityEngine.Shader));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
@@ -1923,9 +1435,6 @@ public class UnityEngine_ShaderWrap
 			LuaDLL.lua_pushboolean(L, o);
 			LuaDLL.lua_pushstring(L, arg1);
 			LuaDLL.lua_pushinteger(L, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 3;
 		}
 		catch(Exception e)
@@ -1939,17 +1448,11 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1976,22 +1479,23 @@ public class UnityEngine_ShaderWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_maximumChunksOverride(IntPtr L)
+	{
+		LuaDLL.lua_pushinteger(L, UnityEngine.Shader.maximumChunksOverride);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_maximumLOD(IntPtr L)
 	{
 		object o = null;
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.maximumLOD");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Shader obj = (UnityEngine.Shader)o;
 			int ret = obj.maximumLOD;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2014,16 +1518,10 @@ public class UnityEngine_ShaderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.isSupported");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Shader obj = (UnityEngine.Shader)o;
 			bool ret = obj.isSupported;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2060,16 +1558,10 @@ public class UnityEngine_ShaderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.keywordSpace");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Shader obj = (UnityEngine.Shader)o;
 			UnityEngine.Rendering.LocalKeywordSpace ret = obj.keywordSpace;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2085,16 +1577,10 @@ public class UnityEngine_ShaderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.renderQueue");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Shader obj = (UnityEngine.Shader)o;
 			int ret = obj.renderQueue;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2110,16 +1596,10 @@ public class UnityEngine_ShaderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.passCount");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Shader obj = (UnityEngine.Shader)o;
 			int ret = obj.passCount;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2135,21 +1615,30 @@ public class UnityEngine_ShaderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.subshaderCount");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Shader obj = (UnityEngine.Shader)o;
 			int ret = obj.subshaderCount;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index subshaderCount on a nil value" : e.Message);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_maximumChunksOverride(IntPtr L)
+	{
+		try
+		{
+			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+			UnityEngine.Shader.maximumChunksOverride = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
 		}
 	}
 
@@ -2160,16 +1649,10 @@ public class UnityEngine_ShaderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.maximumLOD");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Shader obj = (UnityEngine.Shader)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.maximumLOD = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -2183,14 +1666,8 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.globalMaximumLOD");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Shader.globalMaximumLOD = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -2204,14 +1681,8 @@ public class UnityEngine_ShaderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Shader.globalRenderPipeline");
-#endif
 			string arg0 = ToLua.CheckString(L, 2);
 			UnityEngine.Shader.globalRenderPipeline = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

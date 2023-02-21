@@ -69,17 +69,11 @@ public class UnityEngine_AnimationClipWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.SampleAnimation");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)ToLua.CheckObject(L, 1, typeof(UnityEngine.AnimationClip));
 			UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.GameObject));
 			float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 			obj.SampleAnimation(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -93,9 +87,6 @@ public class UnityEngine_AnimationClipWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.SetCurve");
-#endif
 			ToLua.CheckArgsCount(L, 5);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)ToLua.CheckObject(L, 1, typeof(UnityEngine.AnimationClip));
 			string arg0 = ToLua.CheckString(L, 2);
@@ -103,9 +94,6 @@ public class UnityEngine_AnimationClipWrap
 			string arg2 = ToLua.CheckString(L, 4);
 			UnityEngine.AnimationCurve arg3 = (UnityEngine.AnimationCurve)ToLua.CheckObject(L, 5, typeof(UnityEngine.AnimationCurve));
 			obj.SetCurve(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -119,15 +107,9 @@ public class UnityEngine_AnimationClipWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.EnsureQuaternionContinuity");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)ToLua.CheckObject(L, 1, typeof(UnityEngine.AnimationClip));
 			obj.EnsureQuaternionContinuity();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -141,15 +123,9 @@ public class UnityEngine_AnimationClipWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.ClearCurves");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)ToLua.CheckObject(L, 1, typeof(UnityEngine.AnimationClip));
 			obj.ClearCurves();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -163,16 +139,10 @@ public class UnityEngine_AnimationClipWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.AddEvent");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)ToLua.CheckObject(L, 1, typeof(UnityEngine.AnimationClip));
 			UnityEngine.AnimationEvent arg0 = (UnityEngine.AnimationEvent)ToLua.CheckObject(L, 2, typeof(UnityEngine.AnimationEvent));
 			obj.AddEvent(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -186,17 +156,11 @@ public class UnityEngine_AnimationClipWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -229,16 +193,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.length");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			float ret = obj.length;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -254,16 +212,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.frameRate");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			float ret = obj.frameRate;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -279,16 +231,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.wrapMode");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			UnityEngine.WrapMode ret = obj.wrapMode;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -304,16 +250,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.localBounds");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			UnityEngine.Bounds ret = obj.localBounds;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -329,16 +269,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.legacy");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			bool ret = obj.legacy;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -354,16 +288,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.humanMotion");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			bool ret = obj.humanMotion;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -379,16 +307,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.empty");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			bool ret = obj.empty;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -404,16 +326,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.hasGenericRootTransform");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			bool ret = obj.hasGenericRootTransform;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -429,16 +345,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.hasMotionFloatCurves");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			bool ret = obj.hasMotionFloatCurves;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -454,16 +364,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.hasMotionCurves");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			bool ret = obj.hasMotionCurves;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -479,16 +383,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.hasRootCurves");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			bool ret = obj.hasRootCurves;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -504,16 +402,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.events");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			UnityEngine.AnimationEvent[] ret = obj.events;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -529,16 +421,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.frameRate");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.frameRate = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -554,16 +440,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.wrapMode");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			UnityEngine.WrapMode arg0 = (UnityEngine.WrapMode)LuaDLL.luaL_checknumber(L, 2);
 			obj.wrapMode = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -579,16 +459,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.localBounds");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			UnityEngine.Bounds arg0 = ToLua.ToBounds(L, 2);
 			obj.localBounds = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -604,16 +478,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.legacy");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.legacy = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -629,16 +497,10 @@ public class UnityEngine_AnimationClipWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.AnimationClip.events");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
 			UnityEngine.AnimationEvent[] arg0 = ToLua.CheckObjectArray<UnityEngine.AnimationEvent>(L, 2);
 			obj.events = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

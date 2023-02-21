@@ -81,9 +81,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.IgnoreCollision");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -91,9 +88,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Collider arg0 = (UnityEngine.Collider)ToLua.CheckUnityObject(L, 1, typeof(UnityEngine.Collider));
 				UnityEngine.Collider arg1 = (UnityEngine.Collider)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Collider));
 				UnityEngine.Physics.IgnoreCollision(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -102,16 +96,10 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Collider arg1 = (UnityEngine.Collider)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Collider));
 				bool arg2 = LuaDLL.luaL_checkboolean(L, 3);
 				UnityEngine.Physics.IgnoreCollision(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.IgnoreCollision");
 			}
 		}
@@ -126,9 +114,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.IgnoreLayerCollision");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -136,9 +121,6 @@ public class UnityEngine_PhysicsWrap
 				int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
 				UnityEngine.Physics.IgnoreLayerCollision(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -147,16 +129,10 @@ public class UnityEngine_PhysicsWrap
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
 				bool arg2 = LuaDLL.luaL_checkboolean(L, 3);
 				UnityEngine.Physics.IgnoreLayerCollision(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.IgnoreLayerCollision");
 			}
 		}
@@ -171,17 +147,11 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.GetIgnoreLayerCollision");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 			int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
 			bool o = UnityEngine.Physics.GetIgnoreLayerCollision(arg0, arg1);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -195,17 +165,11 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.GetIgnoreCollision");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Collider arg0 = (UnityEngine.Collider)ToLua.CheckUnityObject(L, 1, typeof(UnityEngine.Collider));
 			UnityEngine.Collider arg1 = (UnityEngine.Collider)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Collider));
 			bool o = UnityEngine.Physics.GetIgnoreCollision(arg0, arg1);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -219,9 +183,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.Raycast");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -229,9 +190,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Ray arg0 = ToLua.ToRay(L, 1);
 				bool o = UnityEngine.Physics.Raycast(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3)))
@@ -240,9 +198,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 2);
 				bool o = UnityEngine.Physics.Raycast(arg0, arg1);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float)))
@@ -251,9 +206,6 @@ public class UnityEngine_PhysicsWrap
 				float arg1 = (float)LuaDLL.lua_tonumber(L, 2);
 				bool o = UnityEngine.Physics.Raycast(arg0, arg1);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>)))
@@ -263,9 +215,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.Raycast(arg0, out arg1);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(float)))
@@ -275,9 +224,6 @@ public class UnityEngine_PhysicsWrap
 				float arg2 = (float)LuaDLL.lua_tonumber(L, 3);
 				bool o = UnityEngine.Physics.Raycast(arg0, arg1, arg2);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>)))
@@ -288,9 +234,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.Raycast(arg0, arg1, out arg2);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(int)))
@@ -300,9 +243,6 @@ public class UnityEngine_PhysicsWrap
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 3);
 				bool o = UnityEngine.Physics.Raycast(arg0, arg1, arg2);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(float)))
@@ -313,9 +253,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.Raycast(arg0, out arg1, arg2);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(float), typeof(int)))
@@ -326,9 +263,6 @@ public class UnityEngine_PhysicsWrap
 				int arg3 = (int)LuaDLL.lua_tonumber(L, 4);
 				bool o = UnityEngine.Physics.Raycast(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(float)))
@@ -340,9 +274,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.Raycast(arg0, arg1, out arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(int), typeof(UnityEngine.QueryTriggerInteraction)))
@@ -353,9 +284,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg3 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 4);
 				bool o = UnityEngine.Physics.Raycast(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(float), typeof(int)))
@@ -367,9 +295,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.Raycast(arg0, out arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(float), typeof(int), typeof(UnityEngine.QueryTriggerInteraction)))
@@ -381,9 +306,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg4 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 5);
 				bool o = UnityEngine.Physics.Raycast(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(float), typeof(int)))
@@ -396,9 +318,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.Raycast(arg0, arg1, out arg2, arg3, arg4);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(float), typeof(int), typeof(UnityEngine.QueryTriggerInteraction)))
@@ -411,9 +330,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.Raycast(arg0, out arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 6)
@@ -427,16 +343,10 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.Raycast(arg0, arg1, out arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.Raycast");
 			}
 		}
@@ -451,9 +361,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.Linecast");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -462,9 +369,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 2);
 				bool o = UnityEngine.Physics.Linecast(arg0, arg1);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(int)))
@@ -474,9 +378,6 @@ public class UnityEngine_PhysicsWrap
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 3);
 				bool o = UnityEngine.Physics.Linecast(arg0, arg1, arg2);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>)))
@@ -487,9 +388,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.Linecast(arg0, arg1, out arg2);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(int), typeof(UnityEngine.QueryTriggerInteraction)))
@@ -500,9 +398,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg3 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 4);
 				bool o = UnityEngine.Physics.Linecast(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(int)))
@@ -514,9 +409,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.Linecast(arg0, arg1, out arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5)
@@ -529,16 +421,10 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.Linecast(arg0, arg1, out arg2, arg3, arg4);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.Linecast");
 			}
 		}
@@ -553,9 +439,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.CapsuleCast");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 4)
@@ -566,9 +449,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Vector3 arg3 = ToLua.ToVector3(L, 4);
 				bool o = UnityEngine.Physics.CapsuleCast(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(float)))
@@ -580,9 +460,6 @@ public class UnityEngine_PhysicsWrap
 				float arg4 = (float)LuaDLL.lua_tonumber(L, 5);
 				bool o = UnityEngine.Physics.CapsuleCast(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>)))
@@ -595,9 +472,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.CapsuleCast(arg0, arg1, arg2, arg3, out arg4);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg4);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(float), typeof(int)))
@@ -610,9 +484,6 @@ public class UnityEngine_PhysicsWrap
 				int arg5 = (int)LuaDLL.lua_tonumber(L, 6);
 				bool o = UnityEngine.Physics.CapsuleCast(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(float)))
@@ -626,9 +497,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.CapsuleCast(arg0, arg1, arg2, arg3, out arg4, arg5);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg4);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 7 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(float), typeof(int), typeof(UnityEngine.QueryTriggerInteraction)))
@@ -642,9 +510,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg6 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 7);
 				bool o = UnityEngine.Physics.CapsuleCast(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 7 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(float), typeof(int)))
@@ -659,9 +524,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.CapsuleCast(arg0, arg1, arg2, arg3, out arg4, arg5, arg6);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg4);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 8)
@@ -677,16 +539,10 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.CapsuleCast(arg0, arg1, arg2, arg3, out arg4, arg5, arg6, arg7);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg4);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.CapsuleCast");
 			}
 		}
@@ -701,9 +557,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.SphereCast");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -712,9 +565,6 @@ public class UnityEngine_PhysicsWrap
 				float arg1 = (float)LuaDLL.luaL_checknumber(L, 2);
 				bool o = UnityEngine.Physics.SphereCast(arg0, arg1);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(float)))
@@ -724,9 +574,6 @@ public class UnityEngine_PhysicsWrap
 				float arg2 = (float)LuaDLL.lua_tonumber(L, 3);
 				bool o = UnityEngine.Physics.SphereCast(arg0, arg1, arg2);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>)))
@@ -737,9 +584,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.SphereCast(arg0, arg1, out arg2);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>)))
@@ -751,9 +595,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.SphereCast(arg0, arg1, arg2, out arg3);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(float), typeof(int)))
@@ -764,9 +605,6 @@ public class UnityEngine_PhysicsWrap
 				int arg3 = (int)LuaDLL.lua_tonumber(L, 4);
 				bool o = UnityEngine.Physics.SphereCast(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(float)))
@@ -778,9 +616,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.SphereCast(arg0, arg1, out arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(float)))
@@ -793,9 +628,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.SphereCast(arg0, arg1, arg2, out arg3, arg4);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(float), typeof(int), typeof(UnityEngine.QueryTriggerInteraction)))
@@ -807,9 +639,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg4 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 5);
 				bool o = UnityEngine.Physics.SphereCast(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(float), typeof(int)))
@@ -822,9 +651,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.SphereCast(arg0, arg1, out arg2, arg3, arg4);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(float), typeof(int)))
@@ -838,9 +664,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.SphereCast(arg0, arg1, arg2, out arg3, arg4, arg5);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(float), typeof(int), typeof(UnityEngine.QueryTriggerInteraction)))
@@ -854,9 +677,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.SphereCast(arg0, arg1, out arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 7)
@@ -871,16 +691,10 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.SphereCast(arg0, arg1, arg2, out arg3, arg4, arg5, arg6);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.SphereCast");
 			}
 		}
@@ -895,9 +709,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.BoxCast");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -907,9 +718,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Vector3 arg2 = ToLua.ToVector3(L, 3);
 				bool o = UnityEngine.Physics.BoxCast(arg0, arg1, arg2);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.Quaternion)))
@@ -920,9 +728,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Quaternion arg3 = ToLua.ToQuaternion(L, 4);
 				bool o = UnityEngine.Physics.BoxCast(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>)))
@@ -934,9 +739,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.BoxCast(arg0, arg1, arg2, out arg3);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.Quaternion), typeof(float)))
@@ -948,9 +750,6 @@ public class UnityEngine_PhysicsWrap
 				float arg4 = (float)LuaDLL.lua_tonumber(L, 5);
 				bool o = UnityEngine.Physics.BoxCast(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(UnityEngine.Quaternion)))
@@ -963,9 +762,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.BoxCast(arg0, arg1, arg2, out arg3, arg4);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.Quaternion), typeof(float), typeof(int)))
@@ -978,9 +774,6 @@ public class UnityEngine_PhysicsWrap
 				int arg5 = (int)LuaDLL.lua_tonumber(L, 6);
 				bool o = UnityEngine.Physics.BoxCast(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(UnityEngine.Quaternion), typeof(float)))
@@ -994,9 +787,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.BoxCast(arg0, arg1, arg2, out arg3, arg4, arg5);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 7 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.Quaternion), typeof(float), typeof(int), typeof(UnityEngine.QueryTriggerInteraction)))
@@ -1010,9 +800,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg6 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 7);
 				bool o = UnityEngine.Physics.BoxCast(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 7 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(LuaInterface.LuaOut<UnityEngine.RaycastHit>), typeof(UnityEngine.Quaternion), typeof(float), typeof(int)))
@@ -1027,9 +814,6 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.BoxCast(arg0, arg1, arg2, out arg3, arg4, arg5, arg6);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 8)
@@ -1045,16 +829,10 @@ public class UnityEngine_PhysicsWrap
 				bool o = UnityEngine.Physics.BoxCast(arg0, arg1, arg2, out arg3, arg4, arg5, arg6, arg7);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.Push(L, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.BoxCast");
 			}
 		}
@@ -1069,9 +847,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.RaycastAll");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -1081,9 +856,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3)))
@@ -1094,9 +866,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float)))
@@ -1107,9 +876,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(float)))
@@ -1121,9 +887,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(int)))
@@ -1135,9 +898,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4)
@@ -1150,9 +910,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5)
@@ -1166,16 +923,10 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.RaycastAll");
 			}
 		}
@@ -1190,9 +941,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.RaycastNonAlloc");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -1201,9 +949,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.RaycastHit[] arg1 = ToLua.CheckObjectArray<UnityEngine.RaycastHit>(L, 2);
 				int o = UnityEngine.Physics.RaycastNonAlloc(arg0, arg1);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(UnityEngine.RaycastHit[]), typeof(float)))
@@ -1213,9 +958,6 @@ public class UnityEngine_PhysicsWrap
 				float arg2 = (float)LuaDLL.lua_tonumber(L, 3);
 				int o = UnityEngine.Physics.RaycastNonAlloc(arg0, arg1, arg2);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.RaycastHit[])))
@@ -1225,9 +967,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.RaycastHit[] arg2 = ToLua.CheckObjectArray<UnityEngine.RaycastHit>(L, 3);
 				int o = UnityEngine.Physics.RaycastNonAlloc(arg0, arg1, arg2);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(UnityEngine.RaycastHit[]), typeof(float), typeof(int)))
@@ -1238,9 +977,6 @@ public class UnityEngine_PhysicsWrap
 				int arg3 = (int)LuaDLL.lua_tonumber(L, 4);
 				int o = UnityEngine.Physics.RaycastNonAlloc(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.RaycastHit[]), typeof(float)))
@@ -1251,9 +987,6 @@ public class UnityEngine_PhysicsWrap
 				float arg3 = (float)LuaDLL.lua_tonumber(L, 4);
 				int o = UnityEngine.Physics.RaycastNonAlloc(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(UnityEngine.RaycastHit[]), typeof(float), typeof(int), typeof(UnityEngine.QueryTriggerInteraction)))
@@ -1265,9 +998,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg4 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 5);
 				int o = UnityEngine.Physics.RaycastNonAlloc(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(UnityEngine.Vector3), typeof(UnityEngine.RaycastHit[]), typeof(float), typeof(int)))
@@ -1279,9 +1009,6 @@ public class UnityEngine_PhysicsWrap
 				int arg4 = (int)LuaDLL.lua_tonumber(L, 5);
 				int o = UnityEngine.Physics.RaycastNonAlloc(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 6)
@@ -1294,16 +1021,10 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg5 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 6);
 				int o = UnityEngine.Physics.RaycastNonAlloc(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.RaycastNonAlloc");
 			}
 		}
@@ -1318,9 +1039,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.CapsuleCastAll");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 4)
@@ -1333,9 +1051,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5)
@@ -1349,9 +1064,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 6)
@@ -1366,9 +1078,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 7)
@@ -1384,16 +1093,10 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.CapsuleCastAll");
 			}
 		}
@@ -1408,9 +1111,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.SphereCastAll");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -1421,9 +1121,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3)))
@@ -1435,9 +1132,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(float)))
@@ -1449,9 +1143,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(float)))
@@ -1464,9 +1155,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(float), typeof(int)))
@@ -1479,9 +1167,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(float), typeof(int)))
@@ -1495,9 +1180,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(float), typeof(int), typeof(UnityEngine.QueryTriggerInteraction)))
@@ -1511,9 +1193,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 6)
@@ -1528,16 +1207,10 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.SphereCastAll");
 			}
 		}
@@ -1552,9 +1225,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.OverlapCapsule");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -1566,9 +1236,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4)
@@ -1581,9 +1248,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5)
@@ -1597,16 +1261,10 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.OverlapCapsule");
 			}
 		}
@@ -1621,9 +1279,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.OverlapSphere");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -1634,9 +1289,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3)
@@ -1648,9 +1300,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4)
@@ -1663,16 +1312,10 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.OverlapSphere");
 			}
 		}
@@ -1687,15 +1330,9 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.Simulate");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 1);
 			UnityEngine.Physics.Simulate(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1709,14 +1346,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.SyncTransforms");
-#endif
 			ToLua.CheckArgsCount(L, 0);
 			UnityEngine.Physics.SyncTransforms();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1730,9 +1361,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.ComputePenetration");
-#endif
 			ToLua.CheckArgsCount(L, 8);
 			UnityEngine.Collider arg0 = (UnityEngine.Collider)ToLua.CheckUnityObject(L, 1, typeof(UnityEngine.Collider));
 			UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 2);
@@ -1746,9 +1374,6 @@ public class UnityEngine_PhysicsWrap
 			LuaDLL.lua_pushboolean(L, o);
 			ToLua.Push(L, arg6);
 			LuaDLL.lua_pushnumber(L, arg7);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 3;
 		}
 		catch(Exception e)
@@ -1762,9 +1387,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.ClosestPoint");
-#endif
 			ToLua.CheckArgsCount(L, 4);
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 1);
 			UnityEngine.Collider arg1 = (UnityEngine.Collider)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Collider));
@@ -1772,9 +1394,6 @@ public class UnityEngine_PhysicsWrap
 			UnityEngine.Quaternion arg3 = ToLua.ToQuaternion(L, 4);
 			UnityEngine.Vector3 o = UnityEngine.Physics.ClosestPoint(arg0, arg1, arg2, arg3);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1788,9 +1407,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.OverlapSphereNonAlloc");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -1800,9 +1416,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Collider[] arg2 = ToLua.CheckObjectArray<UnityEngine.Collider>(L, 3);
 				int o = UnityEngine.Physics.OverlapSphereNonAlloc(arg0, arg1, arg2);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -1813,9 +1426,6 @@ public class UnityEngine_PhysicsWrap
 				int arg3 = (int)LuaDLL.luaL_checknumber(L, 4);
 				int o = UnityEngine.Physics.OverlapSphereNonAlloc(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5)
@@ -1827,16 +1437,10 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg4 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 5);
 				int o = UnityEngine.Physics.OverlapSphereNonAlloc(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.OverlapSphereNonAlloc");
 			}
 		}
@@ -1851,9 +1455,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.CheckSphere");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -1862,9 +1463,6 @@ public class UnityEngine_PhysicsWrap
 				float arg1 = (float)LuaDLL.luaL_checknumber(L, 2);
 				bool o = UnityEngine.Physics.CheckSphere(arg0, arg1);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3)
@@ -1874,9 +1472,6 @@ public class UnityEngine_PhysicsWrap
 				int arg2 = (int)LuaDLL.luaL_checknumber(L, 3);
 				bool o = UnityEngine.Physics.CheckSphere(arg0, arg1, arg2);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -1887,16 +1482,10 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg3 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 4);
 				bool o = UnityEngine.Physics.CheckSphere(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.CheckSphere");
 			}
 		}
@@ -1911,9 +1500,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.CapsuleCastNonAlloc");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 5)
@@ -1925,9 +1511,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.RaycastHit[] arg4 = ToLua.CheckObjectArray<UnityEngine.RaycastHit>(L, 5);
 				int o = UnityEngine.Physics.CapsuleCastNonAlloc(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 6)
@@ -1940,9 +1523,6 @@ public class UnityEngine_PhysicsWrap
 				float arg5 = (float)LuaDLL.luaL_checknumber(L, 6);
 				int o = UnityEngine.Physics.CapsuleCastNonAlloc(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 7)
@@ -1956,9 +1536,6 @@ public class UnityEngine_PhysicsWrap
 				int arg6 = (int)LuaDLL.luaL_checknumber(L, 7);
 				int o = UnityEngine.Physics.CapsuleCastNonAlloc(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 8)
@@ -1973,16 +1550,10 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg7 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 8);
 				int o = UnityEngine.Physics.CapsuleCastNonAlloc(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.CapsuleCastNonAlloc");
 			}
 		}
@@ -1997,9 +1568,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.SphereCastNonAlloc");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -2009,9 +1577,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.RaycastHit[] arg2 = ToLua.CheckObjectArray<UnityEngine.RaycastHit>(L, 3);
 				int o = UnityEngine.Physics.SphereCastNonAlloc(arg0, arg1, arg2);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(UnityEngine.RaycastHit[])))
@@ -2022,9 +1587,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.RaycastHit[] arg3 = ToLua.CheckObjectArray<UnityEngine.RaycastHit>(L, 4);
 				int o = UnityEngine.Physics.SphereCastNonAlloc(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(UnityEngine.RaycastHit[]), typeof(float)))
@@ -2035,9 +1597,6 @@ public class UnityEngine_PhysicsWrap
 				float arg3 = (float)LuaDLL.lua_tonumber(L, 4);
 				int o = UnityEngine.Physics.SphereCastNonAlloc(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(UnityEngine.RaycastHit[]), typeof(float)))
@@ -2049,9 +1608,6 @@ public class UnityEngine_PhysicsWrap
 				float arg4 = (float)LuaDLL.lua_tonumber(L, 5);
 				int o = UnityEngine.Physics.SphereCastNonAlloc(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(UnityEngine.RaycastHit[]), typeof(float), typeof(int)))
@@ -2063,9 +1619,6 @@ public class UnityEngine_PhysicsWrap
 				int arg4 = (int)LuaDLL.lua_tonumber(L, 5);
 				int o = UnityEngine.Physics.SphereCastNonAlloc(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Vector3), typeof(float), typeof(UnityEngine.Vector3), typeof(UnityEngine.RaycastHit[]), typeof(float), typeof(int)))
@@ -2078,9 +1631,6 @@ public class UnityEngine_PhysicsWrap
 				int arg5 = (int)LuaDLL.lua_tonumber(L, 6);
 				int o = UnityEngine.Physics.SphereCastNonAlloc(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Ray), typeof(float), typeof(UnityEngine.RaycastHit[]), typeof(float), typeof(int), typeof(UnityEngine.QueryTriggerInteraction)))
@@ -2093,9 +1643,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg5 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 6);
 				int o = UnityEngine.Physics.SphereCastNonAlloc(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 7)
@@ -2109,16 +1656,10 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg6 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 7);
 				int o = UnityEngine.Physics.SphereCastNonAlloc(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.SphereCastNonAlloc");
 			}
 		}
@@ -2133,9 +1674,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.CheckCapsule");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -2145,9 +1683,6 @@ public class UnityEngine_PhysicsWrap
 				float arg2 = (float)LuaDLL.luaL_checknumber(L, 3);
 				bool o = UnityEngine.Physics.CheckCapsule(arg0, arg1, arg2);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -2158,9 +1693,6 @@ public class UnityEngine_PhysicsWrap
 				int arg3 = (int)LuaDLL.luaL_checknumber(L, 4);
 				bool o = UnityEngine.Physics.CheckCapsule(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5)
@@ -2172,16 +1704,10 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg4 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 5);
 				bool o = UnityEngine.Physics.CheckCapsule(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.CheckCapsule");
 			}
 		}
@@ -2196,9 +1722,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.CheckBox");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -2207,9 +1730,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 2);
 				bool o = UnityEngine.Physics.CheckBox(arg0, arg1);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3)
@@ -2219,9 +1739,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Quaternion arg2 = ToLua.ToQuaternion(L, 3);
 				bool o = UnityEngine.Physics.CheckBox(arg0, arg1, arg2);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -2232,9 +1749,6 @@ public class UnityEngine_PhysicsWrap
 				int arg3 = (int)LuaDLL.luaL_checknumber(L, 4);
 				bool o = UnityEngine.Physics.CheckBox(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5)
@@ -2246,16 +1760,10 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg4 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 5);
 				bool o = UnityEngine.Physics.CheckBox(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.CheckBox");
 			}
 		}
@@ -2270,9 +1778,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.OverlapBox");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -2283,9 +1788,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3)
@@ -2297,9 +1799,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4)
@@ -2312,9 +1811,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5)
@@ -2328,16 +1824,10 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.OverlapBox");
 			}
 		}
@@ -2352,9 +1842,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.OverlapBoxNonAlloc");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -2364,9 +1851,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Collider[] arg2 = ToLua.CheckObjectArray<UnityEngine.Collider>(L, 3);
 				int o = UnityEngine.Physics.OverlapBoxNonAlloc(arg0, arg1, arg2);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -2377,9 +1861,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Quaternion arg3 = ToLua.ToQuaternion(L, 4);
 				int o = UnityEngine.Physics.OverlapBoxNonAlloc(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5)
@@ -2391,9 +1872,6 @@ public class UnityEngine_PhysicsWrap
 				int arg4 = (int)LuaDLL.luaL_checknumber(L, 5);
 				int o = UnityEngine.Physics.OverlapBoxNonAlloc(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 6)
@@ -2406,16 +1884,10 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg5 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 6);
 				int o = UnityEngine.Physics.OverlapBoxNonAlloc(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.OverlapBoxNonAlloc");
 			}
 		}
@@ -2430,9 +1902,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.BoxCastNonAlloc");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 4)
@@ -2443,9 +1912,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.RaycastHit[] arg3 = ToLua.CheckObjectArray<UnityEngine.RaycastHit>(L, 4);
 				int o = UnityEngine.Physics.BoxCastNonAlloc(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5)
@@ -2457,9 +1923,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Quaternion arg4 = ToLua.ToQuaternion(L, 5);
 				int o = UnityEngine.Physics.BoxCastNonAlloc(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 6)
@@ -2472,9 +1935,6 @@ public class UnityEngine_PhysicsWrap
 				float arg5 = (float)LuaDLL.luaL_checknumber(L, 6);
 				int o = UnityEngine.Physics.BoxCastNonAlloc(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 7)
@@ -2488,9 +1948,6 @@ public class UnityEngine_PhysicsWrap
 				int arg6 = (int)LuaDLL.luaL_checknumber(L, 7);
 				int o = UnityEngine.Physics.BoxCastNonAlloc(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 8)
@@ -2505,16 +1962,10 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg7 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 8);
 				int o = UnityEngine.Physics.BoxCastNonAlloc(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.BoxCastNonAlloc");
 			}
 		}
@@ -2529,9 +1980,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.BoxCastAll");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -2543,9 +1991,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4)
@@ -2558,9 +2003,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5)
@@ -2574,9 +2016,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 6)
@@ -2591,9 +2030,6 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 7)
@@ -2609,16 +2045,10 @@ public class UnityEngine_PhysicsWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.BoxCastAll");
 			}
 		}
@@ -2633,9 +2063,6 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.OverlapCapsuleNonAlloc");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 4)
@@ -2646,9 +2073,6 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.Collider[] arg3 = ToLua.CheckObjectArray<UnityEngine.Collider>(L, 4);
 				int o = UnityEngine.Physics.OverlapCapsuleNonAlloc(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5)
@@ -2660,9 +2084,6 @@ public class UnityEngine_PhysicsWrap
 				int arg4 = (int)LuaDLL.luaL_checknumber(L, 5);
 				int o = UnityEngine.Physics.OverlapCapsuleNonAlloc(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 6)
@@ -2675,16 +2096,10 @@ public class UnityEngine_PhysicsWrap
 				UnityEngine.QueryTriggerInteraction arg5 = (UnityEngine.QueryTriggerInteraction)LuaDLL.luaL_checknumber(L, 6);
 				int o = UnityEngine.Physics.OverlapCapsuleNonAlloc(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Physics.OverlapCapsuleNonAlloc");
 			}
 		}
@@ -2699,16 +2114,10 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.RebuildBroadphaseRegions");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Bounds arg0 = ToLua.ToBounds(L, 1);
 			int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Physics.RebuildBroadphaseRegions(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -2722,16 +2131,10 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.BakeMesh");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 			bool arg1 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.Physics.BakeMesh(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -2892,14 +2295,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.gravity");
-#endif
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			UnityEngine.Physics.gravity = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -2913,14 +2310,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.defaultContactOffset");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Physics.defaultContactOffset = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -2934,14 +2325,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.sleepThreshold");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Physics.sleepThreshold = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -2955,14 +2340,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.queriesHitTriggers");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.Physics.queriesHitTriggers = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -2976,14 +2355,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.queriesHitBackfaces");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.Physics.queriesHitBackfaces = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -2997,14 +2370,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.bounceThreshold");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Physics.bounceThreshold = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3018,14 +2385,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.defaultMaxDepenetrationVelocity");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Physics.defaultMaxDepenetrationVelocity = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3039,14 +2400,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.defaultSolverIterations");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Physics.defaultSolverIterations = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3060,14 +2415,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.defaultSolverVelocityIterations");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Physics.defaultSolverVelocityIterations = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3081,14 +2430,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.defaultMaxAngularSpeed");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Physics.defaultMaxAngularSpeed = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3102,14 +2445,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.improvedPatchFriction");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.Physics.improvedPatchFriction = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3123,14 +2460,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.autoSimulation");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.Physics.autoSimulation = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3144,14 +2475,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.autoSyncTransforms");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.Physics.autoSyncTransforms = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3165,14 +2490,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.reuseCollisionCallbacks");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.Physics.reuseCollisionCallbacks = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3186,14 +2505,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.interCollisionDistance");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Physics.interCollisionDistance = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3207,14 +2520,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.interCollisionStiffness");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.Physics.interCollisionStiffness = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3228,14 +2535,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.interCollisionSettingsToggle");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.Physics.interCollisionSettingsToggle = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3249,14 +2550,8 @@ public class UnityEngine_PhysicsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Physics.clothGravity");
-#endif
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			UnityEngine.Physics.clothGravity = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

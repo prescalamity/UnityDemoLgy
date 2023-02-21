@@ -126,9 +126,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.HasProperty");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -137,9 +134,6 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				bool o = obj.HasProperty(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -148,16 +142,10 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				bool o = obj.HasProperty(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.HasProperty");
 			}
 		}
@@ -172,9 +160,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.HasFloat");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -183,9 +168,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				bool o = obj.HasFloat(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -194,16 +176,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				bool o = obj.HasFloat(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.HasFloat");
 			}
 		}
@@ -218,9 +194,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.HasInt");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -229,9 +202,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				bool o = obj.HasInt(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -240,16 +210,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				bool o = obj.HasInt(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.HasInt");
 			}
 		}
@@ -264,9 +228,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.HasInteger");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -275,9 +236,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				bool o = obj.HasInteger(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -286,16 +244,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				bool o = obj.HasInteger(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.HasInteger");
 			}
 		}
@@ -310,9 +262,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.HasTexture");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -321,9 +270,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				bool o = obj.HasTexture(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -332,16 +278,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				bool o = obj.HasTexture(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.HasTexture");
 			}
 		}
@@ -356,9 +296,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.HasMatrix");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -367,9 +304,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				bool o = obj.HasMatrix(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -378,16 +312,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				bool o = obj.HasMatrix(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.HasMatrix");
 			}
 		}
@@ -402,9 +330,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.HasVector");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -413,9 +338,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				bool o = obj.HasVector(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -424,16 +346,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				bool o = obj.HasVector(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.HasVector");
 			}
 		}
@@ -448,9 +364,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.HasColor");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -459,9 +372,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				bool o = obj.HasColor(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -470,16 +380,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				bool o = obj.HasColor(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.HasColor");
 			}
 		}
@@ -494,9 +398,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.HasBuffer");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -505,9 +406,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				bool o = obj.HasBuffer(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -516,16 +414,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				bool o = obj.HasBuffer(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.HasBuffer");
 			}
 		}
@@ -540,9 +432,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.HasConstantBuffer");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -551,9 +440,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				bool o = obj.HasConstantBuffer(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -562,16 +448,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				bool o = obj.HasConstantBuffer(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.HasConstantBuffer");
 			}
 		}
@@ -586,9 +466,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.EnableKeyword");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -596,9 +473,6 @@ public class UnityEngine_MaterialWrap
 				UnityEngine.Material obj = (UnityEngine.Material)ToLua.ToObject(L, 1);
 				string arg0 = ToLua.ToString(L, 2);
 				obj.EnableKeyword(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(LuaInterface.LuaOut<UnityEngine.Rendering.LocalKeyword>)))
@@ -607,16 +481,10 @@ public class UnityEngine_MaterialWrap
 				UnityEngine.Rendering.LocalKeyword arg0 = StackTraits<UnityEngine.Rendering.LocalKeyword>.To(L, 2);
 				obj.EnableKeyword(in arg0);
 				ToLua.PushValue(L, arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.EnableKeyword");
 			}
 		}
@@ -631,9 +499,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.DisableKeyword");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -641,9 +506,6 @@ public class UnityEngine_MaterialWrap
 				UnityEngine.Material obj = (UnityEngine.Material)ToLua.ToObject(L, 1);
 				string arg0 = ToLua.ToString(L, 2);
 				obj.DisableKeyword(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(LuaInterface.LuaOut<UnityEngine.Rendering.LocalKeyword>)))
@@ -652,16 +514,10 @@ public class UnityEngine_MaterialWrap
 				UnityEngine.Rendering.LocalKeyword arg0 = StackTraits<UnityEngine.Rendering.LocalKeyword>.To(L, 2);
 				obj.DisableKeyword(in arg0);
 				ToLua.PushValue(L, arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.DisableKeyword");
 			}
 		}
@@ -676,9 +532,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.IsKeywordEnabled");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -687,9 +540,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				bool o = obj.IsKeywordEnabled(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(LuaInterface.LuaOut<UnityEngine.Rendering.LocalKeyword>)))
@@ -699,16 +549,10 @@ public class UnityEngine_MaterialWrap
 				bool o = obj.IsKeywordEnabled(in arg0);
 				LuaDLL.lua_pushboolean(L, o);
 				ToLua.PushValue(L, arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.IsKeywordEnabled");
 			}
 		}
@@ -723,18 +567,12 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetKeyword");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
 			UnityEngine.Rendering.LocalKeyword arg0 = StackTraits<UnityEngine.Rendering.LocalKeyword>.Check(L, 2);
 			bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 			obj.SetKeyword(in arg0, arg1);
 			ToLua.PushValue(L, arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -748,17 +586,11 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetShaderPassEnabled");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
 			string arg0 = ToLua.CheckString(L, 2);
 			bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 			obj.SetShaderPassEnabled(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -772,17 +604,11 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetShaderPassEnabled");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
 			string arg0 = ToLua.CheckString(L, 2);
 			bool o = obj.GetShaderPassEnabled(arg0);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -796,17 +622,11 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetPassName");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			string o = obj.GetPassName(arg0);
 			LuaDLL.lua_pushstring(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -820,17 +640,11 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.FindPass");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
 			string arg0 = ToLua.CheckString(L, 2);
 			int o = obj.FindPass(arg0);
 			LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -844,17 +658,11 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetOverrideTag");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
 			string arg0 = ToLua.CheckString(L, 2);
 			string arg1 = ToLua.CheckString(L, 3);
 			obj.SetOverrideTag(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -868,9 +676,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetTag");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -880,9 +685,6 @@ public class UnityEngine_MaterialWrap
 				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 				string o = obj.GetTag(arg0, arg1);
 				LuaDLL.lua_pushstring(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -893,16 +695,10 @@ public class UnityEngine_MaterialWrap
 				string arg2 = ToLua.CheckString(L, 4);
 				string o = obj.GetTag(arg0, arg1, arg2);
 				LuaDLL.lua_pushstring(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetTag");
 			}
 		}
@@ -917,18 +713,12 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.Lerp");
-#endif
 			ToLua.CheckArgsCount(L, 4);
 			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
 			UnityEngine.Material arg0 = (UnityEngine.Material)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Material));
 			UnityEngine.Material arg1 = (UnityEngine.Material)ToLua.CheckUnityObject(L, 3, typeof(UnityEngine.Material));
 			float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 			obj.Lerp(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -942,17 +732,11 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetPass");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			bool o = obj.SetPass(arg0);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -966,16 +750,10 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.CopyPropertiesFromMaterial");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
 			UnityEngine.Material arg0 = (UnityEngine.Material)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Material));
 			obj.CopyPropertiesFromMaterial(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -989,16 +767,10 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.ComputeCRC");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
 			int o = obj.ComputeCRC();
 			LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1012,9 +784,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetTexturePropertyNames");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -1024,9 +793,6 @@ public class UnityEngine_MaterialWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2)
@@ -1034,16 +800,10 @@ public class UnityEngine_MaterialWrap
 				UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
 				System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.CheckObject(L, 2, typeof(System.Collections.Generic.List<string>));
 				obj.GetTexturePropertyNames(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetTexturePropertyNames");
 			}
 		}
@@ -1058,9 +818,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetTexturePropertyNameIDs");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -1070,9 +827,6 @@ public class UnityEngine_MaterialWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2)
@@ -1080,16 +834,10 @@ public class UnityEngine_MaterialWrap
 				UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
 				System.Collections.Generic.List<int> arg0 = (System.Collections.Generic.List<int>)ToLua.CheckObject(L, 2, typeof(System.Collections.Generic.List<int>));
 				obj.GetTexturePropertyNameIDs(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetTexturePropertyNameIDs");
 			}
 		}
@@ -1104,9 +852,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetInt");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(int)))
@@ -1115,9 +860,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				obj.SetInt(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(int)))
@@ -1126,16 +868,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				obj.SetInt(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetInt");
 			}
 		}
@@ -1150,9 +886,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetFloat");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(float)))
@@ -1161,9 +894,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				float arg1 = (float)LuaDLL.lua_tonumber(L, 3);
 				obj.SetFloat(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(float)))
@@ -1172,16 +902,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				float arg1 = (float)LuaDLL.lua_tonumber(L, 3);
 				obj.SetFloat(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetFloat");
 			}
 		}
@@ -1196,9 +920,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetInteger");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(int)))
@@ -1207,9 +928,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				obj.SetInteger(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(int)))
@@ -1218,16 +936,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				obj.SetInteger(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetInteger");
 			}
 		}
@@ -1242,9 +954,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetColor");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.Color)))
@@ -1253,9 +962,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Color arg1 = ToLua.ToColor(L, 3);
 				obj.SetColor(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.Color)))
@@ -1264,16 +970,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Color arg1 = ToLua.ToColor(L, 3);
 				obj.SetColor(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetColor");
 			}
 		}
@@ -1288,9 +988,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetVector");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.Vector4)))
@@ -1299,9 +996,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Vector4 arg1 = ToLua.ToVector4(L, 3);
 				obj.SetVector(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.Vector4)))
@@ -1310,16 +1004,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Vector4 arg1 = ToLua.ToVector4(L, 3);
 				obj.SetVector(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetVector");
 			}
 		}
@@ -1334,9 +1022,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetMatrix");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.Matrix4x4)))
@@ -1345,9 +1030,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Matrix4x4 arg1 = StackTraits<UnityEngine.Matrix4x4>.To(L, 3);
 				obj.SetMatrix(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.Matrix4x4)))
@@ -1356,16 +1038,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Matrix4x4 arg1 = StackTraits<UnityEngine.Matrix4x4>.To(L, 3);
 				obj.SetMatrix(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetMatrix");
 			}
 		}
@@ -1380,9 +1056,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetTexture");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.Texture)))
@@ -1391,9 +1064,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Texture arg1 = (UnityEngine.Texture)ToLua.ToObject(L, 3);
 				obj.SetTexture(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.Texture)))
@@ -1402,9 +1072,6 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Texture arg1 = (UnityEngine.Texture)ToLua.ToObject(L, 3);
 				obj.SetTexture(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.RenderTexture), typeof(UnityEngine.Rendering.RenderTextureSubElement)))
@@ -1414,9 +1081,6 @@ public class UnityEngine_MaterialWrap
 				UnityEngine.RenderTexture arg1 = (UnityEngine.RenderTexture)ToLua.ToObject(L, 3);
 				UnityEngine.Rendering.RenderTextureSubElement arg2 = (UnityEngine.Rendering.RenderTextureSubElement)LuaDLL.luaL_checknumber(L, 4);
 				obj.SetTexture(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.RenderTexture), typeof(UnityEngine.Rendering.RenderTextureSubElement)))
@@ -1426,16 +1090,10 @@ public class UnityEngine_MaterialWrap
 				UnityEngine.RenderTexture arg1 = (UnityEngine.RenderTexture)ToLua.ToObject(L, 3);
 				UnityEngine.Rendering.RenderTextureSubElement arg2 = (UnityEngine.Rendering.RenderTextureSubElement)LuaDLL.luaL_checknumber(L, 4);
 				obj.SetTexture(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetTexture");
 			}
 		}
@@ -1450,9 +1108,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetBuffer");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.ComputeBuffer)))
@@ -1461,9 +1116,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.ComputeBuffer arg1 = (UnityEngine.ComputeBuffer)ToLua.ToObject(L, 3);
 				obj.SetBuffer(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.ComputeBuffer)))
@@ -1472,9 +1124,6 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.ComputeBuffer arg1 = (UnityEngine.ComputeBuffer)ToLua.ToObject(L, 3);
 				obj.SetBuffer(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.GraphicsBuffer)))
@@ -1483,9 +1132,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.GraphicsBuffer arg1 = (UnityEngine.GraphicsBuffer)ToLua.ToObject(L, 3);
 				obj.SetBuffer(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.GraphicsBuffer)))
@@ -1494,16 +1140,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.GraphicsBuffer arg1 = (UnityEngine.GraphicsBuffer)ToLua.ToObject(L, 3);
 				obj.SetBuffer(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetBuffer");
 			}
 		}
@@ -1518,9 +1158,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetConstantBuffer");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.ComputeBuffer), typeof(int), typeof(int)))
@@ -1531,9 +1168,6 @@ public class UnityEngine_MaterialWrap
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
 				int arg3 = (int)LuaDLL.lua_tonumber(L, 5);
 				obj.SetConstantBuffer(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.ComputeBuffer), typeof(int), typeof(int)))
@@ -1544,9 +1178,6 @@ public class UnityEngine_MaterialWrap
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
 				int arg3 = (int)LuaDLL.lua_tonumber(L, 5);
 				obj.SetConstantBuffer(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.GraphicsBuffer), typeof(int), typeof(int)))
@@ -1557,9 +1188,6 @@ public class UnityEngine_MaterialWrap
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
 				int arg3 = (int)LuaDLL.lua_tonumber(L, 5);
 				obj.SetConstantBuffer(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.GraphicsBuffer), typeof(int), typeof(int)))
@@ -1570,16 +1198,10 @@ public class UnityEngine_MaterialWrap
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
 				int arg3 = (int)LuaDLL.lua_tonumber(L, 5);
 				obj.SetConstantBuffer(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetConstantBuffer");
 			}
 		}
@@ -1594,9 +1216,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetFloatArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(System.Collections.Generic.List<float>)))
@@ -1605,9 +1224,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				System.Collections.Generic.List<float> arg1 = (System.Collections.Generic.List<float>)ToLua.ToObject(L, 3);
 				obj.SetFloatArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(System.Collections.Generic.List<float>)))
@@ -1616,9 +1232,6 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				System.Collections.Generic.List<float> arg1 = (System.Collections.Generic.List<float>)ToLua.ToObject(L, 3);
 				obj.SetFloatArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(float[])))
@@ -1627,9 +1240,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				float[] arg1 = ToLua.CheckNumberArray<float>(L, 3);
 				obj.SetFloatArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(float[])))
@@ -1638,16 +1248,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				float[] arg1 = ToLua.CheckNumberArray<float>(L, 3);
 				obj.SetFloatArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetFloatArray");
 			}
 		}
@@ -1662,9 +1266,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetColorArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(System.Collections.Generic.List<UnityEngine.Color>)))
@@ -1673,9 +1274,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				System.Collections.Generic.List<UnityEngine.Color> arg1 = (System.Collections.Generic.List<UnityEngine.Color>)ToLua.ToObject(L, 3);
 				obj.SetColorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(System.Collections.Generic.List<UnityEngine.Color>)))
@@ -1684,9 +1282,6 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				System.Collections.Generic.List<UnityEngine.Color> arg1 = (System.Collections.Generic.List<UnityEngine.Color>)ToLua.ToObject(L, 3);
 				obj.SetColorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.Color[])))
@@ -1695,9 +1290,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Color[] arg1 = ToLua.CheckObjectArray<UnityEngine.Color>(L, 3);
 				obj.SetColorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.Color[])))
@@ -1706,16 +1298,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Color[] arg1 = ToLua.CheckObjectArray<UnityEngine.Color>(L, 3);
 				obj.SetColorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetColorArray");
 			}
 		}
@@ -1730,9 +1316,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetVectorArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(System.Collections.Generic.List<UnityEngine.Vector4>)))
@@ -1741,9 +1324,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				System.Collections.Generic.List<UnityEngine.Vector4> arg1 = (System.Collections.Generic.List<UnityEngine.Vector4>)ToLua.ToObject(L, 3);
 				obj.SetVectorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(System.Collections.Generic.List<UnityEngine.Vector4>)))
@@ -1752,9 +1332,6 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				System.Collections.Generic.List<UnityEngine.Vector4> arg1 = (System.Collections.Generic.List<UnityEngine.Vector4>)ToLua.ToObject(L, 3);
 				obj.SetVectorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.Vector4[])))
@@ -1763,9 +1340,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Vector4[] arg1 = ToLua.CheckObjectArray<UnityEngine.Vector4>(L, 3);
 				obj.SetVectorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.Vector4[])))
@@ -1774,16 +1348,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Vector4[] arg1 = ToLua.CheckObjectArray<UnityEngine.Vector4>(L, 3);
 				obj.SetVectorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetVectorArray");
 			}
 		}
@@ -1798,9 +1366,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetMatrixArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(System.Collections.Generic.List<UnityEngine.Matrix4x4>)))
@@ -1809,9 +1374,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				System.Collections.Generic.List<UnityEngine.Matrix4x4> arg1 = (System.Collections.Generic.List<UnityEngine.Matrix4x4>)ToLua.ToObject(L, 3);
 				obj.SetMatrixArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(System.Collections.Generic.List<UnityEngine.Matrix4x4>)))
@@ -1820,9 +1382,6 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				System.Collections.Generic.List<UnityEngine.Matrix4x4> arg1 = (System.Collections.Generic.List<UnityEngine.Matrix4x4>)ToLua.ToObject(L, 3);
 				obj.SetMatrixArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.Matrix4x4[])))
@@ -1831,9 +1390,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Matrix4x4[] arg1 = ToLua.CheckObjectArray<UnityEngine.Matrix4x4>(L, 3);
 				obj.SetMatrixArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.Matrix4x4[])))
@@ -1842,16 +1398,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Matrix4x4[] arg1 = ToLua.CheckObjectArray<UnityEngine.Matrix4x4>(L, 3);
 				obj.SetMatrixArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetMatrixArray");
 			}
 		}
@@ -1866,9 +1416,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetInt");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -1877,9 +1424,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				int o = obj.GetInt(arg0);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -1888,16 +1432,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				int o = obj.GetInt(arg0);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetInt");
 			}
 		}
@@ -1912,9 +1450,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetFloat");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -1923,9 +1458,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				float o = obj.GetFloat(arg0);
 				LuaDLL.lua_pushnumber(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -1934,16 +1466,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				float o = obj.GetFloat(arg0);
 				LuaDLL.lua_pushnumber(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetFloat");
 			}
 		}
@@ -1958,9 +1484,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetInteger");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -1969,9 +1492,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				int o = obj.GetInteger(arg0);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -1980,16 +1500,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				int o = obj.GetInteger(arg0);
 				LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetInteger");
 			}
 		}
@@ -2004,9 +1518,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetColor");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -2015,9 +1526,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Color o = obj.GetColor(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -2026,16 +1534,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Color o = obj.GetColor(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetColor");
 			}
 		}
@@ -2050,9 +1552,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetVector");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -2061,9 +1560,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Vector4 o = obj.GetVector(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -2072,16 +1568,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Vector4 o = obj.GetVector(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetVector");
 			}
 		}
@@ -2096,9 +1586,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetMatrix");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -2107,9 +1594,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Matrix4x4 o = obj.GetMatrix(arg0);
 				ToLua.PushValue(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -2118,16 +1602,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Matrix4x4 o = obj.GetMatrix(arg0);
 				ToLua.PushValue(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetMatrix");
 			}
 		}
@@ -2142,9 +1620,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetTexture");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -2153,9 +1628,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Texture o = obj.GetTexture(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -2164,16 +1636,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Texture o = obj.GetTexture(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetTexture");
 			}
 		}
@@ -2188,9 +1654,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetFloatArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -2201,9 +1664,6 @@ public class UnityEngine_MaterialWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -2214,9 +1674,6 @@ public class UnityEngine_MaterialWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(System.Collections.Generic.List<float>)))
@@ -2225,9 +1682,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				System.Collections.Generic.List<float> arg1 = (System.Collections.Generic.List<float>)ToLua.ToObject(L, 3);
 				obj.GetFloatArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(System.Collections.Generic.List<float>)))
@@ -2236,16 +1690,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				System.Collections.Generic.List<float> arg1 = (System.Collections.Generic.List<float>)ToLua.ToObject(L, 3);
 				obj.GetFloatArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetFloatArray");
 			}
 		}
@@ -2260,9 +1708,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetColorArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -2273,9 +1718,6 @@ public class UnityEngine_MaterialWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -2286,9 +1728,6 @@ public class UnityEngine_MaterialWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(System.Collections.Generic.List<UnityEngine.Color>)))
@@ -2297,9 +1736,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				System.Collections.Generic.List<UnityEngine.Color> arg1 = (System.Collections.Generic.List<UnityEngine.Color>)ToLua.ToObject(L, 3);
 				obj.GetColorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(System.Collections.Generic.List<UnityEngine.Color>)))
@@ -2308,16 +1744,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				System.Collections.Generic.List<UnityEngine.Color> arg1 = (System.Collections.Generic.List<UnityEngine.Color>)ToLua.ToObject(L, 3);
 				obj.GetColorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetColorArray");
 			}
 		}
@@ -2332,9 +1762,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetVectorArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -2345,9 +1772,6 @@ public class UnityEngine_MaterialWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -2358,9 +1782,6 @@ public class UnityEngine_MaterialWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(System.Collections.Generic.List<UnityEngine.Vector4>)))
@@ -2369,9 +1790,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				System.Collections.Generic.List<UnityEngine.Vector4> arg1 = (System.Collections.Generic.List<UnityEngine.Vector4>)ToLua.ToObject(L, 3);
 				obj.GetVectorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(System.Collections.Generic.List<UnityEngine.Vector4>)))
@@ -2380,16 +1798,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				System.Collections.Generic.List<UnityEngine.Vector4> arg1 = (System.Collections.Generic.List<UnityEngine.Vector4>)ToLua.ToObject(L, 3);
 				obj.GetVectorArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetVectorArray");
 			}
 		}
@@ -2404,9 +1816,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetMatrixArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -2417,9 +1826,6 @@ public class UnityEngine_MaterialWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -2430,9 +1836,6 @@ public class UnityEngine_MaterialWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(System.Collections.Generic.List<UnityEngine.Matrix4x4>)))
@@ -2441,9 +1844,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				System.Collections.Generic.List<UnityEngine.Matrix4x4> arg1 = (System.Collections.Generic.List<UnityEngine.Matrix4x4>)ToLua.ToObject(L, 3);
 				obj.GetMatrixArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(System.Collections.Generic.List<UnityEngine.Matrix4x4>)))
@@ -2452,16 +1852,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				System.Collections.Generic.List<UnityEngine.Matrix4x4> arg1 = (System.Collections.Generic.List<UnityEngine.Matrix4x4>)ToLua.ToObject(L, 3);
 				obj.GetMatrixArray(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetMatrixArray");
 			}
 		}
@@ -2476,9 +1870,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetTextureOffset");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.Vector2)))
@@ -2487,9 +1878,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Vector2 arg1 = ToLua.ToVector2(L, 3);
 				obj.SetTextureOffset(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.Vector2)))
@@ -2498,16 +1886,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Vector2 arg1 = ToLua.ToVector2(L, 3);
 				obj.SetTextureOffset(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetTextureOffset");
 			}
 		}
@@ -2522,9 +1904,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.SetTextureScale");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string), typeof(UnityEngine.Vector2)))
@@ -2533,9 +1912,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Vector2 arg1 = ToLua.ToVector2(L, 3);
 				obj.SetTextureScale(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int), typeof(UnityEngine.Vector2)))
@@ -2544,16 +1920,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Vector2 arg1 = ToLua.ToVector2(L, 3);
 				obj.SetTextureScale(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.SetTextureScale");
 			}
 		}
@@ -2568,9 +1938,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetTextureOffset");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -2579,9 +1946,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Vector2 o = obj.GetTextureOffset(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -2590,16 +1954,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Vector2 o = obj.GetTextureOffset(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetTextureOffset");
 			}
 		}
@@ -2614,9 +1972,6 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.GetTextureScale");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
@@ -2625,9 +1980,6 @@ public class UnityEngine_MaterialWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Vector2 o = obj.GetTextureScale(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(int)))
@@ -2636,16 +1988,10 @@ public class UnityEngine_MaterialWrap
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				UnityEngine.Vector2 o = obj.GetTextureScale(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.GetTextureScale");
 			}
 		}
@@ -2660,17 +2006,11 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2703,16 +2043,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.shader");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.Shader ret = obj.shader;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2728,16 +2062,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.color");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.Color ret = obj.color;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2753,16 +2081,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.mainTexture");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.Texture ret = obj.mainTexture;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2778,16 +2100,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.mainTextureOffset");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.Vector2 ret = obj.mainTextureOffset;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2803,16 +2119,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.mainTextureScale");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.Vector2 ret = obj.mainTextureScale;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2828,16 +2138,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.renderQueue");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			int ret = obj.renderQueue;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2853,16 +2157,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.enabledKeywords");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.Rendering.LocalKeyword[] ret = obj.enabledKeywords;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2878,16 +2176,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.globalIlluminationFlags");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.MaterialGlobalIlluminationFlags ret = obj.globalIlluminationFlags;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2903,16 +2195,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.doubleSidedGI");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			bool ret = obj.doubleSidedGI;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2928,16 +2214,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.enableInstancing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			bool ret = obj.enableInstancing;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2953,16 +2233,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.passCount");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			int ret = obj.passCount;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2978,16 +2252,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.shaderKeywords");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			string[] ret = obj.shaderKeywords;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -3003,16 +2271,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.shader");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.Shader arg0 = (UnityEngine.Shader)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Shader));
 			obj.shader = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3028,16 +2290,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.color");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.Color arg0 = ToLua.ToColor(L, 2);
 			obj.color = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3053,16 +2309,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.mainTexture");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.Texture arg0 = (UnityEngine.Texture)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Texture));
 			obj.mainTexture = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3078,16 +2328,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.mainTextureOffset");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.Vector2 arg0 = ToLua.ToVector2(L, 2);
 			obj.mainTextureOffset = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3103,16 +2347,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.mainTextureScale");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.Vector2 arg0 = ToLua.ToVector2(L, 2);
 			obj.mainTextureScale = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3128,16 +2366,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.renderQueue");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.renderQueue = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3153,16 +2385,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.enabledKeywords");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.Rendering.LocalKeyword[] arg0 = ToLua.CheckObjectArray<UnityEngine.Rendering.LocalKeyword>(L, 2);
 			obj.enabledKeywords = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3178,16 +2404,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.globalIlluminationFlags");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			UnityEngine.MaterialGlobalIlluminationFlags arg0 = (UnityEngine.MaterialGlobalIlluminationFlags)LuaDLL.luaL_checknumber(L, 2);
 			obj.globalIlluminationFlags = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3203,16 +2423,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.doubleSidedGI");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.doubleSidedGI = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3228,16 +2442,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.enableInstancing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.enableInstancing = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3253,16 +2461,10 @@ public class UnityEngine_MaterialWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Material.shaderKeywords");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Material obj = (UnityEngine.Material)o;
 			string[] arg0 = ToLua.CheckStringArray(L, 2);
 			obj.shaderKeywords = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

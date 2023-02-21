@@ -6,7 +6,7 @@ public class TMPro_TMP_TextWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(TMPro.TMP_Text), typeof(UnityEngine.MonoBehaviour), "TMP_Text");
+		L.BeginClass(typeof(TMPro.TMP_Text), typeof(UnityEngine.UI.MaskableGraphic), "TMP_Text");
 		L.RegFunction("ForceMeshUpdate", ForceMeshUpdate);
 		L.RegFunction("UpdateGeometry", UpdateGeometry);
 		L.RegFunction("UpdateVertexData", UpdateVertexData);
@@ -133,17 +133,11 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.ForceMeshUpdate");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 			obj.ForceMeshUpdate(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -157,17 +151,11 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.UpdateGeometry");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 			UnityEngine.Mesh arg0 = (UnityEngine.Mesh)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Mesh));
 			int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 			obj.UpdateGeometry(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -181,18 +169,12 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.UpdateVertexData");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
 			{
 				TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 				obj.UpdateVertexData();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 2)
@@ -200,16 +182,10 @@ public class TMPro_TMP_TextWrap
 				TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 				TMPro.TMP_VertexDataUpdateFlags arg0 = (TMPro.TMP_VertexDataUpdateFlags)LuaDLL.luaL_checknumber(L, 2);
 				obj.UpdateVertexData(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: TMPro.TMP_Text.UpdateVertexData");
 			}
 		}
@@ -224,16 +200,10 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.SetVertices");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 			UnityEngine.Vector3[] arg0 = ToLua.CheckObjectArray<UnityEngine.Vector3>(L, 2);
 			obj.SetVertices(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -247,15 +217,9 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.UpdateMeshPadding");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 			obj.UpdateMeshPadding();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -269,9 +233,6 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.CrossFadeColor");
-#endif
 			ToLua.CheckArgsCount(L, 5);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 			UnityEngine.Color arg0 = ToLua.ToColor(L, 2);
@@ -279,9 +240,6 @@ public class TMPro_TMP_TextWrap
 			bool arg2 = LuaDLL.luaL_checkboolean(L, 4);
 			bool arg3 = LuaDLL.luaL_checkboolean(L, 5);
 			obj.CrossFadeColor(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -295,18 +253,12 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.CrossFadeAlpha");
-#endif
 			ToLua.CheckArgsCount(L, 4);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 			bool arg2 = LuaDLL.luaL_checkboolean(L, 4);
 			obj.CrossFadeAlpha(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -320,9 +272,6 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.SetText");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(TMPro.TMP_Text), typeof(System.Text.StringBuilder)))
@@ -330,9 +279,6 @@ public class TMPro_TMP_TextWrap
 				TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.ToObject(L, 1);
 				System.Text.StringBuilder arg0 = (System.Text.StringBuilder)ToLua.ToObject(L, 2);
 				obj.SetText(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(TMPro.TMP_Text), typeof(char[])))
@@ -340,9 +286,6 @@ public class TMPro_TMP_TextWrap
 				TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.ToObject(L, 1);
 				char[] arg0 = ToLua.CheckCharBuffer(L, 2);
 				obj.SetText(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -351,9 +294,6 @@ public class TMPro_TMP_TextWrap
 				string arg0 = ToLua.CheckString(L, 2);
 				float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 				obj.SetText(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(TMPro.TMP_Text), typeof(string), typeof(float), typeof(float)))
@@ -363,9 +303,6 @@ public class TMPro_TMP_TextWrap
 				float arg1 = (float)LuaDLL.lua_tonumber(L, 3);
 				float arg2 = (float)LuaDLL.lua_tonumber(L, 4);
 				obj.SetText(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(TMPro.TMP_Text), typeof(char[]), typeof(int), typeof(int)))
@@ -375,9 +312,6 @@ public class TMPro_TMP_TextWrap
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
 				obj.SetText(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 5)
@@ -388,9 +322,6 @@ public class TMPro_TMP_TextWrap
 				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 				float arg3 = (float)LuaDLL.luaL_checknumber(L, 5);
 				obj.SetText(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 6)
@@ -402,9 +333,6 @@ public class TMPro_TMP_TextWrap
 				float arg3 = (float)LuaDLL.luaL_checknumber(L, 5);
 				float arg4 = (float)LuaDLL.luaL_checknumber(L, 6);
 				obj.SetText(arg0, arg1, arg2, arg3, arg4);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 7)
@@ -417,9 +345,6 @@ public class TMPro_TMP_TextWrap
 				float arg4 = (float)LuaDLL.luaL_checknumber(L, 6);
 				float arg5 = (float)LuaDLL.luaL_checknumber(L, 7);
 				obj.SetText(arg0, arg1, arg2, arg3, arg4, arg5);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 8)
@@ -433,9 +358,6 @@ public class TMPro_TMP_TextWrap
 				float arg5 = (float)LuaDLL.luaL_checknumber(L, 7);
 				float arg6 = (float)LuaDLL.luaL_checknumber(L, 8);
 				obj.SetText(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 9)
@@ -450,9 +372,6 @@ public class TMPro_TMP_TextWrap
 				float arg6 = (float)LuaDLL.luaL_checknumber(L, 8);
 				float arg7 = (float)LuaDLL.luaL_checknumber(L, 9);
 				obj.SetText(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 10)
@@ -468,16 +387,10 @@ public class TMPro_TMP_TextWrap
 				float arg7 = (float)LuaDLL.luaL_checknumber(L, 9);
 				float arg8 = (float)LuaDLL.luaL_checknumber(L, 10);
 				obj.SetText(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: TMPro.TMP_Text.SetText");
 			}
 		}
@@ -492,9 +405,6 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.SetCharArray");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -502,9 +412,6 @@ public class TMPro_TMP_TextWrap
 				TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 				char[] arg0 = ToLua.CheckCharBuffer(L, 2);
 				obj.SetCharArray(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 4)
@@ -514,16 +421,10 @@ public class TMPro_TMP_TextWrap
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
 				obj.SetCharArray(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: TMPro.TMP_Text.SetCharArray");
 			}
 		}
@@ -538,9 +439,6 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.GetPreferredValues");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -548,9 +446,6 @@ public class TMPro_TMP_TextWrap
 				TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 				UnityEngine.Vector2 o = obj.GetPreferredValues();
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 1;
 			}
 			else if (count == 2)
@@ -559,9 +454,6 @@ public class TMPro_TMP_TextWrap
 				string arg0 = ToLua.CheckString(L, 2);
 				UnityEngine.Vector2 o = obj.GetPreferredValues(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 1;
 			}
 			else if (count == 3)
@@ -571,9 +463,6 @@ public class TMPro_TMP_TextWrap
 				float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 				UnityEngine.Vector2 o = obj.GetPreferredValues(arg0, arg1);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -584,16 +473,10 @@ public class TMPro_TMP_TextWrap
 				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.Vector2 o = obj.GetPreferredValues(arg0, arg1, arg2);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: TMPro.TMP_Text.GetPreferredValues");
 			}
 		}
@@ -608,9 +491,6 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.GetRenderedValues");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -618,9 +498,6 @@ public class TMPro_TMP_TextWrap
 				TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 				UnityEngine.Vector2 o = obj.GetRenderedValues();
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 1;
 			}
 			else if (count == 2)
@@ -629,16 +506,10 @@ public class TMPro_TMP_TextWrap
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 				UnityEngine.Vector2 o = obj.GetRenderedValues(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: TMPro.TMP_Text.GetRenderedValues");
 			}
 		}
@@ -653,17 +524,11 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.GetTextInfo");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 			string arg0 = ToLua.CheckString(L, 2);
 			TMPro.TMP_TextInfo o = obj.GetTextInfo(arg0);
 			ToLua.PushObject(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -677,15 +542,9 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.ComputeMarginSize");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 			obj.ComputeMarginSize();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -699,18 +558,12 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.ClearMesh");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
 			{
 				TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 				obj.ClearMesh();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else if (count == 2)
@@ -718,16 +571,10 @@ public class TMPro_TMP_TextWrap
 				TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 				obj.ClearMesh(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.BeginEnd();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: TMPro.TMP_Text.ClearMesh");
 			}
 		}
@@ -742,16 +589,10 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.GetParsedText");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)ToLua.CheckObject(L, 1, typeof(TMPro.TMP_Text));
 			string o = obj.GetParsedText();
 			LuaDLL.lua_pushstring(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -765,17 +606,11 @@ public class TMPro_TMP_TextWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -808,16 +643,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.text");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			string ret = obj.text;
 			LuaDLL.lua_pushstring(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -833,16 +662,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.textPreprocessor");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.ITextPreprocessor ret = obj.textPreprocessor;
 			ToLua.PushObject(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -858,16 +681,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isRightToLeftText");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.isRightToLeftText;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -883,16 +700,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.font");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_FontAsset ret = obj.font;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -908,16 +719,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontSharedMaterial");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Material ret = obj.fontSharedMaterial;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -933,16 +738,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontSharedMaterials");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Material[] ret = obj.fontSharedMaterials;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -958,16 +757,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontMaterial");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Material ret = obj.fontMaterial;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -983,16 +776,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontMaterials");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Material[] ret = obj.fontMaterials;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1008,16 +795,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.color");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Color ret = obj.color;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1033,16 +814,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.alpha");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.alpha;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1058,16 +833,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.enableVertexGradient");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.enableVertexGradient;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1083,16 +852,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.colorGradient");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.VertexGradient ret = obj.colorGradient;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1108,16 +871,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.colorGradientPreset");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_ColorGradient ret = obj.colorGradientPreset;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1133,16 +890,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.spriteAsset");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_SpriteAsset ret = obj.spriteAsset;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1158,16 +909,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.tintAllSprites");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.tintAllSprites;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1183,16 +928,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.styleSheet");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_StyleSheet ret = obj.styleSheet;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1208,16 +947,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.textStyle");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_Style ret = obj.textStyle;
 			ToLua.PushObject(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1233,16 +966,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.overrideColorTags");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.overrideColorTags;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1258,16 +985,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.faceColor");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Color32 ret = obj.faceColor;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1283,16 +1004,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.outlineColor");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Color32 ret = obj.outlineColor;
 			ToLua.PushValue(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1308,16 +1023,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.outlineWidth");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.outlineWidth;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1333,16 +1042,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontSize");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.fontSize;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1358,16 +1061,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontWeight");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.FontWeight ret = obj.fontWeight;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1383,16 +1080,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.pixelsPerUnit");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.pixelsPerUnit;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1408,16 +1099,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.enableAutoSizing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.enableAutoSizing;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1433,16 +1118,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontSizeMin");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.fontSizeMin;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1458,16 +1137,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontSizeMax");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.fontSizeMax;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1483,16 +1156,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontStyle");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.FontStyles ret = obj.fontStyle;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1508,16 +1175,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isUsingBold");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.isUsingBold;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1533,16 +1194,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.horizontalAlignment");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.HorizontalAlignmentOptions ret = obj.horizontalAlignment;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1558,16 +1213,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.verticalAlignment");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.VerticalAlignmentOptions ret = obj.verticalAlignment;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1583,16 +1232,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.alignment");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TextAlignmentOptions ret = obj.alignment;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1608,16 +1251,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.characterSpacing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.characterSpacing;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1633,16 +1270,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.wordSpacing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.wordSpacing;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1658,16 +1289,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.lineSpacing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.lineSpacing;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1683,16 +1308,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.lineSpacingAdjustment");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.lineSpacingAdjustment;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1708,16 +1327,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.paragraphSpacing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.paragraphSpacing;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1733,16 +1346,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.characterWidthAdjustment");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.characterWidthAdjustment;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1758,16 +1365,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.enableWordWrapping");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.enableWordWrapping;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1783,16 +1384,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.wordWrappingRatios");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.wordWrappingRatios;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1808,16 +1403,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.overflowMode");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TextOverflowModes ret = obj.overflowMode;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1833,16 +1422,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isTextOverflowing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.isTextOverflowing;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1858,16 +1441,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.firstOverflowCharacterIndex");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			int ret = obj.firstOverflowCharacterIndex;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1883,16 +1460,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.linkedTextComponent");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_Text ret = obj.linkedTextComponent;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1908,16 +1479,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isTextTruncated");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.isTextTruncated;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1933,16 +1498,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.enableKerning");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.enableKerning;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1958,16 +1517,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.extraPadding");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.extraPadding;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1983,16 +1536,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.richText");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.richText;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2008,16 +1555,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.parseCtrlCharacters");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.parseCtrlCharacters;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2033,16 +1574,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isOverlay");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.isOverlay;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2058,16 +1593,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isOrthographic");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.isOrthographic;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2083,16 +1612,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.enableCulling");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.enableCulling;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2108,16 +1631,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.ignoreVisibility");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.ignoreVisibility;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2133,16 +1650,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.horizontalMapping");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TextureMappingOptions ret = obj.horizontalMapping;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2158,16 +1669,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.verticalMapping");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TextureMappingOptions ret = obj.verticalMapping;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2183,16 +1688,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.mappingUvLineOffset");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.mappingUvLineOffset;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2208,16 +1707,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.renderMode");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TextRenderFlags ret = obj.renderMode;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2233,16 +1726,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.geometrySortingOrder");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.VertexSortingOrder ret = obj.geometrySortingOrder;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2258,16 +1745,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isTextObjectScaleStatic");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.isTextObjectScaleStatic;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2283,16 +1764,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.vertexBufferAutoSizeReduction");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.vertexBufferAutoSizeReduction;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2308,16 +1783,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.firstVisibleCharacter");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			int ret = obj.firstVisibleCharacter;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2333,16 +1802,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.maxVisibleCharacters");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			int ret = obj.maxVisibleCharacters;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2358,16 +1821,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.maxVisibleWords");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			int ret = obj.maxVisibleWords;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2383,16 +1840,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.maxVisibleLines");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			int ret = obj.maxVisibleLines;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2408,16 +1859,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.useMaxVisibleDescender");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.useMaxVisibleDescender;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2433,16 +1878,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.pageToDisplay");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			int ret = obj.pageToDisplay;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2458,16 +1897,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.margin");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Vector4 ret = obj.margin;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2483,16 +1916,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.textInfo");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_TextInfo ret = obj.textInfo;
 			ToLua.PushObject(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2508,16 +1935,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.havePropertiesChanged");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.havePropertiesChanged;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2533,16 +1954,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isUsingLegacyAnimationComponent");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.isUsingLegacyAnimationComponent;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2558,16 +1973,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.transform");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Transform ret = obj.transform;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2583,16 +1992,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.rectTransform");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.RectTransform ret = obj.rectTransform;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2608,16 +2011,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.autoSizeTextContainer");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.autoSizeTextContainer;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2633,16 +2030,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.mesh");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Mesh ret = obj.mesh;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2658,16 +2049,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isVolumetricText");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool ret = obj.isVolumetricText;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2683,16 +2068,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.bounds");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Bounds ret = obj.bounds;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2708,16 +2087,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.textBounds");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Bounds ret = obj.textBounds;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2733,16 +2106,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.flexibleHeight");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.flexibleHeight;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2758,16 +2125,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.flexibleWidth");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.flexibleWidth;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2783,16 +2144,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.minWidth");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.minWidth;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2808,16 +2163,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.minHeight");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.minHeight;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2833,16 +2182,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.maxWidth");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.maxWidth;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2858,16 +2201,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.maxHeight");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.maxHeight;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2883,16 +2220,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.preferredWidth");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.preferredWidth;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2908,16 +2239,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.preferredHeight");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.preferredHeight;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2933,16 +2258,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.renderedWidth");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.renderedWidth;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2958,16 +2277,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.renderedHeight");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float ret = obj.renderedHeight;
 			LuaDLL.lua_pushnumber(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -2983,16 +2296,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.layoutPriority");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			int ret = obj.layoutPriority;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -3029,16 +2336,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.text");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			string arg0 = ToLua.CheckString(L, 2);
 			obj.text = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3054,16 +2355,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.textPreprocessor");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.ITextPreprocessor arg0 = (TMPro.ITextPreprocessor)ToLua.CheckObject(L, 2, typeof(TMPro.ITextPreprocessor));
 			obj.textPreprocessor = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3079,16 +2374,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isRightToLeftText");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.isRightToLeftText = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3104,16 +2393,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.font");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_FontAsset arg0 = (TMPro.TMP_FontAsset)ToLua.CheckUnityObject(L, 2, typeof(TMPro.TMP_FontAsset));
 			obj.font = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3129,16 +2412,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontSharedMaterial");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Material arg0 = (UnityEngine.Material)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Material));
 			obj.fontSharedMaterial = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3154,16 +2431,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontSharedMaterials");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Material[] arg0 = ToLua.CheckObjectArray<UnityEngine.Material>(L, 2);
 			obj.fontSharedMaterials = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3179,16 +2450,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontMaterial");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Material arg0 = (UnityEngine.Material)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Material));
 			obj.fontMaterial = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3204,16 +2469,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontMaterials");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Material[] arg0 = ToLua.CheckObjectArray<UnityEngine.Material>(L, 2);
 			obj.fontMaterials = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3229,16 +2488,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.color");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Color arg0 = ToLua.ToColor(L, 2);
 			obj.color = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3254,16 +2507,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.alpha");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.alpha = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3279,16 +2526,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.enableVertexGradient");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.enableVertexGradient = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3304,16 +2545,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.colorGradient");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.VertexGradient arg0 = StackTraits<TMPro.VertexGradient>.Check(L, 2);
 			obj.colorGradient = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3329,16 +2564,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.colorGradientPreset");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_ColorGradient arg0 = (TMPro.TMP_ColorGradient)ToLua.CheckUnityObject(L, 2, typeof(TMPro.TMP_ColorGradient));
 			obj.colorGradientPreset = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3354,16 +2583,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.spriteAsset");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_SpriteAsset arg0 = (TMPro.TMP_SpriteAsset)ToLua.CheckUnityObject(L, 2, typeof(TMPro.TMP_SpriteAsset));
 			obj.spriteAsset = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3379,16 +2602,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.tintAllSprites");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.tintAllSprites = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3404,16 +2621,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.styleSheet");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_StyleSheet arg0 = (TMPro.TMP_StyleSheet)ToLua.CheckUnityObject(L, 2, typeof(TMPro.TMP_StyleSheet));
 			obj.styleSheet = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3429,16 +2640,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.textStyle");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_Style arg0 = (TMPro.TMP_Style)ToLua.CheckObject(L, 2, typeof(TMPro.TMP_Style));
 			obj.textStyle = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3454,16 +2659,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.overrideColorTags");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.overrideColorTags = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3479,16 +2678,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.faceColor");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Color32 arg0 = StackTraits<UnityEngine.Color32>.Check(L, 2);
 			obj.faceColor = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3504,16 +2697,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.outlineColor");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Color32 arg0 = StackTraits<UnityEngine.Color32>.Check(L, 2);
 			obj.outlineColor = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3529,16 +2716,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.outlineWidth");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.outlineWidth = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3554,16 +2735,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontSize");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.fontSize = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3579,16 +2754,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontWeight");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.FontWeight arg0 = (TMPro.FontWeight)LuaDLL.luaL_checknumber(L, 2);
 			obj.fontWeight = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3604,16 +2773,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.enableAutoSizing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.enableAutoSizing = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3629,16 +2792,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontSizeMin");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.fontSizeMin = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3654,16 +2811,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontSizeMax");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.fontSizeMax = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3679,16 +2830,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.fontStyle");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.FontStyles arg0 = (TMPro.FontStyles)LuaDLL.luaL_checknumber(L, 2);
 			obj.fontStyle = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3704,16 +2849,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.horizontalAlignment");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.HorizontalAlignmentOptions arg0 = (TMPro.HorizontalAlignmentOptions)LuaDLL.luaL_checknumber(L, 2);
 			obj.horizontalAlignment = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3729,16 +2868,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.verticalAlignment");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.VerticalAlignmentOptions arg0 = (TMPro.VerticalAlignmentOptions)LuaDLL.luaL_checknumber(L, 2);
 			obj.verticalAlignment = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3754,16 +2887,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.alignment");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TextAlignmentOptions arg0 = (TMPro.TextAlignmentOptions)LuaDLL.luaL_checknumber(L, 2);
 			obj.alignment = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3779,16 +2906,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.characterSpacing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.characterSpacing = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3804,16 +2925,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.wordSpacing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.wordSpacing = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3829,16 +2944,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.lineSpacing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.lineSpacing = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3854,16 +2963,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.lineSpacingAdjustment");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.lineSpacingAdjustment = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3879,16 +2982,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.paragraphSpacing");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.paragraphSpacing = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3904,16 +3001,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.characterWidthAdjustment");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.characterWidthAdjustment = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3929,16 +3020,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.enableWordWrapping");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.enableWordWrapping = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3954,16 +3039,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.wordWrappingRatios");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.wordWrappingRatios = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -3979,16 +3058,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.overflowMode");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TextOverflowModes arg0 = (TMPro.TextOverflowModes)LuaDLL.luaL_checknumber(L, 2);
 			obj.overflowMode = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4004,16 +3077,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.linkedTextComponent");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TMP_Text arg0 = (TMPro.TMP_Text)ToLua.CheckUnityObject(L, 2, typeof(TMPro.TMP_Text));
 			obj.linkedTextComponent = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4029,16 +3096,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.enableKerning");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.enableKerning = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4054,16 +3115,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.extraPadding");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.extraPadding = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4079,16 +3134,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.richText");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.richText = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4104,16 +3153,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.parseCtrlCharacters");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.parseCtrlCharacters = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4129,16 +3172,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isOverlay");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.isOverlay = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4154,16 +3191,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isOrthographic");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.isOrthographic = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4179,16 +3210,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.enableCulling");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.enableCulling = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4204,16 +3229,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.ignoreVisibility");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.ignoreVisibility = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4229,16 +3248,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.horizontalMapping");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TextureMappingOptions arg0 = (TMPro.TextureMappingOptions)LuaDLL.luaL_checknumber(L, 2);
 			obj.horizontalMapping = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4254,16 +3267,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.verticalMapping");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TextureMappingOptions arg0 = (TMPro.TextureMappingOptions)LuaDLL.luaL_checknumber(L, 2);
 			obj.verticalMapping = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4279,16 +3286,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.mappingUvLineOffset");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.mappingUvLineOffset = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4304,16 +3305,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.renderMode");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.TextRenderFlags arg0 = (TMPro.TextRenderFlags)LuaDLL.luaL_checknumber(L, 2);
 			obj.renderMode = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4329,16 +3324,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.geometrySortingOrder");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			TMPro.VertexSortingOrder arg0 = (TMPro.VertexSortingOrder)LuaDLL.luaL_checknumber(L, 2);
 			obj.geometrySortingOrder = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4354,16 +3343,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isTextObjectScaleStatic");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.isTextObjectScaleStatic = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4379,16 +3362,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.vertexBufferAutoSizeReduction");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.vertexBufferAutoSizeReduction = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4404,16 +3381,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.firstVisibleCharacter");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.firstVisibleCharacter = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4429,16 +3400,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.maxVisibleCharacters");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.maxVisibleCharacters = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4454,16 +3419,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.maxVisibleWords");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.maxVisibleWords = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4479,16 +3438,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.maxVisibleLines");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.maxVisibleLines = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4504,16 +3457,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.useMaxVisibleDescender");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.useMaxVisibleDescender = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4529,16 +3476,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.pageToDisplay");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.pageToDisplay = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4554,16 +3495,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.margin");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			UnityEngine.Vector4 arg0 = ToLua.ToVector4(L, 2);
 			obj.margin = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4579,16 +3514,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.havePropertiesChanged");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.havePropertiesChanged = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4604,16 +3533,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isUsingLegacyAnimationComponent");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.isUsingLegacyAnimationComponent = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4629,16 +3552,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.autoSizeTextContainer");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.autoSizeTextContainer = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -4654,16 +3571,10 @@ public class TMPro_TMP_TextWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginBegin("TMPro.TMP_Text.isVolumetricText");
-#endif
 			o = ToLua.ToObject(L, 1);
 			TMPro.TMP_Text obj = (TMPro.TMP_Text)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.isVolumetricText = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.BeginEnd();
-#endif
 			return 0;
 		}
 		catch(Exception e)

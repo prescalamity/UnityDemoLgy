@@ -274,5 +274,21 @@ namespace LuaInterface
 
             return false;
         }
+        static public bool CheckEnumType(Type type, IntPtr L, int pos)
+        {
+            if (LuaDLL.lua_type(L, pos) == LuaTypes.LUA_TUSERDATA)
+            {
+                int udata = LuaDLL.tolua_rawnetobj(L, pos);
+
+                if (udata != -1)
+                {
+                    ObjectTranslator translator = ObjectTranslator.Get(L);
+                    object obj = translator.GetObject(udata);
+                    return obj == null ? false : type == obj.GetType();
+                }
+            }
+
+            return false;
+        }
     }
 }

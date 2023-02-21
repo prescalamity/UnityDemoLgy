@@ -34,18 +34,12 @@ public class UnityEngine_ResourcesWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Resources.FindObjectsOfTypeAll");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			System.Type arg0 = (System.Type)ToLua.CheckObject(L, 1, typeof(System.Type));
 			UnityEngine.Object[] o = UnityEngine.Resources.FindObjectsOfTypeAll(arg0);
 			ToLua.Push(L, o);
 			int arrayLength = o.Length;
 			LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 2;
 		}
 		catch(Exception e)
@@ -59,9 +53,6 @@ public class UnityEngine_ResourcesWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Resources.Load");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -69,9 +60,6 @@ public class UnityEngine_ResourcesWrap
 				string arg0 = ToLua.CheckString(L, 1);
 				UnityEngine.Object o = UnityEngine.Resources.Load(arg0);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2)
@@ -80,16 +68,10 @@ public class UnityEngine_ResourcesWrap
 				System.Type arg1 = (System.Type)ToLua.CheckObject(L, 2, typeof(System.Type));
 				UnityEngine.Object o = UnityEngine.Resources.Load(arg0, arg1);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Resources.Load");
 			}
 		}
@@ -104,9 +86,6 @@ public class UnityEngine_ResourcesWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Resources.LoadAsync");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -114,9 +93,6 @@ public class UnityEngine_ResourcesWrap
 				string arg0 = ToLua.CheckString(L, 1);
 				UnityEngine.ResourceRequest o = UnityEngine.Resources.LoadAsync(arg0);
 				ToLua.PushObject(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2)
@@ -125,16 +101,10 @@ public class UnityEngine_ResourcesWrap
 				System.Type arg1 = (System.Type)ToLua.CheckObject(L, 2, typeof(System.Type));
 				UnityEngine.ResourceRequest o = UnityEngine.Resources.LoadAsync(arg0, arg1);
 				ToLua.PushObject(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Resources.LoadAsync");
 			}
 		}
@@ -149,9 +119,6 @@ public class UnityEngine_ResourcesWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Resources.LoadAll");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -161,9 +128,6 @@ public class UnityEngine_ResourcesWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2)
@@ -174,16 +138,10 @@ public class UnityEngine_ResourcesWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Resources.LoadAll");
 			}
 		}
@@ -198,17 +156,11 @@ public class UnityEngine_ResourcesWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Resources.GetBuiltinResource");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			System.Type arg0 = (System.Type)ToLua.CheckObject(L, 1, typeof(System.Type));
 			string arg1 = ToLua.CheckString(L, 2);
 			UnityEngine.Object o = UnityEngine.Resources.GetBuiltinResource(arg0, arg1);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -222,15 +174,9 @@ public class UnityEngine_ResourcesWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Resources.UnloadAsset");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.CheckUnityObject(L, 1, typeof(UnityEngine.Object));
 			UnityEngine.Resources.UnloadAsset(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -244,15 +190,9 @@ public class UnityEngine_ResourcesWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Resources.UnloadUnusedAssets");
-#endif
 			ToLua.CheckArgsCount(L, 0);
 			UnityEngine.AsyncOperation o = UnityEngine.Resources.UnloadUnusedAssets();
 			ToLua.PushObject(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -266,16 +206,10 @@ public class UnityEngine_ResourcesWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Resources.InstanceIDToObject");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 			UnityEngine.Object o = UnityEngine.Resources.InstanceIDToObject(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -289,16 +223,10 @@ public class UnityEngine_ResourcesWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Resources.InstanceIDToObjectList");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			Unity.Collections.NativeArray<int> arg0 = StackTraits<Unity.Collections.NativeArray<int>>.Check(L, 1);
 			System.Collections.Generic.List<UnityEngine.Object> arg1 = (System.Collections.Generic.List<UnityEngine.Object>)ToLua.CheckObject(L, 2, typeof(System.Collections.Generic.List<UnityEngine.Object>));
 			UnityEngine.Resources.InstanceIDToObjectList(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

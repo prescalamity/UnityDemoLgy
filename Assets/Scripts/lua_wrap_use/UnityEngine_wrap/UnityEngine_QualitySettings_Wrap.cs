@@ -14,6 +14,7 @@ public class UnityEngine_QualitySettingsWrap
 		L.RegFunction("GetRenderPipelineAssetAt", GetRenderPipelineAssetAt);
 		L.RegFunction("GetQualityLevel", GetQualityLevel);
 		L.RegFunction("GetQualitySettings", GetQualitySettings);
+		L.RegFunction("GetAllRenderPipelineAssetsForPlatform", GetAllRenderPipelineAssetsForPlatform);
 		L.RegFunction("__eq", op_Equality);
 		L.RegVar("pixelLightCount", get_pixelLightCount, set_pixelLightCount);
 		L.RegVar("shadows", get_shadows, set_shadows);
@@ -70,33 +71,21 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.IncreaseLevel");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 0)
 			{
 				UnityEngine.QualitySettings.IncreaseLevel();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 1)
 			{
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 1);
 				UnityEngine.QualitySettings.IncreaseLevel(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.QualitySettings.IncreaseLevel");
 			}
 		}
@@ -111,33 +100,21 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.DecreaseLevel");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 0)
 			{
 				UnityEngine.QualitySettings.DecreaseLevel();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 1)
 			{
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 1);
 				UnityEngine.QualitySettings.DecreaseLevel(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.QualitySettings.DecreaseLevel");
 			}
 		}
@@ -152,18 +129,12 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.SetQualityLevel");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
 			{
 				int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 				UnityEngine.QualitySettings.SetQualityLevel(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2)
@@ -171,16 +142,10 @@ public class UnityEngine_QualitySettingsWrap
 				int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 				bool arg1 = LuaDLL.luaL_checkboolean(L, 2);
 				UnityEngine.QualitySettings.SetQualityLevel(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.QualitySettings.SetQualityLevel");
 			}
 		}
@@ -195,17 +160,11 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.SetLODSettings");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 1);
 			int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
 			bool arg2 = LuaDLL.luaL_checkboolean(L, 3);
 			UnityEngine.QualitySettings.SetLODSettings(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -219,16 +178,10 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.GetRenderPipelineAssetAt");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 			UnityEngine.Rendering.RenderPipelineAsset o = UnityEngine.QualitySettings.GetRenderPipelineAssetAt(arg0);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -242,15 +195,9 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.GetQualityLevel");
-#endif
 			ToLua.CheckArgsCount(L, 0);
 			int o = UnityEngine.QualitySettings.GetQualityLevel();
 			LuaDLL.lua_pushinteger(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -264,15 +211,27 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.GetQualitySettings");
-#endif
 			ToLua.CheckArgsCount(L, 0);
 			UnityEngine.Object o = UnityEngine.QualitySettings.GetQualitySettings();
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetAllRenderPipelineAssetsForPlatform(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			string arg0 = ToLua.CheckString(L, 1);
+			System.Collections.Generic.List<UnityEngine.Rendering.RenderPipelineAsset> arg1 = (System.Collections.Generic.List<UnityEngine.Rendering.RenderPipelineAsset>)ToLua.CheckObject(L, 2, typeof(System.Collections.Generic.List<UnityEngine.Rendering.RenderPipelineAsset>));
+			UnityEngine.QualitySettings.GetAllRenderPipelineAssetsForPlatform(arg0, ref arg1);
+			ToLua.PushObject(L, arg1);
 			return 1;
 		}
 		catch(Exception e)
@@ -286,17 +245,11 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -569,14 +522,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.pixelLightCount");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.pixelLightCount = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -590,14 +537,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.shadows");
-#endif
 			UnityEngine.ShadowQuality arg0 = (UnityEngine.ShadowQuality)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.shadows = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -611,14 +552,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.shadowProjection");
-#endif
 			UnityEngine.ShadowProjection arg0 = (UnityEngine.ShadowProjection)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.shadowProjection = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -632,14 +567,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.shadowCascades");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.shadowCascades = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -653,14 +582,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.shadowDistance");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.shadowDistance = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -674,14 +597,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.shadowResolution");
-#endif
 			UnityEngine.ShadowResolution arg0 = (UnityEngine.ShadowResolution)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.shadowResolution = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -695,14 +612,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.shadowmaskMode");
-#endif
 			UnityEngine.ShadowmaskMode arg0 = (UnityEngine.ShadowmaskMode)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.shadowmaskMode = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -716,14 +627,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.shadowNearPlaneOffset");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.shadowNearPlaneOffset = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -737,14 +642,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.shadowCascade2Split");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.shadowCascade2Split = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -758,14 +657,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.shadowCascade4Split");
-#endif
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			UnityEngine.QualitySettings.shadowCascade4Split = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -779,14 +672,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.lodBias");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.lodBias = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -800,14 +687,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.anisotropicFiltering");
-#endif
 			UnityEngine.AnisotropicFiltering arg0 = (UnityEngine.AnisotropicFiltering)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.anisotropicFiltering = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -821,14 +702,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.masterTextureLimit");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.masterTextureLimit = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -842,14 +717,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.maximumLODLevel");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.maximumLODLevel = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -863,14 +732,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.particleRaycastBudget");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.particleRaycastBudget = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -884,14 +747,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.softParticles");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.QualitySettings.softParticles = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -905,14 +762,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.softVegetation");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.QualitySettings.softVegetation = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -926,14 +777,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.vSyncCount");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.vSyncCount = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -947,14 +792,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.antiAliasing");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.antiAliasing = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -968,14 +807,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.asyncUploadTimeSlice");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.asyncUploadTimeSlice = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -989,14 +822,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.asyncUploadBufferSize");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.asyncUploadBufferSize = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1010,14 +837,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.asyncUploadPersistentBuffer");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.QualitySettings.asyncUploadPersistentBuffer = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1031,14 +852,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.realtimeReflectionProbes");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.QualitySettings.realtimeReflectionProbes = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1052,14 +867,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.billboardsFaceCameraPosition");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.QualitySettings.billboardsFaceCameraPosition = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1073,14 +882,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.resolutionScalingFixedDPIFactor");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.resolutionScalingFixedDPIFactor = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1094,14 +897,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.renderPipeline");
-#endif
 			UnityEngine.Rendering.RenderPipelineAsset arg0 = (UnityEngine.Rendering.RenderPipelineAsset)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Rendering.RenderPipelineAsset));
 			UnityEngine.QualitySettings.renderPipeline = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1115,14 +912,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.skinWeights");
-#endif
 			UnityEngine.SkinWeights arg0 = (UnityEngine.SkinWeights)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.skinWeights = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1136,14 +927,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.streamingMipmapsActive");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.QualitySettings.streamingMipmapsActive = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1157,14 +942,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.streamingMipmapsMemoryBudget");
-#endif
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.streamingMipmapsMemoryBudget = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1178,14 +957,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.streamingMipmapsRenderersPerFrame");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.streamingMipmapsRenderersPerFrame = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1199,14 +972,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.streamingMipmapsMaxLevelReduction");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.streamingMipmapsMaxLevelReduction = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1220,14 +987,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.streamingMipmapsAddAllCameras");
-#endif
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			UnityEngine.QualitySettings.streamingMipmapsAddAllCameras = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1241,14 +1002,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.streamingMipmapsMaxFileIORequests");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.streamingMipmapsMaxFileIORequests = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1262,14 +1017,8 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.QualitySettings.maxQueuedFrames");
-#endif
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			UnityEngine.QualitySettings.maxQueuedFrames = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

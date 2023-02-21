@@ -55,17 +55,11 @@ public class UnityEngine_MeshColliderWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MeshCollider.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -98,16 +92,10 @@ public class UnityEngine_MeshColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MeshCollider.sharedMesh");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.MeshCollider obj = (UnityEngine.MeshCollider)o;
 			UnityEngine.Mesh ret = obj.sharedMesh;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -123,16 +111,10 @@ public class UnityEngine_MeshColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MeshCollider.convex");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.MeshCollider obj = (UnityEngine.MeshCollider)o;
 			bool ret = obj.convex;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -148,16 +130,10 @@ public class UnityEngine_MeshColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MeshCollider.cookingOptions");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.MeshCollider obj = (UnityEngine.MeshCollider)o;
 			UnityEngine.MeshColliderCookingOptions ret = obj.cookingOptions;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -173,16 +149,10 @@ public class UnityEngine_MeshColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MeshCollider.sharedMesh");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.MeshCollider obj = (UnityEngine.MeshCollider)o;
 			UnityEngine.Mesh arg0 = (UnityEngine.Mesh)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Mesh));
 			obj.sharedMesh = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -198,16 +168,10 @@ public class UnityEngine_MeshColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MeshCollider.convex");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.MeshCollider obj = (UnityEngine.MeshCollider)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.convex = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -223,16 +187,10 @@ public class UnityEngine_MeshColliderWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MeshCollider.cookingOptions");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.MeshCollider obj = (UnityEngine.MeshCollider)o;
 			UnityEngine.MeshColliderCookingOptions arg0 = (UnityEngine.MeshColliderCookingOptions)LuaDLL.luaL_checknumber(L, 2);
 			obj.cookingOptions = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

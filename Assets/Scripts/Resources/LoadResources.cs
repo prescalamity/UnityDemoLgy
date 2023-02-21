@@ -74,7 +74,7 @@ public class LoadResources
     }
 
     /// <summary>
-    /// 除 main.lua 外的 其他lua脚本
+    /// 除 main_config.lua 外的 其他lua脚本
     /// </summary>
     private static void loadOtherLuaSources()
     {

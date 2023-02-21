@@ -65,17 +65,11 @@ public class UnityEngine_SkinnedMeshRendererWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.GetBlendShapeWeight");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)ToLua.CheckObject(L, 1, typeof(UnityEngine.SkinnedMeshRenderer));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			float o = obj.GetBlendShapeWeight(arg0);
 			LuaDLL.lua_pushnumber(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -89,17 +83,11 @@ public class UnityEngine_SkinnedMeshRendererWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.SetBlendShapeWeight");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)ToLua.CheckObject(L, 1, typeof(UnityEngine.SkinnedMeshRenderer));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 			obj.SetBlendShapeWeight(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -113,9 +101,6 @@ public class UnityEngine_SkinnedMeshRendererWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.BakeMesh");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -123,9 +108,6 @@ public class UnityEngine_SkinnedMeshRendererWrap
 				UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)ToLua.CheckObject(L, 1, typeof(UnityEngine.SkinnedMeshRenderer));
 				UnityEngine.Mesh arg0 = (UnityEngine.Mesh)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Mesh));
 				obj.BakeMesh(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -134,16 +116,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 				UnityEngine.Mesh arg0 = (UnityEngine.Mesh)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Mesh));
 				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 				obj.BakeMesh(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.SkinnedMeshRenderer.BakeMesh");
 			}
 		}
@@ -158,16 +134,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.GetVertexBuffer");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)ToLua.CheckObject(L, 1, typeof(UnityEngine.SkinnedMeshRenderer));
 			UnityEngine.GraphicsBuffer o = obj.GetVertexBuffer();
 			ToLua.PushObject(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -181,16 +151,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.GetPreviousVertexBuffer");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)ToLua.CheckObject(L, 1, typeof(UnityEngine.SkinnedMeshRenderer));
 			UnityEngine.GraphicsBuffer o = obj.GetPreviousVertexBuffer();
 			ToLua.PushObject(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -204,17 +168,11 @@ public class UnityEngine_SkinnedMeshRendererWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -247,16 +205,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.quality");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			UnityEngine.SkinQuality ret = obj.quality;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -272,16 +224,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.updateWhenOffscreen");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			bool ret = obj.updateWhenOffscreen;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -297,16 +243,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.forceMatrixRecalculationPerRender");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			bool ret = obj.forceMatrixRecalculationPerRender;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -322,16 +262,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.rootBone");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			UnityEngine.Transform ret = obj.rootBone;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -347,16 +281,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.bones");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			UnityEngine.Transform[] ret = obj.bones;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -372,16 +300,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.sharedMesh");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			UnityEngine.Mesh ret = obj.sharedMesh;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -397,16 +319,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.skinnedMotionVectors");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			bool ret = obj.skinnedMotionVectors;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -422,16 +338,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.vertexBufferTarget");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			UnityEngine.GraphicsBuffer.Target ret = obj.vertexBufferTarget;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -447,16 +357,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.quality");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			UnityEngine.SkinQuality arg0 = (UnityEngine.SkinQuality)LuaDLL.luaL_checknumber(L, 2);
 			obj.quality = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -472,16 +376,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.updateWhenOffscreen");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.updateWhenOffscreen = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -497,16 +395,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.forceMatrixRecalculationPerRender");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.forceMatrixRecalculationPerRender = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -522,16 +414,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.rootBone");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Transform));
 			obj.rootBone = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -547,16 +433,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.bones");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			UnityEngine.Transform[] arg0 = ToLua.CheckObjectArray<UnityEngine.Transform>(L, 2);
 			obj.bones = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -572,16 +452,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.sharedMesh");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			UnityEngine.Mesh arg0 = (UnityEngine.Mesh)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Mesh));
 			obj.sharedMesh = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -597,16 +471,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.skinnedMotionVectors");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.skinnedMotionVectors = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -622,16 +490,10 @@ public class UnityEngine_SkinnedMeshRendererWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.SkinnedMeshRenderer.vertexBufferTarget");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
 			UnityEngine.GraphicsBuffer.Target arg0 = (UnityEngine.GraphicsBuffer.Target)LuaDLL.luaL_checknumber(L, 2);
 			obj.vertexBufferTarget = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

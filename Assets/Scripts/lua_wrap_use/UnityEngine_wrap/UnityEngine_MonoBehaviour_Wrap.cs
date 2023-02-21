@@ -36,9 +36,6 @@ public class UnityEngine_MonoBehaviourWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MonoBehaviour.IsInvoking");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -46,9 +43,6 @@ public class UnityEngine_MonoBehaviourWrap
 				UnityEngine.MonoBehaviour obj = (UnityEngine.MonoBehaviour)ToLua.CheckObject(L, 1, typeof(UnityEngine.MonoBehaviour));
 				bool o = obj.IsInvoking();
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2)
@@ -57,16 +51,10 @@ public class UnityEngine_MonoBehaviourWrap
 				string arg0 = ToLua.CheckString(L, 2);
 				bool o = obj.IsInvoking(arg0);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.MonoBehaviour.IsInvoking");
 			}
 		}
@@ -81,18 +69,12 @@ public class UnityEngine_MonoBehaviourWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MonoBehaviour.CancelInvoke");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
 			{
 				UnityEngine.MonoBehaviour obj = (UnityEngine.MonoBehaviour)ToLua.CheckObject(L, 1, typeof(UnityEngine.MonoBehaviour));
 				obj.CancelInvoke();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2)
@@ -100,16 +82,10 @@ public class UnityEngine_MonoBehaviourWrap
 				UnityEngine.MonoBehaviour obj = (UnityEngine.MonoBehaviour)ToLua.CheckObject(L, 1, typeof(UnityEngine.MonoBehaviour));
 				string arg0 = ToLua.CheckString(L, 2);
 				obj.CancelInvoke(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.MonoBehaviour.CancelInvoke");
 			}
 		}
@@ -124,17 +100,11 @@ public class UnityEngine_MonoBehaviourWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MonoBehaviour.Invoke");
-#endif
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.MonoBehaviour obj = (UnityEngine.MonoBehaviour)ToLua.CheckObject(L, 1, typeof(UnityEngine.MonoBehaviour));
 			string arg0 = ToLua.CheckString(L, 2);
 			float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 			obj.Invoke(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -148,18 +118,12 @@ public class UnityEngine_MonoBehaviourWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MonoBehaviour.InvokeRepeating");
-#endif
 			ToLua.CheckArgsCount(L, 4);
 			UnityEngine.MonoBehaviour obj = (UnityEngine.MonoBehaviour)ToLua.CheckObject(L, 1, typeof(UnityEngine.MonoBehaviour));
 			string arg0 = ToLua.CheckString(L, 2);
 			float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 			float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
 			obj.InvokeRepeating(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -173,9 +137,6 @@ public class UnityEngine_MonoBehaviourWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MonoBehaviour.StartCoroutine");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.MonoBehaviour), typeof(string)))
@@ -184,9 +145,6 @@ public class UnityEngine_MonoBehaviourWrap
 				string arg0 = ToLua.ToString(L, 2);
 				UnityEngine.Coroutine o = obj.StartCoroutine(arg0);
 				ToLua.PushObject(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.MonoBehaviour), typeof(System.Collections.IEnumerator)))
@@ -195,9 +153,6 @@ public class UnityEngine_MonoBehaviourWrap
 				System.Collections.IEnumerator arg0 = (System.Collections.IEnumerator)ToLua.ToObject(L, 2);
 				UnityEngine.Coroutine o = obj.StartCoroutine(arg0);
 				ToLua.PushObject(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 3)
@@ -207,16 +162,10 @@ public class UnityEngine_MonoBehaviourWrap
 				object arg1 = ToLua.ToVarObject(L, 3);
 				UnityEngine.Coroutine o = obj.StartCoroutine(arg0, arg1);
 				ToLua.PushObject(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.MonoBehaviour.StartCoroutine");
 			}
 		}
@@ -231,9 +180,6 @@ public class UnityEngine_MonoBehaviourWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MonoBehaviour.StopCoroutine");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.MonoBehaviour), typeof(System.Collections.IEnumerator)))
@@ -241,9 +187,6 @@ public class UnityEngine_MonoBehaviourWrap
 				UnityEngine.MonoBehaviour obj = (UnityEngine.MonoBehaviour)ToLua.ToObject(L, 1);
 				System.Collections.IEnumerator arg0 = (System.Collections.IEnumerator)ToLua.ToObject(L, 2);
 				obj.StopCoroutine(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.MonoBehaviour), typeof(UnityEngine.Coroutine)))
@@ -251,9 +194,6 @@ public class UnityEngine_MonoBehaviourWrap
 				UnityEngine.MonoBehaviour obj = (UnityEngine.MonoBehaviour)ToLua.ToObject(L, 1);
 				UnityEngine.Coroutine arg0 = (UnityEngine.Coroutine)ToLua.ToObject(L, 2);
 				obj.StopCoroutine(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.MonoBehaviour), typeof(string)))
@@ -261,16 +201,10 @@ public class UnityEngine_MonoBehaviourWrap
 				UnityEngine.MonoBehaviour obj = (UnityEngine.MonoBehaviour)ToLua.ToObject(L, 1);
 				string arg0 = ToLua.ToString(L, 2);
 				obj.StopCoroutine(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.MonoBehaviour.StopCoroutine");
 			}
 		}
@@ -285,15 +219,9 @@ public class UnityEngine_MonoBehaviourWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MonoBehaviour.StopAllCoroutines");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.MonoBehaviour obj = (UnityEngine.MonoBehaviour)ToLua.CheckObject(L, 1, typeof(UnityEngine.MonoBehaviour));
 			obj.StopAllCoroutines();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -307,15 +235,9 @@ public class UnityEngine_MonoBehaviourWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MonoBehaviour.print");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			object arg0 = ToLua.ToVarObject(L, 1);
 			UnityEngine.MonoBehaviour.print(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -329,17 +251,11 @@ public class UnityEngine_MonoBehaviourWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MonoBehaviour.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -372,16 +288,10 @@ public class UnityEngine_MonoBehaviourWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MonoBehaviour.useGUILayout");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.MonoBehaviour obj = (UnityEngine.MonoBehaviour)o;
 			bool ret = obj.useGUILayout;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -397,16 +307,10 @@ public class UnityEngine_MonoBehaviourWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.MonoBehaviour.useGUILayout");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.MonoBehaviour obj = (UnityEngine.MonoBehaviour)o;
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.useGUILayout = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

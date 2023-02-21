@@ -31,6 +31,7 @@ public class UnityEngine_Texture2DWrap
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", Lua_ToString);
 		L.RegVar("format", get_format, null);
+		L.RegVar("ignoreMipmapLimit", get_ignoreMipmapLimit, set_ignoreMipmapLimit);
 		L.RegVar("whiteTexture", get_whiteTexture, null);
 		L.RegVar("blackTexture", get_blackTexture, null);
 		L.RegVar("redTexture", get_redTexture, null);
@@ -153,16 +154,10 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.Compress");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			obj.Compress(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -176,15 +171,9 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.ClearRequestedMipmapLevel");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 			obj.ClearRequestedMipmapLevel();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -198,16 +187,10 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.IsRequestedMipmapLevelLoaded");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 			bool o = obj.IsRequestedMipmapLevelLoaded();
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -221,15 +204,9 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.ClearMinimumMipmapLevel");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 			obj.ClearMinimumMipmapLevel();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -243,16 +220,10 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.UpdateExternalTexture");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 			System.IntPtr arg0 = (System.IntPtr)LuaDLL.lua_touserdata(L, 2);
 			obj.UpdateExternalTexture(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -266,18 +237,12 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.GetRawTextureData");
-#endif
 			ToLua.CheckArgsCount(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 			byte[] o = obj.GetRawTextureData();
 			ToLua.Push(L, o);
 			int arrayLength = o.Length;
 			LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 2;
 		}
 		catch(Exception e)
@@ -291,9 +256,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.GetPixels");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -303,9 +265,6 @@ public class UnityEngine_Texture2DWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2)
@@ -316,9 +275,6 @@ public class UnityEngine_Texture2DWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5)
@@ -332,9 +288,6 @@ public class UnityEngine_Texture2DWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 6)
@@ -349,16 +302,10 @@ public class UnityEngine_Texture2DWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.GetPixels");
 			}
 		}
@@ -373,9 +320,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.GetPixels32");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
@@ -385,9 +329,6 @@ public class UnityEngine_Texture2DWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 2)
@@ -398,16 +339,10 @@ public class UnityEngine_Texture2DWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.GetPixels32");
 			}
 		}
@@ -422,9 +357,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.PackTextures");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -436,9 +368,6 @@ public class UnityEngine_Texture2DWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 4)
@@ -451,9 +380,6 @@ public class UnityEngine_Texture2DWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else if (count == 5)
@@ -467,16 +393,10 @@ public class UnityEngine_Texture2DWrap
 				ToLua.Push(L, o);
 				int arrayLength = o.Length;
 				LuaScriptMgr.Push(L, arrayLength);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 2;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.PackTextures");
 			}
 		}
@@ -491,9 +411,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.CreateExternalTexture");
-#endif
 			ToLua.CheckArgsCount(L, 6);
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 			int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
@@ -503,9 +420,6 @@ public class UnityEngine_Texture2DWrap
 			System.IntPtr arg5 = (System.IntPtr)LuaDLL.lua_touserdata(L, 6);
 			UnityEngine.Texture2D o = UnityEngine.Texture2D.CreateExternalTexture(arg0, arg1, arg2, arg3, arg4, arg5);
 			ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -519,9 +433,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.SetPixel");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 4)
@@ -531,9 +442,6 @@ public class UnityEngine_Texture2DWrap
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				UnityEngine.Color arg2 = ToLua.ToColor(L, 4);
 				obj.SetPixel(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 5)
@@ -544,16 +452,10 @@ public class UnityEngine_Texture2DWrap
 				UnityEngine.Color arg2 = ToLua.ToColor(L, 4);
 				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
 				obj.SetPixel(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.SetPixel");
 			}
 		}
@@ -568,9 +470,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.SetPixels");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -578,9 +477,6 @@ public class UnityEngine_Texture2DWrap
 				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 				UnityEngine.Color[] arg0 = ToLua.CheckObjectArray<UnityEngine.Color>(L, 2);
 				obj.SetPixels(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -589,9 +485,6 @@ public class UnityEngine_Texture2DWrap
 				UnityEngine.Color[] arg0 = ToLua.CheckObjectArray<UnityEngine.Color>(L, 2);
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				obj.SetPixels(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 6)
@@ -603,9 +496,6 @@ public class UnityEngine_Texture2DWrap
 				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
 				UnityEngine.Color[] arg4 = ToLua.CheckObjectArray<UnityEngine.Color>(L, 6);
 				obj.SetPixels(arg0, arg1, arg2, arg3, arg4);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 7)
@@ -618,16 +508,10 @@ public class UnityEngine_Texture2DWrap
 				UnityEngine.Color[] arg4 = ToLua.CheckObjectArray<UnityEngine.Color>(L, 6);
 				int arg5 = (int)LuaDLL.luaL_checknumber(L, 7);
 				obj.SetPixels(arg0, arg1, arg2, arg3, arg4, arg5);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.SetPixels");
 			}
 		}
@@ -642,9 +526,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.GetPixel");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -654,9 +535,6 @@ public class UnityEngine_Texture2DWrap
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				UnityEngine.Color o = obj.GetPixel(arg0, arg1);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -667,16 +545,10 @@ public class UnityEngine_Texture2DWrap
 				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.Color o = obj.GetPixel(arg0, arg1, arg2);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.GetPixel");
 			}
 		}
@@ -691,9 +563,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.GetPixelBilinear");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -703,9 +572,6 @@ public class UnityEngine_Texture2DWrap
 				float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 				UnityEngine.Color o = obj.GetPixelBilinear(arg0, arg1);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 4)
@@ -716,16 +582,10 @@ public class UnityEngine_Texture2DWrap
 				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.Color o = obj.GetPixelBilinear(arg0, arg1, arg2);
 				ToLua.Push(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.GetPixelBilinear");
 			}
 		}
@@ -740,9 +600,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.LoadRawTextureData");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -750,9 +607,6 @@ public class UnityEngine_Texture2DWrap
 				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 				byte[] arg0 = ToLua.CheckByteBuffer(L, 2);
 				obj.LoadRawTextureData(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -761,16 +615,10 @@ public class UnityEngine_Texture2DWrap
 				System.IntPtr arg0 = (System.IntPtr)LuaDLL.lua_touserdata(L, 2);
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				obj.LoadRawTextureData(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.LoadRawTextureData");
 			}
 		}
@@ -785,18 +633,12 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.Apply");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 1)
 			{
 				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 				obj.Apply();
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 2)
@@ -804,9 +646,6 @@ public class UnityEngine_Texture2DWrap
 				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 				obj.Apply(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -815,16 +654,10 @@ public class UnityEngine_Texture2DWrap
 				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 				obj.Apply(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.Apply");
 			}
 		}
@@ -839,9 +672,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.Reinitialize");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 3)
@@ -851,9 +681,6 @@ public class UnityEngine_Texture2DWrap
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				bool o = obj.Reinitialize(arg0, arg1);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int), typeof(int), typeof(UnityEngine.TextureFormat), typeof(bool)))
@@ -865,9 +692,6 @@ public class UnityEngine_Texture2DWrap
 				bool arg3 = LuaDLL.lua_toboolean(L, 5);
 				bool o = obj.Reinitialize(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int), typeof(int), typeof(UnityEngine.Experimental.Rendering.GraphicsFormat), typeof(bool)))
@@ -879,16 +703,10 @@ public class UnityEngine_Texture2DWrap
 				bool arg3 = LuaDLL.lua_toboolean(L, 5);
 				bool o = obj.Reinitialize(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 1;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.Reinitialize");
 			}
 		}
@@ -903,9 +721,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.ReadPixels");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 4)
@@ -915,9 +730,6 @@ public class UnityEngine_Texture2DWrap
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
 				obj.ReadPixels(arg0, arg1, arg2);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 5)
@@ -928,16 +740,10 @@ public class UnityEngine_Texture2DWrap
 				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
 				bool arg3 = LuaDLL.luaL_checkboolean(L, 5);
 				obj.ReadPixels(arg0, arg1, arg2, arg3);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.ReadPixels");
 			}
 		}
@@ -952,9 +758,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.GenerateAtlas");
-#endif
 			ToLua.CheckArgsCount(L, 4);
 			UnityEngine.Vector2[] arg0 = ToLua.CheckObjectArray<UnityEngine.Vector2>(L, 1);
 			int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
@@ -962,9 +765,6 @@ public class UnityEngine_Texture2DWrap
 			System.Collections.Generic.List<UnityEngine.Rect> arg3 = (System.Collections.Generic.List<UnityEngine.Rect>)ToLua.CheckObject(L, 4, typeof(System.Collections.Generic.List<UnityEngine.Rect>));
 			bool o = UnityEngine.Texture2D.GenerateAtlas(arg0, arg1, arg2, arg3);
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -978,9 +778,6 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.SetPixels32");
-#endif
 			int count = LuaDLL.lua_gettop(L);
 
 			if (count == 2)
@@ -988,9 +785,6 @@ public class UnityEngine_Texture2DWrap
 				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 				UnityEngine.Color32[] arg0 = ToLua.CheckObjectArray<UnityEngine.Color32>(L, 2);
 				obj.SetPixels32(arg0);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 3)
@@ -999,9 +793,6 @@ public class UnityEngine_Texture2DWrap
 				UnityEngine.Color32[] arg0 = ToLua.CheckObjectArray<UnityEngine.Color32>(L, 2);
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				obj.SetPixels32(arg0, arg1);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 6)
@@ -1013,9 +804,6 @@ public class UnityEngine_Texture2DWrap
 				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
 				UnityEngine.Color32[] arg4 = ToLua.CheckObjectArray<UnityEngine.Color32>(L, 6);
 				obj.SetPixels32(arg0, arg1, arg2, arg3, arg4);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else if (count == 7)
@@ -1028,16 +816,10 @@ public class UnityEngine_Texture2DWrap
 				UnityEngine.Color32[] arg4 = ToLua.CheckObjectArray<UnityEngine.Color32>(L, 6);
 				int arg5 = (int)LuaDLL.luaL_checknumber(L, 7);
 				obj.SetPixels32(arg0, arg1, arg2, arg3, arg4, arg5);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-				//UIProfiler.End();
-#endif
 				return 0;
 			}
 			else
 			{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.SetPixels32");
 			}
 		}
@@ -1052,17 +834,11 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.op_Equality");
-#endif
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.ToObject(L, 1);
 			UnityEngine.Object arg1 = (UnityEngine.Object)ToLua.ToObject(L, 2);
 			bool o = arg0 == arg1;
 			LuaDLL.lua_pushboolean(L, o);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1095,21 +871,34 @@ public class UnityEngine_Texture2DWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.format");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
 			UnityEngine.TextureFormat ret = obj.format;
 			ToLua.Push(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index format on a nil value" : e.Message);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_ignoreMipmapLimit(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
+			bool ret = obj.ignoreMipmapLimit;
+			LuaDLL.lua_pushboolean(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index ignoreMipmapLimit on a nil value" : e.Message);
 		}
 	}
 
@@ -1162,16 +951,10 @@ public class UnityEngine_Texture2DWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.isReadable");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
 			bool ret = obj.isReadable;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1187,16 +970,10 @@ public class UnityEngine_Texture2DWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.streamingMipmaps");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
 			bool ret = obj.streamingMipmaps;
 			LuaDLL.lua_pushboolean(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1212,16 +989,10 @@ public class UnityEngine_Texture2DWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.streamingMipmapsPriority");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
 			int ret = obj.streamingMipmapsPriority;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1237,16 +1008,10 @@ public class UnityEngine_Texture2DWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.requestedMipmapLevel");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
 			int ret = obj.requestedMipmapLevel;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1262,16 +1027,10 @@ public class UnityEngine_Texture2DWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.minimumMipmapLevel");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
 			int ret = obj.minimumMipmapLevel;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1287,16 +1046,10 @@ public class UnityEngine_Texture2DWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.calculatedMipmapLevel");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
 			int ret = obj.calculatedMipmapLevel;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1312,16 +1065,10 @@ public class UnityEngine_Texture2DWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.desiredMipmapLevel");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
 			int ret = obj.desiredMipmapLevel;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1337,16 +1084,10 @@ public class UnityEngine_Texture2DWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.loadingMipmapLevel");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
 			int ret = obj.loadingMipmapLevel;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
@@ -1362,21 +1103,34 @@ public class UnityEngine_Texture2DWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.loadedMipmapLevel");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
 			int ret = obj.loadedMipmapLevel;
 			LuaDLL.lua_pushinteger(L, ret);
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 1;
 		}
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index loadedMipmapLevel on a nil value" : e.Message);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_ignoreMipmapLimit(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
+			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+			obj.ignoreMipmapLimit = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index ignoreMipmapLimit on a nil value" : e.Message);
 		}
 	}
 
@@ -1387,16 +1141,10 @@ public class UnityEngine_Texture2DWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.requestedMipmapLevel");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.requestedMipmapLevel = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)
@@ -1412,16 +1160,10 @@ public class UnityEngine_Texture2DWrap
 
 		try
 		{
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.Begin("UnityEngine.Texture2D.minimumMipmapLevel");
-#endif
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)o;
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			obj.minimumMipmapLevel = arg0;
-#if ENABLE_PROFILER || UNITY_EDITOR || UNITY_STANDALONE_WIN
-			//UIProfiler.End();
-#endif
 			return 0;
 		}
 		catch(Exception e)

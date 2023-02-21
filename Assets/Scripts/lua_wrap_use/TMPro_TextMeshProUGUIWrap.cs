@@ -6,7 +6,7 @@ public class TMPro_TextMeshProUGUIWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(TMPro.TextMeshProUGUI), typeof(UnityEngine.MonoBehaviour), "TextMeshProUGUI");
+		L.BeginClass(typeof(TMPro.TextMeshProUGUI), typeof(TMPro.TMP_Text), "TextMeshProUGUI");
 		L.RegFunction("CalculateLayoutInputHorizontal", CalculateLayoutInputHorizontal);
 		L.RegFunction("CalculateLayoutInputVertical", CalculateLayoutInputVertical);
 		L.RegFunction("SetVerticesDirty", SetVerticesDirty);

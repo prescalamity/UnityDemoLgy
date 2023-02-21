@@ -15,6 +15,12 @@ require("test.TestDevice")
 -- 缓存一些东西
 UiRootCanvas = Main.Instance_UiRootCanvas()
 GoRoot       = Main.Instance_GoRoot()
+--output       = nil
+
+
+TTextMeshProUGUI                       = TMPro.TextMeshProUGUI.GetClassType()
+TTMP_Text                              = TMPro.TMP_Text.GetClassType()
+
 
 function MainStart() 
 
@@ -25,6 +31,14 @@ function MainStart()
     TestDevice.Start()
     --TestDevice.setPanelSort()
 
+    -- output = UiRootCanvas.transform:Find("output").gameObject
+
+    -- Debug.Log("lua file, Text_TMP_lgy.name:"..output.name)
+
+    -- tmpro_text = output:GetComponent(TTextMeshProUGUI)
+    -- tmpro_text.text = "main.MainStart, lgybyyyyy"
+
+    -- Debug.Log("main.MainStart, tmpro_text.text:"..tmpro_text.text)
 
     return "This is from 192.168.11.46 start.lua, --over."
 

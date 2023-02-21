@@ -146,48 +146,53 @@ end
 
 
 function TestPower:MainButtonTestFunction( stepID,  functionName ,  thePanelname) 
-    TestBase.MainButtonTestFunction(self, stepID,  functionName,  { "PowerPanel" } )
+    --TestBase.MainButtonTestFunction(self, stepID,  functionName,  { "PowerPanel" } )
 
-    self.battery_capacity_value.text = tostring(Power.GetCapacity())
-    self.battery_voltage_value.text = tostring(Power.GetVoltage())
-    self.battery_retain_value.text = tostring(Power.GetBatteryRetain())
+    -- self.battery_capacity_value.text = tostring(Power.GetCapacity())
+    -- self.battery_voltage_value.text = tostring(Power.GetVoltage())
+    -- self.battery_retain_value.text = tostring(Power.GetBatteryRetain())
 end
 
 function TestPower:Start()
-    Debug.LogToUI("AndroidDevicePower.Start")
-    TestBase.Start(self)   -- 调用父类函数
+    -- Debug.LogToUI("AndroidDevicePower.Start")
+    -- TestBase.Start(self)   -- 调用父类函数
 
-    self.mThePanelGo = UiRootCanvas.transform:Find("power").gameObject
+    -- self.mThePanelGo = UiRootCanvas.transform:Find("power").gameObject
 
-    self.battery_capacity_value = self.mThePanelGo.transform:Find("battery_capacity_value").gameObject:GetComponent(TTMP_Text)
+    -- self.battery_capacity_value = self.mThePanelGo.transform:Find("battery_capacity_value").gameObject:GetComponent(TTMP_Text)
 
-    self.battery_electricity_value = self.mThePanelGo.transform:Find("battery_electricity_value").gameObject:GetComponent(TTMP_Text)
+    -- Debug.LogToUI("TestPower.Start.TTMP_Text_type: " .. tostring( TTMP_Text))
 
-    self.battery_voltage_value = self.mThePanelGo.transform:Find("battery_voltage_value").gameObject:GetComponent(TTMP_Text)
-    self.battery_retain_value = self.mThePanelGo.transform:Find("battery_retain_value").gameObject:GetComponent(TTMP_Text)
-    self.battery_retain_time_value = self.mThePanelGo.transform:Find("battery_retain_time_value").gameObject:GetComponent(TTMP_Text)
-    self.battery_get_api_time_value = self.mThePanelGo.transform:Find("battery_get_api_time_value").gameObject:GetComponent(TTMP_Text)
+    -- self.battery_electricity_value = self.mThePanelGo.transform:Find("battery_electricity_value").gameObject:GetComponent(TTMP_Text)
+    -- Debug.LogToUI("TestPower.Start.tag: " .. self.battery_electricity_value.tag)
+    -- --self.battery_electricity_value.text = "10086"
+    -- Debug.LogToUI("TestPower.Start.text: " .. self.battery_electricity_value.text)
 
-    Debug.LogToUI("TestPower.Start: " .. self.battery_electricity_value.text)
+    -- self.battery_voltage_value = self.mThePanelGo.transform:Find("battery_voltage_value").gameObject:GetComponent(TTMP_Text)
+    -- self.battery_retain_value = self.mThePanelGo.transform:Find("battery_retain_value").gameObject:GetComponent(TTMP_Text)
+    -- self.battery_retain_time_value = self.mThePanelGo.transform:Find("battery_retain_time_value").gameObject:GetComponent(TTMP_Text)
+    -- self.battery_get_api_time_value = self.mThePanelGo.transform:Find("battery_get_api_time_value").gameObject:GetComponent(TTMP_Text)
+
+    
 
 end
 
 e = 0
 t = 0
 function TestPower:Update()
-    if not self.mThePanelGo.activeInHierarchy then return end
+    -- if not self.mThePanelGo.activeInHierarchy then return end
 
-    if UnityEngine.Time.time - t > 0.1 then
-        t = UnityEngine.Time.time
-        e = Power.GetElectricity()
+    -- if UnityEngine.Time.time - t > 0.1 then
+    --     t = UnityEngine.Time.time
+    --     e = Power.GetElectricity()
 
-        Debug.LogToUI("TestPower.Update"..tostring(e))
+    --     --Debug.LogToUI("TestPower.Update"..tostring(e))
 
-        self.battery_electricity_value.text = tostring(e)
+    --     self.battery_electricity_value.text = tostring(e)
 
-        self.battery_get_api_time_value.text = tostring(Power.GetApiDeltaTime())
-        self.battery_retain_time_value.text = string.format("%.2f", (Power.GetCapacity() * Power.GetBatteryRetain() / 100 / e))
-    end
+    --     self.battery_get_api_time_value.text = tostring(Power.GetApiDeltaTime())
+    --     self.battery_retain_time_value.text = string.format("%.2f", (Power.GetCapacity() * Power.GetBatteryRetain() / 100 / e))
+    -- end
 end
 
 

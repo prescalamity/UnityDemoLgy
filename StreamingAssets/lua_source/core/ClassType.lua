@@ -20,7 +20,11 @@ TGameObject                				= UnityEngine.GameObject.GetClassType()
 -- THardWareQuality                        = HardWareQuality.GetClassType()
 -- THttpManager                            = HttpManager.GetClassType()
 -- THUDText                                = HUDText.GetClassType()
-TIflytekVoiceHelper                     = IflytekVoiceHelper.GetClassType()
+
+
+ TIflytekVoiceHelper                     = IflytekVoiceHelper.GetClassType()
+
+
 -- TImageEffectManager                     = ImageEffectManager.GetClassType()
 -- TImagePicker                            = ImagePicker.GetClassType()
 -- TInputEventManager                      = InputEventManager.GetClassType()
@@ -141,6 +145,9 @@ TIflytekVoiceHelper                     = IflytekVoiceHelper.GetClassType()
 -- TTextAsset                  			= UnityEngine.TextAsset.GetClassType()
 -- TTexture                    			= UnityEngine.Texture.GetClassType()
 -- TTexture2D                  			= UnityEngine.Texture2D.GetClassType()
+
+
+
 TTime                       			= UnityEngine.Time.GetClassType()
 TTransform                  			= UnityEngine.Transform.GetClassType()
 TButton 								= UnityEngine.UI.Button.GetClassType()
@@ -148,10 +155,13 @@ TImage                                  = UnityEngine.UI.Image.GetClassType()
 TEventTrigger                           = UnityEngine.EventSystems.EventTrigger.GetClassType()
 TEventTriggerEntry                      = UnityEngine.EventSystems.EventTrigger.Entry.GetClassType()
 
-TTMP_Text                               = TMPro.TMP_Text.GetClassType()
+TTMP_Text                               = TMPro.TMP_Text.GetClassType()  --TMP_Text.GetClassType()
 TTMP_Dropdown                           = TMPro.TMP_Dropdown.GetClassType()
 TTMP_OptionData                         = TMPro.OptionData.GetClassType()
 TTMP_OptionDataList                     = TMPro.OptionDataList.GetClassType()
+
+
+
 
 -- TRenderer                               = UnityEngine.Renderer.GetClassType()
 -- TLineRenderer							= UnityEngine.LineRenderer.GetClassType()

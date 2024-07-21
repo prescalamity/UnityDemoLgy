@@ -476,8 +476,8 @@ public class UnityEngine_RenderSettingsWrap
 	{
 		try
 		{
-			UnityEngine.Texture arg0 = (UnityEngine.Texture)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Texture));
-			UnityEngine.RenderSettings.customReflection = arg0;
+			//UnityEngine.Texture arg0 = (UnityEngine.Texture)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Texture));
+			//UnityEngine.RenderSettings.customReflection = arg0;
 			return 0;
 		}
 		catch(Exception e)

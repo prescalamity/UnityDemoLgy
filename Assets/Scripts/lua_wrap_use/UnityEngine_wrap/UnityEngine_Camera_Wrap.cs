@@ -1011,9 +1011,9 @@ public class UnityEngine_CameraWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
-			UnityEngine.Camera obj = (UnityEngine.Camera)ToLua.CheckObject(L, 1, typeof(UnityEngine.Camera));
-			System.Collections.Generic.List<UnityEngine.Camera.RenderRequest> arg0 = (System.Collections.Generic.List<UnityEngine.Camera.RenderRequest>)ToLua.CheckObject(L, 2, typeof(System.Collections.Generic.List<UnityEngine.Camera.RenderRequest>));
-			obj.SubmitRenderRequests(arg0);
+			//UnityEngine.Camera obj = (UnityEngine.Camera)ToLua.CheckObject(L, 1, typeof(UnityEngine.Camera));
+			//System.Collections.Generic.List<UnityEngine.Camera.RenderRequest> arg0 = (System.Collections.Generic.List<UnityEngine.Camera.RenderRequest>)ToLua.CheckObject(L, 2, typeof(System.Collections.Generic.List<UnityEngine.Camera.RenderRequest>));
+			//obj.SubmitRenderRequests(arg0);
 			return 0;
 		}
 		catch(Exception e)

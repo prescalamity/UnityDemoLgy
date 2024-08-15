@@ -8,17 +8,17 @@ using UnityEngine.Profiling;
 using UnityEngine.UI;
 
 /// <summary>
-/// ²âÊÔ¼ÓÔØab°ü
+/// æµ‹è¯•åŠ è½½abåŒ…ï¼Œä¸­æ–‡
 /// </summary>
 public class AssetBundleScene : MonoBehaviour
 {
-    private string StreamingAssetsPath;//AB°üÂ·¾¶
+    private string StreamingAssetsPath;//ABåŒ…è·¯å¾„
     /// <summary>
-    /// AB°üµÄÃû×Ö£¬²»°üº¬Â·¾¶
+    /// ABåŒ…çš„åå­—ï¼Œä¸åŒ…å«è·¯å¾„
     /// </summary>
     public string abName;
     /// <summary>
-    /// ÏëÒª´ÓAB°üÖĞ¼ÓÔØÎïÌåµÄÃû×Ö
+    /// æƒ³è¦ä»ABåŒ…ä¸­åŠ è½½ç‰©ä½“çš„åå­—
     /// </summary>
     public string prefabsName;
     //public TMP_Text tmp;
@@ -39,7 +39,7 @@ public class AssetBundleScene : MonoBehaviour
         LoadUiButton();
     }
     /// <summary>
-    /// ³¡¾°ÓĞ button UI Ê±Ğ¡ÓÎÏ·²å¼ş ÊİÉí¹¦ÄÜ±¨´í£¬¸ÄÓÃabĞÎÊ½¶¯Ì¬¼ÓÔØ
+    /// åœºæ™¯æœ‰ button UI æ—¶å°æ¸¸æˆæ’ä»¶ ç˜¦èº«åŠŸèƒ½æŠ¥é”™ï¼Œæ”¹ç”¨abå½¢å¼åŠ¨æ€åŠ è½½
     /// </summary>
     public void LoadUiButton()
     {
@@ -138,13 +138,13 @@ public class AssetBundleScene : MonoBehaviour
         //m_streaming_assets_path = m_streaming_assets_path.Replace("http://", "");
         //m_streaming_assets_path = m_streaming_assets_path.Replace("https://",  "");
 #endif
-        Debug.Log("µ±Ç°ÓòÃûÏÂµÄ×ÊÔ´¸ùÂ·¾¶: " + StreamingAssetsPath);
+        Debug.Log("å½“å‰åŸŸåä¸‹çš„èµ„æºæ ¹è·¯å¾„: " + StreamingAssetsPath);
     }
     /// <summary>
-    /// ¼ÓÔØab°ü
+    /// åŠ è½½abåŒ…
     /// </summary>
-    /// <param name="assetBundle">ab×ÊÔ´Ãû£¨²»°üº¬Â·¾¶£©</param>
-    /// <param name="resName">ab×ÊÔ´ÃûÖĞ¾ßÌåµÄÄ£ĞÍÃû</param>
+    /// <param name="assetBundle">abèµ„æºåï¼ˆä¸åŒ…å«è·¯å¾„ï¼‰</param>
+    /// <param name="resName">abèµ„æºåä¸­å…·ä½“çš„æ¨¡å‹å</param>
     /// <returns></returns>
     public IEnumerator LoadAssetBundle(string assetBundle, string resName, UnityAction<Object> GOLoadedCallback, System.Type type = null)
     {

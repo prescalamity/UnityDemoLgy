@@ -3,46 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ¾ßÌå³¡¾°µÄÖ÷º¯Êı½Å±¾
+/// å…·ä½“åœºæ™¯çš„ä¸»å‡½æ•°è„šæœ¬
 /// </summary>
 public class UITestScene : MonoBehaviour
 {
 
     public GameObject uiGameObject;
-    //public GameObject uiGameObject { get; set; }
+	//public GameObject uiGameObject { get; set; }
+	private RectTransform rectTransform = null;
 
 
-    void Start()
+	void Start()
     {
 
-        // ÒÆ³öÆÁÄ»Íâ
+        // ç§»å‡ºå±å¹•å¤–
         uiGameObject.gameObject.transform.localPosition = new Vector3(-Screen.width,
             uiGameObject.gameObject.transform.localPosition.y,
              uiGameObject.gameObject.transform.localPosition.z);
 
-        RectTransform rectTransform = uiGameObject.GetComponent<RectTransform>();
+        rectTransform = uiGameObject.GetComponent<RectTransform>();
 
-        // ĞŞ¸Ä UI µÄ¿í¶È£¬ÆÁÄ»µÄ1.5±¶
+        // ä¿®æ”¹ UI çš„å®½åº¦ï¼Œå±å¹•çš„1.5å€
         //rectTransform.rect.width = Screen.width * 1.5f;
         if (rectTransform != null)
         {
             rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.width * 1.5f);
+
+			Debug.Log($"UITestScene.Start, rectTransform.anchoredPosition, x={rectTransform.anchoredPosition.x}, y={rectTransform.anchoredPosition.y}");
         }
+
 
     }
 
 
     void Update()
     {
-        float deltaX = Screen.width * (Time.deltaTime / 20f);
-        float wantX = uiGameObject.gameObject.transform.localPosition.x + deltaX;
-        if (wantX < 0f)
-        {
-            uiGameObject.gameObject.transform.localPosition = new Vector3(wantX,
-                uiGameObject.gameObject.transform.localPosition.y,
-                uiGameObject.gameObject.transform.localPosition.z);
-        }
+		float deltaX = Screen.width * (Time.deltaTime / 20f);
+		//float wantX = uiGameObject.gameObject.transform.localPosition.x + deltaX;
 
-        //Debug.Log($"uiGameObject Ïò×óÒÆ¶¯, 20Ãë×ßÍê wantX={wantX}, deltaX={deltaX}");
-    }
+		//if (wantX < 0f)
+		//{
+		//	uiGameObject.gameObject.transform.localPosition = new Vector3(wantX,
+		//		uiGameObject.gameObject.transform.localPosition.y,
+		//		uiGameObject.gameObject.transform.localPosition.z);
+		//}
+
+		//Debug.Log($"uiGameObject å‘å·¦ç§»åŠ¨, 20ç§’èµ°å®Œ wantX={wantX}, deltaX={deltaX}");
+
+
+		float anchoredPositionX = rectTransform.anchoredPosition.x;
+		anchoredPositionX += deltaX;
+		if (rectTransform.anchoredPosition.x < 0)
+		{
+			rectTransform.anchoredPosition = new Vector2(anchoredPositionX, rectTransform.anchoredPosition.y);
+
+		}
+
+
+	}
 }

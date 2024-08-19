@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -2465,7 +2465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1237814356555100677, guid: eead261151d408d45ac259567771bb43, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -5.337906
+      value: -5.3378906
       objectReference: {fileID: 0}
     - target: {fileID: 1975985230740542113, guid: eead261151d408d45ac259567771bb43, type: 3}
       propertyPath: m_AnchoredPosition.x

@@ -1,67 +1,90 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LogScene : MonoBehaviour
 {
 
     int MaxCount = 30000;
+	private TMP_Text mOutputTextTMP;
+	private Button mButton;
+
+	public void Awake()
+	{
+		mOutputTextTMP = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
+
+		mButton = GameObject.Find("Canvas/test_button").GetComponent<Button>();
+		mButton.onClick.AddListener(TestMainButtonEvent);
+	}
+
+	private void TestMainButtonEvent()
+	{
+		int couter = 0;
+		string testStr = "";
+
+		long flag1 = DateTime.UtcNow.Ticks;
+		for (int i = 0; i < MaxCount; i++)
+		{
+			//couter++;
+			testStr = $"Test.RunThis, i={i}";
+		}
+
+		long flag2 = DateTime.UtcNow.Ticks;
+
+		for (int i = 0; i < MaxCount; i++)
+		{
+			Sub1.ThisStaticFunc("");
+		}
+		long flag2_1 = DateTime.UtcNow.Ticks;
 
 
-    void Start()
+		LogModule.Instance.Init(LogController.Close);
+
+
+		long flag2_5 = DateTime.UtcNow.Ticks;
+		for (int i = 0; i < MaxCount; i++)
+		{
+			LogModule.Log($"Test.RunThis, i={i}");
+		}
+		long flag2_6 = DateTime.UtcNow.Ticks;
+
+
+		LogModule.Instance.Init(LogController.OutputToConsole + LogController.Log);
+
+
+		long flag3 = DateTime.UtcNow.Ticks;
+		for (int i = 0; i < MaxCount; i++)
+		{
+			LogModule.Log($"Test.RunThis, i={i}");
+		}
+		long flag4 = DateTime.UtcNow.Ticks;
+
+
+		//long end = Timer.DateTimeToLongTimeStamp();
+
+		//Console.WriteLine($"Start here, time totle: -- ms, \n flag1={flag1}, \n flag2={flag2}, ns");
+
+		string strRes = $"Test.RunThis, testStr={testStr}, MaxCount: {MaxCount}, flag1={flag1}, + = {flag2 - flag1}00 ns, CallFunction = {flag2_1 - flag2}00 ns, CallFunctionInit = {flag2_5 - flag2_1}00 ns, " +
+			$"CallFunctionBool = {flag2_6 - flag2_5}00 ns, CallFunctionInit = {flag3 - flag2_6}00 ns, CallFunctionPrint = {flag4 - flag3}00 ns.";
+
+		Debug.Log(strRes);
+
+		mOutputTextTMP.text = strRes;
+
+	}
+
+	void Start()
     {
 
         Debug.Log($"LogScene.Start, start,, ");
 
-        int couter = 0;
-
-        long flag1 = DateTime.UtcNow.Ticks;
-        for (int i = 0; i < MaxCount; i++)
-        {
-            couter++;
-        }
-
-        long flag2 = DateTime.UtcNow.Ticks;
-
-        for (int i = 0; i < MaxCount; i++)
-        {
-            Sub1.ThisStaticFunc("");
-        }
-        long flag2_1 = DateTime.UtcNow.Ticks;
+		//TestMainButtonEvent();
 
 
-        LogModule.Instance.Init(LogController.Close);
-
-
-        long flag2_5 = DateTime.UtcNow.Ticks;
-        for (int i = 0; i < MaxCount; i++)
-        {
-            LogModule.Log($"Test.RunThis, i={i}");
-        }
-        long flag2_6 = DateTime.UtcNow.Ticks;
-
-
-        LogModule.Instance.Init(LogController.OutputToConsole + LogController.Log);
-
-
-        long flag3 = DateTime.UtcNow.Ticks;
-        for (int i = 0; i < MaxCount; i++)
-        {
-            LogModule.Log($"Test.RunThis, i={i}");
-        }
-        long flag4 = DateTime.UtcNow.Ticks;
-
-
-        //long end = Timer.DateTimeToLongTimeStamp();
-
-        //Console.WriteLine($"Start here, time totle: -- ms, \n flag1={flag1}, \n flag2={flag2}, ns");
-
-        Debug.Log($"Test.RunThis, MaxCount: {MaxCount}, flag1={flag1}, + = {flag2 - flag1}00 ns, CallFunction = {flag2_1 - flag2}00 ns, CallFunctionInit = {flag2_5 - flag2_1}00 ns, " +
-            $"CallFunctionBool = {flag2_6 - flag2_5}00 ns, CallFunctionInit = {flag3 - flag2_6}00 ns, CallFunctionPrint = {flag4 - flag3}00 ns.");
-
-
-    }
+	}
 
 
     /// <summary>
@@ -200,7 +223,7 @@ public class LogModule
 
     public void Init(int needOutputLogs, string logPath = "")
     {
-        Console.WriteLine($"LogModule.Init, logPath={logPath}, needOutputLogs={needOutputLogs}");
+        //Console.WriteLine($"LogModule.Init, logPath={logPath}, needOutputLogs={needOutputLogs}");
 
         //_NeedOutputLogs += LogController.PersonDebug;
 

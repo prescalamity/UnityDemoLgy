@@ -227,11 +227,11 @@ public class UnityEngine_QualitySettingsWrap
 	{
 		try
 		{
-			ToLua.CheckArgsCount(L, 2);
-			string arg0 = ToLua.CheckString(L, 1);
-			System.Collections.Generic.List<UnityEngine.Rendering.RenderPipelineAsset> arg1 = (System.Collections.Generic.List<UnityEngine.Rendering.RenderPipelineAsset>)ToLua.CheckObject(L, 2, typeof(System.Collections.Generic.List<UnityEngine.Rendering.RenderPipelineAsset>));
-			UnityEngine.QualitySettings.GetAllRenderPipelineAssetsForPlatform(arg0, ref arg1);
-			ToLua.PushObject(L, arg1);
+			//ToLua.CheckArgsCount(L, 2);
+			//string arg0 = ToLua.CheckString(L, 1);
+			//System.Collections.Generic.List<UnityEngine.Rendering.RenderPipelineAsset> arg1 = (System.Collections.Generic.List<UnityEngine.Rendering.RenderPipelineAsset>)ToLua.CheckObject(L, 2, typeof(System.Collections.Generic.List<UnityEngine.Rendering.RenderPipelineAsset>));
+			//UnityEngine.QualitySettings.GetAllRenderPipelineAssetsForPlatform(arg0, ref arg1);
+			//ToLua.PushObject(L, arg1);
 			return 1;
 		}
 		catch(Exception e)

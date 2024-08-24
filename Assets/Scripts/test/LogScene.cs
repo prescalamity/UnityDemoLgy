@@ -14,7 +14,10 @@ public class LogScene : MonoBehaviour
 
 	public void Awake()
 	{
-		mOutputTextTMP = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
+
+        //PlatformAdapter.init();
+
+        mOutputTextTMP = GameObject.Find("Canvas/output").GetComponent<TMP_Text>();
 
 		mButton = GameObject.Find("Canvas/test_button").GetComponent<Button>();
 		mButton.onClick.AddListener(TestMainButtonEvent);
@@ -29,7 +32,7 @@ public class LogScene : MonoBehaviour
 		for (int i = 0; i < MaxCount; i++)
 		{
 			//couter++;
-			testStr = $"Test.RunThis, i={i}";
+			testStr = $"Test.RunThis, i=-1";
 		}
 
 		long flag2 = DateTime.UtcNow.Ticks;
@@ -47,7 +50,8 @@ public class LogScene : MonoBehaviour
 		long flag2_5 = DateTime.UtcNow.Ticks;
 		for (int i = 0; i < MaxCount; i++)
 		{
-			LogModule.Log($"Test.RunThis, i={i}");
+			//LogModule.Log($"Test.RunThis, i={i}");
+			LogModule.Log("Test.RunThis, i=-1");
 		}
 		long flag2_6 = DateTime.UtcNow.Ticks;
 
@@ -58,7 +62,7 @@ public class LogScene : MonoBehaviour
 		long flag3 = DateTime.UtcNow.Ticks;
 		for (int i = 0; i < MaxCount; i++)
 		{
-			LogModule.Log($"Test.RunThis, i={i}");
+			LogModule.Log($"Test.RunThis, i=-1");
 		}
 		long flag4 = DateTime.UtcNow.Ticks;
 

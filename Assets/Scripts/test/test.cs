@@ -56,7 +56,7 @@ public class test
         //int xx = -1;
         //int yy = -1;
         //byte resm = POINT_DIR[xx + 1, yy + 1];
-        //Debug.Log("lgy --> 0.0 : " + resm);
+        //Debug.Info("lgy --> 0.0 : " + resm);
 
     }
 }

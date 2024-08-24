@@ -50,19 +50,19 @@ public class LogScene : MonoBehaviour
 		long flag2_5 = DateTime.UtcNow.Ticks;
 		for (int i = 0; i < MaxCount; i++)
 		{
-			//LogModule.Log($"Test.RunThis, i={i}");
-			LogModule.Log("Test.RunThis, i=-1");
+			//LogModule.Info($"Test.RunThis, i={i}");
+			LogModule.Info("Test.RunThis, i=-1");
 		}
 		long flag2_6 = DateTime.UtcNow.Ticks;
 
 
-		LogModule.Instance.Init(LogController.OutputToConsole + LogController.Log);
+		LogModule.Instance.Init(LogController.OutputToConsole + LogController.Info);
 
 
 		long flag3 = DateTime.UtcNow.Ticks;
 		for (int i = 0; i < MaxCount; i++)
 		{
-			LogModule.Log($"Test.RunThis, i=-1");
+			LogModule.Info($"Test.RunThis, i=-1");
 		}
 		long flag4 = DateTime.UtcNow.Ticks;
 
@@ -130,9 +130,9 @@ public class LogModule
     /// <summary>
     /// 除 特定日志外的 其它信息日志
     /// </summary>
-    public static void Log(string content)
+    public static void Info(string content)
     {
-        Instance.ControllerPrintLog(content, LogController.Log);
+        Instance.ControllerPrintLog(content, LogController.Info);
     }
 
     public static void NetworkOrDataTransmit(string content)
@@ -245,11 +245,11 @@ public class LogModule
     }
 
 
-    private void ControllerPrintLog(string content, int logGrade)
+    private void ControllerPrintLog(string content, int logLevel)
     {
         if (_NeedOutputLogs == 0) return;
 
-        if ((_NeedOutputLogs & logGrade) == 0) return;
+        if ((_NeedOutputLogs & logLevel) == 0) return;
 
         if (logCount >= (_LogMaxCount - 1))
         {
@@ -354,7 +354,7 @@ public class LogController
     /// <summary>
     /// 除 特定日志外的 其它信息日志
     /// </summary>
-    public const int Log = 8;
+    public const int Info = 8;
 
     public const int NetworkOrDataTransmit = 16;
 

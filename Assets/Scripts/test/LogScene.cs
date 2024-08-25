@@ -12,6 +12,12 @@ public class LogScene : MonoBehaviour
 	private TMP_Text mOutputTextTMP;
 	private Button mButton;
 
+	long long1 = 4294967244;
+	long long2 = 4294967295;
+
+	float float1 = 0.0f;
+	double double1 = 0;
+
 	public void Awake()
 	{
 
@@ -83,7 +89,17 @@ public class LogScene : MonoBehaviour
 	void Start()
     {
 
-        Debug.Log($"LogScene.Start, start,, ");
+		float1 = long1;
+
+		double1 = long1;
+
+
+		long resLog1 = (long)float1;
+
+		long resLong2 = (long)double1;
+
+		Debug.Log($"LogScene.Start, start,, long1={long1}, float1={float1}, resLog={resLog1}, " +
+			$"double1={double1}, resLong2={resLong2}");
 
 		//TestMainButtonEvent();
 

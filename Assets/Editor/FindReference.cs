@@ -60,10 +60,11 @@ public class FindReference : MonoBehaviour
 
         Debug.Log("start, " + sourceFile);
 
-        string[] guids = AssetDatabase.FindAssets(null);
+        string[] guids = AssetDatabase.FindAssets(null);         // 获取 所有资源 的GUID
+
         for (int i = 0; i < guids.Length; i++)
         {
-            string path = AssetDatabase.GUIDToAssetPath(guids[i]);    // 获取所有资源的相对Assets路径
+            string path = AssetDatabase.GUIDToAssetPath(guids[i]);    // 获取 所有资源 的相对Assets路径
 
             if (CheckEffectPathValidity(path))
             {
